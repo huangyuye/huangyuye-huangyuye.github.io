@@ -6,8 +6,14 @@ cache: npm
 branches:
   only:
     - master # build master branch only
+before_install:
+  - npm install -g hexo
+  - npm install -g hexo-cli
+install:
+  - npm install   #安装hexo及插件
 script:
-  - hexo generate
+  - hexo cl   #清除
+  - hexo g   #生成
 deploy:
   provider: pages
   skip-cleanup: true
