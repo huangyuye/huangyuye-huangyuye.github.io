@@ -101,8 +101,8 @@ theme: landscape
 
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment
-## url: https://huangyuye-huangyuye.github.io/
-## root: /blog/
+url: https://huangyuye.github.io/
+root: /blog/
 
 deploy:
   type: git
