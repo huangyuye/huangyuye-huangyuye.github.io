@@ -74,7 +74,7 @@
     <article id="post-hello-world" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2021/04/06/hello-world/" class="article-date">
-  <time class="dt-published" datetime="2021-04-06T07:19:06.300Z" itemprop="datePublished">2021-04-06</time>
+  <time class="dt-published" datetime="2021-04-06T16:02:44.678Z" itemprop="datePublished">2021-04-06</time>
 </a>
     
   </div>
@@ -110,7 +110,68 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://huangyuye.github.io/2021/04/06/hello-world/" data-id="ckn5ozc8a000025t10x670x7m" data-title="Hello World" class="article-share-link">Share</a>
+      <a data-url="https://huangyuye.github.io/2021/04/06/hello-world/" data-id="ckn67or3800001r0a5y700bro" data-title="Hello World" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-yuque/Windows 开箱" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/04/06/yuque/Windows%20%E5%BC%80%E7%AE%B1/" class="article-date">
+  <time class="dt-published" datetime="2021-04-06T15:19:54.000Z" itemprop="datePublished">2021-04-06</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2021/04/06/yuque/Windows%20%E5%BC%80%E7%AE%B1/">Windows 开箱</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="浏览器"><a href="#浏览器" class="headerlink" title="浏览器"></a>浏览器</h2><p>下载最新的 <a target="_blank" rel="noopener" href="https://www.microsoft.com/zh-cn/edge">Microsoft Edge</a>，使用默认的必应搜索引擎</p>
+<h2 id="代理服务器"><a href="#代理服务器" class="headerlink" title="代理服务器"></a>代理服务器</h2><p>如果有 vpn 账号，下载 Vpn 客户端，开启 PAC，并自动配置系统代理<br>浏览器下载 SwitchyOmega 插件实现快速切换代理，可以选择直接连接或者使用系统代理（即 vpn 代理）</p>
+<p><code>ss 与 gfwlist</code> <a target="_blank" rel="noopener" href="https://github.com/gfwlist/gfwlist">https://github.com/gfwlist/gfwlist</a></p>
+<h2 id="替换-CMD"><a href="#替换-CMD" class="headerlink" title="替换 CMD"></a>替换 CMD</h2><h3 id=""><a href="#" class="headerlink" title=""></a></h3><h3 id="PowerShell"><a href="#PowerShell" class="headerlink" title="PowerShell"></a>PowerShell</h3><p>Windows powershell 的升级版<br>下载地址：<a target="_blank" rel="noopener" href="https://github.com/PowerShell/PowerShell">https://github.com/PowerShell/PowerShell</a></p>
+<h3 id="Windows-Terminal"><a href="#Windows-Terminal" class="headerlink" title="Windows Terminal"></a>Windows Terminal</h3><p>Microsoft Store 下载 Windows Terminal，可以集成各个命令行工具，如上述提到的 powershell，以及 cmder 等<br>除此之外，还可以使用 wsl windows 子系统的方式，集成 linux 子系统命令行工具</p>
+<h3 id="Vim"><a href="#Vim" class="headerlink" title="Vim"></a>Vim</h3><p>使用 <a target="_blank" rel="noopener" href="https://www.cnblogs.com/Eric-jx/p/10491922.html">vim</a> 快速的在命令行中操作文件</p>
+<h2 id="NVM-下载"><a href="#NVM-下载" class="headerlink" title="NVM 下载"></a>NVM 下载</h2><blockquote>
+<p>这个标题下的内容建议仅开发同学关注</p>
+</blockquote>
+<p>不管是使用 windows 还是系统系统，很多时候我们都需要在本地电脑运行一些前端项目，这时候会用到 nodejs 环境以及 npm 包管理工具，所以下载 <a target="_blank" rel="noopener" href="https://github.com/coreybutler/nvm-windows/releases">nvm</a> 可以帮助你方便的管理与切换 node 环境版本</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">nvm install &lt;nodejs.version&gt;</span><br><span class="line">nvm use &lt;nodejs.version&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="cnpm"><a href="#cnpm" class="headerlink" title="cnpm"></a>cnpm</h3><p>npm 是 node 官方的包管理器。cnpm 是个中国版的 npm，是淘宝定制的 cnpm (gzip 压缩支持) 命令行工具代替默认的 npm。npm 和 cnpm 只是下载器的不同</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install <span class="literal">-g</span> cnpm -<span class="literal">-registry</span>=https://registry.npm.taobao.org</span><br></pre></td></tr></table></figure>
+
+<h3 id="nrm"><a href="#nrm" class="headerlink" title="nrm"></a>nrm</h3><p>nrm 这个包的功能可以让我们随意的切换我们下载包的地址。</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cnpm i nrm <span class="literal">-g</span></span><br><span class="line">nrm <span class="built_in">ls</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="Ruby-gem-下载"><a href="#Ruby-gem-下载" class="headerlink" title="Ruby gem 下载"></a>Ruby gem 下载</h3><p>使用 travis ci 时可能需要用到 <a target="_blank" rel="noopener" href="https://rubyinstaller.org/">gem</a>下载 travis 工具</p>
+<h3 id="命令权限"><a href="#命令权限" class="headerlink" title="命令权限"></a>命令权限</h3><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">set-executionpolicy</span> remotesigned</span><br></pre></td></tr></table></figure>
+
+<h2 id="Typora"><a href="#Typora" class="headerlink" title="Typora"></a>Typora</h2><p><a target="_blank" rel="noopener" href="https://typora.io/windows/dev_release.html">Typora </a>是一款强大简洁的 markdown 文本编辑器</p>
+<h2 id="listary"><a href="#listary" class="headerlink" title="listary"></a>listary</h2><p><a target="_blank" rel="noopener" href="https://www.listary.com/download">Listary</a> 是一个革命性的 Windows 搜索工具，可以帮你快速查找文件和启动应用程序</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://huangyuye.github.io/2021/04/06/yuque/Windows%20%E5%BC%80%E7%AE%B1/" data-id="ckn67or3d00021r0adfig2bzb" data-title="Windows 开箱" class="article-share-link">Share</a>
       
       
       
@@ -210,7 +271,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://huangyuye.github.io/2021/04/05/yuque/%E8%AF%AD%E9%9B%80-Hexo-GitHub/" data-id="ckn5ozc8h000325t14fhm88rz" data-title="语雀-Hexo-GitHub" class="article-share-link">Share</a>
+      <a data-url="https://huangyuye.github.io/2021/04/05/yuque/%E8%AF%AD%E9%9B%80-Hexo-GitHub/" data-id="ckn67or3f00041r0a8gbxduwg" data-title="语雀-Hexo-GitHub" class="article-share-link">Share</a>
       
       
       
@@ -248,7 +309,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://huangyuye.github.io/2021/04/04/travis%E6%B5%8B%E8%AF%95%E6%96%87%E4%BB%B6/" data-id="ckn5ozc8e000125t1gsl9febw" data-title="travis测试文件" class="article-share-link">Share</a>
+      <a data-url="https://huangyuye.github.io/2021/04/04/travis%E6%B5%8B%E8%AF%95%E6%96%87%E4%BB%B6/" data-id="ckn67or3c00011r0a5vec92l0" data-title="travis测试文件" class="article-share-link">Share</a>
       
       
       
@@ -292,7 +353,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://huangyuye.github.io/2021/04/03/yuque/%E5%8D%9A%E5%AE%A2%E7%AC%AC1%E6%9C%9F/" data-id="ckn5ozc8g000225t1hrra8hbw" data-title="博客第1期" class="article-share-link">Share</a>
+      <a data-url="https://huangyuye.github.io/2021/04/03/yuque/%E5%8D%9A%E5%AE%A2%E7%AC%AC1%E6%9C%9F/" data-id="ckn67or3e00031r0a8mms9jkj" data-title="博客第1期" class="article-share-link">Share</a>
       
       
       
@@ -336,6 +397,10 @@
         
           <li>
             <a href="/2021/04/06/hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/2021/04/06/yuque/Windows%20%E5%BC%80%E7%AE%B1/">Windows 开箱</a>
           </li>
         
           <li>
