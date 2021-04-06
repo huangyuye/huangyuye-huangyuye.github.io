@@ -5,8 +5,10 @@
   "scripts": {
     "build": "hexo generate",
     "clean": "hexo clean",
-    "deploy": "hexo deploy",
-    "server": "hexo server"
+    "deploy": "yuque-hexo sync && hexo deploy",
+    "server": "hexo server",
+    "clean:yuque": "yuque-hexo clean", # 羽雀
+    "reset": "npm run clean:yuque && npm run sync"
   },
   "hexo": {
     "version": "5.4.0"
@@ -22,6 +24,20 @@
     "hexo-renderer-marked": "^4.0.0",
     "hexo-renderer-stylus": "^2.0.0",
     "hexo-server": "^2.0.0",
-    "hexo-theme-landscape": "^0.0.3"
-  }
+    "hexo-theme-landscape": "^0.0.3",
+    "yuque-hexo": "^1.6.1" # 羽雀
+  },
+  # 羽雀
+  "yuqueConfig": {
+    "postPath": "source/_posts/yuque",
+    "cachePath": "yuque.json",
+    "mdNameFormat": "title",
+    "adapter": "hexo",
+    "concurrency": 5,
+    "baseUrl": "https://www.yuque.com/api/v2/",
+    "login": "huangyuye",
+    "repo": "qzf3af",
+    "token": "taZ9zTT0G7aca2Ba0GnsZpGRX8dKSD21iXpOfLGT",
+    "onlyPublished": false
+  },
 }
