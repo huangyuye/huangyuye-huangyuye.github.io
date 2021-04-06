@@ -6,8 +6,9 @@ cache: npm
 branches:
   only:
     - master # build master branch only
-script:
+install:
   - npm install
+script:
   - npm run deploy
 deploy:
   provider: pages
