@@ -7,7 +7,7 @@
     "clean": "hexo clean",
     "deploy": "yuque-hexo sync && hexo deploy",
     "server": "hexo server",
-    "clean:yuque": "yuque-hexo clean", # 羽雀
+    "clean:yuque": "yuque-hexo clean",
     "reset": "npm run clean:yuque && npm run sync"
   },
   "hexo": {
@@ -25,9 +25,8 @@
     "hexo-renderer-stylus": "^2.0.0",
     "hexo-server": "^2.0.0",
     "hexo-theme-landscape": "^0.0.3",
-    "yuque-hexo": "^1.6.1" # 羽雀
+    "yuque-hexo": "^1.6.1"
   },
-  # 羽雀
   "yuqueConfig": {
     "postPath": "source/_posts/yuque",
     "cachePath": "yuque.json",
