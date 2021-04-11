@@ -3,6 +3,8 @@
 
 {% block title %}{{ page.title }} | {{ title }}{% endblock %}
 
+<meta name="referrer" content="no-referrer" />
+
 {% block class %}post posts-expand{% endblock %}
 
 {% block content %}
