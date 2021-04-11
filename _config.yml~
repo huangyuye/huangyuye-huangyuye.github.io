@@ -7,14 +7,14 @@ title: Hexo
 subtitle: ''
 description: ''
 keywords:
-author: John Doe
-language: en
+author: yuye Huang
+language: zh-CN # zh-Hans
 timezone: ''
 
 # URL
 ## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'
 url: https://huangyuye.github.io
-root: .
+# root: .
 permalink: :year/:month/:day/:title/
 permalink_defaults:
 pretty_urls:
@@ -98,11 +98,11 @@ ignore:
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme: landscape
+theme: next # landscape
 
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
   type: git
-  repo: git@github.com:huangyuye/huangyuye.github.io.git
+  # repo: git@github.com:huangyuye/huangyuye.github.io.git
   branch: gh-pages
