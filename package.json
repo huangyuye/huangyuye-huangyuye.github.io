@@ -37,7 +37,7 @@
     "concurrency": 5,
     "baseUrl": "https://www.yuque.com/api/v2/",
     "login": "huangyuye",
-    "repo": "qzf3af",
+    "repo": "blog",
     "token": "taZ9zTT0G7aca2Ba0GnsZpGRX8dKSD21iXpOfLGT",
     "onlyPublished": false
   }
