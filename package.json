@@ -6,7 +6,6 @@
     "clean": "hexo clean",
     "clean:yuque": "yuque-hexo clean",
     "deploy": "yuque-hexo sync && hexo deploy",
-    "clean:yuque": "yuque-hexo clean",
     "sync": "yuque-hexo sync",
     "publish": "npm run clean && npm run deploy",
     "reset": "npm run clean:yuque && npm run sync",
@@ -17,6 +16,7 @@
   },
   "dependencies": {
     "hexo": "^5.0.0",
+    "hexo-auto-category": "^0.2.0",
     "hexo-deployer-git": "^3.0.0",
     "hexo-generator-archive": "^1.0.0",
     "hexo-generator-category": "^1.0.0",
