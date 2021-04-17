@@ -181,7 +181,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2021-04-17 12:38:26 / 修改时间：15:46:04" itemprop="dateCreated datePublished" datetime="2021-04-17T12:38:26+00:00">2021-04-17</time>
+              <time title="创建时间：2021-04-17 12:38:26 / 修改时间：16:04:42" itemprop="dateCreated datePublished" datetime="2021-04-17T12:38:26+00:00">2021-04-17</time>
             </span>
 
           
@@ -294,7 +294,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-04-17 15:46:04" itemprop="dateModified" datetime="2021-04-17T15:46:04+00:00">2021-04-17</time>
+                <time title="修改时间：2021-04-17 16:04:42" itemprop="dateModified" datetime="2021-04-17T16:04:42+00:00">2021-04-17</time>
               </span>
 
           
@@ -383,7 +383,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-04-17 15:46:04" itemprop="dateModified" datetime="2021-04-17T15:46:04+00:00">2021-04-17</time>
+                <time title="修改时间：2021-04-17 16:04:42" itemprop="dateModified" datetime="2021-04-17T16:04:42+00:00">2021-04-17</time>
               </span>
 
           
@@ -400,9 +400,20 @@
           <h2 id="浏览器"><a href="#浏览器" class="headerlink" title="浏览器"></a>浏览器</h2><p>下载最新的 <a target="_blank" rel="noopener" href="https://www.microsoft.com/zh-cn/edge">Microsoft Edge</a>，使用默认的必应搜索引擎</p>
 <h2 id="代理服务器"><a href="#代理服务器" class="headerlink" title="代理服务器"></a>代理服务器</h2><p>如果有 vpn 账号，下载 Vpn 客户端，开启 PAC，并自动配置系统代理<br>浏览器下载 SwitchyOmega 插件实现快速切换代理，可以选择直接连接或者使用系统代理（即 vpn 代理）</p>
 <p><code>ss 与 gfwlist</code> <a target="_blank" rel="noopener" href="https://github.com/gfwlist/gfwlist">https://github.com/gfwlist/gfwlist</a></p>
-<h2 id="替换-CMD"><a href="#替换-CMD" class="headerlink" title="替换 CMD"></a>替换 CMD</h2><h3 id=""><a href="#" class="headerlink" title=""></a></h3><h3 id="PowerShell"><a href="#PowerShell" class="headerlink" title="PowerShell"></a>PowerShell</h3><p>Windows powershell 的升级版<br>下载地址：<a target="_blank" rel="noopener" href="https://github.com/PowerShell/PowerShell">https://github.com/PowerShell/PowerShell</a></p>
+<h2 id="替换-CMD"><a href="#替换-CMD" class="headerlink" title="替换 CMD"></a>替换 CMD</h2><h3 id="PowerShell"><a href="#PowerShell" class="headerlink" title="PowerShell"></a>PowerShell</h3><p>Windows powershell 的升级版<br>下载地址：<a target="_blank" rel="noopener" href="https://github.com/PowerShell/PowerShell">https://github.com/PowerShell/PowerShell</a></p>
 <h3 id="Windows-Terminal"><a href="#Windows-Terminal" class="headerlink" title="Windows Terminal"></a>Windows Terminal</h3><p>Microsoft Store 下载 Windows Terminal，可以集成各个命令行工具，如上述提到的 powershell，以及 cmder 等<br>除此之外，还可以使用 wsl windows 子系统的方式，集成 linux 子系统命令行工具</p>
 <h3 id="Vim"><a href="#Vim" class="headerlink" title="Vim"></a>Vim</h3><p>使用 <a target="_blank" rel="noopener" href="https://www.cnblogs.com/Eric-jx/p/10491922.html">vim</a> 快速的在命令行中操作文件</p>
+<h4 id="vim-相关配置修改"><a href="#vim-相关配置修改" class="headerlink" title="vim 相关配置修改"></a>vim 相关配置修改</h4><ol>
+<li> cmd 中执行 vim 命令，执行 vim 指令<code>:version</code>查看配置文件路径，可以看到配置文件为<code>C:\Program Files (x86)\Vim\_vimrc</code></li>
+<li> 修改配置文件，关闭 un~临时文件的输出</li>
+</ol>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">set</span> noundofile</span><br><span class="line"><span class="built_in">set</span> nobackup</span><br><span class="line"><span class="built_in">set</span> noswapfile</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>修改 vim 操作的文件编码，可参考<a target="_blank" rel="noopener" href="http://c.biancheng.net/view/3024.html">http://c.biancheng.net/view/3024.html</a></li>
+</ol>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 编码设置 start http://c.biancheng.net/view/3024.html</span></span><br><span class="line"><span class="built_in">set</span> fileencodings=utf<span class="literal">-8</span>,ucs<span class="literal">-bom</span>,gb18030,gbk,gb2312,cp936</span><br><span class="line"><span class="built_in">set</span> termencoding=utf<span class="literal">-8</span></span><br><span class="line"><span class="built_in">set</span> encoding=utf<span class="literal">-8</span></span><br></pre></td></tr></table></figure>
+
 <h2 id="NVM-下载"><a href="#NVM-下载" class="headerlink" title="NVM 下载"></a>NVM 下载</h2><blockquote>
 <p>这个标题下的内容建议仅开发同学关注</p>
 </blockquote>
@@ -418,8 +429,9 @@
 <h3 id="Ruby-gem-下载"><a href="#Ruby-gem-下载" class="headerlink" title="Ruby gem 下载"></a>Ruby gem 下载</h3><p>使用 travis ci 时可能需要用到 <a target="_blank" rel="noopener" href="https://rubyinstaller.org/">gem</a>下载 travis 工具</p>
 <h3 id="命令权限"><a href="#命令权限" class="headerlink" title="命令权限"></a>命令权限</h3><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">set-executionpolicy</span> remotesigned</span><br></pre></td></tr></table></figure>
 
-<h2 id="Typora"><a href="#Typora" class="headerlink" title="Typora"></a>Typora</h2><p><a target="_blank" rel="noopener" href="https://typora.io/windows/dev_release.html">Typora </a>是一款强大简洁的 markdown 文本编辑器</p>
+<h2 id="Typora"><a href="#Typora" class="headerlink" title="Typora"></a>Typora</h2><p><a target="_blank" rel="noopener" href="https://typora.io/windows/dev_release.html">Typora </a>是一款强大简洁的 markdown 文本编辑器，可以使用它高效的编码 md 文档</p>
 <h2 id="listary"><a href="#listary" class="headerlink" title="listary"></a>listary</h2><p><a target="_blank" rel="noopener" href="https://www.listary.com/download">Listary</a> 是一个革命性的 Windows 搜索工具，可以帮你快速查找文件和启动应用程序</p>
+<h2 id="snipaste"><a href="#snipaste" class="headerlink" title="snipaste"></a>snipaste</h2><p>很好用的截图工具，支持多张截图拼图，快捷键—F1：截图；F3：将截图放在桌面进行拼图，下载地址点<a target="_blank" rel="noopener" href="https://zh.snipaste.com/">这里</a></p>
 
       
     </div>
@@ -470,7 +482,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-04-17 15:46:04" itemprop="dateModified" datetime="2021-04-17T15:46:04+00:00">2021-04-17</time>
+                <time title="修改时间：2021-04-17 16:04:42" itemprop="dateModified" datetime="2021-04-17T16:04:42+00:00">2021-04-17</time>
               </span>
 
           
@@ -597,7 +609,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-04-17 15:46:04" itemprop="dateModified" datetime="2021-04-17T15:46:04+00:00">2021-04-17</time>
+                <time title="修改时间：2021-04-17 16:04:42" itemprop="dateModified" datetime="2021-04-17T16:04:42+00:00">2021-04-17</time>
               </span>
 
           
