@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta name="referrer" content="no-referrer" />
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"huangyuye.github.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="GitHub这个星球上最流行的开源托管服务器，用它来作为你的图片存储服务器，即图床 创建你的仓库存放图片登陆 Github 创建属于你自己的 GitHub 账号之后，新建一个 Repository（即仓库，无脑创建即可），用来存放你的图片接下来，为了随时随地都能将电脑本地的图片上传到你的图片存储服务器上，你还需要拿到对 Github Repository 的访问&amp;操作权限，即需要获取到仓库">
+<meta property="og:type" content="article">
+<meta property="og:title" content="PicGo + GitHub 创建自己的免费图床">
+<meta property="og:url" content="https://huangyuye.github.io/2021/04/17/yuque/PicGo%20+%20GitHub%20%E5%88%9B%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E5%85%8D%E8%B4%B9%E5%9B%BE%E5%BA%8A/index.html">
+<meta property="og:site_name" content="HYY">
+<meta property="og:description" content="GitHub这个星球上最流行的开源托管服务器，用它来作为你的图片存储服务器，即图床 创建你的仓库存放图片登陆 Github 创建属于你自己的 GitHub 账号之后，新建一个 Repository（即仓库，无脑创建即可），用来存放你的图片接下来，为了随时随地都能将电脑本地的图片上传到你的图片存储服务器上，你还需要拿到对 Github Repository 的访问&amp;操作权限，即需要获取到仓库">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2021/png/10363384/1618668906947-261d1e65-e855-489b-9a6d-7bb0f117c9ca.png#clientId=ue52606ac-79c2-4&from=paste&height=656&id=u34160917&margin=%5Bobject%20Object%5D&originHeight=656&originWidth=1350&originalType=binary&size=637965&status=done&style=none&taskId=uc320dc79-8208-49bf-ba29-76d1cfa0048&width=1350">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2021/png/10363384/1618664979729-db94f685-9c6d-45c7-84f8-b86028406175.png#clientId=ue52606ac-79c2-4&from=paste&height=594&id=u71b5ab83&margin=%5Bobject%20Object%5D&originHeight=594&originWidth=1001&originalType=binary&size=55457&status=done&style=none&taskId=u48655feb-8986-49e7-aaff-87e5331d780&width=1001">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2021/png/10363384/1618668807333-44bad13a-9208-4d66-85fe-50b589907e4b.png#clientId=ue52606ac-79c2-4&from=paste&height=605&id=LqSbj&margin=%5Bobject%20Object%5D&originHeight=605&originWidth=1351&originalType=binary&size=54209&status=done&style=none&taskId=u3c3a37a5-682f-4737-810d-07badb7d497&width=1351">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2021/png/10363384/1618666126174-6fceecfb-516e-41a1-8dc2-56fc6f5edecd.png#clientId=ue52606ac-79c2-4&from=paste&height=450&id=u0960d7c6&margin=%5Bobject%20Object%5D&originHeight=450&originWidth=800&originalType=binary&size=61363&status=done&style=none&taskId=ubb162e4f-eebc-4e99-a37b-fca88989b3b&width=800">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2021/png/10363384/1618666433026-0719bb2e-37a5-4678-8d99-0ab64b650fcb.png#clientId=ue52606ac-79c2-4&from=paste&height=450&id=u28f0996f&margin=%5Bobject%20Object%5D&originHeight=450&originWidth=800&originalType=binary&size=29965&status=done&style=none&taskId=u1b65f923-3a8c-42f3-8519-f24790239bf&width=800">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2021/png/10363384/1618666555459-b6ef720d-d453-438b-ae51-e69115f99098.png#clientId=ue52606ac-79c2-4&from=paste&height=450&id=u0ef2f8f2&margin=%5Bobject%20Object%5D&originHeight=450&originWidth=800&originalType=binary&size=30661&status=done&style=none&taskId=ue1bf144f-3e4c-4803-9a76-95c2027a1c0&width=800">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2021/png/10363384/1618668573492-917a134b-3b6d-445c-b251-f00feca62fc3.png#clientId=ue52606ac-79c2-4&from=paste&height=693&id=u1eefe0a3&margin=%5Bobject%20Object%5D&originHeight=693&originWidth=786&originalType=binary&size=44987&status=done&style=none&taskId=uda10e895-f740-4bc9-b4b2-e35689dcd81&width=786">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2021/png/10363384/1618668654780-ae508e6a-6fed-4007-a06c-83995f648ac8.png#clientId=ue52606ac-79c2-4&from=paste&height=693&id=uc199f491&margin=%5Bobject%20Object%5D&originHeight=693&originWidth=786&originalType=binary&size=78601&status=done&style=none&taskId=uf89af5bd-91cf-4db2-85aa-2aaf01ea45e&width=786">
+<meta property="article:published_time" content="2021-04-17T12:38:26.000Z">
+<meta property="article:modified_time" content="2021-04-17T14:16:54.937Z">
+<meta property="article:author" content="yuye Huang">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.nlark.com/yuque/0/2021/png/10363384/1618668906947-261d1e65-e855-489b-9a6d-7bb0f117c9ca.png#clientId=ue52606ac-79c2-4&from=paste&height=656&id=u34160917&margin=%5Bobject%20Object%5D&originHeight=656&originWidth=1350&originalType=binary&size=637965&status=done&style=none&taskId=uc320dc79-8208-49bf-ba29-76d1cfa0048&width=1350">
+
+<link rel="canonical" href="https://huangyuye.github.io/2021/04/17/yuque/PicGo%20+%20GitHub%20%E5%88%9B%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E5%85%8D%E8%B4%B9%E5%9B%BE%E5%BA%8A/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>PicGo + GitHub 创建自己的免费图床 | HYY</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">HYY</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://huangyuye.github.io/2021/04/17/yuque/PicGo%20+%20GitHub%20%E5%88%9B%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E5%85%8D%E8%B4%B9%E5%9B%BE%E5%BA%8A/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="yuye Huang">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="HYY">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          PicGo + GitHub 创建自己的免费图床
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2021-04-17 12:38:26 / 修改时间：14:16:54" itemprop="dateCreated datePublished" datetime="2021-04-17T12:38:26+00:00">2021-04-17</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="GitHub"><a href="#GitHub" class="headerlink" title="GitHub"></a>GitHub</h2><p>这个星球上最流行的开源托管服务器，用它来作为你的图片存储服务器，即图床<br><img src="https://cdn.nlark.com/yuque/0/2021/png/10363384/1618668906947-261d1e65-e855-489b-9a6d-7bb0f117c9ca.png#clientId=ue52606ac-79c2-4&from=paste&height=656&id=u34160917&margin=%5Bobject%20Object%5D&originHeight=656&originWidth=1350&originalType=binary&size=637965&status=done&style=none&taskId=uc320dc79-8208-49bf-ba29-76d1cfa0048&width=1350"></p>
+<h3 id="创建你的仓库存放图片"><a href="#创建你的仓库存放图片" class="headerlink" title="创建你的仓库存放图片"></a>创建你的仓库存放图片</h3><p>登陆 <a target="_blank" rel="noopener" href="https://github.com/">Github</a> 创建属于你自己的 GitHub 账号之后，新建一个 Repository（即仓库，无脑创建即可），用来存放你的图片<br>接下来，为了随时随地都能将电脑本地的图片上传到你的图片存储服务器上，你还需要拿到对 Github Repository 的访问&amp;操作权限，即需要获取到仓库的 access_token。有了访问令牌，你就可以随时向仓库上传本地文件，以下是配置访问令牌的步骤（**直达步骤 4 的链接点 **<a target="_blank" rel="noopener" href="https://github.com/settings/tokens/new"><strong>这里</strong></a>** **）</p>
+<ol>
+<li>登录 Github，点击右上角头像后下拉选项中的 <code>Settings</code></li>
+<li>点击左侧侧边栏 <code>Developer Settings</code></li>
+<li>点击左侧侧边栏 <code>Personal access tokens</code></li>
+<li>点击 <code>Generates new token</code> (Note 随意填，repo 勾选后下拉到页尾点击 <code>Generate token</code>)</li>
+<li>该 token 记得保存起来，页面只会在你创建完之后明文显示一次</li>
+</ol>
+<p><img src="https://cdn.nlark.com/yuque/0/2021/png/10363384/1618664979729-db94f685-9c6d-45c7-84f8-b86028406175.png#clientId=ue52606ac-79c2-4&from=paste&height=594&id=u71b5ab83&margin=%5Bobject%20Object%5D&originHeight=594&originWidth=1001&originalType=binary&size=55457&status=done&style=none&taskId=u48655feb-8986-49e7-aaff-87e5331d780&width=1001"></p>
+<h3 id="如何为你的图片生成访问链接？"><a href="#如何为你的图片生成访问链接？" class="headerlink" title="如何为你的图片生成访问链接？"></a>如何为你的图片生成访问链接？</h3><p>图片存储到 github 仓库，自己或者别人想要快速访问的话，还需要使用接下来讲到的 <code>PicGo</code> 工具为你的图片生成访问链接</p>
+<h2 id="PicGo"><a href="#PicGo" class="headerlink" title="PicGo"></a>PicGo</h2><p>一个用于快速上传图片并获取图片 URL 链接的工具，重点是免费。<br>有了它，可以快速地将我们的本地图片上传到图片服务器<br><img src="https://cdn.nlark.com/yuque/0/2021/png/10363384/1618668807333-44bad13a-9208-4d66-85fe-50b589907e4b.png#clientId=ue52606ac-79c2-4&from=paste&height=605&id=LqSbj&margin=%5Bobject%20Object%5D&originHeight=605&originWidth=1351&originalType=binary&size=54209&status=done&style=none&taskId=u3c3a37a5-682f-4737-810d-07badb7d497&width=1351"></p>
+<h3 id="下载与安装"><a href="#下载与安装" class="headerlink" title="下载与安装"></a>下载与安装</h3><p>官网地址点 <a target="_blank" rel="noopener" href="https://picgo.github.io/PicGo-Doc/zh/guide/">这里</a><br>也可以直接点 <a target="_blank" rel="noopener" href="https://github.com/Molunerfinn/PicGo/releases">这里</a> 下载安装后看下面的配置教程（Windows 用户直接下载<code>.exe</code>文件）<br>安装无脑安装即可，也可以自定义安装目录</p>
+<h3 id="图床配置"><a href="#图床配置" class="headerlink" title="图床配置"></a>图床配置</h3><p>在第一节我们已经创建了 GitHub 图床，所以接下来可以配置 PicGo 的图片上传服务器为我们的 GitHub 图床<br><img src="https://cdn.nlark.com/yuque/0/2021/png/10363384/1618666126174-6fceecfb-516e-41a1-8dc2-56fc6f5edecd.png#clientId=ue52606ac-79c2-4&from=paste&height=450&id=u0960d7c6&margin=%5Bobject%20Object%5D&originHeight=450&originWidth=800&originalType=binary&size=61363&status=done&style=none&taskId=ubb162e4f-eebc-4e99-a37b-fca88989b3b&width=800"></p>
+<blockquote>
+<p><strong>自定义域名格式：</strong><a target="_blank" rel="noopener" href="https://raw.githubusercontent.com/[username]/[%E4%BB%93%E5%BA%93%E5%90%8D]/$%7B%E5%88%86%E6%94%AF%E5%90%8D%7D">https://raw.githubusercontent.com/[username]/[仓库名]/${分支名}</a><br>那这里我的自定义域名就为：<a target="_blank" rel="noopener" href="https://raw.githubusercontent.com/huangyuye/huangyuye.github.io/data">https://raw.githubusercontent.com/huangyuye/huangyuye.github.io/data</a></p>
+</blockquote>
+<h3 id="开始使用"><a href="#开始使用" class="headerlink" title="开始使用"></a>开始使用</h3><p>接下来，你可以使用多种方式上传你的图片，比如拖动图片到上传区、复制图片或者截图到你的剪贴板，如下图</p>
+<p><img src="https://cdn.nlark.com/yuque/0/2021/png/10363384/1618666433026-0719bb2e-37a5-4678-8d99-0ab64b650fcb.png#clientId=ue52606ac-79c2-4&from=paste&height=450&id=u28f0996f&margin=%5Bobject%20Object%5D&originHeight=450&originWidth=800&originalType=binary&size=29965&status=done&style=none&taskId=u1b65f923-3a8c-42f3-8519-f24790239bf&width=800"></p>
+<ul>
+<li>上传成功后，PicGo 自动会将图片的访问链接复制到你的剪贴板（可配置），你就可以随意使用啦</li>
+</ul>
+<p><img src="https://cdn.nlark.com/yuque/0/2021/png/10363384/1618666555459-b6ef720d-d453-438b-ae51-e69115f99098.png#clientId=ue52606ac-79c2-4&from=paste&height=450&id=u0ef2f8f2&margin=%5Bobject%20Object%5D&originHeight=450&originWidth=800&originalType=binary&size=30661&status=done&style=none&taskId=ue1bf144f-3e4c-4803-9a76-95c2027a1c0&width=800"></p>
+<p><strong>到这里，你就已经拥有属于你自己的图床，并且可以快速的上传图片到你的图床啦</strong></p>
+<h2 id="jsDelivr：加速图片访问"><a href="#jsDelivr：加速图片访问" class="headerlink" title="jsDelivr：加速图片访问"></a>jsDelivr：加速图片访问</h2><p>放在 Github 的资源在国内加载速度比较慢，因此可以使用<strong>CDN</strong>加速来优化网站打开速度，<code>jsDelivr</code>便是免费且好用的 CDN，非常适合博客网站使用</p>
+<blockquote>
+<p>CDN 的全称是 Content Delivery Network，即内容分发网络，可以加速资源的访问</p>
+</blockquote>
+<p>这里只要改下 PicGo 配置的自定义域名即可，像这样</p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://cdn.jsdelivr.net/gh/huangyuye/huangyuye.github.io@data">https://cdn.jsdelivr.net/gh/huangyuye/huangyuye.github.io@data</a><br>固定格式为：<a target="_blank" rel="noopener" href="https://cdn.jsdelivr.net/gh/$%7BGitHub%E7%94%A8%E6%88%B7%E5%90%8D%7D/$%7B%E4%BB%93%E5%BA%93%7D@$%7B%E5%88%86%E6%94%AF%E5%90%8D%7D">https://cdn.jsdelivr.net/gh/${GitHub用户名}/${仓库}@${分支名}</a></p>
+</blockquote>
+<p>这样配置之后你就可以使用 PicGo 快速地上传图片，并且也可以快速地访问你 GitHub 存储的图片啦！</p>
+<h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><h3 id="Typora-编辑器"><a href="#Typora-编辑器" class="headerlink" title="Typora 编辑器"></a>Typora 编辑器</h3><p>Typora 是一个优秀的 markdown 文本编辑工具，如果你没有使用过这款软件写 markdown 文件的话，那我在这里墙裂安利一下</p>
+<p>使用这款软件码字经常需要插入图片资源，插入图片后 Typora 会默认给你存储到电脑本地目录，这样如果你写好的文档需要发出的话，别人就没办法加载文件中的图片。如果你想要别人也能看到你的图片的话，那你在往文档中插入图片之前就需要先把图片上传你的图片服务器并获取到图片访问外链，即使用我们这篇文章讲到的<strong>PicGo + GitHub</strong>啦。</p>
+<p>这样当我们每次插入图片时都要手动使用<code>PicGo</code>这个工具先上传图片，再把上传成功后的图片外链复制到<code>**Typora**</code>文档中，这样虽然也很简单，但是我们还可以给<code>Typora</code>配置配置 <strong>上传服务</strong>，可以在往文档插入图片之后智能提示是否需要帮我们上传到图片服务器，具体步骤如下：</p>
+<ol>
+<li>打开 Typora 菜单：<strong>文件</strong> -&gt; <strong>偏好设置</strong></li>
+<li>配置 <strong>图像 -&gt; 上传服务：</strong><ol>
+<li>选择上传服务选项为 <code>PicGo(app)</code></li>
+<li>PicGo 路径为你的工具下载路径</li>
+</ol>
+</li>
+</ol>
+<p><img src="https://cdn.nlark.com/yuque/0/2021/png/10363384/1618668573492-917a134b-3b6d-445c-b251-f00feca62fc3.png#clientId=ue52606ac-79c2-4&from=paste&height=693&id=u1eefe0a3&margin=%5Bobject%20Object%5D&originHeight=693&originWidth=786&originalType=binary&size=44987&status=done&style=none&taskId=uda10e895-f740-4bc9-b4b2-e35689dcd81&width=786"></p>
+<ol start="3">
+<li>配置完成之后尽管往你的文档中插入图片，然后自己选择要不要上传到图片服务器</li>
+</ol>
+<p><img src="https://cdn.nlark.com/yuque/0/2021/png/10363384/1618668654780-ae508e6a-6fed-4007-a06c-83995f648ac8.png#clientId=ue52606ac-79c2-4&from=paste&height=693&id=uc199f491&margin=%5Bobject%20Object%5D&originHeight=693&originWidth=786&originalType=binary&size=78601&status=done&style=none&taskId=uf89af5bd-91cf-4db2-85aa-2aaf01ea45e&width=786"></p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2021/04/06/yuque/Windows%20%E5%BC%80%E7%AE%B1/" rel="prev" title="Windows 开箱">
+      <i class="fa fa-chevron-left"></i> Windows 开箱
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#GitHub"><span class="nav-number">1.</span> <span class="nav-text">GitHub</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E4%BD%A0%E7%9A%84%E4%BB%93%E5%BA%93%E5%AD%98%E6%94%BE%E5%9B%BE%E7%89%87"><span class="nav-number">1.1.</span> <span class="nav-text">创建你的仓库存放图片</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E4%B8%BA%E4%BD%A0%E7%9A%84%E5%9B%BE%E7%89%87%E7%94%9F%E6%88%90%E8%AE%BF%E9%97%AE%E9%93%BE%E6%8E%A5%EF%BC%9F"><span class="nav-number">1.2.</span> <span class="nav-text">如何为你的图片生成访问链接？</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#PicGo"><span class="nav-number">2.</span> <span class="nav-text">PicGo</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%8B%E8%BD%BD%E4%B8%8E%E5%AE%89%E8%A3%85"><span class="nav-number">2.1.</span> <span class="nav-text">下载与安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9B%BE%E5%BA%8A%E9%85%8D%E7%BD%AE"><span class="nav-number">2.2.</span> <span class="nav-text">图床配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BC%80%E5%A7%8B%E4%BD%BF%E7%94%A8"><span class="nav-number">2.3.</span> <span class="nav-text">开始使用</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#jsDelivr%EF%BC%9A%E5%8A%A0%E9%80%9F%E5%9B%BE%E7%89%87%E8%AE%BF%E9%97%AE"><span class="nav-number">3.</span> <span class="nav-text">jsDelivr：加速图片访问</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%B6%E4%BB%96"><span class="nav-number">4.</span> <span class="nav-text">其他</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Typora-%E7%BC%96%E8%BE%91%E5%99%A8"><span class="nav-number">4.1.</span> <span class="nav-text">Typora 编辑器</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">yuye Huang</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">4</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/huangyuye" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;huangyuye" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:747776824@qq.com" title="E-Mail → mailto:747776824@qq.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title"><i class="fa fa-link fa-fw"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://www.yuque.com/huangyuye/qzf3af" title="https:&#x2F;&#x2F;www.yuque.com&#x2F;huangyuye&#x2F;qzf3af" rel="noopener" target="_blank">语雀</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">yuye Huang</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

@@ -156,6 +156,113 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://huangyuye.github.io/2021/04/17/yuque/PicGo%20+%20GitHub%20%E5%88%9B%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E5%85%8D%E8%B4%B9%E5%9B%BE%E5%BA%8A/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="yuye Huang">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="HYY">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/04/17/yuque/PicGo%20+%20GitHub%20%E5%88%9B%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E5%85%8D%E8%B4%B9%E5%9B%BE%E5%BA%8A/" class="post-title-link" itemprop="url">PicGo + GitHub 创建自己的免费图床</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2021-04-17 12:38:26 / 修改时间：14:16:54" itemprop="dateCreated datePublished" datetime="2021-04-17T12:38:26+00:00">2021-04-17</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="GitHub"><a href="#GitHub" class="headerlink" title="GitHub"></a>GitHub</h2><p>这个星球上最流行的开源托管服务器，用它来作为你的图片存储服务器，即图床<br><img src="https://cdn.nlark.com/yuque/0/2021/png/10363384/1618668906947-261d1e65-e855-489b-9a6d-7bb0f117c9ca.png#clientId=ue52606ac-79c2-4&from=paste&height=656&id=u34160917&margin=%5Bobject%20Object%5D&originHeight=656&originWidth=1350&originalType=binary&size=637965&status=done&style=none&taskId=uc320dc79-8208-49bf-ba29-76d1cfa0048&width=1350"></p>
+<h3 id="创建你的仓库存放图片"><a href="#创建你的仓库存放图片" class="headerlink" title="创建你的仓库存放图片"></a>创建你的仓库存放图片</h3><p>登陆 <a target="_blank" rel="noopener" href="https://github.com/">Github</a> 创建属于你自己的 GitHub 账号之后，新建一个 Repository（即仓库，无脑创建即可），用来存放你的图片<br>接下来，为了随时随地都能将电脑本地的图片上传到你的图片存储服务器上，你还需要拿到对 Github Repository 的访问&amp;操作权限，即需要获取到仓库的 access_token。有了访问令牌，你就可以随时向仓库上传本地文件，以下是配置访问令牌的步骤（**直达步骤 4 的链接点 **<a target="_blank" rel="noopener" href="https://github.com/settings/tokens/new"><strong>这里</strong></a>** **）</p>
+<ol>
+<li>登录 Github，点击右上角头像后下拉选项中的 <code>Settings</code></li>
+<li>点击左侧侧边栏 <code>Developer Settings</code></li>
+<li>点击左侧侧边栏 <code>Personal access tokens</code></li>
+<li>点击 <code>Generates new token</code> (Note 随意填，repo 勾选后下拉到页尾点击 <code>Generate token</code>)</li>
+<li>该 token 记得保存起来，页面只会在你创建完之后明文显示一次</li>
+</ol>
+<p><img src="https://cdn.nlark.com/yuque/0/2021/png/10363384/1618664979729-db94f685-9c6d-45c7-84f8-b86028406175.png#clientId=ue52606ac-79c2-4&from=paste&height=594&id=u71b5ab83&margin=%5Bobject%20Object%5D&originHeight=594&originWidth=1001&originalType=binary&size=55457&status=done&style=none&taskId=u48655feb-8986-49e7-aaff-87e5331d780&width=1001"></p>
+<h3 id="如何为你的图片生成访问链接？"><a href="#如何为你的图片生成访问链接？" class="headerlink" title="如何为你的图片生成访问链接？"></a>如何为你的图片生成访问链接？</h3><p>图片存储到 github 仓库，自己或者别人想要快速访问的话，还需要使用接下来讲到的 <code>PicGo</code> 工具为你的图片生成访问链接</p>
+<h2 id="PicGo"><a href="#PicGo" class="headerlink" title="PicGo"></a>PicGo</h2><p>一个用于快速上传图片并获取图片 URL 链接的工具，重点是免费。<br>有了它，可以快速地将我们的本地图片上传到图片服务器<br><img src="https://cdn.nlark.com/yuque/0/2021/png/10363384/1618668807333-44bad13a-9208-4d66-85fe-50b589907e4b.png#clientId=ue52606ac-79c2-4&from=paste&height=605&id=LqSbj&margin=%5Bobject%20Object%5D&originHeight=605&originWidth=1351&originalType=binary&size=54209&status=done&style=none&taskId=u3c3a37a5-682f-4737-810d-07badb7d497&width=1351"></p>
+<h3 id="下载与安装"><a href="#下载与安装" class="headerlink" title="下载与安装"></a>下载与安装</h3><p>官网地址点 <a target="_blank" rel="noopener" href="https://picgo.github.io/PicGo-Doc/zh/guide/">这里</a><br>也可以直接点 <a target="_blank" rel="noopener" href="https://github.com/Molunerfinn/PicGo/releases">这里</a> 下载安装后看下面的配置教程（Windows 用户直接下载<code>.exe</code>文件）<br>安装无脑安装即可，也可以自定义安装目录</p>
+<h3 id="图床配置"><a href="#图床配置" class="headerlink" title="图床配置"></a>图床配置</h3><p>在第一节我们已经创建了 GitHub 图床，所以接下来可以配置 PicGo 的图片上传服务器为我们的 GitHub 图床<br><img src="https://cdn.nlark.com/yuque/0/2021/png/10363384/1618666126174-6fceecfb-516e-41a1-8dc2-56fc6f5edecd.png#clientId=ue52606ac-79c2-4&from=paste&height=450&id=u0960d7c6&margin=%5Bobject%20Object%5D&originHeight=450&originWidth=800&originalType=binary&size=61363&status=done&style=none&taskId=ubb162e4f-eebc-4e99-a37b-fca88989b3b&width=800"></p>
+<blockquote>
+<p><strong>自定义域名格式：</strong><a target="_blank" rel="noopener" href="https://raw.githubusercontent.com/[username]/[%E4%BB%93%E5%BA%93%E5%90%8D]/$%7B%E5%88%86%E6%94%AF%E5%90%8D%7D">https://raw.githubusercontent.com/[username]/[仓库名]/${分支名}</a><br>那这里我的自定义域名就为：<a target="_blank" rel="noopener" href="https://raw.githubusercontent.com/huangyuye/huangyuye.github.io/data">https://raw.githubusercontent.com/huangyuye/huangyuye.github.io/data</a></p>
+</blockquote>
+<h3 id="开始使用"><a href="#开始使用" class="headerlink" title="开始使用"></a>开始使用</h3><p>接下来，你可以使用多种方式上传你的图片，比如拖动图片到上传区、复制图片或者截图到你的剪贴板，如下图</p>
+<p><img src="https://cdn.nlark.com/yuque/0/2021/png/10363384/1618666433026-0719bb2e-37a5-4678-8d99-0ab64b650fcb.png#clientId=ue52606ac-79c2-4&from=paste&height=450&id=u28f0996f&margin=%5Bobject%20Object%5D&originHeight=450&originWidth=800&originalType=binary&size=29965&status=done&style=none&taskId=u1b65f923-3a8c-42f3-8519-f24790239bf&width=800"></p>
+<ul>
+<li>上传成功后，PicGo 自动会将图片的访问链接复制到你的剪贴板（可配置），你就可以随意使用啦</li>
+</ul>
+<p><img src="https://cdn.nlark.com/yuque/0/2021/png/10363384/1618666555459-b6ef720d-d453-438b-ae51-e69115f99098.png#clientId=ue52606ac-79c2-4&from=paste&height=450&id=u0ef2f8f2&margin=%5Bobject%20Object%5D&originHeight=450&originWidth=800&originalType=binary&size=30661&status=done&style=none&taskId=ue1bf144f-3e4c-4803-9a76-95c2027a1c0&width=800"></p>
+<p><strong>到这里，你就已经拥有属于你自己的图床，并且可以快速的上传图片到你的图床啦</strong></p>
+<h2 id="jsDelivr：加速图片访问"><a href="#jsDelivr：加速图片访问" class="headerlink" title="jsDelivr：加速图片访问"></a>jsDelivr：加速图片访问</h2><p>放在 Github 的资源在国内加载速度比较慢，因此可以使用<strong>CDN</strong>加速来优化网站打开速度，<code>jsDelivr</code>便是免费且好用的 CDN，非常适合博客网站使用</p>
+<blockquote>
+<p>CDN 的全称是 Content Delivery Network，即内容分发网络，可以加速资源的访问</p>
+</blockquote>
+<p>这里只要改下 PicGo 配置的自定义域名即可，像这样</p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://cdn.jsdelivr.net/gh/huangyuye/huangyuye.github.io@data">https://cdn.jsdelivr.net/gh/huangyuye/huangyuye.github.io@data</a><br>固定格式为：<a target="_blank" rel="noopener" href="https://cdn.jsdelivr.net/gh/$%7BGitHub%E7%94%A8%E6%88%B7%E5%90%8D%7D/$%7B%E4%BB%93%E5%BA%93%7D@$%7B%E5%88%86%E6%94%AF%E5%90%8D%7D">https://cdn.jsdelivr.net/gh/${GitHub用户名}/${仓库}@${分支名}</a></p>
+</blockquote>
+<p>这样配置之后你就可以使用 PicGo 快速地上传图片，并且也可以快速地访问你 GitHub 存储的图片啦！</p>
+<h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><h3 id="Typora-编辑器"><a href="#Typora-编辑器" class="headerlink" title="Typora 编辑器"></a>Typora 编辑器</h3><p>Typora 是一个优秀的 markdown 文本编辑工具，如果你没有使用过这款软件写 markdown 文件的话，那我在这里墙裂安利一下</p>
+<p>使用这款软件码字经常需要插入图片资源，插入图片后 Typora 会默认给你存储到电脑本地目录，这样如果你写好的文档需要发出的话，别人就没办法加载文件中的图片。如果你想要别人也能看到你的图片的话，那你在往文档中插入图片之前就需要先把图片上传你的图片服务器并获取到图片访问外链，即使用我们这篇文章讲到的<strong>PicGo + GitHub</strong>啦。</p>
+<p>这样当我们每次插入图片时都要手动使用<code>PicGo</code>这个工具先上传图片，再把上传成功后的图片外链复制到<code>**Typora**</code>文档中，这样虽然也很简单，但是我们还可以给<code>Typora</code>配置配置 <strong>上传服务</strong>，可以在往文档插入图片之后智能提示是否需要帮我们上传到图片服务器，具体步骤如下：</p>
+<ol>
+<li>打开 Typora 菜单：<strong>文件</strong> -&gt; <strong>偏好设置</strong></li>
+<li>配置 <strong>图像 -&gt; 上传服务：</strong><ol>
+<li>选择上传服务选项为 <code>PicGo(app)</code></li>
+<li>PicGo 路径为你的工具下载路径</li>
+</ol>
+</li>
+</ol>
+<p><img src="https://cdn.nlark.com/yuque/0/2021/png/10363384/1618668573492-917a134b-3b6d-445c-b251-f00feca62fc3.png#clientId=ue52606ac-79c2-4&from=paste&height=693&id=u1eefe0a3&margin=%5Bobject%20Object%5D&originHeight=693&originWidth=786&originalType=binary&size=44987&status=done&style=none&taskId=uda10e895-f740-4bc9-b4b2-e35689dcd81&width=786"></p>
+<ol start="3">
+<li>配置完成之后尽管往你的文档中插入图片，然后自己选择要不要上传到图片服务器</li>
+</ol>
+<p><img src="https://cdn.nlark.com/yuque/0/2021/png/10363384/1618668654780-ae508e6a-6fed-4007-a06c-83995f648ac8.png#clientId=ue52606ac-79c2-4&from=paste&height=693&id=uc199f491&margin=%5Bobject%20Object%5D&originHeight=693&originWidth=786&originalType=binary&size=78601&status=done&style=none&taskId=uf89af5bd-91cf-4db2-85aa-2aaf01ea45e&width=786"></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://huangyuye.github.io/2021/04/06/yuque/Windows%20%E5%BC%80%E7%AE%B1/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -187,7 +294,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-04-11 14:19:31" itemprop="dateModified" datetime="2021-04-11T14:19:31+00:00">2021-04-11</time>
+                <time title="修改时间：2021-04-17 14:16:54" itemprop="dateModified" datetime="2021-04-17T14:16:54+00:00">2021-04-17</time>
               </span>
 
           
@@ -274,7 +381,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-04-11 14:19:31" itemprop="dateModified" datetime="2021-04-11T14:19:31+00:00">2021-04-11</time>
+                <time title="修改时间：2021-04-17 14:16:55" itemprop="dateModified" datetime="2021-04-17T14:16:55+00:00">2021-04-17</time>
               </span>
 
           
@@ -333,7 +440,7 @@
 </ul>
 </li>
 <li>针对语雀图片无法正常显示的解决办法（语雀防盗链）<ul>
-<li>在主题的 layout 文件夹中的 post.ejs 文件中加上一句</li>
+<li>在主题的 layout 文件夹中的 post.ejs 文件请求头中加上一句</li>
 </ul>
 </li>
 </ul>
@@ -349,6 +456,7 @@
 <li>语雀 - Hexo - Github 同步之后，能否在博客中加上本地机器写的文章？</li>
 <li>博客主题：Hexo 美化 与 GitHub Pages 美化</li>
 <li>使用 GitHub Actions 替代 Travis</li>
+<li>学会云管理自己的配置—<a target="_blank" rel="noopener" href="https://www.cnblogs.com/thinkam/p/10922920.html">Gist</a></li>
 </ol>
 
       
@@ -400,7 +508,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-04-11 14:19:31" itemprop="dateModified" datetime="2021-04-11T14:19:31+00:00">2021-04-11</time>
+                <time title="修改时间：2021-04-17 14:16:55" itemprop="dateModified" datetime="2021-04-17T14:16:55+00:00">2021-04-17</time>
               </span>
 
           
@@ -501,7 +609,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">3</span>
+          <span class="site-state-item-count">4</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
