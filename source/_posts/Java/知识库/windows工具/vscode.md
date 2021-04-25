@@ -1,3 +1,9 @@
+---
+categories:
+  - Java
+  - 知识库
+  - windows工具
+---
 #### 开发工具
 
 vscode & webstorm均可，这里使用了vscode
