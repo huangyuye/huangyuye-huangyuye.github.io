@@ -156,7 +156,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://huangyuye.github.io/2021/04/25/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/20200914-Excel%E6%93%8D%E4%BD%9C/">
+    <link itemprop="mainEntityOfPage" href="https://huangyuye.github.io/2021/04/25/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/windows%E5%B7%A5%E5%85%B7/vscode%E9%85%8D%E7%BD%AE&%E6%93%8D%E4%BD%9C/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -170,7 +170,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2021/04/25/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/20200914-Excel%E6%93%8D%E4%BD%9C/" class="post-title-link" itemprop="url">未命名</a>
+            <a href="/2021/04/25/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/windows%E5%B7%A5%E5%85%B7/vscode%E9%85%8D%E7%BD%AE&%E6%93%8D%E4%BD%9C/" class="post-title-link" itemprop="url">未命名</a>
         </h2>
 
         <div class="post-meta">
@@ -180,7 +180,7 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2021-04-25 13:02:32" itemprop="dateCreated datePublished" datetime="2021-04-25T13:02:32+00:00">2021-04-25</time>
+              <time title="创建时间：2021-04-25 15:32:01" itemprop="dateCreated datePublished" datetime="2021-04-25T15:32:01+00:00">2021-04-25</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -196,7 +196,7 @@
                 </span>
                   ，
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
+                  <a href="/categories/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/windows%E5%B7%A5%E5%85%B7/" itemprop="url" rel="index"><span itemprop="name">windows工具</span></a>
                 </span>
             </span>
 
@@ -211,23 +211,216 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h1><ol>
-<li>HSSF (Horrible SpreadSheet Format（电子表格格式）的缩写)<ol>
-<li>对应.xls 文件，兼容 Office97-2003 版本 ）（一个sheet最大行数65536，最大列数256）</li>
+          <p><strong>参考链接</strong></p>
+<p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/fd945e8e099d">https://www.jianshu.com/p/fd945e8e099d</a></p>
+<p><strong>配置步骤</strong></p>
+<p>文件 》 设置 》 首选项：区分用户区和工作区</p>
+<p><strong>插件安装</strong></p>
+<p><strong>基础插件</strong></p>
+<p>1、汉化包</p>
+<p>插件：Chinese(Simplified) Language Pack for Visual Stidio Code 中文汉化包</p>
+<p>配置：按快捷键Ctrl+Shift+P调出命令面板，输入Configure Display Language，选择zh-ch，然后重启vs code</p>
+<p>2、Auto Close Tag 自动闭合标签</p>
+<p>3、Auto Rename Tag 尾部闭合标签同步修改</p>
+<p>4、Bracket Pair Colorizer 用不同颜色高亮显示匹配的括号</p>
+<p>5、Highlight Matching Tag 高亮显示匹配标签</p>
+<p>6、Vscode-icons VSCode 文件图标</p>
+<p>7、TODO Highlight 高亮</p>
+<p>使用：输入TODO &amp; FIXME 文本</p>
+<p>8、Code Spell Checker 单词拼写检查</p>
+<p>9、Improt Cost 成本提示</p>
+<p>说明：这个插件可以在你导入工具包的时候提示这个包的体积，如果体积过大就需要考虑压缩包，为后期上线优化做准备。</p>
+<p>10、GitLens 查看Git信息</p>
+<p>说明：将光标移到代码行上，即可显示当前行最近的commit信息和作者</p>
+<p>11、Bookmarks 书签</p>
+<p>说明：对代码进行书签标记，通过快捷键实现快速跳转到书签位置。</p>
+<p>使用：</p>
+<p>12、koroFileHeader</p>
+<p><strong>配置：</strong>参考 <a target="_blank" rel="noopener" href="https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE">https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE</a></p>
+<p>// 文件头部注释  “fileheader.customMade”: {    “Descripttion”: “”,    “Author”: “yuye.huang”,    “Date”: “Do not edit”,    “LastEditors”: “yuye.huang”,    “LastEditTime”: “Do not Edit”  },  // 函数注释  “fileheader.cursorMode”: {    // “name”:””,    // “test”:”test font”,    “msg”: “”,    “param”: “”,    “return”: “”  },</p>
+<p><strong>使用：</strong></p>
+<p>文件头部添加注释:</p>
+<p>window：ctrl+alt+i,mac：ctrl+cmd+i</p>
+<p>在光标处添加函数注释:</p>
+<p>window：ctrl+alt+t,mac：ctrl+cmd+t</p>
+<p><strong>扩展插件</strong></p>
+<p>1、Vscode-element-helper</p>
+<p>说明：使用element-ui库的可以安装这个插件，编写标签时自动提示element标签名称。</p>
+<p>2、Version Lens 工具包版本信息</p>
+<p>说明：在package.json中显示你下载安装的npm工具包的版本信息，同时会告诉你当前包的最新版本。</p>
+<p>3、Vetur VUE语言包</p>
+<p>说明：Vetur对VUE提供了很好的语言支持，没有安装该插件之前之前编写后缀名为.vue的文件时代码是白色的</p>
+<p>使用：安装插件后编写vue文件输入s，按Tab键就可以自动补全模版。</p>
+<p>4、<strong>Settings Sync VSCode设置同步到Gist</strong></p>
+<p>说明：有时候我们到了新公司或者换了新电脑需要配置新的开发环境，这时候一个一个下载插件，再重新配置vs code就非常麻烦而且你还不一定记得那么全面，通过这个插件我们可以将当前vs code中的配置上传到Gist，之后再通过Gist下载，就可以将所有配置同步到新环境中了。</p>
+<p>使用：</p>
+<ol>
+<li>在Github首页点击头像，选择Settings进入设置页面。</li>
+<li>点击左侧侧边栏Developer settings，</li>
+<li>进入开发者设置。选择Personal access tokens，点击右侧Generate new token。</li>
+<li>填写token名称，在下方勾选gist。</li>
+<li>点击下方的Generate token按钮生成一个新的token。将生成的新的token保存下来。</li>
+<li>在vscode中安装Settings Sync插件，输入Ctrl+Shift+p输入Sync，选择更新/上传配置。</li>
+<li>将github中生成的token输入，点击回车。</li>
+<li>在控制台中自动生成一串id,之后便可以通过token和id进行配置同步。</li>
+<li>输入Ctrl+Shift+p输入Sync，选择下载配置，输入token和id即可同步下载。</li>
+<li>可以在配置文件中选择是否自动上传和下载</li>
 </ol>
-</li>
-<li>XSSF<ol>
-<li>容 Office2007及以后版本 （一个sheet最大行数1048576，最大列数16384）</li>
-</ol>
-</li>
-<li><strong>SXSSF</strong> （低内存占用的操作方式）<ol>
-<li>SXSSFWorkbook w3= new SXSSFWorkbook(100);//内存中保留100条数据，其余写入硬盘临时文件</li>
-</ol>
-</li>
-</ol>
-<h2 id="文档结构类"><a href="#文档结构类" class="headerlink" title="文档结构类"></a>文档结构类</h2><p>HSSFWorkbook excel文档对象<br>HSSFSheet excel的sheet<br>HSSFRow excel的行<br>HSSFCell excel的单元格<br>HSSFFont excel字体<br>HSSFName 名称<br>HSSFDataFormat 日期格式<br>HSSFHeader sheet头<br>HSSFFooter sheet尾<br>HSSFCellStyle cell样式<br>HSSFDateUtil 日期<br>HSSFPrintSetup 打印<br>HSSFErrorConstants 错误信息表</p>
-<h3 id="POI"><a href="#POI" class="headerlink" title="POI"></a>POI</h3><h3 id="easyExcel"><a href="#easyExcel" class="headerlink" title="easyExcel"></a>easyExcel</h3><p><a target="_blank" rel="noopener" href="https://github.com/alibaba/easyexcel/blob/master/src/test/java/com/alibaba/easyexcel/test/demo/web/WebTest.java">https://github.com/alibaba/easyexcel/blob/master/src/test/java/com/alibaba/easyexcel/test/demo/web/WebTest.java</a></p>
-<h3 id="easyPoi"><a href="#easyPoi" class="headerlink" title="easyPoi"></a>easyPoi</h3><p><a target="_blank" rel="noopener" href="https://gitee.com/lemur/easypoi">https://gitee.com/lemur/easypoi</a></p>
+<p><strong>常用配置</strong></p>
+<p>1、关闭标签介绍信息（延时）</p>
+<p>配置：”editor.hover.delay”: 5000,</p>
+<p>2、自动折行</p>
+<p>说明：设置代码根据编辑器窗口大小自动折行</p>
+<p>配置：”editor.wordWrap”: “on”,</p>
+<p>3、字体设置</p>
+<p>配置：</p>
+<p> // 一款适合代码显示的字体包（需要将字体包下载到本地）</p>
+<p> “editor.fontFamily”: “Source Code Pro, ‘Source Code Pro’”,</p>
+<p> // 设置代码字体大小</p>
+<p> “editor.fontSize”: 15,</p>
+<p>4、自动保存</p>
+<p>配置：”files.autoSave”: “off”,</p>
+<p>选项：</p>
+<p>off：关闭自动保存。</p>
+<p>afterDelay：当文件修改后的时间超过”Files：Auto Save Delay”中配置的值时自动进行保存。</p>
+<p>onFocusChange：编辑器失去焦点时自动保存更新后的文件。</p>
+<p>onWindowChange：窗口失去焦点时自动保存更新后的文件。</p>
+<p>5、关闭代码提示</p>
+<p>配置：”editor.quickSuggestions”: { “other”: false, “comments”: false, “strings”: false }</p>
+<p>6、// 控制可以打开多个标签页</p>
+<p>  “workbench.editor.enablePreview”: false,</p>
+<p><strong>快捷键</strong></p>
+<p><strong>编辑器与窗口管理</strong></p>
+<p>Ctrl+Shift+P: 打开命令面板。</p>
+<p>Ctrl+Shift+N: 新建窗口。</p>
+<p>Ctrl+Shift+W: 关闭窗口。</p>
+<p>切分窗口：Ctrl+1/Ctrl+3/Ctrl+3</p>
+<p>Ctrl+H：最小化窗口</p>
+<p>Ctrl+B：显示/隐藏侧边栏</p>
+<p>Ctrl+”+/-“：放大/缩小界面</p>
+<p><strong>文件操作</strong></p>
+<p>Ctrl+N：新建文件</p>
+<p>Ctrl+W：关闭文件</p>
+<p>Ctrl+Tab：文件切换</p>
+<p><strong>格式调整</strong></p>
+<p>Ctrl+C/Ctrl+V：复制或剪切当前行/当前选中内容</p>
+<p>Alt+Up/Down：向上/下移动一行</p>
+<p>Shift+Alt+Up//Down：向上/下复制一行</p>
+<p>Ctrl+Delete：删除当前行</p>
+<p>Shift+Alt+Left/Right：从光标开始向左/右选择内容</p>
+<p><strong>代码编辑</strong></p>
+<p>Ctrl+D：选中下一个相同内容</p>
+<p>Ctrl+Shift+L：选中所有相同内容</p>
+<p>Ctrl+F：查找内容</p>
+<p>Ctrl+Shit+F：在整个文件夹中查找内容</p>
+<p><strong>不同语言环境配置</strong></p>
+<p><strong>vue</strong></p>
+<p>参考链接：</p>
+<p><a target="_blank" rel="noopener" href="https://segmentfault.com/a/1190000014796012">https://segmentfault.com/a/1190000014796012</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/benbentu/p/9661998.html">https://www.cnblogs.com/benbentu/p/9661998.html</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/f15b67c94c78">https://www.jianshu.com/p/f15b67c94c78</a></p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/userkang/article/details/84302629">https://blog.csdn.net/userkang/article/details/84302629</a></p>
+<p>配置文件：</p>
+<p>- Vetur : 语法高亮等功能 - ESlint : 代码风格检测 - Prettier formatter <strong>for</strong> Visual Studio Code: 为了配合 ESlint vue 的模板格式化： “vetur.format.defaultFormatter.html”:”js-beautify-html” vue 模板的 eslint 校验    “eslint.validate”: [        “javascript”,        “javascriptreact”,        “html”,        “vue”,        {            “language”: “html”,            “autoFix”: <strong>true</strong>        }    ] Prettier 设置去除不必要空格：”prettier.semi”: <strong>false</strong> Prettier 设置格式化后”变’：”prettier.singleQuote”: true 在 vscode 中排除 node_modules 等文件夹： “files.<strong>exclude</strong>“: {    “<strong>/.git”: true,    “</strong>/.svn”: true,    “<strong>/.hg”: true,    “</strong>/CVS”: true,    “<strong>/.DS_Store”: true,    “</strong>/node_modules”: true,    “<strong>/package-<strong>lock</strong>.json”: true, }, 以新行结束 “html.<strong>format</strong>.endWithNewline”: false 完整的 vue 相关用户设置如下 “files.<strong>exclude</strong>“: {    “</strong>/.git”: true,    “<strong>/.svn”: true,    “</strong>/.hg”: true,    “<strong>/CVS”: true,    “</strong>/.DS_Store”: true,    “<strong>/node_modules”: true,    “</strong>/package-<strong>lock</strong>.json”: true }, “vetur.<strong>format</strong>.defaultFormatter.html”: “js-beautify-html”, “editor.formatOnSave”: true, “prettier.semi”: false, “prettier.singleQuote”: true, “html.<strong>format</strong>.endWithNewline”: true, “eslint.<strong>validate</strong>“: [    “javascript”,    “javascriptreact”,    “html”,    “vue”,    {        “<strong>language</strong>“: “html”,        “autoFix”: true    } ]</p>
+<p><strong>小程序</strong></p>
+<p>参考链接：</p>
+<p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/4b849843c3b9">https://www.jianshu.com/p/4b849843c3b9</a></p>
+<p>安装插件：</p>
+<p>1、minapp</p>
+<p>2、wechat-snippet</p>
+<p>3、wxml</p>
+<p>4、wechat-snippet</p>
+<p><strong>Wepy</strong></p>
+<p>参考链接：</p>
+<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/cisum/p/9852571.html">https://www.cnblogs.com/cisum/p/9852571.html</a></p>
+<p>安装插件Vetur后打开.wpy文件，在右下角点击“纯文本”选择”.wpy的配置文件关联”选择”Vue”后，语法变为高亮： <strong>files.associations</strong></p>
+<p>// 配置语言的文件关联(如: “*.extension”: “html”)。这些关联的优先级高于已安装语言的默认关联。</p>
+<p>“files.associations”: {</p>
+<p>​    “*.vue”: “vue”,</p>
+<p>​    “*.wpy”: “vue”,</p>
+<p>​    “*.wxss”: “postcss”,</p>
+<p>​    “*.tpl”: “vue”,</p>
+<p>​    “*.md@xxx”: “markdown”,</p>
+<p>​    “*.wepy”: “vue”,</p>
+<p>​    “*.cjson”: “jsonc”,</p>
+<p>​    “*.wxs”: “javascript”</p>
+<p>  },</p>
+<p>// 添加emmet语法支持 wxml 文件(当然也可以配置支持vue文件)</p>
+<p>“emmet.includeLanguages”: {</p>
+<p>​    “wxml”: “html”</p>
+<p>  },</p>
+<p>  // “emmet.syntaxProfiles”: {</p>
+<p>  //   “vue-html”: “html”,</p>
+<p>  //   “vue”: “html”</p>
+<p>  // },</p>
+<p>“minapp-vscode.disableAutoConfig”: true,</p>
+<p><strong>格式化插件</strong></p>
+<p>参考链接：</p>
+<p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/e73f1b429788?utm_campaign=maleskine&utm_content=note&utm_medium=seo_notes&utm_source=recommendation"><strong>https://www.jianshu.com/p/e73f1b429788?utm_campaign=maleskine&amp;utm_content=note&amp;utm_medium=seo_notes&amp;utm_source=recommendation</strong></a></p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_34413065/article/details/86133692">https://blog.csdn.net/weixin_34413065/article/details/86133692</a></p>
+<p><strong>wpy的文件都是用vue的高亮规则：</strong></p>
+<p>“files.associations”: {</p>
+<p>​        “*.vue”: “vue”,</p>
+<p>​        “*.wpy”: “vue”,</p>
+<p>​        “*.wxml”: “html”,</p>
+<p>​        “*.wxss”: “css”</p>
+<p>​    },</p>
+<p>​    “emmet.syntaxProfiles”: {</p>
+<p>​        “vue-html”: “html”,</p>
+<p>​        “vue”: “html”</p>
+<p>​    },</p>
+<p>**wpy-beautify &amp; vetur语法高亮 &amp;**<strong>vscode-wxml 语法支持及代码片段</strong></p>
+<p><strong>vetur：</strong></p>
+<p>说明：插件的使用需要修改下vs-code对于文件格式的判断才能使用不同的插件，点击文件右下角可以修改文件格式并应用于所有该格式的文件</p>
+<p>wpy-beautify插件配置：</p>
+<p>wpy-beautify插件使用：</p>
+<p>{</p>
+<p>​      “key”: “ctrl+shift+6”,          </p>
+<p>​      “command”: “wpyBeautify.format”,</p>
+<p>​      “when”: “editorTextFocus &amp;&amp; !editorReadonly” </p>
+<p>​    }</p>
+<p><strong>最新配置</strong></p>
+<p><strong>用户空间</strong></p>
+<p>{</p>
+<p>  “editor.fontSize”: 12,</p>
+<p>  // 一个制表符等于的空格数。该设置在 <code>editor.detectIndentation</code> 启用时根据文件内容进行重写。</p>
+<p>  “editor.tabSize”: 2,</p>
+<p>  // 自动保存</p>
+<p>  “files.autoSave”: “off”,</p>
+<p>  // 控制编辑器是否应呈现缩进参考线</p>
+<p>  “editor.renderIndentGuides”: true,</p>
+<p>  // 当打开文件时，将基于文件内容检测 “editor.tabSize” 和 “editor.insertSpaces”。</p>
+<p>  “editor.detectIndentation”: false,</p>
+<p>  “window.zoomLevel”: 1,</p>
+<p>  “editor.wordWrap”: “on”,</p>
+<p>  “workbench.iconTheme”: “vscode-icons”,</p>
+<p>  “editor.wordSeparators”: “`~!@#$%^&amp;*()=+[{]}\|;:’&quot;,.&lt;&gt;/?。”,</p>
+<p>  “editor.minimap.enabled”: true,</p>
+<p>  // 配置 glob 模式以排除文件和文件夹。</p>
+<p>  “files.exclude”: {</p>
+<p>​    “**/.git”: true,</p>
+<p>​    “**/.svn”: true,</p>
+<p>​    “**/.hg”: true,</p>
+<p>​    “**/CVS”: true,</p>
+<p>​    “**/.DS_Store”: true,</p>
+<p>​    “**/.DS_Store”: true,</p>
+<p>​    // “**/node_modules”: true,</p>
+<p>​    “**/bower_components”: true</p>
+<p>​    // “**/dist”: true</p>
+<p>  },</p>
+<p>  // 配置语言的文件关联(如: “*.extension”: “html”)。这些关联的优先级高于已安装语言的默认关联。</p>
+<p>  “files.associations”: {</p>
+<p>​      “*.vue”: “vue”,</p>
+<p>​      “*.wpy”: “vue”,</p>
+<p>​      “*.wxss”: “postcss”,</p>
+<p>​      “*.tpl”: “vue”,</p>
+<p>​      “*.md@xxx”: “markdown”,</p>
+<p>​      “*.wepy”: “vue”</p>
+<p>  },</p>
+<p>  // 关闭代码提示 // 控制键入时是否应自动显示建议</p>
+<p>  “editor.quickSuggestions”: {</p>
+<p>​    “other”: true,</p>
+<p>​    “comments”: true,</p>
 
       
     </div>
@@ -247,7 +440,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://huangyuye.github.io/2021/04/25/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/20200925-Git%E5%86%85%E5%AE%B9/">
+    <link itemprop="mainEntityOfPage" href="https://huangyuye.github.io/2021/04/25/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/windows%E5%B7%A5%E5%85%B7/%E6%96%B0%E7%94%B5%E8%84%91%E7%8E%AF%E5%A2%83%E5%87%86%E5%A4%87/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -261,7 +454,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2021/04/25/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/20200925-Git%E5%86%85%E5%AE%B9/" class="post-title-link" itemprop="url">未命名</a>
+            <a href="/2021/04/25/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/windows%E5%B7%A5%E5%85%B7/%E6%96%B0%E7%94%B5%E8%84%91%E7%8E%AF%E5%A2%83%E5%87%86%E5%A4%87/" class="post-title-link" itemprop="url">未命名</a>
         </h2>
 
         <div class="post-meta">
@@ -271,7 +464,7 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2021-04-25 13:02:32" itemprop="dateCreated datePublished" datetime="2021-04-25T13:02:32+00:00">2021-04-25</time>
+              <time title="创建时间：2021-04-25 15:32:01" itemprop="dateCreated datePublished" datetime="2021-04-25T15:32:01+00:00">2021-04-25</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -287,7 +480,7 @@
                 </span>
                   ，
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
+                  <a href="/categories/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/windows%E5%B7%A5%E5%85%B7/" itemprop="url" rel="index"><span itemprop="name">windows工具</span></a>
                 </span>
             </span>
 
@@ -302,286 +495,90 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h3 id="git常用场景使用技巧"><a href="#git常用场景使用技巧" class="headerlink" title="git常用场景使用技巧"></a><strong>git常用场景使用技巧</strong></h3><ol>
-<li><p>功能开发到一半，突然要修复线上问题 （保存现场）</p>
+          <p><strong>JAVA 环境变量配置</strong></p>
 <ol>
-<li>在开发分支上：<code>git stash</code> = <code>git stash save</code> 保存未提交的内容（<strong>前提是修改的文件已被版本库追踪过</strong>）<ol>
-<li>想要添加保存信息则执行：<code>git stash save -a “message”</code> （git stash save 命令将来会被git stash push 代替）</li>
-<li>默认情况下，<code>git stash</code> 只会贮藏已修改和暂存的 <strong>已跟踪</strong> 文件。如果指定 –include-untracked 或 -u 选项，Git 也会贮藏任何未跟踪文件。</li>
+<li>下载jdk：x64</li>
 </ol>
-</li>
-<li>切换到其他分支修复bug</li>
-<li>修复完后回到原开发分支，并执行 <code>git stash pop</code> (<code>git stash pop</code> = <code>git stash apply  stash@&#123;0&#125;</code> + <code>git stash drop  stash@&#123;0&#125;</code>)</li>
-</ol>
-</li>
-<li><p>不小心把代码提交到错的分支上 （<strong>假设错误分支为test，目标分支为 dev</strong> ）</p>
+<p><a target="_blank" rel="noopener" href="https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html">https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html</a></p>
+<p>\2. 配置环境变量：</p>
+<p>配置java_home以及输出对应bin路径到class_path</p>
+<p><strong>配置maven</strong></p>
+<p>\1. 下载maven：</p>
+<p><a target="_blank" rel="noopener" href="http://maven.apache.org/download.cgi">http://maven.apache.org/download.cgi</a></p>
+<p>\2. 配置环境变量</p>
+<p>maven_home</p>
+<p><strong>配置mysql</strong></p>
+<p>\1. 下载mysql：</p>
+<p><a target="_blank" rel="noopener" href="https://dev.mysql.com/downloads/mysql/">https://dev.mysql.com/downloads/mysql/</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/ziyoublog/p/9722849.html">https://www.cnblogs.com/ziyoublog/p/9722849.html</a></p>
+<p>\2. 配置环境变量</p>
+<p><strong>idea开发工具：</strong></p>
 <ol>
-<li><strong>简易操作</strong>：切换到在目标分支dev下执行-&gt; <code>git cherry-pick commitId1 commitId2</code> …</li>
-<li><strong>git rebase</strong>：<code>git rebase --onto dev &lt;开始的commitId&gt; &lt;结束的commitId&gt; </code><ol start="2">
-<li>执行上述操作后，实际上git 会将dev作为基底分支，将 &lt;开始的commitId&gt; &lt;结束的commitId&gt;  做的相应改变重做一遍，重做的commitId可能跟旧的commitId不一样（若是能ff，则commitId一样），重做后，HEAD指针指向最新的commitId上（游离状态，没有指向任何分支上）</li>
-<li>切换到目标分支 <code> git checkout dev</code></li>
-<li>将dev分支指向重做的最新的提交点上 <code>git reset --hard  commitId</code> （也属于变基操作，会产生线性提交历史）</li>
-</ol>
-</li>
-</ol>
-</li>
-<li><p>需要将其他分支的文件复用过来：</p>
-<ol>
-<li><code>git checkout source_path(其他分支) filename1 filename2 ... (其他分支的文件) </code></li>
-</ol>
-</li>
-<li><p>需要删除中途某次提交：git revert </p>
-<ol>
-<li><code>git revert commitID</code> 使用一次新的commit来回滚之前的commit</li>
-<li>revert 是逆向回放</li>
-</ol>
-</li>
-<li><p><strong>本地仓库</strong>需要回退到某个版本（亦可用于版本前进）：git reset</p>
-<ol>
-<li> <code>git reset --hard commitId</code> ： 将 commitId 和 commitId 之后的所有提交记录均删除；但是如果 merge 其他老的分支到该分支，commitId后面被回滚的commit应该还会被引入<strong>（一般在提交点push到公共分支之前操作）</strong></li>
-<li><code>git reset --soft commitId</code>：此次提交之后的修改会被退回到暂存区。(回退版本<strong>commitId后的修改还保留在本地工作空间</strong>)</li>
-<li><code>git reset commitId</code> 默认使用选项 –mixed，此次提交之后的修改会被退回到工作区</li>
-<li><code>git reset</code> 用于将当前分支指向任意提交点，包括其他分支的提交点，即可在任意提交点来回穿梭</li>
-</ol>
-</li>
-<li><p>代码版本回退错误，想要重新回到最新提交点，但是提交历史已丢失了（通过git log 查看不到提交记录）</p>
-<ol>
-<li>使用 <code>git reflog</code> 查看历史操作记录，找到对应要恢复的提交点，执行 git reset 相关方法</li>
-</ol>
-</li>
-<li><p>已经推送到远程公共分支的代码版本正确的回退姿势（<strong>暂时未理解原理</strong>）</p>
-<ol>
-<li><code>git reset --hard commitId1</code>（要回退的版本）：该操作把 working, index, HEAD 都强行置为 commitId1</li>
-<li><code>git reset --soft commitId2</code>（最新提交点）</li>
-</ol>
-</li>
-<li><p><strong>本地仓库</strong>，存在多余的提交，想要压缩成一次提交</p>
-<ol>
-<li>将上一次提交和这次提交作为一次提交 <code>git commit --amend</code> </li>
-<li>多次提交压缩：<code>git rebase -i HEAD~n</code>  (n表示要合并的最近提交的次数)</li>
-<li><strong>（一般在提交点push到公共分支之前操作）</strong></li>
-</ol>
-</li>
-<li><p><code>git merge</code> 合并时建议使用 <code>--no--ff</code> 选项保留完整的提交历史（<strong>否则该命令默认策略：“优先–ff，若不能ff则–no-ff”</strong>）</p>
-</li>
-<li><p>比较各个区域的修改差异</p>
-<ol>
-<li>git diff – cached：比较缓存区与本地库最近一次commit内容</li>
+<li>安装idea插件：</li>
 </ol>
 <ul>
-<li>git diff：比较缓存区与工作区 </li>
-<li>git diff HEAD | git diff commitId 比较工作区与本地最近一次commit内容 （工作区会包含已暂存和未暂存的文件内容）</li>
+<li><p>Power mode II</p>
+</li>
+<li><p>lombok</p>
+</li>
+<li><p>Alibaba Java Coding Guidelines </p>
+</li>
+<li><ul>
+<li>代码规范扫描</li>
 </ul>
 </li>
-<li><p>想要查看某次提交做了哪些改动</p>
+<li><p>maven helper</p>
+</li>
+</ul>
 <ol>
-<li><code>git show commitId</code> (相较以下命令常用)</li>
-<li><code>git show HEAD@&#123;5&#125;</code>  查看仓库中 HEAD 在五次前的所指向的提交</li>
+<li>配置idea模板</li>
 </ol>
-</li>
-<li><p>版本迭代发布之际，需要合并其他分支的代码时，查看哪些分支已合并或未合并到当前分支</p>
-<ol>
-<li>查看哪些分支已经合并到当前分支：git branch –merged </li>
-<li>查看哪些分支没有合并到当前分支 git branch –no-merged </li>
-</ol>
-</li>
-<li><p>查看某分支还有哪些提交尚未合并到主分支？</p>
-<ol>
-<li><strong>双点</strong>：<ol>
-<li>在 feature 分支中而不在 master 分支中的提交：<code>git log master..feature</code> </li>
-<li>在你当前分支中而不在远程 <code>origin</code> 中的提交：<code>git log origin/master..HEAD</code></li>
-</ol>
-</li>
-<li><strong>三点</strong>：<ol>
-<li>想看 master 或者 feature 中包含的但不是两者共有的提交：<code>git log master...feature</code> </li>
-<li>增加 –left-right 选项可以显示每个提交到底处于哪一侧的分支</li>
-</ol>
-</li>
-<li><strong>多点</strong>：<ol>
-<li>^ 字符或者 –not 来指明你不希望提交被包含其中的分支（以下命令等价）<ol>
-<li>git log refA..refB</li>
-<li>git log ^refA refB</li>
-<li>git log refB –not refA</li>
-</ol>
-</li>
-</ol>
-</li>
-</ol>
-</li>
-</ol>
-<p><strong>概念</strong></p>
-<ol>
-<li>本地跟踪分支、远程跟踪分支、远程分支 （pull = fetch + merge）</li>
-</ol>
-<hr>
-<h3 id="其他知识点补充"><a href="#其他知识点补充" class="headerlink" title="其他知识点补充"></a><strong>其他知识点补充</strong></h3><ol>
-<li><p>变基 &amp; git merge 区别、commitId 的时间线是否有序</p>
-<ol>
-<li>变基：以另一个分支为基底分支，保留基底分支在共同祖先之后的提交，再将两个分支<strong>最近的</strong>一个<strong>共同祖先</strong>之后的属于”当前变基操作分支”的提交点，<strong>重做</strong>到基底分支上(<strong>commitId会发生变化</strong>)，均作为当前变基操作分支的内容。</li>
-<li>变基后将内容merge 到另一个分支时会丢失该分支提交历史</li>
-</ol>
-</li>
-<li><p>git rebase –onto master &lt;开始的commitId&gt; &lt;结束的commitId&gt; （游离指针 HEAD)</p>
-<ol>
-<li>git rebase master feature ：将feature分支以master作为基底分支，将feature分支上在共同祖先之后的提交点重做一遍 （省去切换分支到feature上的操作）</li>
-<li>git rebase –onto master feature feature-child1 ：将feature分支以master作为基底分支，将feature分支上在共同祖先之后的提交点重做一遍，但暂时并不想合并 feature-child1 中的修改 （feature-child1一般是feature的子分支）</li>
-</ol>
-</li>
-<li><p>Git 合并两个分支时，<strong>如果顺着一个分支走下去可以到达另一个分支的话</strong>，那么 Git 在合并两者时，只会简单地把指针右移，叫做“快进”（fast-forward）（<strong>如果不能到达另一个分支，则会执行 –no-ff</strong> ）</p>
-<ol>
-<li>非ff：Merge made by the ‘recursive’ strategy. （通过“递归”策略进行合并）</li>
-<li>merge 时可以指定提交信息 -m</li>
-</ol>
-</li>
-<li><p>git reset –hard commitId 用于将当前分支指向任意提交点，包括其他分支的提交点</p>
-</li>
-<li><p>git checkout 可以将 HEAD 引用 指向到任意提交点（游离状态-HEAD指针没有指向对象的分支）</p>
-</li>
-<li><p>Git push 时如何避免出现 “Merge branch ‘master’ of …”</p>
-<ol>
-<li>每次从远程分支 pull 新的变动，其实都会执行一次 git merge &lt;远程仓库&gt;/&lt;远程分支&gt;</li>
-<li>git pull = git fetch + git merge ：若你本地的远程跟踪分支落后于远程分支，且在这段时间你还在本地分支进行开发并且做了提交，之后你使用git fetch 拉取远程最新的改动，这个时候你的远程跟踪分支与本地开发分支的提交历史就会产生分叉，执行 git pull 或 git merge origin/master的话就会产生合并记录（**–no-ff**）</li>
-<li>可以使用 git pull –rebase （git fetch + git rebase） 变基方式去除自动生成的 log 信息<ol>
-<li>从 remote 分支拉取更新到本地时，使用 rebase。</li>
-<li>当完成 bug 修复或新功能时，使用 merge 将子分支合并到主分支。</li>
-<li>没有人应该 rebase 一根共享的分支。</li>
-</ol>
-</li>
-</ol>
-</li>
-<li><p>HEAD：</p>
-<ol>
-<li>HEAD就是当前活跃分支的游标。</li>
-<li>HEAD并非只能指向分支的最顶端，实际上它可以指向任何一个提交节点，它就是 Git内部用来追踪当前位置的东东。</li>
-</ol>
-</li>
-<li><p><code>git checkout -b mybranch origin/mybranch</code> (可以指定本地分支名)</p>
-<p>= <code>git checkout --track origin/mybranch</code></p>
-<p>= <code>git checkout origin/mybranch</code> </p>
-</li>
-<li><p>查看某次提交的改动</p>
-<ol>
-<li><code>git show commitId</code></li>
-</ol>
-</li>
-<li><p>查看二进制对象文件：</p>
-<ol>
-<li>git的底层命令：git cat-file -p HEAD (-p： pretty-print object’s content)</li>
-</ol>
-</li>
-<li><p>通过具体指定一个提交来拉取该文件的对应版本：</p>
-<ol>
-<li><code>git reset eb43bf file.txt</code></li>
-</ol>
-</li>
-<li><p>查看某个文件中内容的更改记录：</p>
-<ol>
-<li>git blame -L 69,82 Makefile （每一行分别来自哪个提交和提交者，-L可以指定行数）</li>
-</ol>
-</li>
-<li><p>二分查找 git bisect</p>
-</li>
-<li><p> <code>--patch</code> 选项</p>
-</li>
-<li><p>打包本地仓库：git bundle create repo.bundle HEAD master</p>
-</li>
-<li><p>git 撤销commit中单个文件的修改：（未验证）</p>
+<p><img src="D:/AppData/YoudaoNote/qqB53912A331D409871E525BE52BFB5C3B/53108c3c75324bfa9aed24f53616ea40/attachment.png" alt="powerDesigner的常用配置及使用技巧 + idea注释模板配置.pdf"></p>
+<p><img src="D:\AppData\YoudaoNote\qqB53912A331D409871E525BE52BFB5C3B\347fd90399f64b9a89582b54b4e61ea0\clipboard.png" alt="img"></p>
+<p><strong>环境变量配置</strong></p>
+<p>给已安装的软件配置快捷方式（软连接），并统一放置在同一文件夹，配置系统环境变量 Path，通过 win键 + R 输入 软件文件名即可快速打开软件</p>
+<p><strong>常用工具下载：</strong></p>
 <ul>
-<li>git log <fileName>（首先查询这个文件的log）</li>
-<li>git reset <commit-id> <fileName> （其次查找到这个文件的上次commit id xxx，并对其进行reset操作）</li>
-<li> git checkout <fileName> 撤销对此文件的修改</li>
-<li>git commit –amend + git push origin <remoteBranch> （最后amend一下，再push上去）</li>
+<li><p>有道云笔记</p>
+</li>
+<li><p>接口测试工具</p>
+</li>
+<li><ul>
+<li>postman （在线postman亦可）</li>
+<li>jmeter</li>
 </ul>
 </li>
-</ol>
-<hr>
-<h3 id="Git开发工作流"><a href="#Git开发工作流" class="headerlink" title="Git开发工作流"></a>Git开发工作流</h3><p><a target="_blank" rel="noopener" href="https://juejin.im/post/6844903635533594632#heading-0">https://juejin.im/post/6844903635533594632#heading-0</a></p>
-<ol>
-<li>可以 <strong>在本地</strong> 随便重写历史记录（推送到远程公共分支之前）。 但是在对提交内容感到满意并准备与他人分享之前，应当避免推送你的工作。</li>
-</ol>
-<h3 id="GIt工具"><a href="#GIt工具" class="headerlink" title="GIt工具"></a>GIt工具</h3><ol>
-<li><p>如何选择修订版本（即提交点）</p>
-<ol>
-<li><strong>简短的 SHA-1</strong>：可使用简短的 SHA-1来指定唯一的修订版本</li>
-<li><strong>祖先引用</strong>：使用 ~ 或者 ^ 指定上一个父提交，~n 或者 ^ n指向前N个父提交，用法如下<ol>
-<li>HEAD~3：当前HEAD指针指向的提交点的第三父提交</li>
-<li>commitId~~：该提交点的第二父提交点</li>
-</ol>
+<li><p>vs code</p>
 </li>
-</ol>
+<li><p>Tim、钉钉    </p>
 </li>
-<li><p>交互式暂存 <code>git add -i</code> 更友好的操作界面</p>
+<li><p>google浏览器</p>
 </li>
-<li><p>贮藏与清理</p>
-<ol>
-<li>从贮藏创建一个分支：git stash branch testchanges</li>
-<li>清理工作目录：<ol>
-<li>git clean；默认情况下，git clean 命令只会移除没有忽略的未跟踪文件。 </li>
-<li>git clean -i：交互式清理</li>
-<li> git clean -f -d：移除工作目录中所有未追踪的文件以及空的子目录。</li>
-<li>git clean -n（或者–dry-run）：“做一次演习然后告诉你 将要 移除什么”；要查看空目录需加上-d选项</li>
-</ol>
+<li><p>Listary File Search &amp; App Launcher</p>
 </li>
-</ol>
+<li><p>cmder</p>
 </li>
-<li><p>重写历史：</p>
-<ol>
-<li>修改提交记录：git rebase -i （可以压缩提交或者拆分提交）<ol>
-<li>squash 压缩提交到前一次提交</li>
-<li>edit 进入对应提交点上，可以在做相应修改并提交到历史线上。</li>
-</ol>
+<li><ul>
+<li><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/5b7c985240a7">https://www.jianshu.com/p/5b7c985240a7</a></li>
+</ul>
 </li>
-<li>修改大批量的提交：(<strong>未测试通过</strong>)<ol>
-<li>删除某次提交中引入的某个文件（如密码文件），且在所有的提交点中都恢复不了该文件： <code>git filter-branch --tree-filter &#39;rm -f passwords.txt&#39; HEAD</code></li>
-</ol>
+<li><p>7z</p>
 </li>
-</ol>
+<li><p>iobot uninstaller</p>
 </li>
-<li><p>关于重置（ <code>reset</code> 和 <code>checkout</code>）</p>
-<ol>
-<li>首先要了解git中的三棵树：</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">HEAD</span><br><span class="line">上一次提交的快照，下一次提交的父结点</span><br><span class="line">Index</span><br><span class="line">预期的下一次提交的快照</span><br><span class="line">Working Directory</span><br><span class="line">沙盒</span><br></pre></td></tr></table></figure>
-
-<ol start="2">
-<li><strong>HEAD</strong> 是当前分支引用的指针，它总是指向该分支上的最后一次提交。这表示 HEAD 将是下一次提交的父结点。通常，理解 HEAD 的最简方式，就是将它看做 该分支上的最后一次提交 的快照。<ol>
-<li>递归查看树结构：git ls-tree -r HEAD</li>
-<li>查看二进制对象文件：git的底层命令：git cat-file -p HEAD (-p： pretty-print object’s content)</li>
-</ol>
+<li><p>ditto</p>
 </li>
-<li><strong>索引</strong>是你的 预期的下一次提交。 <ol>
-<li>Git 将上一次检出到工作目录中的所有文件填充到索引区，它们看起来就像最初被检出时的样子。（<strong>git的每次提交都是全量文件的快照</strong>） 之后你会将其中一些文件替换为新版本，接着通过 git commit 将它们转换为树来用作新的提交。</li>
-<li>git ls-files -s</li>
-</ol>
-</li>
-<li>可以把<strong>工作目录</strong>当做 沙盒。<ol>
-<li>HEAD、索引树 将工作区的文件的内容存储在 .git 文件夹中。而工作目录会将它们解包为实际的文件以便编辑。</li>
-<li>在将修改提交到暂存区并记录到历史之前，可以随意更改工作目录的文件内容。</li>
-</ol>
-</li>
-<li><strong>切换分支或克隆的过程：</strong>当检出一个分支时，它会修改 <strong>HEAD</strong> 指向新的分支引用，将 <strong>索引</strong> 填充为该次提交的快照， 然后将 <strong>索引</strong> 的内容复制到 <strong>工作目录</strong> 中。</li>
-<li>git reset 到底做了什么？<ol>
-<li>先了解文件提交到版本库的链路：工作树 -&gt; 索引树 -&gt; 对象区(HEAD所指向)；回退的链路则反之</li>
-<li>移动 HEAD的指向：与改变 HEAD 自身不同（checkout 所做的）；reset 移动 HEAD 指向的分支所指向的提交点。（<strong>可以理解为，HEAD是一个引用/指针，指针指向分支对象，相当于HEAD的实际对象是分支对象，reset 是修改这个HEAD对象的commitId属性（调用分支对象的setter方法）；而checkout相当于修改HEAD的引用，引用另一个对象</strong>）</li>
-<li>git reset –soft：（移动 HEAD 分支的指向）撤销了上一次 git commit 命令，<strong>然后停止</strong>；HEAD树回退到上一次提交的版本，工作区、索引树不变。</li>
-<li>git reset –mixed：（使索引看起来像 HEAD）撤销 commit、取消暂存 add ，<strong>然后停止</strong></li>
-<li>git reset –hard：（使工作目录看起来像索引）撤销 commit、取消暂存 add ，还原工作区内容</li>
-</ol>
-</li>
-<li>通过具体指定一个提交来拉取该文件的对应版本：<ol>
-<li><code>git reset eb43bf file.txt</code> (更新索引)</li>
-<li><code>git checkout eb43bf file.txt</code>  (更新索引树和工作空间)</li>
-</ol>
-</li>
-</ol>
-</li>
-<li><p>git commit操作逻辑：</p>
-<ol>
-<li>取得索引中的内容并将它保存为一个永久的快照，然后创建一个指向该快照的提交对象</li>
-<li>最后更新 master 来指向本次提交 （HEAD会一直指向当前分支，而该分支会指向最后一次提交的快照（即对象区的内容））</li>
-</ol>
-</li>
-</ol>
+</ul>
+<p><strong>其他</strong></p>
+<p>1、chocolately 包管理工具</p>
+<p>2、steam    xxxxxx</p>
+<p>3、xbox</p>
+<p>4、docker for windows</p>
+<p>5、Moboxterm 全 能终端神器</p>
+<p>6、spacesniffer (磁盘空间分析工具)</p>
+<p>7、sdkman SDK管理利器</p>
+<p>8、everything 文件名搜索工具，类似Listary</p>
+<p>9、listary File Search &amp; App Launcher</p>
 
       
     </div>
@@ -601,7 +598,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://huangyuye.github.io/2021/04/25/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/20201027-%E5%AE%B9%E5%99%A8&%E5%90%8C%E6%AD%A5&%E5%B9%B6%E5%8F%91%E5%AE%B9%E5%99%A8/">
+    <link itemprop="mainEntityOfPage" href="https://huangyuye.github.io/2021/04/25/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/windows%E5%B7%A5%E5%85%B7/%E7%94%B5%E8%84%91%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -615,7 +612,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2021/04/25/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/20201027-%E5%AE%B9%E5%99%A8&%E5%90%8C%E6%AD%A5&%E5%B9%B6%E5%8F%91%E5%AE%B9%E5%99%A8/" class="post-title-link" itemprop="url">未命名</a>
+            <a href="/2021/04/25/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/windows%E5%B7%A5%E5%85%B7/%E7%94%B5%E8%84%91%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7/" class="post-title-link" itemprop="url">未命名</a>
         </h2>
 
         <div class="post-meta">
@@ -625,7 +622,7 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2021-04-25 13:02:32" itemprop="dateCreated datePublished" datetime="2021-04-25T13:02:32+00:00">2021-04-25</time>
+              <time title="创建时间：2021-04-25 15:32:01" itemprop="dateCreated datePublished" datetime="2021-04-25T15:32:01+00:00">2021-04-25</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -641,7 +638,7 @@
                 </span>
                   ，
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
+                  <a href="/categories/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/windows%E5%B7%A5%E5%85%B7/" itemprop="url" rel="index"><span itemprop="name">windows工具</span></a>
                 </span>
             </span>
 
@@ -656,285 +653,117 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="20201027-并发-amp-同步容器"><a href="#20201027-并发-amp-同步容器" class="headerlink" title="20201027-并发&amp;同步容器"></a>20201027-并发&amp;同步容器</h1><h2 id="名词"><a href="#名词" class="headerlink" title="名词"></a>名词</h2><p>nanos 毫微秒</p>
-<p>nil 零/无</p>
-<p>Deque  双端队列容器</p>
-<h2 id="常用容器相关超类"><a href="#常用容器相关超类" class="headerlink" title="常用容器相关超类"></a>常用容器相关超类</h2><ul>
-<li>Iterator(迭代器)<ul>
-<li>不同类型的集合的操作方法基本上都是使用抽象迭代器来遍历集合元素进行相关操作，需要具体的迭代器实现类来实现迭代细节。（Iterator中没有涉及具体的数据结构和算法）</li>
-</ul>
+          <h2 id="磁盘空间占用分析工具"><a href="#磁盘空间占用分析工具" class="headerlink" title="磁盘空间占用分析工具"></a>磁盘空间占用分析工具</h2><p>spacesniffer（空间嗅探器）</p>
+<h3 id="大文件清单"><a href="#大文件清单" class="headerlink" title="大文件清单"></a>大文件清单</h3><ol>
+<li>C:\pagefile.sys：11.1GB (虚拟内存文件，内存不够时会将数据放到该文件，可以考虑迁移到其他盘符)</li>
+<li>C:\hiberfil.sys：6.3GB</li>
+<li>~\AppData\Local</li>
+</ol>
+<h2 id="中转清单"><a href="#中转清单" class="headerlink" title="中转清单"></a>中转清单</h2><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV137411K7V1/?spm_id_from=333.788.recommend_more_video.-1">https://www.bilibili.com/video/BV137411K7V1/?spm_id_from=333.788.recommend_more_video.-1</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Xt4y1m7r7/?spm_id_from=333.788.recommend_more_video.-1">https://www.bilibili.com/video/BV1Xt4y1m7r7/?spm_id_from=333.788.recommend_more_video.-1</a></p>
+<ol>
+<li><p>cleanmypc 清理垃圾</p>
 </li>
-<li>Collection(单个元素对象的序列，下面三个子接口设计目的：最大程度抽象出元素的操作)<ul>
-<li>List：一个有序的Collection（或者叫做序列）</li>
-<li>Set</li>
-<li>Queue</li>
-</ul>
+<li><p>geek 卸载软件</p>
 </li>
-<li>Map(“键值对”映射表)</li>
-</ul>
-<h3 id="Map（散列表）"><a href="#Map（散列表）" class="headerlink" title="Map（散列表）"></a>Map（散列表）</h3><ul>
-<li>遍历函数<ul>
-<li><strong>keySet：Set<K></strong> （hashSet又由HashMap实现）</li>
-<li>values：Set<V></li>
-<li>entrySet：Set&lt;Map.Entry&lt;K, V&gt;&gt;</li>
-</ul>
+<li><p>snipaste 电脑截图</p>
 </li>
-<li>类型<ul>
-<li>HashMap<ul>
-<li>tab hash数组</li>
-<li>hash冲突链表保存元素</li>
-</ul>
+<li><p>utools 小型应用市场</p>
 </li>
-<li>LinkedHashMap<ul>
-<li>继承HashMap</li>
-</ul>
+<li><p>spacesniffer 磁盘空间占用分析工具</p>
 </li>
-<li>TreeMap</li>
-</ul>
+<li><p>geek uninstaller 软件卸载</p>
 </li>
-</ul>
-<h3 id="List"><a href="#List" class="headerlink" title="List"></a>List</h3><p>函数</p>
+<li><p>Edge 浏览器</p>
+</li>
+<li><p>播放器：PotPlayer</p>
+</li>
+<li><p>notepads</p>
+</li>
+<li><p>杀毒：火绒</p>
+</li>
+<li><p>window 关闭自动更新</p>
+</li>
+<li><p>桌面整理.exe</p>
+</li>
+<li><p>软件下载器：腾讯软件管家、uTools（百宝箱）</p>
+</li>
+<li><p>万彩办公大师</p>
+</li>
+<li><p>截图工具</p>
+<ol>
+<li>shareX</li>
+<li>tim 屏幕录制，截图等</li>
+</ol>
+</li>
+<li><p>图片查看工具：honey view</p>
+</li>
+<li><p>下载器：IDM、NDM</p>
+</li>
+<li><p>输入法：搜狗</p>
+</li>
+<li><p>剪贴板：ditto</p>
+</li>
+<li><p>RST（硬盘优化）</p>
+</li>
+</ol>
+<h2 id="资源搜索"><a href="#资源搜索" class="headerlink" title="资源搜索"></a>资源搜索</h2><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1TN411d7FL/?spm_id_from=333.788.recommend_more_video.3">https://www.bilibili.com/video/BV1TN411d7FL/?spm_id_from=333.788.recommend_more_video.3</a></p>
+<p>一、资源导航网站<br>1、书享家（电子书资源网站导航）：<a target="_blank" rel="noopener" href="http://shuxiangjia.cn/">http://shuxiangjia.cn/</a><br>2、学吧导航（自学资源网站导航）：<a target="_blank" rel="noopener" href="https://www.xue8nav.com/">https://www.xue8nav.com/</a><br>3、科塔学术（学术资源网站导航）：<a target="_blank" rel="noopener" href="https://site.sciping.com/">https://site.sciping.com/</a><br>4、HiPPTer（PPT资源网站导航）：<a target="_blank" rel="noopener" href="http://www.hippter.com/">http://www.hippter.com/</a><br>5、Seeseed（设计素材资源导航）：<a target="_blank" rel="noopener" href="https://www.seeseed.com/">https://www.seeseed.com/</a></p>
+<p>二、工具导航网站<br>1、阿猫阿狗导航（互联网工具导航）：<a target="_blank" rel="noopener" href="https://dh.woshipm.com/">https://dh.woshipm.com/</a><br>2、创造狮（互联网工具导航）：<a target="_blank" rel="noopener" href="http://chuangzaoshi.com/index">http://chuangzaoshi.com/index</a><br>3、addog（广告营销工具导航）：<a target="_blank" rel="noopener" href="https://www.addog.vip/">https://www.addog.vip/</a><br>4、199it（数据导航）：<a target="_blank" rel="noopener" href="http://hao.199it.com/">http://hao.199it.com/</a><br>5、雪球导航（财经工具导航）：<a target="_blank" rel="noopener" href="https://xueqiu.com/dh">https://xueqiu.com/dh</a><br>6、打假导航（国家部门导航）：<a target="_blank" rel="noopener" href="http://www.dajiadaohang.com/">http://www.dajiadaohang.com/</a><br>7、搜狗网址导航（地方部门导航）：<a target="_blank" rel="noopener" href="http://123.sogou.com/diqu/">http://123.sogou.com/diqu/</a></p>
+<p>三、聚合搜索平台<br>1、一个开始：<a target="_blank" rel="noopener" href="https://aur.one/">https://aur.one</a><br>2、虫部落：<a target="_blank" rel="noopener" href="https://search.chongbuluo.com/">https://search.chongbuluo.com/</a></p>
+<h2 id="电脑壁纸"><a href="#电脑壁纸" class="headerlink" title="电脑壁纸"></a>电脑壁纸</h2><ol>
+<li><p>wallpaper engine （对标 火萤、upupoo）</p>
 <ul>
-<li>add()：<ul>
-<li>modCount ++ </li>
-<li>扩容检查（涉及数组复制）</li>
+<li>steam（游戏工厂）下载</li>
 </ul>
 </li>
-<li>remove()：<ul>
-<li>modCount++;</li>
-<li>把需要删除index后面的都往前移一位然后再把最后一个去掉。<ul>
-<li>numMoved = size - index - 1</li>
-<li>System.arraycopy(elementData, index+1, elementData, index, numMoved)</li>
-<li>elementData[–size] = null; </li>
-</ul>
+<li><p>雨滴桌面</p>
 </li>
-</ul>
-</li>
-</ul>
-<p>有序，可以重复</p>
-<p>List包含特殊的遍历器：ListIterator，支持双向访问、允许从一个指定位置开始遍历</p>
-<p><strong>ArrayList 继承了AbstractList且实现了List，但是AbstractList已经实现了List</strong></p>
-<p><strong>AbstractList 内部类：</strong>Itr implements ListIterator；ListItr extends  Itr</p>
-<p>equals 和 contains方法都使用了迭代器遍历来实现</p>
-<h2 id="Set"><a href="#Set" class="headerlink" title="Set"></a>Set</h2><ul>
-<li>HashSet<ul>
-<li><strong>使用HashMap实现</strong>，value是默认对象</li>
-</ul>
-</li>
-<li>LinkedHashSet<ul>
-<li>继承hashSet</li>
-<li>使用LinkedHashMap实现</li>
-<li>LinkedHashSet会根据add，remove这些操作的顺序在遍历时返回固定的集合顺序。这个顺序不是元素的大小顺序，而是可以保证2次遍历的顺序是一样的。</li>
-</ul>
-</li>
-<li>TreeSet<ul>
-<li>TreeSet内的元素必须实现Comparable接口</li>
-</ul>
-</li>
-</ul>
-<h2 id="抽象类"><a href="#抽象类" class="headerlink" title="抽象类"></a>抽象类</h2><p>AbstractCollection<E>;、AbstractMap&lt;K,V&gt;、AbstractList<E>和AbstractSet<E></p>
-<p>各个集合的关键区别就在每个集合所使用的数据结构和算法上，所以在<strong>抽象类</strong>层面都没有涉及具体的数据结构和算法，只对操作这些数据结构的方法做了基本实现。</p>
-<h2 id="AbstractList"><a href="#AbstractList" class="headerlink" title="AbstractList"></a>AbstractList<E></h2><p><strong>AbstractList 内部类：</strong>Itr implements ListIterator；ListItr extends  Itr</p>
-<h2 id="AbstractMap-lt-K-V-gt"><a href="#AbstractMap-lt-K-V-gt" class="headerlink" title="AbstractMap&lt;K,V&gt;"></a>AbstractMap&lt;K,V&gt;</h2><p>implements Map&lt;K,V&gt;，实现了除entrySet()方法外的基本所有方法；</p>
-<p>返回键集的Set<K> keySet()和返回值集的Collection<V> values()：返回来一个实现Set<K>或Collection<V>的类对象，类对象的所有操作都是在原映射表的基础上进行的，这种操作叫视图。（重写AbstractSet的一个匿名内部类返回）</p>
-<h2 id="ArrayList-amp-LinkList"><a href="#ArrayList-amp-LinkList" class="headerlink" title="ArrayList &amp; LinkList"></a>ArrayList &amp; LinkList</h2><p>ArrayList<E>通过数组实现：数组中元素间的内存地址是连续的、只能存储一种类数据类型的元素。数组长度固定</p>
-<p>LinkList<E>使用了双向链表；LinkList继承了Deque<E>接口，实现<strong>双端队列</strong>头尾进出的特点。</p>
-<p>链表的特点：长度不固定，可以随时增加和减少、链表中的元素在内存地址上可以是连续的，也可以是不连续的</p>
-<p>ArrayList 继承了AbstractList且实现了List</p>
-<p>ArrayList  在添加元素之前会进行容量检查；扩容目标容量大小为原容量的1.5倍；扩容涉及数组的复制</p>
-<p>在遍历元素上ArrayList<E>存在更有效的方式，他实现了RandomAccess接口，代表ArrayList<E>支持快速访问。 RandomAccess本身是一个空接口，这种接口一般用来代表一类特征，RandomAccess代表实现类具有快速访问的特征。</p>
-<p>LinkedList 添加对象时需要创建Node对象而开辟内存空间；</p>
-<p>LinkedList元素在将元素插入到链表中间位置的场景耗时很久；插入到头部最快。</p>
-<p>LinkedList添加第一个元素的时候，first=last=newNode;</p>
-<p>LinkedList add(i, ele)时，将下标为i的元素的prev元素节点（如果为null，则ele为first节点），作为ele的prev元素节点，当前元素ele的next节点指向下标为i的元素；再将下标为i的元素的节点的prev元素节点指向当前元素ele；（linkBefore）</p>
-<p>LinkedList根据下标i索引元素的方式：对比下标跟链表长度的一半，判断是在前半部分还是后半部分，若是前半部分，则从first节点向后遍历；否则从last节点前序遍历</p>
-<p><strong>问题：</strong></p>
-<p>1、为什么链表将元素插入到链表中间位置耗时最近？</p>
-<p>2、为很么链表将元素插入到链表头部的时间与插入到尾部的时间不一致？</p>
-<h2 id="红黑树、TreeMap与TreeSet"><a href="#红黑树、TreeMap与TreeSet" class="headerlink" title="红黑树、TreeMap与TreeSet"></a>红黑树、TreeMap与TreeSet</h2><p>Map&amp;Set: 不能添加重复元素的集，不能通过索引来访问的集; (由数组实现的散列表+链表/红黑树)</p>
-<p>Set由Map实现,但是Set继承自Collection集合,而map为键值映射</p>
-<p>TreeMap: 每次put元素时会遍历比较key值,优先使用比较器进行比较,后使用默认的compareTo方法比较;<strong>TreeMap.Entry</strong> implements Map.Entry, 即红黑树</p>
-<h2 id="CopyOnWriteList"><a href="#CopyOnWriteList" class="headerlink" title="CopyOnWriteList"></a>CopyOnWriteList</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">List&lt;Integer&gt; list = <span class="keyword">new</span> CopyOnWriteList&lt;&gt;(); <span class="comment">// list引用地址 #list001, list.array引用地址 # array001</span></span><br><span class="line">list.add(<span class="number">1</span>);</span><br><span class="line">list.sort(Integer.compareTo()); <span class="comment">// list引用地址不变，list.array引用地址 #array002</span></span><br><span class="line">list.add(<span class="number">2</span>); <span class="comment">// list引用地址不变，list.array引用地址 #array003</span></span><br></pre></td></tr></table></figure>
-
-<ol>
-<li>ArrayList 在add元素时不会修改数组的指向</li>
-<li>ArrayList 和 CopyOnWriteList 在sort时都会修改数组的指向</li>
-<li>ArrayList 在使用iterator遍历时，首先会记录当前list修改操作的次数n，后续遍历执行next()时会检查n是否修改，如果修改，则抛出ConcurrentModificationException（遍历外部类的最新数组）；CopyOnWriteList 则能正常遍历，因为遍历的是旧的引用数组。</li>
 </ol>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://huangyuye.github.io/2021/04/25/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/20201031-springCloud%E5%BE%AE%E6%9C%8D%E5%8A%A1/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="yuye Huang">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="HYY">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/04/25/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/20201031-springCloud%E5%BE%AE%E6%9C%8D%E5%8A%A1/" class="post-title-link" itemprop="url">未命名</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-04-25 13:02:32" itemprop="dateCreated datePublished" datetime="2021-04-25T13:02:32+00:00">2021-04-25</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/" itemprop="url" rel="index"><span itemprop="name">知识库</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="spring-技术体系演变"><a href="#spring-技术体系演变" class="headerlink" title="spring 技术体系演变"></a>spring 技术体系演变</h2><ol>
-<li>spring</li>
-<li>springboot</li>
-<li>spring cloud netflix</li>
-<li>spring cloud alibaba （微服务开发的一站式解决方案）</li>
-</ol>
-<h2 id="nacos"><a href="#nacos" class="headerlink" title="nacos"></a>nacos</h2><ul>
-<li><p>配置管理</p>
-</li>
-<li><p>服务管理</p>
-</li>
-</ul>
-<p>服务注册中心 + 配置中心（涉及CAP理论）</p>
-<h2 id="feign"><a href="#feign" class="headerlink" title="feign"></a>feign</h2><p>feign = ribbon + hystricx</p>
-<p>feign 对微服务的调用实际上也是类似使用 restTemplate 进行http 调用，只是进行了封装。</p>
-<h2 id="gateway-amp-feign"><a href="#gateway-amp-feign" class="headerlink" title="gateway &amp; feign"></a>gateway &amp; feign</h2><p>gateway(API路由管理方式)： 提供统一的路由方式，基于filter链的方式提供网关基本功能（如安全、监控/指标，和限流）</p>
-<h2 id="sentinal"><a href="#sentinal" class="headerlink" title="sentinal"></a>sentinal</h2><p>以流量为切入点，从流量控制、熔断降级、系统负载保护等多维度保护服务的稳定性</p>
-<p>sentinal的限流配置可以与nacos配合使用（除此之外，sentinal还有很多配置的持久化方式）</p>
-<h2 id="fescar"><a href="#fescar" class="headerlink" title="fescar"></a>fescar</h2><p>即seata，分布式事务解决方案</p>
-<h2 id="skywalking"><a href="#skywalking" class="headerlink" title="skywalking"></a>skywalking</h2><p>服务链路追踪</p>
-<p>常见的<strong>APM</strong>系统对比：zipkin vs pinpoint vs skywalking （Application Performance Management应用性能管理）</p>
-<h2 id="gateway、sentinal、feign的关系和配合？？"><a href="#gateway、sentinal、feign的关系和配合？？" class="headerlink" title="gateway、sentinal、feign的关系和配合？？"></a>gateway、sentinal、feign的关系和配合？？</h2>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://huangyuye.github.io/2021/04/25/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/20201110-smartDoc/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="yuye Huang">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="HYY">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/04/25/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/20201110-smartDoc/" class="post-title-link" itemprop="url">未命名</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-04-25 13:02:32" itemprop="dateCreated datePublished" datetime="2021-04-25T13:02:32+00:00">2021-04-25</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/" itemprop="url" rel="index"><span itemprop="name">知识库</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="smart-doc-实践"><a href="#smart-doc-实践" class="headerlink" title="smart-doc 实践"></a>smart-doc 实践</h2><h3 id="maven-插件原理"><a href="#maven-插件原理" class="headerlink" title="maven 插件原理"></a>maven 插件原理</h3><p><strong>场景1：</strong></p>
 <ul>
-<li>pom文件未指定包含插件 xxxPlugin </li>
-<li>执行maven命令的时候时候会提示 xxxPlugin.jar 不存在</li>
+<li>链接<ul>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/48499093">https://zhuanlan.zhihu.com/p/48499093</a></li>
+<li><a target="_blank" rel="noopener" href="https://bbs.rainmeter.cn/">https://bbs.rainmeter.cn/</a></li>
 </ul>
+</li>
+<li>定制桌面，也可以整理桌面（可安装dock插件）：</li>
+<li>RocketDock : 简化任务栏</li>
+</ul>
+<ol start="3">
+<li>桌面专业整理工具：fences</li>
+</ol>
+<ul>
+<li>（对标腾讯桌面整理、蜂窝桌面整理）</li>
+<li>steam 收费下载</li>
+</ul>
+<ol start="4">
+<li>透明任务栏:打开windows商店搜索translucentTB（可对标RocketDock）</li>
+</ol>
+<ul>
+<li>TranslucentTB汉化版软件 链接：<a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1B7_yNt1NuGteK93BXay8jg">https://pan.baidu.com/s/1B7_yNt1NuGteK93BXay8jg</a> 提取码：2fe1</li>
+</ul>
+<ol start="5">
+<li>致美化<ul>
+<li>素材网站</li>
+</ul>
+</li>
+<li>屏保<ol>
+<li>Fliqlo：<a target="_blank" rel="noopener" href="https://www.screensaversplanet.com/screensavers/fliqlo-flip-clock-314/">https://www.screensaversplanet.com/screensavers/fliqlo-flip-clock-314/</a></li>
+</ol>
+</li>
+</ol>
+<p>RocketDock下载链接：<a target="_blank" rel="noopener" href="https://share.weiyun.com/5m8MbTX">https://share.weiyun.com/5m8MbTX</a> 密码：53ppwy<br>TranslucentTB下载链接：<a target="_blank" rel="noopener" href="https://share.weiyun.com/5kire7w">https://share.weiyun.com/5kire7w</a> 密码：f8qasr<br>StartIsBack下载链接：<a target="_blank" rel="noopener" href="https://share.weiyun.com/5FHacKV">https://share.weiyun.com/5FHacKV</a> 密码：sqmuid<br>我的世界鼠标指针下载链接：<a target="_blank" rel="noopener" href="https://share.weiyun.com/5am70hU">https://share.weiyun.com/5am70hU</a> 密码：9kf88e</p>
+<h2 id="电脑重装"><a href="#电脑重装" class="headerlink" title="电脑重装"></a>电脑重装</h2><p>deepin：<a target="_blank" rel="noopener" href="https://www.deepin.org/zh/">https://www.deepin.org/zh/</a></p>
+<h2 id="电脑跑分"><a href="#电脑跑分" class="headerlink" title="电脑跑分"></a>电脑跑分</h2><p>MSI afterburner（官网下载）：<a target="_blank" rel="noopener" href="http://download-cn.msi.com/uti_exe/vga/MSIAfterburnerSetup.zip">http://download-cn.msi.com/uti_exe/vga/MSIAfterburnerSetup.zip</a></p>
+<p>Aida64（官网试用版，有功能限制）：<a target="_blank" rel="noopener" href="http://download.aida64.com/aida64extreme620.exe">http://download.aida64.com/aida64extreme620.exe</a></p>
+<p>Aida64（网络绿色版）：<a target="_blank" rel="noopener" href="http://cr2.197946.com/aida64extreme_build_5157_xbnj9z3mdy.zip">http://cr2.197946.com/aida64extreme_build_5157_xbnj9z3mdy.zip</a></p>
+<p>AS SSD （官网英文版）：<a target="_blank" rel="noopener" href="https://www.alex-is.de/PHP/fusion/downloads.php?cat_id=4&amp;file_id=9">https://www.alex-is.de/PHP/fusion/downloads.php?cat_id=4&amp;file_id=9</a><br>AS SSD （网络汉化版）：<a target="_blank" rel="noopener" href="http://forspeed.onlinedown.net/down/newdown/3/12/AS%20SSD%20Benchmark%202.0.7316.34247.zip">http://forspeed.onlinedown.net/down/newdown/3/12/AS%20SSD%20Benchmark%202.0.7316.34247.zip</a></p>
+<p>Crystal DiskMark（官网下载）：<a target="_blank" rel="noopener" href="https://zh.osdn.net/frs/redir.php?m=xtom_us&amp;f=crystaldiskmark/71859/CrystalDiskMark7_0_0hShizuku.zip">https://zh.osdn.net/frs/redir.php?m=xtom_us&amp;f=crystaldiskmark%2F71859%2FCrystalDiskMark7_0_0hShizuku.zip</a></p>
+<p>HD tune Pro（官网15天试用版）：<a target="_blank" rel="noopener" href="http://www.hdtune.com/files/hdtunepro_575_trial.exe">http://www.hdtune.com/files/hdtunepro_575_trial.exe</a></p>
+<p>3D Mark（官网）：<a target="_blank" rel="noopener" href="https://www.3dmark.com/">https://www.3dmark.com/</a></p>
+<h2 id="程序员软件"><a href="#程序员软件" class="headerlink" title="程序员软件"></a>程序员软件</h2><p>1、抓包工具 charles （或fiddler）</p>
+<p>2、远程连接工具：xshell 家庭版</p>
+<p>3、在线 http 请求工具：postwoman</p>
 
       
     </div>
@@ -954,7 +783,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://huangyuye.github.io/2021/04/25/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/20201124-%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/">
+    <link itemprop="mainEntityOfPage" href="https://huangyuye.github.io/2021/04/25/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/%E5%89%8D%E7%AB%AF/%E9%A1%B9%E7%9B%AE%E5%9B%BE%E7%89%87%E5%BC%95%E7%94%A8/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -968,7 +797,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2021/04/25/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/20201124-%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/" class="post-title-link" itemprop="url">未命名</a>
+            <a href="/2021/04/25/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/%E5%89%8D%E7%AB%AF/%E9%A1%B9%E7%9B%AE%E5%9B%BE%E7%89%87%E5%BC%95%E7%94%A8/" class="post-title-link" itemprop="url">未命名</a>
         </h2>
 
         <div class="post-meta">
@@ -978,7 +807,105 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2021-04-25 13:02:32" itemprop="dateCreated datePublished" datetime="2021-04-25T13:02:32+00:00">2021-04-25</time>
+              <time title="创建时间：2021-04-25 15:32:01" itemprop="dateCreated datePublished" datetime="2021-04-25T15:32:01+00:00">2021-04-25</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/" itemprop="url" rel="index"><span itemprop="name">知识库</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">前端</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="项目图片引用"><a href="#项目图片引用" class="headerlink" title="项目图片引用"></a>项目图片引用</h2><ol>
+<li>阿里巴巴矢量图（iconfont字体图标）<ol>
+<li>上传图标到矢量库</li>
+<li>项目中引用：@font-face {}</li>
+<li>根据矢量库图标对应编号使用字体图标</li>
+</ol>
+</li>
+<li>svg图片<ol>
+<li>Scalable Vector Graphics，意思为可缩放的矢量图形</li>
+<li>使用 XML 格式定义图形：用文本工具打开svg图片时内容为xml格式</li>
+<li>在放大或改变尺寸的情况下其图形质量不会有所损失</li>
+<li><strong>svg图片格式可上传到阿里巴巴矢量库</strong>：<ol>
+<li>下载原文件 图标制作模板.AI -&gt;  设置图标大小 -&gt; 存储为svg格式（建议使用存储为svg，不要使用导出为svg）-&gt; 上传图标到阿里矢量库 -&gt; 命名图标及定义图标标签，完成上传</li>
+<li><a target="_blank" rel="noopener" href="https://www.iconfont.cn/help/detail?spm=a313x.7781069.1998910419.d1c73b2de&amp;helptype=draw&amp;step=">https://www.iconfont.cn/help/detail?spm=a313x.7781069.1998910419.d1c73b2de&amp;helptype=draw&amp;step=</a></li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+<p><strong>域名收敛</strong>.</p>
+<p>PC 时代为了突破浏览器的域名并发限制。有了域名发散。浏览器有并发限制，是为了防止DDOS攻击。</p>
+<p>域名收敛：将静态资源放在一个域名下。减少DNS解析的开销。</p>
+<p>域名发散：是将静态资源放在多个子域名下，就可以多线程下载，提高并行度，使客户端加载静态资源更加迅速。</p>
+<p>域名发散是pc端为了利用浏览器的多线程并行下载能力。而域名收敛多用与移动端，提高性能，因为dns解析是从后向前迭代解析，如果域名过多性能会下降，增加DNS的解析开销。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://huangyuye.github.io/2021/04/25/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/20200819-%E5%AF%B9%E8%B1%A1%E5%BA%8F%E5%88%97%E5%8C%96/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="yuye Huang">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="HYY">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/04/25/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/20200819-%E5%AF%B9%E8%B1%A1%E5%BA%8F%E5%88%97%E5%8C%96/" class="post-title-link" itemprop="url">未命名</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-04-25 15:32:01" itemprop="dateCreated datePublished" datetime="2021-04-25T15:32:01+00:00">2021-04-25</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -1009,38 +936,200 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p><strong>单元测试</strong></p>
-<p>单元测试是指对软件中的<strong>最小可测单元</strong>进行检查和验证；</p>
-<p>根据测试金字塔原理，越往上层的测试，所需测试投入比例越大，效果也越差。单测成本小，且更容易发现问题。（效果：单元测试 &gt; 集成测试 &gt; UI测试）</p>
-<p><strong>分层测试</strong></p>
-<p>Service =&gt; Biz层 =&gt; （外部服务访问层、DAO层、Redis访问层）</p>
-<p>每一层均使用mock 框架屏蔽下层的具体实现。</p>
-<p><strong>单元测试过程</strong></p>
-<p>数据准备 =&gt; 构造参数（+打桩）=&gt; 执行测试 =&gt; 结果验证 =&gt; 清理（必要）</p>
+          <h2 id="对象序列化概念"><a href="#对象序列化概念" class="headerlink" title="对象序列化概念"></a>对象序列化概念</h2><p><strong>把变量对象从内存中变成可存储或传输的过程称之为序列化。(字节序列)</strong></p>
+<p>序列化之后，就可以把序列化后的内容写入磁盘，或者通过网络传输到别的机器上。</p>
+<p>对象的“序列化”并没有保存对象所有的内容，而仅仅保留了对象的属性，没有保留对象的方法。</p>
+<ul>
+<li>使用    ObjectOutputStream流 写一个被实例化的对象</li>
+</ul>
+<p><strong>把变量内容从序列化的对象重新读到内存里称之为反序列化。</strong></p>
+<ul>
+<li>使用 ObjectInputStream流 可以直接把被序列化的对象给反序列化出来。</li>
+<li>当一个对象被反序列化时，这个对象的构造函数将不会在被调用的。</li>
+</ul>
+<h2 id="Serializable接口-amp-serialVersionUID"><a href="#Serializable接口-amp-serialVersionUID" class="headerlink" title="Serializable接口 &amp; serialVersionUID"></a><strong>Serializable接口 &amp; serialVersionUID</strong></h2><ul>
+<li><p>serialVersionUID 用于解决对象序列化和反序列化的版本兼容问题.</p>
 <ol>
-<li>数据准备：测试用例需要依赖一些数据，数据来源一般是数据库，而又不能依赖DAO层的代码，需要使用原生jdbc去插入数据，<strong>测试代码编写效率低</strong></li>
-<li>构造参数：入参赋值（<strong>代码行数多</strong>）</li>
-<li>执行测试：直接调用被测方法</li>
-<li>结果验证：验证方法的返回值、数据库数据是否正确、某外部方法是否被调用过n次等</li>
-<li>必要的清理：对打桩进行清理、对数据库脏数据进行清理</li>
+<li><strong>类的serialVersionUID的默认值</strong>完全依赖于Java编译器的实现，对于同一个类，用不同的Java编译器编译，有可能会导致不同的 serialVersionUID，也有可能相同。为了提高serialVersionUID的独立性和确定性，强烈建议在一个可序列化类中显示的定义serialVersionUID，为它赋予明确的值。</li>
+<li><strong>显式地定义serialVersionUID有两种用途：</strong><ol>
+<li>在某些场合，希望类的不同版本对序列化兼容，因此需要确保类的不同版本具有相同的serialVersionUID；</li>
+<li>在某些场合，不希望类的不同版本对序列化兼容，因此需要确保类的不同版本具有不同的serialVersionUID。</li>
 </ol>
-<p><strong>痛点</strong></p>
+</li>
+</ol>
+</li>
+</ul>
+<ul>
+<li><p>Serializable是<a href="https://link.zhihu.com/?target=http://java.io">http://java.io</a>包中定义的、用于实现Java类的序列化操作而提供的一个<strong>语义级别</strong>的接口。Serializable序列化接口没有任何方法或者字段，只是用于标识可序列化的语义。实现了Serializable接口的类可以被ObjectOutputStream转换为字节流，同时也可以通过ObjectInputStream再将其解析为对象。</p>
+</li>
+<li><ol>
+<li>序列化保存的是对象的状态，静态变量属于类的状态，因此 序列化并不保存静态变量。</li>
+<li>如果父类已经实现了Serializable序列化接口的话，其子类就不用再实现这个接口了，但是反过来就不成立了。</li>
+</ol>
+</li>
+</ul>
+<h2 id="自定义序列化"><a href="#自定义序列化" class="headerlink" title="自定义序列化"></a>自定义序列化</h2><p>实现<strong>Externalizable</strong>接口</p>
+<p>相对于Serializable接口的区别：实现该接口会调用无参构造方法</p>
+<p>使用场景：对某些敏感数据进行加密操作后再序列化；反序列化对加密数据进行解密操作。</p>
+<h2 id="阻止序列化"><a href="#阻止序列化" class="headerlink" title="阻止序列化"></a>阻止序列化</h2><p>阻止<strong>非静态属性</strong>的序列化，用transient关键词修饰</p>
+<h2 id="可序列化的场景-amp-条件"><a href="#可序列化的场景-amp-条件" class="headerlink" title="可序列化的场景&amp;条件"></a>可序列化的场景&amp;条件</h2><ol>
+<li>父类已经实现了Serializable序列化接口（递归）</li>
+<li>非静态的数据成员才会通过序列化操作被序列化</li>
+<li>未被<strong>transient</strong>标记的数据成员</li>
+<li>子类是可序列化的，其父类不是可序列化的，但是其父类有无参的构造函数，可支持序列化，但子类继承自父类中的成员不会序列化输出到文件/网络。</li>
+</ol>
+<h3 id="关于无参构造函数"><a href="#关于无参构造函数" class="headerlink" title="关于无参构造函数"></a>关于无参构造函数</h3><ol>
+<li><p>单一对象,无继承关系:若想实现序列化与反序列化,则必须实现序列化接口,否则报异常:NotSerializableException</p>
+</li>
+<li><p>对象间有继承关系,但无引用关系,若想实现序列化与反序列化,则父类必须实现序列化接口或提供无参构造函数,否则报invalidClassException</p>
+</li>
+<li><p>对象间有继承关系,并且有引用关系,若想实现序列化与反序列化,则父类必须实现序列化接口</p>
+</li>
+</ol>
+<h2 id="扩展阅读"><a href="#扩展阅读" class="headerlink" title="扩展阅读"></a>扩展阅读</h2><h3 id="idea-生成serialVersionUID"><a href="#idea-生成serialVersionUID" class="headerlink" title="idea 生成serialVersionUID"></a>idea 生成serialVersionUID</h3><ul>
+<li>Settings &gt; Editor &gt; Inspections &gt; 勾选 Serializable class without ‘serialVersionUID’</li>
+</ul>
+<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/yaomingyang/article/details/79321939">https://blog.csdn.net/yaomingyang/article/details/79321939</a></p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_19782019/article/details/80422143">https://blog.csdn.net/qq_19782019/article/details/80422143</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.ibm.com/developerworks/cn/java/j-5things1/">https://www.ibm.com/developerworks/cn/java/j-5things1/</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/huangdabing/p/9231948.html">https://www.cnblogs.com/huangdabing/p/9231948.html</a></p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/m0_38001814/article/details/86584446">https://blog.csdn.net/m0_38001814/article/details/86584446</a></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://huangyuye.github.io/2021/04/25/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/20200822-Java%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B(%E4%B8%80)/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="yuye Huang">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="HYY">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/04/25/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/20200822-Java%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B(%E4%B8%80)/" class="post-title-link" itemprop="url">未命名</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-04-25 15:32:01" itemprop="dateCreated datePublished" datetime="2021-04-25T15:32:01+00:00">2021-04-25</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/" itemprop="url" rel="index"><span itemprop="name">知识库</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><h3 id="线程-amp-进程"><a href="#线程-amp-进程" class="headerlink" title="线程&amp;进程"></a>线程&amp;进程</h3><p><strong>进程：</strong>是程序的一次执行过程，是系统运行程序的基本单位</p>
+<p><strong>线程：</strong>比进程更小的执行单位，一个进程的执行过程中会产生多个线程。</p>
+<p><strong>不同点：</strong></p>
 <ol>
-<li>重构代码需要改写大量单元测试用例<ol>
-<li>大量的Service 层单元测试,biz层单元测试都要重写；有时候Service调用biz层接口时，参数传错了，而由于开发人员编写单元测试时不规范，参数匹配使用了 anyxxx()，导致参数传错的bug未被发现。</li>
-</ol>
-</li>
-<li>测试库数据随意修改导致的单元测试不稳定<ol>
-<li>DAO层单元测试直连测试库，由于测试库的数据可以被任意修改，从而导致测试依赖的数据被更改，单元测试不通过，另外开发在编写单元测试时，没有清理意识，导致测试库大量垃圾数据。</li>
-</ol>
-</li>
-<li>单元测试结果校验缺失<ol>
-<li>例如一个SaveItem()接口，执行完成后除了要验证执行成功以外，还应该验证落库数据的正确性，而编写这部分测试代码需要大量的使用原生jdbc 接口查询sql，并逐字段验证正确性，代码编写效率低下。</li>
+<li>进程之间是完全独立的；多个线程共享进程的<strong>堆</strong>和<strong>方法区</strong>资源(线程间可能会相互影响)，但是每个线程有独立的程序计数器、虚拟机栈、本地方法栈。</li>
+<li>线程间切换工作上下文时资源消耗比进程小（被称为轻量级线程）<ol>
+<li>线程执行开销小，但不利于资源的管理和保护</li>
 </ol>
 </li>
 </ol>
-<p><strong>参考文章</strong>-《有赞单元测试实践》</p>
-<p><a target="_blank" rel="noopener" href="https://tech.youzan.com/youzan-test-practice/">https://tech.youzan.com/youzan-test-practice/</a></p>
+<p><strong>问题</strong>：</p>
+<p>程序计数器、虚拟机栈、本地方法栈为什么是私有的？</p>
+<p>首先先来了解<strong>程序计数器</strong>的作用—记住程序线程的运行位置：</p>
+<ol>
+<li>字节码解释器通过改变程序计数器来依次读取指令，从而实现代码的流程控制，如顺序执行、选择、循环</li>
+<li>多线程情况下，程序计数器用于记录当前线程执行位置，从而使得当线程被切换回来时能够知道该线程上次运行到哪里了。</li>
+</ol>
+<p>总结：所以，程序计数器私有主要是为了<strong>线程切换后能恢复到正确的执行位置</strong>。</p>
+<p><strong>虚拟机栈(Java方法)：</strong> 每个 Java 方法在执行的同时会创建一个栈帧用于存储局部变量表、操作数栈、常量池引用等信息。从方法调用直至执行完成的过程，就对应着一个栈帧在 Java 虚拟机栈中入栈和出栈的过程。<br><strong>本地方法栈：</strong> 和虚拟机栈所发挥的作用非常相似，区别是： 虚拟机栈为虚拟机执行 Java 方法 （也就是字节码）服务，而本地方法栈则为虚拟机使用到的 Native 方法服务。 在 HotSpot 虚拟机中和 Java 虚拟机栈合二为一。</p>
+<p>所以，为了<strong>保证线程中的局部变量不被别的线程访问到</strong>，虚拟机栈和本地方法栈是线程私有的。</p>
+<p><strong>堆</strong>和<strong>方法区</strong>是所有线程共享的资源，其中堆是进程中最大的一块内存，主要用于存放新创建的对象 (几乎所有对象都在这里分配内存)，方法区主要用于存放已被加载的类信息、常量、静态变量、即时编译器编译后的代码等数据。</p>
+<h3 id="为什么要使用多线程"><a href="#为什么要使用多线程" class="headerlink" title="为什么要使用多线程"></a>为什么要使用多线程</h3><ol>
+<li>线程间的切换和调度的成本远小于进程</li>
+<li>充分利用多核CPU同时运行多个线程，提高系统并发能力和性能</li>
+</ol>
+<p>单核CPU时代：提高CPU和IO设备的综合利用率</p>
+<p>多核CPU时代：提高CPU利用率</p>
+<h4 id="多线程可能带来的问题"><a href="#多线程可能带来的问题" class="headerlink" title="多线程可能带来的问题"></a>多线程可能带来的问题</h4><ol>
+<li>内存泄漏</li>
+<li>死锁</li>
+<li>线程不安全等</li>
+</ol>
+<h3 id="线程的生命周期和状态"><a href="#线程的生命周期和状态" class="headerlink" title="线程的生命周期和状态"></a>线程的生命周期和状态</h3><ol>
+<li>NEW</li>
+<li>RUNNABLE</li>
+<li>BLOCKED</li>
+<li>WAITING、TIME_WATING</li>
+<li>TERMINATED</li>
+</ol>
+<h4 id="状态切换"><a href="#状态切换" class="headerlink" title="状态切换"></a>状态切换</h4><p>线程创建之后它将处于 <strong>NEW（新建）</strong> 状态，</p>
+<p>调用 <code>start()</code> 方法后开始运行，线程这时候处于 <strong>READY（可运行）</strong> 状态。</p>
+<p>可运行状态的线程获得了 CPU 时间片（timeslice）后就处于 <strong>RUNNING（运行）</strong> 状态。</p>
+<p><code>操作系统隐藏 Java 虚拟机（JVM）中的 READY 和 RUNNING 状态，它只能看到 RUNNABLE 状态。所以 Java 系统一般将这两个状态统称为 RUNNABLE（运行中） 状态 。</code></p>
+<p>当线程执行 <code>wait()</code>方法之后，线程进入 <strong>WAITING（等待）</strong> 状态。进入等待状态的线程需要依靠其他线程的通知才能够返回到运行状态，</p>
+<p>而 <strong>TIME_WAITING(超时等待)</strong> 状态相当于在等待状态的基础上增加了超时限制，比如通过 <code>sleep（long millis）</code>方法或 <code>wait（long millis）</code>方法可以将 Java 线程置于 TIMED WAITING 状态。</p>
+<p>当超时时间到达后 Java 线程将会返回到 <strong>RUNNABLE</strong> 状态。</p>
+<p>当线程调用同步方法时，在没有获取到锁的情况下，线程将会进入到 <strong>BLOCKED（阻塞）</strong> 状态。</p>
+<p>线程在执行 Runnable 的<code>run()</code>方法之后将会进入到 <strong>TERMINATED（终止）</strong> 状态。</p>
+<h3 id="关于线程上下文切换"><a href="#关于线程上下文切换" class="headerlink" title="关于线程上下文切换"></a>关于线程上下文切换</h3><p>多线程编程中一般线程的个数都大于 CPU 核心的个数，而<strong>一个 CPU 核心在任意时刻只能被一个线程使用</strong>，为了让这些线程都能得到有效执行，CPU 采取的策略是为每个线程分配时间片并轮转的形式。当一个线程的时间片用完的时候就会重新处于就绪状态让给其他线程使用，这个过程就属于一次上下文切换。</p>
+<p>概括来说就是：当前任务在执行完 CPU 时间片切换到另一个任务之前会先保存自己的状态，以便下次再切换回这个任务时，可以再加载这个任务的状态。<strong>任务从保存到再加载的过程就是一次上下文切换</strong>。</p>
+<h3 id="关于start-和run"><a href="#关于start-和run" class="headerlink" title="关于start()和run()"></a>关于start()和run()</h3><p><strong>调用 start 方法方可启动线程并使线程进入就绪状态，而 run 方法只是 thread 的一个普通方法调用，还是在主线程里执行。</strong></p>
+<h3 id="sleep-方法和-wait-方法"><a href="#sleep-方法和-wait-方法" class="headerlink" title="sleep() 方法和 wait() 方法"></a>sleep() 方法和 wait() 方法</h3><p>两者最主要的区别在于：<strong>sleep 方法没有释放锁，而 wait 方法释放了锁</strong> 。</p>
+<h3 id="线程死锁"><a href="#线程死锁" class="headerlink" title="线程死锁"></a>线程死锁</h3><p>线程死锁描述的是这样一种情况：多个线程同时被阻塞，它们中的一个或者全部都在等待某个资源被释放。由于线程被无限期地阻塞，因此程序不可能正常终止。</p>
+<p>死锁产生的四个必要条件：</p>
+<ol>
+<li>互斥条件</li>
+<li>请求与保持条件</li>
+<li>不剥夺条件</li>
+<li>循环等待条件</li>
+</ol>
+<p>通俗来讲，多个线程都在争夺相同的N个资源（<strong>均只有一份，互斥</strong>），等待缺少的资源时不丢掉本身已获取到的资源(<strong>请求与保持</strong>)，且不能抢夺别的线程占用的资源(<strong>不剥夺</strong>)，但是问题是想要正常运行，这些线程都需要别的线程已获取到的资源（<strong>循环等待</strong>）。</p>
+<p>如每个线程都在同时执行“拼凑拼图”的任务，但拼图却只有一份(<strong>互斥</strong>)。或者说多个分别捡到不同星数的龙珠的人都想要召唤神龙。</p>
 
       
     </div>
@@ -1060,7 +1149,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://huangyuye.github.io/2021/04/25/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/20201209-jenkins%20vs%20teamCity/">
+    <link itemprop="mainEntityOfPage" href="https://huangyuye.github.io/2021/04/25/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/20200825-JAVA%E5%AE%B9%E5%99%A8/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -1074,7 +1163,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2021/04/25/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/20201209-jenkins%20vs%20teamCity/" class="post-title-link" itemprop="url">未命名</a>
+            <a href="/2021/04/25/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/20200825-JAVA%E5%AE%B9%E5%99%A8/" class="post-title-link" itemprop="url">未命名</a>
         </h2>
 
         <div class="post-meta">
@@ -1084,7 +1173,7 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2021-04-25 13:02:32" itemprop="dateCreated datePublished" datetime="2021-04-25T13:02:32+00:00">2021-04-25</time>
+              <time title="创建时间：2021-04-25 15:32:01" itemprop="dateCreated datePublished" datetime="2021-04-25T15:32:01+00:00">2021-04-25</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -1115,7 +1204,28 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          
+          <h3 id="HashMap"><a href="#HashMap" class="headerlink" title="HashMap"></a>HashMap</h3><p>组成结构：数组和链表</p>
+<p>存储算法：根据key值的hashcode经过取余算法定位其所在数组的位置，再根据key的equals方法匹配相同key值获取对应相应的对象。</p>
+<p>案例：</p>
+<p><strong>（1）hashmap存储</strong></p>
+<p>存值规则：把Key的hashCode 与HashMap的容量 取余得出该Key存储在数组所在位置的下标<strong>（源码定位Key存储在数组的哪个位置是以hashCode &amp; (HashMap容量-1)算法得出）</strong>这里为方便理解使用此方式；</p>
+<p>//为了演示方便定义一个容量大小为3的hashMap（其默认为16）</p>
+<p>HashMap map=newHashMap(3);</p>
+<p>map.put(“a”,1); 得到key 为“a” 的hashcode 值为97然后根据 该值和hashMap 容量取余97%3得到存储位到数组下标为1;</p>
+<p>map.put(“b”,2); 得到key 为“b” 的hashcode 值为98,98%3到存储位到数组下标为2;</p>
+<p>map.put(“c”,3); 得到key 为“c” 的hashcode 值为99，99%3到存储位到数组下标为0;</p>
+<p>map.put(“d”,4); 得到key 为“d” 的hashcode 值为100，100%3到存储位到数组下标为1;</p>
+<p>map.put(“e”,5); 得到key 为“e” 的hashcode 值为101，101%3到存储位到数组下标为2;</p>
+<p>map.put(“f”,6); 得到key 为“f” 的hashcode 值为102，102%3到存储位到数组下标为0;</p>
+<p><img src="https://pic4.zhimg.com/80/v2-fceb57a8de2759203613d5bd343dc37d_1440w.jpg" alt="img"></p>
+<p><strong>（2）hashmap的查找key</strong></p>
+<p>得到key在数组中的位置：根据上图，当我们获取key 为“a”的对象时，那么我们首先获得 key的hashcode97%3得到存储位到数组下标为1;</p>
+<p>匹配得到对应key值对象：得到数组下表为1的数据“a”和“c”对象， 然后再根据 key.equals()来匹配获取对应key的数据对象；</p>
+<p>hashcode 对于HashMapde:如果没有hashcode 就意味着HashMap存储的时候是没有规律可寻的，那么每当我们map.get()方法的时候，就要把map里面的对象一一拿出来进行equals匹配，这样效率是不是会超级慢；</p>
+<h2 id="5、hashcode方法文档说明"><a href="#5、hashcode方法文档说明" class="headerlink" title="5、hashcode方法文档说明"></a><strong>5、hashcode方法文档说明</strong></h2><p>在equals方法没被修改的前提下，多次调用同一对象的hashcode方法返回的值必须是相同的整数；</p>
+<p>如果两个对象互相equals，那么这两个对象的hashcode值必须相等；</p>
+<p>为不同对象生成不同的hashcode可以提升哈希表的性能；</p>
+
       
     </div>
 
@@ -1134,7 +1244,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://huangyuye.github.io/2021/04/25/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/20201210-JSR/">
+    <link itemprop="mainEntityOfPage" href="https://huangyuye.github.io/2021/04/25/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/20200825-equals&hashcode/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -1148,7 +1258,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2021/04/25/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/20201210-JSR/" class="post-title-link" itemprop="url">未命名</a>
+            <a href="/2021/04/25/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/20200825-equals&hashcode/" class="post-title-link" itemprop="url">未命名</a>
         </h2>
 
         <div class="post-meta">
@@ -1158,7 +1268,7 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2021-04-25 13:02:32" itemprop="dateCreated datePublished" datetime="2021-04-25T13:02:32+00:00">2021-04-25</time>
+              <time title="创建时间：2021-04-25 15:32:01" itemprop="dateCreated datePublished" datetime="2021-04-25T15:32:01+00:00">2021-04-25</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -1189,7 +1299,22 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          
+          <h1 id="默认的equals与hashcode"><a href="#默认的equals与hashcode" class="headerlink" title="默认的equals与hashcode"></a>默认的equals与hashcode</h1><ol>
+<li>equals：判断两个对象的引用指向的是不是同一个对象</li>
+<li>hashcode：根据对象地址生成一个整数数值；</li>
+</ol>
+<h2 id="重写场景"><a href="#重写场景" class="headerlink" title="重写场景"></a>重写场景</h2><p>需求：若对象间特定的几个属性值相等，则判定对象相等</p>
+<p>问题：默认的equals和hashcode判定的是对象的引用，两个new出来的对象引用一定不同</p>
+<p>解决方案：重写equals方法和hashcode方法</p>
+<p>只重写equals方法的话会出现对象equals相等但是hashcode不等的情况（hashcode默认判断引用地址），放到hashSet中也有存在两个对象。</p>
+<p>HashMap 则是先根据Key值的hashcode分配和获取对象保存数组下标的，然后再根据equals区分唯一值。也存在一样的问题。</p>
+<h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p>为什么重写equals时必须重写hashCode方法？</p>
+<p>前提：</p>
+<p><strong>如果两个对象相等，则hashcode一定也是相同的；</strong><br><strong>两个对象相等,对两个对象分别调用equals方法都返回true；</strong></p>
+<p>两个对象有相同的hashcode值，它们也不一定是相等的；（如HashMap）</p>
+<p>因此，equals 方法被覆盖过，则 hashCode 方法也必须被覆盖；<br>hashCode() 的<strong>默认行为是对堆上的对象产生独特值</strong>。如果没有重写 hashCode()，则该 class 的两个对象无论如何都不会相等（即使这两个对象指向相同的数据）；</p>
+<p><a target="_blank" rel="noopener" href="https://juejin.im/post/6844903854639693837#heading-3">https://juejin.im/post/6844903854639693837#heading-3</a></p>
+
       
     </div>
 
@@ -1208,7 +1333,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://huangyuye.github.io/2021/04/25/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/20210309-cas%E5%8D%95%E7%82%B9%E7%99%BB%E5%BD%95/">
+    <link itemprop="mainEntityOfPage" href="https://huangyuye.github.io/2021/04/25/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/20200825-%E5%8F%8D%E5%B0%84/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -1222,7 +1347,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2021/04/25/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/20210309-cas%E5%8D%95%E7%82%B9%E7%99%BB%E5%BD%95/" class="post-title-link" itemprop="url">未命名</a>
+            <a href="/2021/04/25/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/20200825-%E5%8F%8D%E5%B0%84/" class="post-title-link" itemprop="url">未命名</a>
         </h2>
 
         <div class="post-meta">
@@ -1232,7 +1357,7 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2021-04-25 13:02:32" itemprop="dateCreated datePublished" datetime="2021-04-25T13:02:32+00:00">2021-04-25</time>
+              <time title="创建时间：2021-04-25 15:32:01" itemprop="dateCreated datePublished" datetime="2021-04-25T15:32:01+00:00">2021-04-25</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -1263,9 +1388,11 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h3 id="客户端"><a href="#客户端" class="headerlink" title="客户端"></a>客户端</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.jasig.cas.client<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>cas-client-core<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>$&#123;cas-client.version&#125;<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-
+          <h1 id="反射"><a href="#反射" class="headerlink" title="反射"></a>反射</h1><p>在不使用反射时，构造对象使用 new 方式实现，这种方式在<strong>编译期</strong>就可以把对象的类型确定下来。</p>
+<p>使用反射后，在程序<strong>运行过程</strong>中<strong>动态</strong>获取类信息和调用类方法。</p>
+<p>反射的<strong>思想</strong>：<strong>在程序运行过程中确定和解析数据类的类型。</strong></p>
+<p>反射的<strong>作用</strong>：对于在<code>编译期</code>无法确定使用哪个数据类的场景，通过<code>反射</code>可以在程序运行时<strong>构造出不同的数据类实例</strong>。</p>
+<h1 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h1><p><a target="_blank" rel="noopener" href="https://juejin.im/post/6864324335654404104">https://juejin.im/post/6864324335654404104</a></p>
 
       
     </div>
@@ -1285,7 +1412,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://huangyuye.github.io/2021/04/25/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/%E7%90%86%E8%A7%A3%E8%AE%A1%E7%AE%97%E6%9C%BA/dos%E5%91%BD%E4%BB%A4/">
+    <link itemprop="mainEntityOfPage" href="https://huangyuye.github.io/2021/04/25/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/20200826-Java%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B(%E4%B8%89)/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -1299,7 +1426,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2021/04/25/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/%E7%90%86%E8%A7%A3%E8%AE%A1%E7%AE%97%E6%9C%BA/dos%E5%91%BD%E4%BB%A4/" class="post-title-link" itemprop="url">未命名</a>
+            <a href="/2021/04/25/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/20200826-Java%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B(%E4%B8%89)/" class="post-title-link" itemprop="url">未命名</a>
         </h2>
 
         <div class="post-meta">
@@ -1309,7 +1436,7 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2021-04-25 13:02:32" itemprop="dateCreated datePublished" datetime="2021-04-25T13:02:32+00:00">2021-04-25</time>
+              <time title="创建时间：2021-04-25 15:32:01" itemprop="dateCreated datePublished" datetime="2021-04-25T15:32:01+00:00">2021-04-25</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -1325,7 +1452,7 @@
                 </span>
                   ，
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/%E7%90%86%E8%A7%A3%E8%AE%A1%E7%AE%97%E6%9C%BA/" itemprop="url" rel="index"><span itemprop="name">理解计算机</span></a>
+                  <a href="/categories/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
                 </span>
             </span>
 
