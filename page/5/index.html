@@ -156,7 +156,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://huangyuye.github.io/2021/04/26/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/20201110-smartDoc/">
+    <link itemprop="mainEntityOfPage" href="https://huangyuye.github.io/2021/04/26/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/mq/%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -170,7 +170,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2021/04/26/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/20201110-smartDoc/" class="post-title-link" itemprop="url">未命名</a>
+            <a href="/2021/04/26/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/mq/%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/" class="post-title-link" itemprop="url">未命名</a>
         </h2>
 
         <div class="post-meta">
@@ -180,7 +180,7 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2021-04-26 14:54:22" itemprop="dateCreated datePublished" datetime="2021-04-26T14:54:22+00:00">2021-04-26</time>
+              <time title="创建时间：2021-04-26 14:59:29" itemprop="dateCreated datePublished" datetime="2021-04-26T14:59:29+00:00">2021-04-26</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -196,7 +196,7 @@
                 </span>
                   ，
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
+                  <a href="/categories/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/mq/" itemprop="url" rel="index"><span itemprop="name">mq</span></a>
                 </span>
             </span>
 
@@ -211,10 +211,17 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="smart-doc-实践"><a href="#smart-doc-实践" class="headerlink" title="smart-doc 实践"></a>smart-doc 实践</h2><h3 id="maven-插件原理"><a href="#maven-插件原理" class="headerlink" title="maven 插件原理"></a>maven 插件原理</h3><p><strong>场景1：</strong></p>
-<ul>
-<li>pom文件未指定包含插件 xxxPlugin </li>
-<li>执行maven命令的时候时候会提示 xxxPlugin.jar 不存在</li>
+          <ul>
+<li><p>docker 镜像仓库配置</p>
+</li>
+<li><p>docker 镜像搜索</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> docker search activemq</span> </span><br></pre></td></tr></table></figure></li>
+<li><p>docker 镜像拉取</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> docker pull webcenter/activemq</span></span><br></pre></td></tr></table></figure></li>
+<li><p>docker 容器运行</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> -d 后台运行</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> --name 指定容器名称</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> -p 端口映射</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 最后指定镜像</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> docker run -d --name activemq -p 61617:61616 -p 8162:8161 webcenter/activemq</span></span><br></pre></td></tr></table></figure></li>
+<li><p>进入容器</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> -i：表示以“交互模式”运行容器</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> -t：表示容器启动后会进入其命令行</span> </span><br><span class="line"><span class="meta">#</span><span class="bash"> [/bin/bash] 表示执行容器内的该命令</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> docker <span class="built_in">exec</span> -it activemq /bin/bash</span> </span><br></pre></td></tr></table></figure></li>
 </ul>
 
       
@@ -235,7 +242,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://huangyuye.github.io/2021/04/26/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/20201124-%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/">
+    <link itemprop="mainEntityOfPage" href="https://huangyuye.github.io/2021/04/26/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/mysql/20201110-mysql%E4%BD%BF%E7%94%A8%E5%9C%BA%E6%99%AF%E6%8A%80%E5%B7%A7/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -249,7 +256,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2021/04/26/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/20201124-%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/" class="post-title-link" itemprop="url">未命名</a>
+            <a href="/2021/04/26/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/mysql/20201110-mysql%E4%BD%BF%E7%94%A8%E5%9C%BA%E6%99%AF%E6%8A%80%E5%B7%A7/" class="post-title-link" itemprop="url">未命名</a>
         </h2>
 
         <div class="post-meta">
@@ -259,7 +266,7 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2021-04-26 14:54:22" itemprop="dateCreated datePublished" datetime="2021-04-26T14:54:22+00:00">2021-04-26</time>
+              <time title="创建时间：2021-04-26 14:59:29" itemprop="dateCreated datePublished" datetime="2021-04-26T14:59:29+00:00">2021-04-26</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -275,7 +282,7 @@
                 </span>
                   ，
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
+                  <a href="/categories/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/mysql/" itemprop="url" rel="index"><span itemprop="name">mysql</span></a>
                 </span>
             </span>
 
@@ -290,38 +297,37 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p><strong>单元测试</strong></p>
-<p>单元测试是指对软件中的<strong>最小可测单元</strong>进行检查和验证；</p>
-<p>根据测试金字塔原理，越往上层的测试，所需测试投入比例越大，效果也越差。单测成本小，且更容易发现问题。（效果：单元测试 &gt; 集成测试 &gt; UI测试）</p>
-<p><strong>分层测试</strong></p>
-<p>Service =&gt; Biz层 =&gt; （外部服务访问层、DAO层、Redis访问层）</p>
-<p>每一层均使用mock 框架屏蔽下层的具体实现。</p>
-<p><strong>单元测试过程</strong></p>
-<p>数据准备 =&gt; 构造参数（+打桩）=&gt; 执行测试 =&gt; 结果验证 =&gt; 清理（必要）</p>
+          <ol>
+<li><p>MySQL组内排序问题：分组查询每组的前n条记录（需要按某个字段分组，且每组只能取一条记录；按某个字段倒序。）</p>
 <ol>
-<li>数据准备：测试用例需要依赖一些数据，数据来源一般是数据库，而又不能依赖DAO层的代码，需要使用原生jdbc去插入数据，<strong>测试代码编写效率低</strong></li>
-<li>构造参数：入参赋值（<strong>代码行数多</strong>）</li>
-<li>执行测试：直接调用被测方法</li>
-<li>结果验证：验证方法的返回值、数据库数据是否正确、某外部方法是否被调用过n次等</li>
-<li>必要的清理：对打桩进行清理、对数据库脏数据进行清理</li>
+<li>解决方案<ol>
+<li>子查询：先全表排序作为子查询，然后分组<ol>
+<li>select * from (select * from table2 order by age desc) as a group by a.table1_id</li>
+<li>select a.* from table2 as a where age = (select max(age) from table2 where a.table1_id=table1_id)</li>
+<li>select a.* from table2 as a where not exists (select * from table2 where table1_id=a.table1_id and age&gt;a.age)</li>
+<li>select a.* from table2 as a where exists (select count(<em>) from table2 where table1_id=a.table1_id and age&gt;a.age having count(</em>)=0)</li>
 </ol>
-<p><strong>痛点</strong></p>
+</li>
+<li> group_concat(id order bydatedesc) + SUBSTRING_INDEX</li>
+<li>SELECT * FROM <code>test</code> WHERE id IN(SELECT SUBSTRING_INDEX(GROUP_CONCAT(id ORDER BY <code>date</code> DESC)</li>
+<li>关于exists的解释：只要exists引导的子句有结果集返回，则表示连接条件为真<ol>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/20005249">https://zhuanlan.zhihu.com/p/20005249</a></li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+<li><p>删除重复数据</p>
 <ol>
-<li>重构代码需要改写大量单元测试用例<ol>
-<li>大量的Service 层单元测试,biz层单元测试都要重写；有时候Service调用biz层接口时，参数传错了，而由于开发人员编写单元测试时不规范，参数匹配使用了 anyxxx()，导致参数传错的bug未被发现。</li>
+<li>delete from sg_guide_shop where id in (select id from sg_guide_shop group by guide_id,shop_id having count(id) &gt; 1) and id not in (select min(id) from sg_guide_shop group by guide_id,shop_id  having count(id)&gt;1);</li>
 </ol>
 </li>
-<li>测试库数据随意修改导致的单元测试不稳定<ol>
-<li>DAO层单元测试直连测试库，由于测试库的数据可以被任意修改，从而导致测试依赖的数据被更改，单元测试不通过，另外开发在编写单元测试时，没有清理意识，导致测试库大量垃圾数据。</li>
+<li><p>将数据表字段修改为utf8mb4 及将数据表编码改为utf8mb4</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> sg_login_log MODIFY <span class="keyword">COLUMN</span> operate_name <span class="type">VARCHAR</span>(<span class="number">70</span>) <span class="type">CHARACTER</span> <span class="keyword">SET</span> utf8mb4 <span class="keyword">COLLATE</span> utf8mb4_unicode_ci <span class="keyword">DEFAULT</span> <span class="keyword">NULL</span> COMMENT &quot;操作人&quot;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> sg_login_log <span class="keyword">CONVERT</span> <span class="keyword">TO</span> <span class="type">CHARACTER</span> <span class="keyword">SET</span> utf8mb4;</span><br></pre></td></tr></table></figure></li>
+<li><p>mysql 统计各日期的业务数据，没有数据的日期补零</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"># <span class="number">1.</span> 生成辅助表，生成N条记录，每条记录用于辅助生成<span class="number">1</span>天的数据</span><br><span class="line"><span class="keyword">drop</span> <span class="keyword">table</span> if  <span class="keyword">exists</span> sg_base_datetime_help;</span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> `sg_base_datetime_help` (</span><br><span class="line">    `id` <span class="type">bigint</span>(<span class="number">20</span>) <span class="keyword">NOT</span> <span class="keyword">NULL</span> AUTO_INCREMENT COMMENT <span class="string">&#x27;主键ID&#x27;</span>,</span><br><span class="line">    `temp` tinyint(<span class="number">4</span>) <span class="keyword">default</span> <span class="keyword">null</span> COMMENT <span class="string">&#x27;临时字段，生成数据后删除&#x27;</span>,</span><br><span class="line">    <span class="keyword">PRIMARY</span> KEY (`id`)</span><br><span class="line">) ENGINE<span class="operator">=</span>InnoDB <span class="keyword">DEFAULT</span> CHARSET<span class="operator">=</span>utf8mb4 COMMENT<span class="operator">=</span><span class="string">&#x27;日期辅助表，用于生成n条数据&#x27;</span>;</span><br><span class="line"># 先生成一条数据</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> sg_base_datetime_help(temp) <span class="keyword">select</span> now() <span class="keyword">from</span> dual;</span><br><span class="line"># 下面两条语句执行N次, 生成<span class="number">4</span>k<span class="number">-1</span>w条数据(<span class="number">4096</span>即可)</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> sg_base_datetime_help(temp) <span class="keyword">select</span> now() <span class="keyword">from</span> sg_base_datetime_help;</span><br><span class="line"><span class="keyword">select</span> <span class="built_in">count</span>(<span class="number">1</span>) <span class="keyword">from</span> sg_base_datetime_help;</span><br><span class="line"># 删除临时字段</span><br><span class="line"><span class="keyword">alter</span> <span class="keyword">table</span> sg_base_datetime_help <span class="keyword">drop</span> <span class="keyword">column</span> temp;</span><br><span class="line"></span><br><span class="line"><span class="number">2.</span> 使用辅助表作为左关联主表，主表<span class="keyword">sql</span></span><br><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">	<span class="variable">@cdate</span> :<span class="operator">=</span> DATE_FORMAT(date_add( <span class="variable">@cdate</span>, <span class="type">INTERVAL</span> <span class="operator">-</span> <span class="number">1</span> <span class="keyword">DAY</span> ), <span class="string">&#x27;%Y-%m-%d&#x27;</span>) <span class="keyword">as</span> <span class="type">date</span></span><br><span class="line"><span class="keyword">FROM</span></span><br><span class="line">	(SELECT @cdate := date_add(#&#123;endTime&#125;, interval + 1 day) FROM sg_base_datetime_help) tmp1 WHERE @cdate &gt;#&#123;startTime&#125;;</span><br></pre></td></tr></table></figure></li>
 </ol>
-</li>
-<li>单元测试结果校验缺失<ol>
-<li>例如一个SaveItem()接口，执行完成后除了要验证执行成功以外，还应该验证落库数据的正确性，而编写这部分测试代码需要大量的使用原生jdbc 接口查询sql，并逐字段验证正确性，代码编写效率低下。</li>
-</ol>
-</li>
-</ol>
-<p><strong>参考文章</strong>-《有赞单元测试实践》</p>
-<p><a target="_blank" rel="noopener" href="https://tech.youzan.com/youzan-test-practice/">https://tech.youzan.com/youzan-test-practice/</a></p>
 
       
     </div>
@@ -341,7 +347,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://huangyuye.github.io/2021/04/26/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/20201209-jenkins%20vs%20teamCity/">
+    <link itemprop="mainEntityOfPage" href="https://huangyuye.github.io/2021/04/26/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/mysql/mongodb/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -355,7 +361,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2021/04/26/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/20201209-jenkins%20vs%20teamCity/" class="post-title-link" itemprop="url">未命名</a>
+            <a href="/2021/04/26/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/mysql/mongodb/" class="post-title-link" itemprop="url">未命名</a>
         </h2>
 
         <div class="post-meta">
@@ -365,7 +371,7 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2021-04-26 14:54:22" itemprop="dateCreated datePublished" datetime="2021-04-26T14:54:22+00:00">2021-04-26</time>
+              <time title="创建时间：2021-04-26 14:59:29" itemprop="dateCreated datePublished" datetime="2021-04-26T14:59:29+00:00">2021-04-26</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -381,81 +387,7 @@
                 </span>
                   ，
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://huangyuye.github.io/2021/04/26/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/20201210-JSR/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="yuye Huang">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="HYY">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/04/26/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/20201210-JSR/" class="post-title-link" itemprop="url">未命名</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-04-26 14:54:22" itemprop="dateCreated datePublished" datetime="2021-04-26T14:54:22+00:00">2021-04-26</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/" itemprop="url" rel="index"><span itemprop="name">知识库</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
+                  <a href="/categories/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/mysql/" itemprop="url" rel="index"><span itemprop="name">mysql</span></a>
                 </span>
             </span>
 
@@ -489,7 +421,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://huangyuye.github.io/2021/04/26/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/20210309-cas%E5%8D%95%E7%82%B9%E7%99%BB%E5%BD%95/">
+    <link itemprop="mainEntityOfPage" href="https://huangyuye.github.io/2021/04/26/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/windows%E5%B7%A5%E5%85%B7/idea%E4%BD%BF%E7%94%A8-%E5%B8%B8%E7%94%A8%E6%8F%92%E4%BB%B6/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -503,7 +435,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2021/04/26/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/20210309-cas%E5%8D%95%E7%82%B9%E7%99%BB%E5%BD%95/" class="post-title-link" itemprop="url">未命名</a>
+            <a href="/2021/04/26/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/windows%E5%B7%A5%E5%85%B7/idea%E4%BD%BF%E7%94%A8-%E5%B8%B8%E7%94%A8%E6%8F%92%E4%BB%B6/" class="post-title-link" itemprop="url">未命名</a>
         </h2>
 
         <div class="post-meta">
@@ -513,7 +445,7 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2021-04-26 14:54:22" itemprop="dateCreated datePublished" datetime="2021-04-26T14:54:22+00:00">2021-04-26</time>
+              <time title="创建时间：2021-04-26 14:59:29" itemprop="dateCreated datePublished" datetime="2021-04-26T14:59:29+00:00">2021-04-26</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -529,7 +461,7 @@
                 </span>
                   ，
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
+                  <a href="/categories/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/windows%E5%B7%A5%E5%85%B7/" itemprop="url" rel="index"><span itemprop="name">windows工具</span></a>
                 </span>
             </span>
 
@@ -544,9 +476,26 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h3 id="客户端"><a href="#客户端" class="headerlink" title="客户端"></a>客户端</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.jasig.cas.client<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>cas-client-core<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>$&#123;cas-client.version&#125;<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-
+          <p><strong>常用插件</strong></p>
+<p>1、GenerateAllSetter ：通过alt+enter对变量类生成对类的所有setter方法的调用</p>
+<p>2、Maven Helper：Maven Helper </p>
+<p>3、Translation：中英文翻译工具</p>
+<p>4、aiXcode &amp; codota：强大的代码完成器和代码搜索引擎，且帮助您在GitHub上搜索API用例</p>
+<p>5、FindBugs：作为静态代码检查插件，可以检查你代码中的隐患，并给出原因。</p>
+<p>6、SequenceDiagram：可以根据代码调用链路自动生成时序图</p>
+<p>7、GsonFormat：把json格式的内容转成Object的需求</p>
+<p>8、AceJump：能够代替鼠标的软件</p>
+<p>9、Java Stream Debugger：流式编程调试插件 </p>
+<p>10、Power mode II</p>
+<p>11、lombok</p>
+<p>12、<strong>Alibaba Java Coding Guidelines</strong> </p>
+<p>13、checkStyle &amp; spotBugs</p>
+<p><strong>配置idea模板</strong></p>
+<p><img src="D:/AppData/YoudaoNote/qqB53912A331D409871E525BE52BFB5C3B/eae0523550054e23a2e814aee91cd45f/attachment.png" alt="powerDesigner的常用配置及使用技巧 + idea注释模板配置.pdf"></p>
+<p><strong>参考链接</strong></p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_41846320/article/details/82697818">https://blog.csdn.net/weixin_41846320/article/details/82697818</a></p>
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/99354824">https://zhuanlan.zhihu.com/p/99354824</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/c1f87b0dd597">https://www.jianshu.com/p/c1f87b0dd597</a></p>
 
       
     </div>
@@ -566,7 +515,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://huangyuye.github.io/2021/04/26/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/20201107/">
+    <link itemprop="mainEntityOfPage" href="https://huangyuye.github.io/2021/04/26/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/windows%E5%B7%A5%E5%85%B7/vscode/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -580,7 +529,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2021/04/26/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/20201107/" class="post-title-link" itemprop="url">未命名</a>
+            <a href="/2021/04/26/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/windows%E5%B7%A5%E5%85%B7/vscode/" class="post-title-link" itemprop="url">未命名</a>
         </h2>
 
         <div class="post-meta">
@@ -590,7 +539,7 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2021-04-26 14:54:22" itemprop="dateCreated datePublished" datetime="2021-04-26T14:54:22+00:00">2021-04-26</time>
+              <time title="创建时间：2021-04-26 14:59:29" itemprop="dateCreated datePublished" datetime="2021-04-26T14:59:29+00:00">2021-04-26</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -606,11 +555,7 @@
                 </span>
                   ，
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/Java/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" itemprop="url" rel="index"><span itemprop="name">算法与数据结构</span></a>
+                  <a href="/categories/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/windows%E5%B7%A5%E5%85%B7/" itemprop="url" rel="index"><span itemprop="name">windows工具</span></a>
                 </span>
             </span>
 
@@ -625,140 +570,547 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="算法与数据结构"><a href="#算法与数据结构" class="headerlink" title="算法与数据结构"></a>算法与数据结构</h1><h2 id="算法与数据结构常见问题场景"><a href="#算法与数据结构常见问题场景" class="headerlink" title="算法与数据结构常见问题场景"></a>算法与数据结构常见问题场景</h2><ol>
-<li>字符串匹配<ol>
-<li>暴力匹配（回溯匹配，回溯次数多，速度慢）</li>
-<li>KMP算法（ -&gt; 建立部分匹配表）</li>
-</ol>
+          <h4 id="开发工具"><a href="#开发工具" class="headerlink" title="开发工具"></a>开发工具</h4><p>vscode &amp; webstorm均可，这里使用了vscode</p>
+<h4 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h4><p>多人合作 or 个人项目，代码规范都是很重要的。遵循代码规范能够很大程度避免基本语法错误，也保证了代码的可读性。所以以下会说明代码规范神器—eslint插件。首先我们先来说说什么是eslint</p>
+<ul>
+<li><p>eslint</p>
+<ul>
+<li>ECMASCRIPT/JAVASCRIPT 代码中识别和报告”模式匹配”的工具，目标是保证代码的一致性和避免错误。</li>
+<li>ECMASCRIPT：在万维网上往往被称为JavaScript或JScript，可以将它理解为是JavaScript的一个标准,但实际上后两者是ECMA-262标准的实现和扩展</li>
+</ul>
 </li>
-<li>汉诺塔问题（大方块不能在小方块下面）</li>
-<li>八皇后问题：92种算法</li>
-<li>马踏棋盘算法（骑士周游算法）</li>
-</ol>
-<h2 id="数据结构和算法的关系"><a href="#数据结构和算法的关系" class="headerlink" title="数据结构和算法的关系"></a>数据结构和算法的关系</h2><p>数据结构是<strong>研究组织数据方式</strong>的学科</p>
-<p>数据结构是算法的基础</p>
-<p><strong>数据结构包括：线性结构/非线性结构</strong></p>
-<h3 id="线性结构"><a href="#线性结构" class="headerlink" title="线性结构"></a>线性结构</h3><ol>
-<li>数据元素之间存在一对一线性关系</li>
-<li>两种不同的存储结构：<strong>顺序存储结构&amp;链式存储和结构</strong> (数组&amp;链表)——元素节点中存放数据元素及相邻元素的地址信息不连续</li>
-<li>常见的线性结构有：数组、队列、链表和栈</li>
-</ol>
-<h3 id="非线性结构"><a href="#非线性结构" class="headerlink" title="非线性结构"></a>非线性结构</h3><ol>
-<li>数组元素之间不是一对一的线性关系</li>
-<li>场景的非线性结构：多维数组、广义表、树结构、图结构</li>
-</ol>
-<h2 id="数据结构"><a href="#数据结构" class="headerlink" title="数据结构"></a>数据结构</h2><h3 id="稀疏数组（sparse-array）"><a href="#稀疏数组（sparse-array）" class="headerlink" title="稀疏数组（sparse array）"></a>稀疏数组（sparse array）</h3><p><strong>场景：</strong></p>
-<p>编写五子棋程序，且有存盘和续上盘的功能；</p>
-<p><strong>问题：</strong></p>
-<p>使用二维数组记录棋盘，存在很多值为0的元素</p>
-<p><strong>稀疏数组介绍：</strong></p>
-<p>当一个数组中大部分元素为0，或者为同一个值的数组时，可以使用稀疏数组来表示</p>
-<p><strong>使用稀疏数组的处理方法：</strong></p>
-<p>1、第一行记录一共有几行几列，有多少个不同得值</p>
-<p>2、把具有不同值得行列及值记录在一个小规模得数组中，从而缩小程序的规模</p>
-<h3 id="队列"><a href="#队列" class="headerlink" title="队列"></a>队列</h3><p>队列是一个有序列表，可以用数组或链表来实现</p>
-<p>遵循先进先出的原则</p>
-<p><strong>使用数组模拟队列：</strong></p>
-<p>保存两个变量-front &amp; rear （头尾的下标）；maxSize为数组容量，若rear=maxSize-1则队列满（front和rear从-1/0开始）（front：指向队列头的前一个位置；rear指向队列尾最后一个位置）; front=rear则队列为空</p>
-<p><strong>问题：</strong></p>
-<p>单向队列：数组使用一次就不能用，没有达到复用效果</p>
-<p><strong>解决方案：</strong>改为环形队列</p>
-<p><strong>环形队列调整思路：</strong></p>
-<ol>
-<li><p>front指向队列的第一个元素；front初始值为0</p>
+<li><p>eslint插件安装：</p>
+<ul>
+<li><p>settings</p>
+<ul>
+<li>文件 &gt; 首选项 &gt; 设置</li>
+<li>配置如下</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">    </span><br></pre></td></tr></table></figure></li>
+<li><p>.eslintrc.js：</p>
+<ul>
+<li>根据该文件配置的eslint规则来检查和做一些简单的fix。（可以把适合自己团队的代码规范统一制定好并上传到至npm）</li>
+</ul>
 </li>
-<li><p>rear指向队列的最后一个元素的后一个位置；rear初始值为0</p>
+</ul>
 </li>
-<li><p>判断队列满的条件为：(rear+1)%maxSize=front</p>
+<li><p>eslint-plugin-vue 新版本默认支持vue eslint语法检查</p>
 </li>
-<li><p>队列中有效的数据个数：(rear + maxSize - front) % maxSize  （为什么要+maxSize？因为是环形队列，rear的下标有可能小于front的下标，这里是为了避免为负数）</p>
+<li><p>配置文件说明：</p>
+<ul>
+<li>jsconfig.json<ul>
+<li>目录中存在jsconfig.json文件表示该目录是JavaScript项目的根目录;jsconfig.json文件指定根文件和JavaScript语言服务提供的功能选项;文件本身可以选择列出属于项目的文件，要从项目中排除的文件，以及编译器选项<ul>
+<li>“exclude”属性：告诉js语言服务哪些文件是什么文件，而不是源代码的一部分。（您将要排除由构建过程生成的文件（例如，dist目录））</li>
+<li>使用“包含”属性：可以使用include属性（glob模式）显式设置项目中的文件。如果不存在include属性，则默认为包含目录和子目录中的所有文件。</li>
+<li>compilerOptions：配置JavaScript语言支持（baseUrl&amp;paths(可以使用webpack别名)）</li>
+</ul>
 </li>
-</ol>
-<h3 id="链表"><a href="#链表" class="headerlink" title="链表"></a>链表</h3><p>链表是有序的列表，内存不一定连续；每个节点包含data域，next域</p>
-<p>可区分为有头节点或无头节点的链表</p>
-<p><strong>链表排序</strong></p>
-<p>新增节点时进行排序：遍历链表，找到新添加节点的位置（<strong>遍历，比较节点的值，直到遍历节点的值大于待插入节点的值</strong>），将新节点的next指向插入位置的节点的next，将插入位置的节点的next指向新节点。</p>
-<p><strong>遍历链表节点逻辑</strong></p>
-<p>使用辅助变量，从head节点开始，通过next指向遍历</p>
-<p><strong>排序和限制重复的思考</strong></p>
-<ol>
-<li>若要支持排序，则定义比较大小的规则，如实现comparable接口重写compare方法</li>
-<li>若要支持更新或者唯一限制，则要定义节点判断唯一的规则，如重写equals方法(以及hashcode())</li>
-</ol>
-<p><strong>链表反转</strong></p>
-<ol>
-<li>创建一个新的头节点 newHead</li>
-<li>遍历原链表,<ol>
-<li>temp辅助变量记录newHead.next</li>
-<li>每次遍历都将 newHead指向遍历的节点node，遍历的节点node.next指向原先newHead的next，即temp（可使用辅助变量）</li>
-</ol>
+<li>如果没有使用该文件，所有js文件之间没有共同的项目上下文</li>
+<li>如果使用了该文件，表示该目录是JavaScript项目的根目录</li>
+<li>参考链接：<a target="_blank" rel="noopener" href="https://www.jianshu.com/p/b0ec870ddfdf">https://www.jianshu.com/p/b0ec870ddfdf</a></li>
+</ul>
 </li>
-</ol>
-<p>其他方案：可以使用临时数组  </p>
-<p><strong>链表逆序打印</strong></p>
-<p>实现思路1：利用栈<strong>先进后出</strong>特性</p>
-<p><strong>栈</strong></p>
-<p>栈的底层实现是数组，父类是Vector矢量类</p>
-<p><strong>应用场景</strong></p>
-<p><strong>单向环形链表</strong>——约瑟夫环问题（丢手帕）</p>
-<p>单向环形链表：最后一个节点的next指向头节点</p>
-<p>丢手帕报数过程：head和tail指针同时移动，报数出队时，head节点修改，且tail节点的next指针指向新的head节点。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// ... 其他参数校验</span></span><br><span class="line"><span class="comment">// 遍历</span></span><br><span class="line"><span class="keyword">while</span> (<span class="keyword">true</span>) &#123;</span><br><span class="line">    <span class="keyword">if</span> (tail == head) &#123;</span><br><span class="line">    	<span class="keyword">break</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;m-<span class="number">1</span>; i++) &#123;</span><br><span class="line">		tail = tail.next;</span><br><span class="line">		first = first.next;</span><br><span class="line">	&#125;</span><br><span class="line">	sout(first);</span><br><span class="line">	first=first.next;</span><br><span class="line">	tail.next=first;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<li>.eslintrc.js<ul>
+<li>eslint代码检查配置<ul>
+<li>npm install eslint –save</li>
+<li>eslint –init # 初始化配置文件</li>
+</ul>
+</li>
+<li>vscode安装 eslint插件，并配置用户变量以配置eslint校验的开关等配置，符合检查的文件类型，会根据.eslintrc.js配置的规则进行检查</li>
+</ul>
+</li>
+<li>.editconfig（用来帮助开发者定义和维护代码风格（行尾结束符、缩进风格等））<ul>
+<li>该文件用来定义一些格式化规则（此规则并不会被vscode直接解析）</li>
+<li>vscode安装插件，插件去读取第一步创建的editorconfig文件中定义的规则，并覆盖user/workspace settings中的对应配置</li>
+<li>npm安装editorconfig依赖包主要是因为EditorConfig依赖于editorconfig包，不安装的可能会导致EditorConfig无法正常解析我们在第一步定义的editorconfig文件</li>
+<li>打开需要格式化的文件并手动格式化代码（shift+alt+f）：让经过EditorConfig扩展覆盖后的user/workspace settings生效</li>
+</ul>
+</li>
+<li>babel.config.js<ul>
+<li>安装相关的包：npm i @babel/core @babel/preset-env babel-loader -D</li>
+<li>配置 webpack，编译哪些文件时需要使用babel加载器</li>
+<li>配置加载器加载规则，即该文件的作用</li>
+<li>如果想以编程的方式创建配置，需要编译 node_modules 中的内容那就使用 babel.config.js,如果只是一个简单的包的静态配置就使用，.babelrc</li>
+</ul>
+</li>
+<li>jest.config.js<ul>
+<li>jest是进行Javascript单元测试的工具</li>
+<li>npm安装 jest</li>
+<li>两种配置方式：<ul>
+<li>在package.json添加配置项”jest” : { 配置项 }</li>
+<li>jest init命令在根目录创建 jest.config.js文件，并添加配置项module.exports = { 配置项 }</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>postcss.config.js<ul>
+<li>给postcss用的，优化css</li>
+</ul>
+</li>
+<li>package.json<ul>
+<li>定义了这个项目所需要的各种模块，以及项目的配置信息（比如名称、版本、许可证等元数据）。npm install命令根据这个配置文件，自动下载所需的模块，也就是配置项目所需的运行和开发环境。（<strong>类似于maven的pom文件</strong>）</li>
+<li>scripts字段：指定了运行脚本命令的npm命令行缩写</li>
+<li>dependencies字段，devDependencies字段：定了项目运行/开发所依赖的模块</li>
+<li>package.json文件可以手工编写，也可以使用npm init命令自动生成。</li>
+<li>如果一个模块不在package.json文件之中，可以单独安装这个模块，并使用相应的参数，将其写入package.json文件之中。如$ npm install express –save / –save-dev</li>
+<li>参考链接：<a target="_blank" rel="noopener" href="http://javascript.ruanyifeng.com/nodejs/packagejson.html">http://javascript.ruanyifeng.com/nodejs/packagejson.html</a></li>
+</ul>
+</li>
+<li>vue.config.js<ul>
+<li>vue项目配置文件</li>
+<li>是一个可选的配置文件，如果项目的根目录中存在这个文件，那么它会被 @vue/cli-service 自动加载。你也可以使用 package.json 中的 vue 字段。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>安装插件，配置用户变量来提供代码格式化功能：<a target="_blank" rel="noopener" href="https://segmentfault.com/q/1010000014829026?utm_source=tag-newest">https://segmentfault.com/q/1010000014829026?utm_source=tag-newest</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line">- Vetur : 语法高亮等功能</span><br><span class="line">- ESlint : 代码风格检测</span><br><span class="line">- Prettier formatter for Visual Studio Code: 为了配合 ESlint</span><br><span class="line">vue 的模板格式化：</span><br><span class="line">&quot;vetur.format.defaultFormatter.html&quot;:&quot;js-beautify-html&quot;</span><br><span class="line">vue 模板的 eslint 校验</span><br><span class="line">    &quot;eslint.validate&quot;: [</span><br><span class="line">        &quot;javascript&quot;,</span><br><span class="line">        &quot;javascriptreact&quot;,</span><br><span class="line">        &quot;html&quot;,</span><br><span class="line">        &quot;vue&quot;,</span><br><span class="line">        &#123;</span><br><span class="line">            &quot;language&quot;: &quot;html&quot;,</span><br><span class="line">            &quot;autoFix&quot;: true</span><br><span class="line">        &#125;</span><br><span class="line">    ]</span><br><span class="line">Prettier 设置去除不必要空格：&quot;prettier.semi&quot;: false</span><br><span class="line">Prettier 设置格式化后&quot;变&#39;：&quot;prettier.singleQuote&quot;: true</span><br><span class="line">在 vscode 中排除 node_modules 等文件夹：</span><br><span class="line">&quot;files.exclude&quot;: &#123;</span><br><span class="line">    &quot;**&#x2F;.git&quot;: true,</span><br><span class="line">    &quot;**&#x2F;.svn&quot;: true,</span><br><span class="line">    &quot;**&#x2F;.hg&quot;: true,</span><br><span class="line">    &quot;**&#x2F;CVS&quot;: true,</span><br><span class="line">    &quot;**&#x2F;.DS_Store&quot;: true,</span><br><span class="line">    &quot;**&#x2F;node_modules&quot;: true,</span><br><span class="line">    &quot;**&#x2F;package-lock.json&quot;: true,</span><br><span class="line">&#125;,</span><br><span class="line">以新行结束</span><br><span class="line">&quot;html.format.endWithNewline&quot;: false</span><br><span class="line"></span><br><span class="line">完整的 vue 相关用户设置如下</span><br><span class="line">&quot;files.exclude&quot;: &#123;</span><br><span class="line">    &quot;**&#x2F;.git&quot;: true,</span><br><span class="line">    &quot;**&#x2F;.svn&quot;: true,</span><br><span class="line">    &quot;**&#x2F;.hg&quot;: true,</span><br><span class="line">    &quot;**&#x2F;CVS&quot;: true,</span><br><span class="line">    &quot;**&#x2F;.DS_Store&quot;: true,</span><br><span class="line">    &quot;**&#x2F;node_modules&quot;: true,</span><br><span class="line">    &quot;**&#x2F;package-lock.json&quot;: true</span><br><span class="line">&#125;,</span><br><span class="line">&quot;vetur.format.defaultFormatter.html&quot;: &quot;js-beautify-html&quot;,</span><br><span class="line">&quot;editor.formatOnSave&quot;: true,</span><br><span class="line">&quot;prettier.semi&quot;: false,</span><br><span class="line">&quot;prettier.singleQuote&quot;: true,</span><br><span class="line">&quot;html.format.endWithNewline&quot;: true,</span><br><span class="line">&quot;eslint.validate&quot;: [</span><br><span class="line">    &quot;javascript&quot;,</span><br><span class="line">    &quot;javascriptreact&quot;,</span><br><span class="line">    &quot;html&quot;,</span><br><span class="line">    &quot;vue&quot;,</span><br><span class="line">    &#123;</span><br><span class="line">        &quot;language&quot;: &quot;html&quot;,</span><br><span class="line">        &quot;autoFix&quot;: true</span><br><span class="line">    &#125;</span><br><span class="line">]</span><br></pre></td></tr></table></figure></li>
+<li><p>vscode代码格式化：</p>
+<ul>
+<li>参考链接：<ul>
+<li><a target="_blank" rel="noopener" href="https://www.cnblogs.com/benbentu/p/9661998.html">https://www.cnblogs.com/benbentu/p/9661998.html</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/f15b67c94c78">https://www.jianshu.com/p/f15b67c94c78</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>关于编辑工具中的eslint插件和webpack安装的插件区别：</p>
+<ul>
+<li>webpack是静态模块打包器，是在编译时期按照规则校验用的，报错了会停止编译；vscode是提示给使用者看的，方便提示报错与修复。</li>
+<li>参考链接：<a target="_blank" rel="noopener" href="https://segmentfault.com/q/1010000015852118">https://segmentfault.com/q/1010000015852118</a></li>
+</ul>
+</li>
+<li><p>关于babel</p>
+<ul>
+<li>Babel 是一个工具链，主要用于将 ECMAScript 2015+ 版本的代码转换为向后兼容的 JavaScript 语法，以便能够运行在当前和旧版本的浏览器或其他环境中。</li>
+<li>配置文件：babel.config.js / .babelrc.js<ul>
+<li>配置参数-plugins</li>
+<li>配置参数-presets(一组Babel插件)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>vscode插件列表：</p>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>简述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Auto Close Tag</td>
+<td>自动闭合HTML标签</td>
+</tr>
+<tr>
+<td>Auto Rename Tag</td>
+<td>修改HTML标签时，自动修改匹配的标签</td>
+</tr>
+<tr>
+<td>Auto Import</td>
+<td>import提示</td>
+</tr>
+<tr>
+<td>Beautify css/sass/scss/less</td>
+<td>css/sass/less格式化 （个人装了Beautify、 Beautify css/sass/scss/less、vue-Beautify）需要使用配置文件</td>
+</tr>
+<tr>
+<td>Chinese (Simplified) Language Pack for Visual Studio Code</td>
+<td>设置中文包/配置中文语言</td>
+</tr>
+<tr>
+<td>color info</td>
+<td>小窗口显示颜色值，rgb,hsl,cmyk,hex等等</td>
+</tr>
+<tr>
+<td>eslint</td>
+<td>es语法检测工具，需要配置配置文件</td>
+</tr>
+<tr>
+<td>editor config for vscode</td>
+<td>editorconfig插件以及点editorconfig配置文件（统一代码风格工具）</td>
+</tr>
+<tr>
+<td>git blame</td>
+<td>在状态栏显示当前行的Git信息</td>
+</tr>
+<tr>
+<td>git history</td>
+<td>查看git log</td>
+</tr>
+<tr>
+<td>HTML/js Snippets</td>
+<td>快速代码模板(类似idea代码模板)</td>
+</tr>
+<tr>
+<td>intelliSense for CSS class names in HTML</td>
+<td>把项目中 css 文件里的名称智能提示在 html 中</td>
+</tr>
+<tr>
+<td>Indenticator</td>
+<td>缩进高亮</td>
+</tr>
+<tr>
+<td>npm / npm Intellisense(智能感知)</td>
+<td>导入模块时，提示已安装模块名称</td>
+</tr>
+<tr>
+<td>Path Intellisense</td>
+<td>另一个路径完成提示</td>
+</tr>
+<tr>
+<td>vetur</td>
+<td>目前比较好的Vue语法高亮</td>
+</tr>
+<tr>
+<td>vscode-fileheader</td>
+<td>自动生成头部注释 ctrl+alt+i(<strong>需要配置内容</strong>)</td>
+</tr>
+<tr>
+<td>saas</td>
+<td>==</td>
+</tr>
+<tr>
+<td>vscode-icons</td>
+<td>vscode 文件图标：文件=&gt;首先项=&gt;文件图标主题=&gt;选中VSCode Icons</td>
+</tr>
+</tbody></table>
+<ul>
+<li>参考链接：<a target="_blank" rel="noopener" href="https://github.com/varHarrie/varharrie.github.io/issues/10">https://github.com/varHarrie/varharrie.github.io/issues/10</a></li>
+<li>已使用的标签：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">1. Auto Close Tag</span><br><span class="line">2. Auto Import</span><br><span class="line">3. Auto Rename Tag</span><br><span class="line">4. Chinese (Simplified) Language Pack for Visual Studio Code</span><br><span class="line">5. VSCode Color Info</span><br><span class="line">6. VS Code ESLint extension</span><br><span class="line">7. Git Blame、Git History</span><br><span class="line">8. Indenticator</span><br><span class="line">9. koroFileHeader</span><br><span class="line">10. Manta&#39;s Stylus Supremacy</span><br><span class="line">11. Path Intellisense</span><br><span class="line">12. Prettier Formatter for Visual Studio Code</span><br><span class="line">13. vetur</span><br><span class="line">14. vscode-icons</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="vscode使用"><a href="#vscode使用" class="headerlink" title="vscode使用"></a>vscode使用</h3><h4 id="用户设置"><a href="#用户设置" class="headerlink" title="用户设置"></a>用户设置</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line"></span><br><span class="line">    &quot;workbench.editor.focusRecentEditorAfterClose&quot;: false,</span><br><span class="line"></span><br><span class="line">    &quot;terminal.external.osxExec&quot;: &quot;iTerm.app&quot;,</span><br><span class="line"></span><br><span class="line">    &quot;editor.tabSize&quot;: 2,</span><br><span class="line">    &quot;editor.fontLigatures&quot;: true,</span><br><span class="line">    &#x2F;&#x2F; &quot;editor.formatOnSave&quot;: true,</span><br><span class="line">    &quot;vetur.validation.template&quot;: true,</span><br><span class="line">    &#x2F;&#x2F; 使用插件格式化 html</span><br><span class="line">    &quot;vetur.format.defaultFormatter.html&quot;: &quot;js-beautify-html&quot;,</span><br><span class="line">    &#x2F;&#x2F; 格式化插件的配置</span><br><span class="line">    &quot;vetur.format.defaultFormatterOptions&quot;: &#123;</span><br><span class="line">        &quot;js-beautify-html&quot;: &#123;</span><br><span class="line">            &#x2F;&#x2F; 属性强制折行对齐</span><br><span class="line">            &quot;wrap_attributes&quot;: &quot;force-aligned&quot;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    &quot;files.associations&quot;: &#123;</span><br><span class="line">        &quot;*.vue&quot;: &quot;vue&quot;</span><br><span class="line">    &#125;,</span><br><span class="line">    &quot;emmet.syntaxProfiles&quot;: &#123;</span><br><span class="line">        &quot;vue-html&quot;: &quot;html&quot;,</span><br><span class="line">        &quot;vue&quot;: &quot;html&quot;</span><br><span class="line">    &#125;,</span><br><span class="line">    &quot;emmet.includeLanguages&quot;: &#123;</span><br><span class="line">        &quot;vue-html&quot;: &quot;html&quot;,</span><br><span class="line">        &quot;wxml&quot;: &quot;html&quot;</span><br><span class="line">    &#125;,</span><br><span class="line">    &quot;git.autofetch&quot;: true,</span><br><span class="line">    &quot;git.confirmSync&quot;: false,</span><br><span class="line">    &#x2F;&#x2F; 添加 vue 支持</span><br><span class="line">    &quot;eslint.validate&quot;: [</span><br><span class="line">        &quot;javascript&quot;,</span><br><span class="line">        &quot;javascriptreact&quot;,</span><br><span class="line">        &quot;html&quot;,</span><br><span class="line">        &#123;</span><br><span class="line">            &quot;language&quot;: &quot;vue&quot;,</span><br><span class="line">            &quot;autoFix&quot;: true</span><br><span class="line">        &#125;</span><br><span class="line">    ],</span><br><span class="line">    &quot;javascript.validate.enable&quot;: true,</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    &quot;explorer.confirmDragAndDrop&quot;: true,</span><br><span class="line"></span><br><span class="line">    &quot;fileheader.Author&quot;: &quot;HISUN&quot;,</span><br><span class="line">    &quot;fileheader.LastModifiedBy&quot;: &quot;HISUN&quot;,</span><br><span class="line">    &quot;breadcrumbs.enabled&quot;: true,</span><br><span class="line"></span><br><span class="line">    &quot;javascript.updateImportsOnFileMove.enabled&quot;: &quot;always&quot;,</span><br><span class="line">    &quot;javascript.implicitProjectConfig.experimentalDecorators&quot;: true,</span><br><span class="line"></span><br><span class="line">    &quot;html.format.indentInnerHtml&quot;: true,</span><br><span class="line">    &quot;html.format.endWithNewline&quot;: true,</span><br><span class="line">    &quot;html-css-class-completion.enableEmmetSupport&quot;: true,</span><br><span class="line">    &quot;window.zoomLevel&quot;: 0,</span><br><span class="line">    &quot;[javascript]&quot;: &#123;</span><br><span class="line">        &quot;editor.defaultFormatter&quot;: &quot;HookyQR.beautify&quot;</span><br><span class="line">    &#125;,</span><br><span class="line">    &quot;files.autoSave&quot;: &quot;off&quot;,</span><br><span class="line">    &quot;workbench.sideBar.location&quot;: &quot;right&quot;,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
 
+      
+    </div>
 
-<h3 id="栈"><a href="#栈" class="headerlink" title="栈"></a>栈</h3><p>栈是一个先进后出的有序列表(FILO first in last out)</p>
-<p>栈是限制线性表中元素的插入和删除只能在线性表的同一端进行操作的一种特殊线性表。允许插入和删除的一端为变化端，即栈顶。另一端为栈底。</p>
-<p><strong>应用场景</strong></p>
-<ul>
-<li>子程序的调用</li>
-<li>处理递归调用</li>
-<li>表达式的转换[中缀表达式转后缀表达式]与求值</li>
-<li>二叉树的遍历</li>
-<li>图形的深度优先搜索法</li>
-</ul>
-<p><strong>需求场景</strong></p>
-<p>前端输入一个表达式，编写一个函数进行计算：String str = 7*2</p>
-<p>栈的应用场景、实现原理、<strong>实现计算器</strong></p>
-<p><strong>实现计算器</strong></p>
-<p>两个栈，一个存放数，一个存放操作符，遍历字符时若当前字符是操作符，则判断优先级是否小于或等于操作符栈的上一个操作符，是的话则从数栈pop出两个数，从操作符栈pop出一个符号进行计算，然后将当前的符号入符号栈；否则直接入符号栈（中缀表达式）</p>
-<h3 id="前缀-amp-中缀-amp-后缀表达式"><a href="#前缀-amp-中缀-amp-后缀表达式" class="headerlink" title="前缀&amp;中缀&amp;后缀表达式"></a>前缀&amp;中缀&amp;后缀表达式</h3><p>前缀表达式：运算符位于操作符之前</p>
-<h3 id="双向链表"><a href="#双向链表" class="headerlink" title="双向链表"></a>双向链表</h3><p>双向链表同时记录了头尾节点，且每个节点增加prev上一节点引用指针</p>
-<h2 id="算法"><a href="#算法" class="headerlink" title="算法"></a>算法</h2><h3 id="算法-递归"><a href="#算法-递归" class="headerlink" title="算法-递归"></a>算法-递归</h3><p>应用场景：阶乘、迷宫问题（回溯）、八皇后问题</p>
-<h3 id="算法-排序"><a href="#算法-排序" class="headerlink" title="算法-排序"></a>算法-排序</h3><p>将一组数组，依据指定顺序进行排列的过程</p>
-<p><strong>排序的分类</strong></p>
-<ul>
-<li><p>内部排序（使用内部存储进行排序）</p>
-</li>
-<li><p>外部排序（数据量大时使用外部存储进行排序）</p>
-</li>
-</ul>
-<p><strong>内部排序分为</strong></p>
-<ul>
-<li>插入排序<ul>
-<li><strong>直接插入排序</strong></li>
-<li>希尔排序</li>
-</ul>
-</li>
-<li>选择排序<ul>
-<li><strong>简单排序</strong></li>
-<li>堆排序</li>
-</ul>
-</li>
-<li>交换排序<ul>
-<li><strong>冒泡排序</strong></li>
-<li>快速排序</li>
-</ul>
-</li>
-<li>归并排序</li>
-<li>基数排序（桶排序的升级）</li>
-</ul>
-<p><strong>度量程序、算法执行时间的两种方法</strong></p>
-<ul>
-<li>事后统计法（需要实际运行；依赖于软硬件等环境因素）</li>
-<li>事前估算法：通过分析某算法的<strong>时间复杂度</strong>来判断</li>
-</ul>
-<h4 id="时间复杂度"><a href="#时间复杂度" class="headerlink" title="时间复杂度"></a>时间复杂度</h4><p><strong>时间频度</strong> T(n)：一个算法</p>
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://huangyuye.github.io/2021/04/26/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/windows%E5%B7%A5%E5%85%B7/vscode%E9%85%8D%E7%BD%AE&%E6%93%8D%E4%BD%9C/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="yuye Huang">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="HYY">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/04/26/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/windows%E5%B7%A5%E5%85%B7/vscode%E9%85%8D%E7%BD%AE&%E6%93%8D%E4%BD%9C/" class="post-title-link" itemprop="url">未命名</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-04-26 14:59:29" itemprop="dateCreated datePublished" datetime="2021-04-26T14:59:29+00:00">2021-04-26</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/" itemprop="url" rel="index"><span itemprop="name">知识库</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/windows%E5%B7%A5%E5%85%B7/" itemprop="url" rel="index"><span itemprop="name">windows工具</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p><strong>参考链接</strong></p>
+<p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/fd945e8e099d">https://www.jianshu.com/p/fd945e8e099d</a></p>
+<p><strong>配置步骤</strong></p>
+<p>文件 》 设置 》 首选项：区分用户区和工作区</p>
+<p><strong>插件安装</strong></p>
+<p><strong>基础插件</strong></p>
+<p>1、汉化包</p>
+<p>插件：Chinese(Simplified) Language Pack for Visual Stidio Code 中文汉化包</p>
+<p>配置：按快捷键Ctrl+Shift+P调出命令面板，输入Configure Display Language，选择zh-ch，然后重启vs code</p>
+<p>2、Auto Close Tag 自动闭合标签</p>
+<p>3、Auto Rename Tag 尾部闭合标签同步修改</p>
+<p>4、Bracket Pair Colorizer 用不同颜色高亮显示匹配的括号</p>
+<p>5、Highlight Matching Tag 高亮显示匹配标签</p>
+<p>6、Vscode-icons VSCode 文件图标</p>
+<p>7、TODO Highlight 高亮</p>
+<p>使用：输入TODO &amp; FIXME 文本</p>
+<p>8、Code Spell Checker 单词拼写检查</p>
+<p>9、Improt Cost 成本提示</p>
+<p>说明：这个插件可以在你导入工具包的时候提示这个包的体积，如果体积过大就需要考虑压缩包，为后期上线优化做准备。</p>
+<p>10、GitLens 查看Git信息</p>
+<p>说明：将光标移到代码行上，即可显示当前行最近的commit信息和作者</p>
+<p>11、Bookmarks 书签</p>
+<p>说明：对代码进行书签标记，通过快捷键实现快速跳转到书签位置。</p>
+<p>使用：</p>
+<p>12、koroFileHeader</p>
+<p><strong>配置：</strong>参考 <a target="_blank" rel="noopener" href="https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE">https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE</a></p>
+<p>// 文件头部注释  “fileheader.customMade”: {    “Descripttion”: “”,    “Author”: “yuye.huang”,    “Date”: “Do not edit”,    “LastEditors”: “yuye.huang”,    “LastEditTime”: “Do not Edit”  },  // 函数注释  “fileheader.cursorMode”: {    // “name”:””,    // “test”:”test font”,    “msg”: “”,    “param”: “”,    “return”: “”  },</p>
+<p><strong>使用：</strong></p>
+<p>文件头部添加注释:</p>
+<p>window：ctrl+alt+i,mac：ctrl+cmd+i</p>
+<p>在光标处添加函数注释:</p>
+<p>window：ctrl+alt+t,mac：ctrl+cmd+t</p>
+<p><strong>扩展插件</strong></p>
+<p>1、Vscode-element-helper</p>
+<p>说明：使用element-ui库的可以安装这个插件，编写标签时自动提示element标签名称。</p>
+<p>2、Version Lens 工具包版本信息</p>
+<p>说明：在package.json中显示你下载安装的npm工具包的版本信息，同时会告诉你当前包的最新版本。</p>
+<p>3、Vetur VUE语言包</p>
+<p>说明：Vetur对VUE提供了很好的语言支持，没有安装该插件之前之前编写后缀名为.vue的文件时代码是白色的</p>
+<p>使用：安装插件后编写vue文件输入s，按Tab键就可以自动补全模版。</p>
+<p>4、<strong>Settings Sync VSCode设置同步到Gist</strong></p>
+<p>说明：有时候我们到了新公司或者换了新电脑需要配置新的开发环境，这时候一个一个下载插件，再重新配置vs code就非常麻烦而且你还不一定记得那么全面，通过这个插件我们可以将当前vs code中的配置上传到Gist，之后再通过Gist下载，就可以将所有配置同步到新环境中了。</p>
+<p>使用：</p>
+<ol>
+<li>在Github首页点击头像，选择Settings进入设置页面。</li>
+<li>点击左侧侧边栏Developer settings，</li>
+<li>进入开发者设置。选择Personal access tokens，点击右侧Generate new token。</li>
+<li>填写token名称，在下方勾选gist。</li>
+<li>点击下方的Generate token按钮生成一个新的token。将生成的新的token保存下来。</li>
+<li>在vscode中安装Settings Sync插件，输入Ctrl+Shift+p输入Sync，选择更新/上传配置。</li>
+<li>将github中生成的token输入，点击回车。</li>
+<li>在控制台中自动生成一串id,之后便可以通过token和id进行配置同步。</li>
+<li>输入Ctrl+Shift+p输入Sync，选择下载配置，输入token和id即可同步下载。</li>
+<li>可以在配置文件中选择是否自动上传和下载</li>
+</ol>
+<p><strong>常用配置</strong></p>
+<p>1、关闭标签介绍信息（延时）</p>
+<p>配置：”editor.hover.delay”: 5000,</p>
+<p>2、自动折行</p>
+<p>说明：设置代码根据编辑器窗口大小自动折行</p>
+<p>配置：”editor.wordWrap”: “on”,</p>
+<p>3、字体设置</p>
+<p>配置：</p>
+<p> // 一款适合代码显示的字体包（需要将字体包下载到本地）</p>
+<p> “editor.fontFamily”: “Source Code Pro, ‘Source Code Pro’”,</p>
+<p> // 设置代码字体大小</p>
+<p> “editor.fontSize”: 15,</p>
+<p>4、自动保存</p>
+<p>配置：”files.autoSave”: “off”,</p>
+<p>选项：</p>
+<p>off：关闭自动保存。</p>
+<p>afterDelay：当文件修改后的时间超过”Files：Auto Save Delay”中配置的值时自动进行保存。</p>
+<p>onFocusChange：编辑器失去焦点时自动保存更新后的文件。</p>
+<p>onWindowChange：窗口失去焦点时自动保存更新后的文件。</p>
+<p>5、关闭代码提示</p>
+<p>配置：”editor.quickSuggestions”: { “other”: false, “comments”: false, “strings”: false }</p>
+<p>6、// 控制可以打开多个标签页</p>
+<p>  “workbench.editor.enablePreview”: false,</p>
+<p><strong>快捷键</strong></p>
+<p><strong>编辑器与窗口管理</strong></p>
+<p>Ctrl+Shift+P: 打开命令面板。</p>
+<p>Ctrl+Shift+N: 新建窗口。</p>
+<p>Ctrl+Shift+W: 关闭窗口。</p>
+<p>切分窗口：Ctrl+1/Ctrl+3/Ctrl+3</p>
+<p>Ctrl+H：最小化窗口</p>
+<p>Ctrl+B：显示/隐藏侧边栏</p>
+<p>Ctrl+”+/-“：放大/缩小界面</p>
+<p><strong>文件操作</strong></p>
+<p>Ctrl+N：新建文件</p>
+<p>Ctrl+W：关闭文件</p>
+<p>Ctrl+Tab：文件切换</p>
+<p><strong>格式调整</strong></p>
+<p>Ctrl+C/Ctrl+V：复制或剪切当前行/当前选中内容</p>
+<p>Alt+Up/Down：向上/下移动一行</p>
+<p>Shift+Alt+Up//Down：向上/下复制一行</p>
+<p>Ctrl+Delete：删除当前行</p>
+<p>Shift+Alt+Left/Right：从光标开始向左/右选择内容</p>
+<p><strong>代码编辑</strong></p>
+<p>Ctrl+D：选中下一个相同内容</p>
+<p>Ctrl+Shift+L：选中所有相同内容</p>
+<p>Ctrl+F：查找内容</p>
+<p>Ctrl+Shit+F：在整个文件夹中查找内容</p>
+<p><strong>不同语言环境配置</strong></p>
+<p><strong>vue</strong></p>
+<p>参考链接：</p>
+<p><a target="_blank" rel="noopener" href="https://segmentfault.com/a/1190000014796012">https://segmentfault.com/a/1190000014796012</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/benbentu/p/9661998.html">https://www.cnblogs.com/benbentu/p/9661998.html</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/f15b67c94c78">https://www.jianshu.com/p/f15b67c94c78</a></p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/userkang/article/details/84302629">https://blog.csdn.net/userkang/article/details/84302629</a></p>
+<p>配置文件：</p>
+<p>- Vetur : 语法高亮等功能 - ESlint : 代码风格检测 - Prettier formatter <strong>for</strong> Visual Studio Code: 为了配合 ESlint vue 的模板格式化： “vetur.format.defaultFormatter.html”:”js-beautify-html” vue 模板的 eslint 校验    “eslint.validate”: [        “javascript”,        “javascriptreact”,        “html”,        “vue”,        {            “language”: “html”,            “autoFix”: <strong>true</strong>        }    ] Prettier 设置去除不必要空格：”prettier.semi”: <strong>false</strong> Prettier 设置格式化后”变’：”prettier.singleQuote”: true 在 vscode 中排除 node_modules 等文件夹： “files.<strong>exclude</strong>“: {    “<strong>/.git”: true,    “</strong>/.svn”: true,    “<strong>/.hg”: true,    “</strong>/CVS”: true,    “<strong>/.DS_Store”: true,    “</strong>/node_modules”: true,    “<strong>/package-<strong>lock</strong>.json”: true, }, 以新行结束 “html.<strong>format</strong>.endWithNewline”: false 完整的 vue 相关用户设置如下 “files.<strong>exclude</strong>“: {    “</strong>/.git”: true,    “<strong>/.svn”: true,    “</strong>/.hg”: true,    “<strong>/CVS”: true,    “</strong>/.DS_Store”: true,    “<strong>/node_modules”: true,    “</strong>/package-<strong>lock</strong>.json”: true }, “vetur.<strong>format</strong>.defaultFormatter.html”: “js-beautify-html”, “editor.formatOnSave”: true, “prettier.semi”: false, “prettier.singleQuote”: true, “html.<strong>format</strong>.endWithNewline”: true, “eslint.<strong>validate</strong>“: [    “javascript”,    “javascriptreact”,    “html”,    “vue”,    {        “<strong>language</strong>“: “html”,        “autoFix”: true    } ]</p>
+<p><strong>小程序</strong></p>
+<p>参考链接：</p>
+<p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/4b849843c3b9">https://www.jianshu.com/p/4b849843c3b9</a></p>
+<p>安装插件：</p>
+<p>1、minapp</p>
+<p>2、wechat-snippet</p>
+<p>3、wxml</p>
+<p>4、wechat-snippet</p>
+<p><strong>Wepy</strong></p>
+<p>参考链接：</p>
+<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/cisum/p/9852571.html">https://www.cnblogs.com/cisum/p/9852571.html</a></p>
+<p>安装插件Vetur后打开.wpy文件，在右下角点击“纯文本”选择”.wpy的配置文件关联”选择”Vue”后，语法变为高亮： <strong>files.associations</strong></p>
+<p>// 配置语言的文件关联(如: “*.extension”: “html”)。这些关联的优先级高于已安装语言的默认关联。</p>
+<p>“files.associations”: {</p>
+<p>​    “*.vue”: “vue”,</p>
+<p>​    “*.wpy”: “vue”,</p>
+<p>​    “*.wxss”: “postcss”,</p>
+<p>​    “*.tpl”: “vue”,</p>
+<p>​    “*.md@xxx”: “markdown”,</p>
+<p>​    “*.wepy”: “vue”,</p>
+<p>​    “*.cjson”: “jsonc”,</p>
+<p>​    “*.wxs”: “javascript”</p>
+<p>  },</p>
+<p>// 添加emmet语法支持 wxml 文件(当然也可以配置支持vue文件)</p>
+<p>“emmet.includeLanguages”: {</p>
+<p>​    “wxml”: “html”</p>
+<p>  },</p>
+<p>  // “emmet.syntaxProfiles”: {</p>
+<p>  //   “vue-html”: “html”,</p>
+<p>  //   “vue”: “html”</p>
+<p>  // },</p>
+<p>“minapp-vscode.disableAutoConfig”: true,</p>
+<p><strong>格式化插件</strong></p>
+<p>参考链接：</p>
+<p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/e73f1b429788?utm_campaign=maleskine&utm_content=note&utm_medium=seo_notes&utm_source=recommendation"><strong>https://www.jianshu.com/p/e73f1b429788?utm_campaign=maleskine&amp;utm_content=note&amp;utm_medium=seo_notes&amp;utm_source=recommendation</strong></a></p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_34413065/article/details/86133692">https://blog.csdn.net/weixin_34413065/article/details/86133692</a></p>
+<p><strong>wpy的文件都是用vue的高亮规则：</strong></p>
+<p>“files.associations”: {</p>
+<p>​        “*.vue”: “vue”,</p>
+<p>​        “*.wpy”: “vue”,</p>
+<p>​        “*.wxml”: “html”,</p>
+<p>​        “*.wxss”: “css”</p>
+<p>​    },</p>
+<p>​    “emmet.syntaxProfiles”: {</p>
+<p>​        “vue-html”: “html”,</p>
+<p>​        “vue”: “html”</p>
+<p>​    },</p>
+<p>**wpy-beautify &amp; vetur语法高亮 &amp;**<strong>vscode-wxml 语法支持及代码片段</strong></p>
+<p><strong>vetur：</strong></p>
+<p>说明：插件的使用需要修改下vs-code对于文件格式的判断才能使用不同的插件，点击文件右下角可以修改文件格式并应用于所有该格式的文件</p>
+<p>wpy-beautify插件配置：</p>
+<p>wpy-beautify插件使用：</p>
+<p>{</p>
+<p>​      “key”: “ctrl+shift+6”,          </p>
+<p>​      “command”: “wpyBeautify.format”,</p>
+<p>​      “when”: “editorTextFocus &amp;&amp; !editorReadonly” </p>
+<p>​    }</p>
+<p><strong>最新配置</strong></p>
+<p><strong>用户空间</strong></p>
+<p>{</p>
+<p>  “editor.fontSize”: 12,</p>
+<p>  // 一个制表符等于的空格数。该设置在 <code>editor.detectIndentation</code> 启用时根据文件内容进行重写。</p>
+<p>  “editor.tabSize”: 2,</p>
+<p>  // 自动保存</p>
+<p>  “files.autoSave”: “off”,</p>
+<p>  // 控制编辑器是否应呈现缩进参考线</p>
+<p>  “editor.renderIndentGuides”: true,</p>
+<p>  // 当打开文件时，将基于文件内容检测 “editor.tabSize” 和 “editor.insertSpaces”。</p>
+<p>  “editor.detectIndentation”: false,</p>
+<p>  “window.zoomLevel”: 1,</p>
+<p>  “editor.wordWrap”: “on”,</p>
+<p>  “workbench.iconTheme”: “vscode-icons”,</p>
+<p>  “editor.wordSeparators”: “`~!@#$%^&amp;*()=+[{]}\|;:’&quot;,.&lt;&gt;/?。”,</p>
+<p>  “editor.minimap.enabled”: true,</p>
+<p>  // 配置 glob 模式以排除文件和文件夹。</p>
+<p>  “files.exclude”: {</p>
+<p>​    “**/.git”: true,</p>
+<p>​    “**/.svn”: true,</p>
+<p>​    “**/.hg”: true,</p>
+<p>​    “**/CVS”: true,</p>
+<p>​    “**/.DS_Store”: true,</p>
+<p>​    “**/.DS_Store”: true,</p>
+<p>​    // “**/node_modules”: true,</p>
+<p>​    “**/bower_components”: true</p>
+<p>​    // “**/dist”: true</p>
+<p>  },</p>
+<p>  // 配置语言的文件关联(如: “*.extension”: “html”)。这些关联的优先级高于已安装语言的默认关联。</p>
+<p>  “files.associations”: {</p>
+<p>​      “*.vue”: “vue”,</p>
+<p>​      “*.wpy”: “vue”,</p>
+<p>​      “*.wxss”: “postcss”,</p>
+<p>​      “*.tpl”: “vue”,</p>
+<p>​      “*.md@xxx”: “markdown”,</p>
+<p>​      “*.wepy”: “vue”</p>
+<p>  },</p>
+<p>  // 关闭代码提示 // 控制键入时是否应自动显示建议</p>
+<p>  “editor.quickSuggestions”: {</p>
+<p>​    “other”: true,</p>
+<p>​    “comments”: true,</p>
 
       
     </div>
@@ -802,7 +1154,7 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2021-04-26 14:54:22" itemprop="dateCreated datePublished" datetime="2021-04-26T14:54:22+00:00">2021-04-26</time>
+              <time title="创建时间：2021-04-26 14:59:29" itemprop="dateCreated datePublished" datetime="2021-04-26T14:59:29+00:00">2021-04-26</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -1140,7 +1492,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-04-26 14:54:44" itemprop="dateModified" datetime="2021-04-26T14:54:44+00:00">2021-04-26</time>
+                <time title="修改时间：2021-04-26 14:59:53" itemprop="dateModified" datetime="2021-04-26T14:59:53+00:00">2021-04-26</time>
               </span>
 
           
@@ -1221,7 +1573,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-04-26 14:54:44" itemprop="dateModified" datetime="2021-04-26T14:54:44+00:00">2021-04-26</time>
+                <time title="修改时间：2021-04-26 14:59:53" itemprop="dateModified" datetime="2021-04-26T14:59:53+00:00">2021-04-26</time>
               </span>
 
           
@@ -1334,7 +1686,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-04-26 14:54:44" itemprop="dateModified" datetime="2021-04-26T14:54:44+00:00">2021-04-26</time>
+                <time title="修改时间：2021-04-26 14:59:53" itemprop="dateModified" datetime="2021-04-26T14:59:53+00:00">2021-04-26</time>
               </span>
 
           
@@ -1373,6 +1725,9 @@
 <figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Generate categories from directory-tree</span></span><br><span class="line"><span class="comment"># Dependencies: https://github.com/xu-song/hexo-auto-category</span></span><br><span class="line"><span class="comment"># depth: the depth of directory-tree you want to generate, should &gt; 0</span></span><br><span class="line">auto_category:</span><br><span class="line"> enable: true</span><br><span class="line"> depth:</span><br></pre></td></tr></table></figure>
 
 <p>参考文章<a target="_blank" rel="noopener" href="https://blog.eson.org/pub/e2f6e239/">【Hexo 插件系列】日志的自动分类插件 hexo-auto-category</a></p>
+<h3 id="自动生成标题"><a href="#自动生成标题" class="headerlink" title="自动生成标题"></a>自动生成标题</h3><p>Hexo 功能增强插件<a target="_blank" rel="noopener" href="https://segmentfault.com/a/1190000018402194"> hexo-enchancer</a></p>
+<p><code>npm install hexo-enhancer _--save_</code><br>或<br><code>yarn add hexo-enhancer</code></p>
+<p>hexo-enhancer 解析文件名的正则表达式如下:<br><code>/^.?(\d&#123;4&#125;)[-_]?(\d&#123;2&#125;)[-_]?(\d&#123;2&#125;).?[-_.@_# ]*(.*)$/_</code></p>
 
       
     </div>
