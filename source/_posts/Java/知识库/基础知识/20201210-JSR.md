@@ -2,5 +2,5 @@
 categories:
   - Java
   - 知识库
-  - mysql
+  - Java
 ---

@@ -174,3 +174,11 @@ https://www.jianshu.com/p/2404654d655a
 
 
 
+## 常用命令
+
+查看方法实现：ctrl + alt + B
+
+查看方法声明：ctrl + U （Super Method）
+
+查看类声明：ctrl + shrift + B
+
