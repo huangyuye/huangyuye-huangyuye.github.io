@@ -1,9 +1,3 @@
----
-categories:
-  - Java
-  - 知识库
-  - sca
----
 ## 参考链接
 
 《Spring Cloud Alibaba 参考文档》：https://spring-cloud-alibaba-group.github.io/github-pages/hoxton/zh-cn/index.html#_%E4%BB%8B%E7%BB%8D

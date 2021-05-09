@@ -1,9 +1,3 @@
----
-categories:
-  - Java
-  - 知识库
-  - Java
----
 # 默认的equals与hashcode
 
 1. equals：判断两个对象的引用指向的是不是同一个对象

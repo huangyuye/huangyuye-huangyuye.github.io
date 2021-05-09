@@ -1,9 +1,3 @@
----
-categories:
-  - Java
-  - 知识库
-  - Java
----
 ## spring 技术体系演变
 
 1. spring

@@ -1,9 +1,3 @@
----
-categories:
-  - Java
-  - 知识库
-  - docker
----
 ## 参考链接
 
 - [Docker 基础 : 数据管理](https://www.cnblogs.com/sparkdev/p/6216154.html)

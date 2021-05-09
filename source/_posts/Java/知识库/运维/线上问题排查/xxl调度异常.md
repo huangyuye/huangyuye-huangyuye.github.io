@@ -1,9 +1,3 @@
----
-categories:
-  - Java
-  - 知识库
-  - 线上问题排查
----
 1. stop容器时提示：The web application [ROOT] appears to have started a thread named [Thread-48] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
 
 - io.netty.util.concurrent.SingleThreadEventExecutor.confirmShundown(SingleThreadEventExecutor.java:790)

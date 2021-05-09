@@ -1,16 +1,11 @@
 # IDEA卸载重装
 
-
-
 ## 插件网
 
 https://plugins.jetbrains.com/
 
 
-
-## **常用插件**
-
-
+## 常用插件
 
 1、GenerateAllSetter ：通过alt+enter对变量类生成对类的所有setter方法的调用
 
@@ -43,8 +38,6 @@ https://plugins.jetbrains.com/
 16、CamelCase：命名风格切换，如驼峰命名切换成下划线分割
 
 17、CodeGlance：在编辑区的右侧显示的代码地图
-
----
 
 18、Material Theme UI：主题插件
 

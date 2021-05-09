@@ -1,9 +1,3 @@
----
-categories:
-  - Java
-  - 知识库
-  - windows工具
----
 **常用插件**
 
 1、GenerateAllSetter ：通过alt+enter对变量类生成对类的所有setter方法的调用

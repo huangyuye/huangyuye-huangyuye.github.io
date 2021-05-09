@@ -1,9 +1,3 @@
----
-categories:
-  - Java
-  - 知识库
-  - mq
----
 ## 背景
 
 

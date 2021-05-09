@@ -1,9 +1,3 @@
----
-categories:
-  - Java
-  - 笔记
-  - 数据结构
----
 # Java 复习笔记
 
 
