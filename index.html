@@ -156,7 +156,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://huangyuye.github.io/2021/04/26/%E6%97%A5%E8%AE%B0/20200620/">
+    <link itemprop="mainEntityOfPage" href="https://huangyuye.github.io/2021/05/09/%E6%97%A5%E8%AE%B0/20200620/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -170,7 +170,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2021/04/26/%E6%97%A5%E8%AE%B0/20200620/" class="post-title-link" itemprop="url">未命名</a>
+            <a href="/2021/05/09/%E6%97%A5%E8%AE%B0/20200620/" class="post-title-link" itemprop="url">未命名</a>
         </h2>
 
         <div class="post-meta">
@@ -180,7 +180,7 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2021-04-26 14:59:29" itemprop="dateCreated datePublished" datetime="2021-04-26T14:59:29+00:00">2021-04-26</time>
+              <time title="创建时间：2021-05-09 15:52:56" itemprop="dateCreated datePublished" datetime="2021-05-09T15:52:56+00:00">2021-05-09</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -268,7 +268,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://huangyuye.github.io/2021/04/26/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/windows%E5%B7%A5%E5%85%B7/%E6%96%B0%E7%94%B5%E8%84%91%E7%8E%AF%E5%A2%83%E5%87%86%E5%A4%87/">
+    <link itemprop="mainEntityOfPage" href="https://huangyuye.github.io/2021/05/09/Java/%E7%AC%94%E8%AE%B0/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/Java%20%E5%A4%8D%E4%B9%A0%E7%AC%94%E8%AE%B0/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -282,7 +282,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2021/04/26/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/windows%E5%B7%A5%E5%85%B7/%E6%96%B0%E7%94%B5%E8%84%91%E7%8E%AF%E5%A2%83%E5%87%86%E5%A4%87/" class="post-title-link" itemprop="url">未命名</a>
+            <a href="/2021/05/09/Java/%E7%AC%94%E8%AE%B0/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/Java%20%E5%A4%8D%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="post-title-link" itemprop="url">未命名</a>
         </h2>
 
         <div class="post-meta">
@@ -292,7 +292,989 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2021-04-26 14:59:29" itemprop="dateCreated datePublished" datetime="2021-04-26T14:59:29+00:00">2021-04-26</time>
+              <time title="创建时间：2021-05-09 15:52:56" itemprop="dateCreated datePublished" datetime="2021-05-09T15:52:56+00:00">2021-05-09</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">笔记</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/%E7%AC%94%E8%AE%B0/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" itemprop="url" rel="index"><span itemprop="name">数据结构</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="Java-复习笔记"><a href="#Java-复习笔记" class="headerlink" title="Java 复习笔记"></a>Java 复习笔记</h1><h2 id="线性数据结构"><a href="#线性数据结构" class="headerlink" title="线性数据结构"></a>线性数据结构</h2><ul>
+<li><strong>数组：</strong>支持<strong>随机访问</strong>，并且容量有限</li>
+<li>数组使用<strong>连续的内存空间</strong>，对CPU的缓存机制友好：可以预读数组中的数据，所以访问效率更高<ul>
+<li>CPU读取内存的时候，会把一片连续的内存读取出来，然后放到缓存中。因为数组结构是连续的内存地址，所以数组全部或者部分元素被连续存在CPU缓存里面，CPU 读取缓存里面的每个元素的时间平均只要3个CPU时钟周期。而CPU读取散布在堆内存空间中的链表节点数据需要100个CPU时钟周期（理论上）</li>
+</ul>
+</li>
+<li><strong>链表</strong>：是一种线性表，但是并不会按线性的顺序存储数据，使用不连续的内存空间来存储数据<ul>
+<li>线性表中数据元素之间的关系是一对一的关系，即除了第一个和最后一个数据元素之外，其它数据元素都是首尾相接的</li>
+</ul>
+</li>
+<li><strong>栈：</strong>只允许在有序的线性数据集合的一端（称为栈顶 top）进行加入数据（push）和移除数据（pop），且按照后进先出的顺序操作数据<ul>
+<li>两个栈可以实现浏览器的前进和后退的功能</li>
+<li>检查符号是否成对</li>
+<li>计算器</li>
+<li>反转字符</li>
+<li>函数调用</li>
+</ul>
+</li>
+<li><strong>队列：</strong>先进先出</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://huangyuye.github.io/2021/05/09/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/mysql/20201110-mysql%E4%BD%BF%E7%94%A8%E5%9C%BA%E6%99%AF%E6%8A%80%E5%B7%A7/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="yuye Huang">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="HYY">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/05/09/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/mysql/20201110-mysql%E4%BD%BF%E7%94%A8%E5%9C%BA%E6%99%AF%E6%8A%80%E5%B7%A7/" class="post-title-link" itemprop="url">未命名</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-05-09 15:52:56" itemprop="dateCreated datePublished" datetime="2021-05-09T15:52:56+00:00">2021-05-09</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/" itemprop="url" rel="index"><span itemprop="name">知识库</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/mysql/" itemprop="url" rel="index"><span itemprop="name">mysql</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <ol>
+<li><p>MySQL组内排序问题：分组查询每组的前n条记录（需要按某个字段分组，且每组只能取一条记录；按某个字段倒序。）</p>
+<ol>
+<li>解决方案<ol>
+<li>子查询：先全表排序作为子查询，然后分组<ol>
+<li>select * from (select * from table2 order by age desc) as a group by a.table1_id</li>
+<li>select a.* from table2 as a where age = (select max(age) from table2 where a.table1_id=table1_id)</li>
+<li>select a.* from table2 as a where not exists (select * from table2 where table1_id=a.table1_id and age&gt;a.age)</li>
+<li>select a.* from table2 as a where exists (select count(<em>) from table2 where table1_id=a.table1_id and age&gt;a.age having count(</em>)=0)</li>
+</ol>
+</li>
+<li> group_concat(id order bydatedesc) + SUBSTRING_INDEX</li>
+<li>SELECT * FROM <code>test</code> WHERE id IN(SELECT SUBSTRING_INDEX(GROUP_CONCAT(id ORDER BY <code>date</code> DESC)</li>
+<li>关于exists的解释：只要exists引导的子句有结果集返回，则表示连接条件为真<ol>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/20005249">https://zhuanlan.zhihu.com/p/20005249</a></li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+<li><p>删除重复数据</p>
+<ol>
+<li>delete from sg_guide_shop where id in (select id from sg_guide_shop group by guide_id,shop_id having count(id) &gt; 1) and id not in (select min(id) from sg_guide_shop group by guide_id,shop_id  having count(id)&gt;1);</li>
+</ol>
+</li>
+<li><p>将数据表字段修改为utf8mb4 及将数据表编码改为utf8mb4</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> sg_login_log MODIFY <span class="keyword">COLUMN</span> operate_name <span class="type">VARCHAR</span>(<span class="number">70</span>) <span class="type">CHARACTER</span> <span class="keyword">SET</span> utf8mb4 <span class="keyword">COLLATE</span> utf8mb4_unicode_ci <span class="keyword">DEFAULT</span> <span class="keyword">NULL</span> COMMENT &quot;操作人&quot;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> sg_login_log <span class="keyword">CONVERT</span> <span class="keyword">TO</span> <span class="type">CHARACTER</span> <span class="keyword">SET</span> utf8mb4;</span><br></pre></td></tr></table></figure></li>
+<li><p>mysql 统计各日期的业务数据，没有数据的日期补零</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"># <span class="number">1.</span> 生成辅助表，生成N条记录，每条记录用于辅助生成<span class="number">1</span>天的数据</span><br><span class="line"><span class="keyword">drop</span> <span class="keyword">table</span> if  <span class="keyword">exists</span> sg_base_datetime_help;</span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> `sg_base_datetime_help` (</span><br><span class="line">    `id` <span class="type">bigint</span>(<span class="number">20</span>) <span class="keyword">NOT</span> <span class="keyword">NULL</span> AUTO_INCREMENT COMMENT <span class="string">&#x27;主键ID&#x27;</span>,</span><br><span class="line">    `temp` tinyint(<span class="number">4</span>) <span class="keyword">default</span> <span class="keyword">null</span> COMMENT <span class="string">&#x27;临时字段，生成数据后删除&#x27;</span>,</span><br><span class="line">    <span class="keyword">PRIMARY</span> KEY (`id`)</span><br><span class="line">) ENGINE<span class="operator">=</span>InnoDB <span class="keyword">DEFAULT</span> CHARSET<span class="operator">=</span>utf8mb4 COMMENT<span class="operator">=</span><span class="string">&#x27;日期辅助表，用于生成n条数据&#x27;</span>;</span><br><span class="line"># 先生成一条数据</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> sg_base_datetime_help(temp) <span class="keyword">select</span> now() <span class="keyword">from</span> dual;</span><br><span class="line"># 下面两条语句执行N次, 生成<span class="number">4</span>k<span class="number">-1</span>w条数据(<span class="number">4096</span>即可)</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> sg_base_datetime_help(temp) <span class="keyword">select</span> now() <span class="keyword">from</span> sg_base_datetime_help;</span><br><span class="line"><span class="keyword">select</span> <span class="built_in">count</span>(<span class="number">1</span>) <span class="keyword">from</span> sg_base_datetime_help;</span><br><span class="line"># 删除临时字段</span><br><span class="line"><span class="keyword">alter</span> <span class="keyword">table</span> sg_base_datetime_help <span class="keyword">drop</span> <span class="keyword">column</span> temp;</span><br><span class="line"></span><br><span class="line"><span class="number">2.</span> 使用辅助表作为左关联主表，主表<span class="keyword">sql</span></span><br><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">	<span class="variable">@cdate</span> :<span class="operator">=</span> DATE_FORMAT(date_add( <span class="variable">@cdate</span>, <span class="type">INTERVAL</span> <span class="operator">-</span> <span class="number">1</span> <span class="keyword">DAY</span> ), <span class="string">&#x27;%Y-%m-%d&#x27;</span>) <span class="keyword">as</span> <span class="type">date</span></span><br><span class="line"><span class="keyword">FROM</span></span><br><span class="line">	(SELECT @cdate := date_add(#&#123;endTime&#125;, interval + 1 day) FROM sg_base_datetime_help) tmp1 WHERE @cdate &gt;#&#123;startTime&#125;;</span><br></pre></td></tr></table></figure></li>
+</ol>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://huangyuye.github.io/2021/05/09/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/mysql/mongodb/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="yuye Huang">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="HYY">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/05/09/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/mysql/mongodb/" class="post-title-link" itemprop="url">未命名</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-05-09 15:52:56" itemprop="dateCreated datePublished" datetime="2021-05-09T15:52:56+00:00">2021-05-09</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/" itemprop="url" rel="index"><span itemprop="name">知识库</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/mysql/" itemprop="url" rel="index"><span itemprop="name">mysql</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://huangyuye.github.io/2021/05/09/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/windows%E5%B7%A5%E5%85%B7/idea%E4%BD%BF%E7%94%A8-%E5%B8%B8%E7%94%A8%E6%8F%92%E4%BB%B6/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="yuye Huang">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="HYY">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/05/09/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/windows%E5%B7%A5%E5%85%B7/idea%E4%BD%BF%E7%94%A8-%E5%B8%B8%E7%94%A8%E6%8F%92%E4%BB%B6/" class="post-title-link" itemprop="url">未命名</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-05-09 15:52:56" itemprop="dateCreated datePublished" datetime="2021-05-09T15:52:56+00:00">2021-05-09</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/" itemprop="url" rel="index"><span itemprop="name">知识库</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/windows%E5%B7%A5%E5%85%B7/" itemprop="url" rel="index"><span itemprop="name">windows工具</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p><strong>常用插件</strong></p>
+<p>1、GenerateAllSetter ：通过alt+enter对变量类生成对类的所有setter方法的调用</p>
+<p>2、Maven Helper：Maven Helper </p>
+<p>3、Translation：中英文翻译工具</p>
+<p>4、aiXcode &amp; codota：强大的代码完成器和代码搜索引擎，且帮助您在GitHub上搜索API用例</p>
+<p>5、FindBugs：作为静态代码检查插件，可以检查你代码中的隐患，并给出原因。</p>
+<p>6、SequenceDiagram：可以根据代码调用链路自动生成时序图</p>
+<p>7、GsonFormat：把json格式的内容转成Object的需求</p>
+<p>8、AceJump：能够代替鼠标的软件</p>
+<p>9、Java Stream Debugger：流式编程调试插件 </p>
+<p>10、Power mode II</p>
+<p>11、lombok</p>
+<p>12、<strong>Alibaba Java Coding Guidelines</strong> </p>
+<p>13、checkStyle &amp; spotBugs</p>
+<p><strong>配置idea模板</strong></p>
+<p><img src="D:/AppData/YoudaoNote/qqB53912A331D409871E525BE52BFB5C3B/eae0523550054e23a2e814aee91cd45f/attachment.png" alt="powerDesigner的常用配置及使用技巧 + idea注释模板配置.pdf"></p>
+<p><strong>参考链接</strong></p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_41846320/article/details/82697818">https://blog.csdn.net/weixin_41846320/article/details/82697818</a></p>
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/99354824">https://zhuanlan.zhihu.com/p/99354824</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/c1f87b0dd597">https://www.jianshu.com/p/c1f87b0dd597</a></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://huangyuye.github.io/2021/05/09/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/windows%E5%B7%A5%E5%85%B7/vscode/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="yuye Huang">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="HYY">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/05/09/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/windows%E5%B7%A5%E5%85%B7/vscode/" class="post-title-link" itemprop="url">未命名</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-05-09 15:52:56" itemprop="dateCreated datePublished" datetime="2021-05-09T15:52:56+00:00">2021-05-09</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/" itemprop="url" rel="index"><span itemprop="name">知识库</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/windows%E5%B7%A5%E5%85%B7/" itemprop="url" rel="index"><span itemprop="name">windows工具</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h4 id="开发工具"><a href="#开发工具" class="headerlink" title="开发工具"></a>开发工具</h4><p>vscode &amp; webstorm均可，这里使用了vscode</p>
+<h4 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h4><p>多人合作 or 个人项目，代码规范都是很重要的。遵循代码规范能够很大程度避免基本语法错误，也保证了代码的可读性。所以以下会说明代码规范神器—eslint插件。首先我们先来说说什么是eslint</p>
+<ul>
+<li><p>eslint</p>
+<ul>
+<li>ECMASCRIPT/JAVASCRIPT 代码中识别和报告”模式匹配”的工具，目标是保证代码的一致性和避免错误。</li>
+<li>ECMASCRIPT：在万维网上往往被称为JavaScript或JScript，可以将它理解为是JavaScript的一个标准,但实际上后两者是ECMA-262标准的实现和扩展</li>
+</ul>
+</li>
+<li><p>eslint插件安装：</p>
+<ul>
+<li><p>settings</p>
+<ul>
+<li>文件 &gt; 首选项 &gt; 设置</li>
+<li>配置如下</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">    </span><br></pre></td></tr></table></figure></li>
+<li><p>.eslintrc.js：</p>
+<ul>
+<li>根据该文件配置的eslint规则来检查和做一些简单的fix。（可以把适合自己团队的代码规范统一制定好并上传到至npm）</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>eslint-plugin-vue 新版本默认支持vue eslint语法检查</p>
+</li>
+<li><p>配置文件说明：</p>
+<ul>
+<li>jsconfig.json<ul>
+<li>目录中存在jsconfig.json文件表示该目录是JavaScript项目的根目录;jsconfig.json文件指定根文件和JavaScript语言服务提供的功能选项;文件本身可以选择列出属于项目的文件，要从项目中排除的文件，以及编译器选项<ul>
+<li>“exclude”属性：告诉js语言服务哪些文件是什么文件，而不是源代码的一部分。（您将要排除由构建过程生成的文件（例如，dist目录））</li>
+<li>使用“包含”属性：可以使用include属性（glob模式）显式设置项目中的文件。如果不存在include属性，则默认为包含目录和子目录中的所有文件。</li>
+<li>compilerOptions：配置JavaScript语言支持（baseUrl&amp;paths(可以使用webpack别名)）</li>
+</ul>
+</li>
+<li>如果没有使用该文件，所有js文件之间没有共同的项目上下文</li>
+<li>如果使用了该文件，表示该目录是JavaScript项目的根目录</li>
+<li>参考链接：<a target="_blank" rel="noopener" href="https://www.jianshu.com/p/b0ec870ddfdf">https://www.jianshu.com/p/b0ec870ddfdf</a></li>
+</ul>
+</li>
+<li>.eslintrc.js<ul>
+<li>eslint代码检查配置<ul>
+<li>npm install eslint –save</li>
+<li>eslint –init # 初始化配置文件</li>
+</ul>
+</li>
+<li>vscode安装 eslint插件，并配置用户变量以配置eslint校验的开关等配置，符合检查的文件类型，会根据.eslintrc.js配置的规则进行检查</li>
+</ul>
+</li>
+<li>.editconfig（用来帮助开发者定义和维护代码风格（行尾结束符、缩进风格等））<ul>
+<li>该文件用来定义一些格式化规则（此规则并不会被vscode直接解析）</li>
+<li>vscode安装插件，插件去读取第一步创建的editorconfig文件中定义的规则，并覆盖user/workspace settings中的对应配置</li>
+<li>npm安装editorconfig依赖包主要是因为EditorConfig依赖于editorconfig包，不安装的可能会导致EditorConfig无法正常解析我们在第一步定义的editorconfig文件</li>
+<li>打开需要格式化的文件并手动格式化代码（shift+alt+f）：让经过EditorConfig扩展覆盖后的user/workspace settings生效</li>
+</ul>
+</li>
+<li>babel.config.js<ul>
+<li>安装相关的包：npm i @babel/core @babel/preset-env babel-loader -D</li>
+<li>配置 webpack，编译哪些文件时需要使用babel加载器</li>
+<li>配置加载器加载规则，即该文件的作用</li>
+<li>如果想以编程的方式创建配置，需要编译 node_modules 中的内容那就使用 babel.config.js,如果只是一个简单的包的静态配置就使用，.babelrc</li>
+</ul>
+</li>
+<li>jest.config.js<ul>
+<li>jest是进行Javascript单元测试的工具</li>
+<li>npm安装 jest</li>
+<li>两种配置方式：<ul>
+<li>在package.json添加配置项”jest” : { 配置项 }</li>
+<li>jest init命令在根目录创建 jest.config.js文件，并添加配置项module.exports = { 配置项 }</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>postcss.config.js<ul>
+<li>给postcss用的，优化css</li>
+</ul>
+</li>
+<li>package.json<ul>
+<li>定义了这个项目所需要的各种模块，以及项目的配置信息（比如名称、版本、许可证等元数据）。npm install命令根据这个配置文件，自动下载所需的模块，也就是配置项目所需的运行和开发环境。（<strong>类似于maven的pom文件</strong>）</li>
+<li>scripts字段：指定了运行脚本命令的npm命令行缩写</li>
+<li>dependencies字段，devDependencies字段：定了项目运行/开发所依赖的模块</li>
+<li>package.json文件可以手工编写，也可以使用npm init命令自动生成。</li>
+<li>如果一个模块不在package.json文件之中，可以单独安装这个模块，并使用相应的参数，将其写入package.json文件之中。如$ npm install express –save / –save-dev</li>
+<li>参考链接：<a target="_blank" rel="noopener" href="http://javascript.ruanyifeng.com/nodejs/packagejson.html">http://javascript.ruanyifeng.com/nodejs/packagejson.html</a></li>
+</ul>
+</li>
+<li>vue.config.js<ul>
+<li>vue项目配置文件</li>
+<li>是一个可选的配置文件，如果项目的根目录中存在这个文件，那么它会被 @vue/cli-service 自动加载。你也可以使用 package.json 中的 vue 字段。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>安装插件，配置用户变量来提供代码格式化功能：<a target="_blank" rel="noopener" href="https://segmentfault.com/q/1010000014829026?utm_source=tag-newest">https://segmentfault.com/q/1010000014829026?utm_source=tag-newest</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line">- Vetur : 语法高亮等功能</span><br><span class="line">- ESlint : 代码风格检测</span><br><span class="line">- Prettier formatter for Visual Studio Code: 为了配合 ESlint</span><br><span class="line">vue 的模板格式化：</span><br><span class="line">&quot;vetur.format.defaultFormatter.html&quot;:&quot;js-beautify-html&quot;</span><br><span class="line">vue 模板的 eslint 校验</span><br><span class="line">    &quot;eslint.validate&quot;: [</span><br><span class="line">        &quot;javascript&quot;,</span><br><span class="line">        &quot;javascriptreact&quot;,</span><br><span class="line">        &quot;html&quot;,</span><br><span class="line">        &quot;vue&quot;,</span><br><span class="line">        &#123;</span><br><span class="line">            &quot;language&quot;: &quot;html&quot;,</span><br><span class="line">            &quot;autoFix&quot;: true</span><br><span class="line">        &#125;</span><br><span class="line">    ]</span><br><span class="line">Prettier 设置去除不必要空格：&quot;prettier.semi&quot;: false</span><br><span class="line">Prettier 设置格式化后&quot;变&#39;：&quot;prettier.singleQuote&quot;: true</span><br><span class="line">在 vscode 中排除 node_modules 等文件夹：</span><br><span class="line">&quot;files.exclude&quot;: &#123;</span><br><span class="line">    &quot;**&#x2F;.git&quot;: true,</span><br><span class="line">    &quot;**&#x2F;.svn&quot;: true,</span><br><span class="line">    &quot;**&#x2F;.hg&quot;: true,</span><br><span class="line">    &quot;**&#x2F;CVS&quot;: true,</span><br><span class="line">    &quot;**&#x2F;.DS_Store&quot;: true,</span><br><span class="line">    &quot;**&#x2F;node_modules&quot;: true,</span><br><span class="line">    &quot;**&#x2F;package-lock.json&quot;: true,</span><br><span class="line">&#125;,</span><br><span class="line">以新行结束</span><br><span class="line">&quot;html.format.endWithNewline&quot;: false</span><br><span class="line"></span><br><span class="line">完整的 vue 相关用户设置如下</span><br><span class="line">&quot;files.exclude&quot;: &#123;</span><br><span class="line">    &quot;**&#x2F;.git&quot;: true,</span><br><span class="line">    &quot;**&#x2F;.svn&quot;: true,</span><br><span class="line">    &quot;**&#x2F;.hg&quot;: true,</span><br><span class="line">    &quot;**&#x2F;CVS&quot;: true,</span><br><span class="line">    &quot;**&#x2F;.DS_Store&quot;: true,</span><br><span class="line">    &quot;**&#x2F;node_modules&quot;: true,</span><br><span class="line">    &quot;**&#x2F;package-lock.json&quot;: true</span><br><span class="line">&#125;,</span><br><span class="line">&quot;vetur.format.defaultFormatter.html&quot;: &quot;js-beautify-html&quot;,</span><br><span class="line">&quot;editor.formatOnSave&quot;: true,</span><br><span class="line">&quot;prettier.semi&quot;: false,</span><br><span class="line">&quot;prettier.singleQuote&quot;: true,</span><br><span class="line">&quot;html.format.endWithNewline&quot;: true,</span><br><span class="line">&quot;eslint.validate&quot;: [</span><br><span class="line">    &quot;javascript&quot;,</span><br><span class="line">    &quot;javascriptreact&quot;,</span><br><span class="line">    &quot;html&quot;,</span><br><span class="line">    &quot;vue&quot;,</span><br><span class="line">    &#123;</span><br><span class="line">        &quot;language&quot;: &quot;html&quot;,</span><br><span class="line">        &quot;autoFix&quot;: true</span><br><span class="line">    &#125;</span><br><span class="line">]</span><br></pre></td></tr></table></figure></li>
+<li><p>vscode代码格式化：</p>
+<ul>
+<li>参考链接：<ul>
+<li><a target="_blank" rel="noopener" href="https://www.cnblogs.com/benbentu/p/9661998.html">https://www.cnblogs.com/benbentu/p/9661998.html</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/f15b67c94c78">https://www.jianshu.com/p/f15b67c94c78</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>关于编辑工具中的eslint插件和webpack安装的插件区别：</p>
+<ul>
+<li>webpack是静态模块打包器，是在编译时期按照规则校验用的，报错了会停止编译；vscode是提示给使用者看的，方便提示报错与修复。</li>
+<li>参考链接：<a target="_blank" rel="noopener" href="https://segmentfault.com/q/1010000015852118">https://segmentfault.com/q/1010000015852118</a></li>
+</ul>
+</li>
+<li><p>关于babel</p>
+<ul>
+<li>Babel 是一个工具链，主要用于将 ECMAScript 2015+ 版本的代码转换为向后兼容的 JavaScript 语法，以便能够运行在当前和旧版本的浏览器或其他环境中。</li>
+<li>配置文件：babel.config.js / .babelrc.js<ul>
+<li>配置参数-plugins</li>
+<li>配置参数-presets(一组Babel插件)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>vscode插件列表：</p>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>简述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Auto Close Tag</td>
+<td>自动闭合HTML标签</td>
+</tr>
+<tr>
+<td>Auto Rename Tag</td>
+<td>修改HTML标签时，自动修改匹配的标签</td>
+</tr>
+<tr>
+<td>Auto Import</td>
+<td>import提示</td>
+</tr>
+<tr>
+<td>Beautify css/sass/scss/less</td>
+<td>css/sass/less格式化 （个人装了Beautify、 Beautify css/sass/scss/less、vue-Beautify）需要使用配置文件</td>
+</tr>
+<tr>
+<td>Chinese (Simplified) Language Pack for Visual Studio Code</td>
+<td>设置中文包/配置中文语言</td>
+</tr>
+<tr>
+<td>color info</td>
+<td>小窗口显示颜色值，rgb,hsl,cmyk,hex等等</td>
+</tr>
+<tr>
+<td>eslint</td>
+<td>es语法检测工具，需要配置配置文件</td>
+</tr>
+<tr>
+<td>editor config for vscode</td>
+<td>editorconfig插件以及点editorconfig配置文件（统一代码风格工具）</td>
+</tr>
+<tr>
+<td>git blame</td>
+<td>在状态栏显示当前行的Git信息</td>
+</tr>
+<tr>
+<td>git history</td>
+<td>查看git log</td>
+</tr>
+<tr>
+<td>HTML/js Snippets</td>
+<td>快速代码模板(类似idea代码模板)</td>
+</tr>
+<tr>
+<td>intelliSense for CSS class names in HTML</td>
+<td>把项目中 css 文件里的名称智能提示在 html 中</td>
+</tr>
+<tr>
+<td>Indenticator</td>
+<td>缩进高亮</td>
+</tr>
+<tr>
+<td>npm / npm Intellisense(智能感知)</td>
+<td>导入模块时，提示已安装模块名称</td>
+</tr>
+<tr>
+<td>Path Intellisense</td>
+<td>另一个路径完成提示</td>
+</tr>
+<tr>
+<td>vetur</td>
+<td>目前比较好的Vue语法高亮</td>
+</tr>
+<tr>
+<td>vscode-fileheader</td>
+<td>自动生成头部注释 ctrl+alt+i(<strong>需要配置内容</strong>)</td>
+</tr>
+<tr>
+<td>saas</td>
+<td>==</td>
+</tr>
+<tr>
+<td>vscode-icons</td>
+<td>vscode 文件图标：文件=&gt;首先项=&gt;文件图标主题=&gt;选中VSCode Icons</td>
+</tr>
+</tbody></table>
+<ul>
+<li>参考链接：<a target="_blank" rel="noopener" href="https://github.com/varHarrie/varharrie.github.io/issues/10">https://github.com/varHarrie/varharrie.github.io/issues/10</a></li>
+<li>已使用的标签：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">1. Auto Close Tag</span><br><span class="line">2. Auto Import</span><br><span class="line">3. Auto Rename Tag</span><br><span class="line">4. Chinese (Simplified) Language Pack for Visual Studio Code</span><br><span class="line">5. VSCode Color Info</span><br><span class="line">6. VS Code ESLint extension</span><br><span class="line">7. Git Blame、Git History</span><br><span class="line">8. Indenticator</span><br><span class="line">9. koroFileHeader</span><br><span class="line">10. Manta&#39;s Stylus Supremacy</span><br><span class="line">11. Path Intellisense</span><br><span class="line">12. Prettier Formatter for Visual Studio Code</span><br><span class="line">13. vetur</span><br><span class="line">14. vscode-icons</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="vscode使用"><a href="#vscode使用" class="headerlink" title="vscode使用"></a>vscode使用</h3><h4 id="用户设置"><a href="#用户设置" class="headerlink" title="用户设置"></a>用户设置</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line"></span><br><span class="line">    &quot;workbench.editor.focusRecentEditorAfterClose&quot;: false,</span><br><span class="line"></span><br><span class="line">    &quot;terminal.external.osxExec&quot;: &quot;iTerm.app&quot;,</span><br><span class="line"></span><br><span class="line">    &quot;editor.tabSize&quot;: 2,</span><br><span class="line">    &quot;editor.fontLigatures&quot;: true,</span><br><span class="line">    &#x2F;&#x2F; &quot;editor.formatOnSave&quot;: true,</span><br><span class="line">    &quot;vetur.validation.template&quot;: true,</span><br><span class="line">    &#x2F;&#x2F; 使用插件格式化 html</span><br><span class="line">    &quot;vetur.format.defaultFormatter.html&quot;: &quot;js-beautify-html&quot;,</span><br><span class="line">    &#x2F;&#x2F; 格式化插件的配置</span><br><span class="line">    &quot;vetur.format.defaultFormatterOptions&quot;: &#123;</span><br><span class="line">        &quot;js-beautify-html&quot;: &#123;</span><br><span class="line">            &#x2F;&#x2F; 属性强制折行对齐</span><br><span class="line">            &quot;wrap_attributes&quot;: &quot;force-aligned&quot;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    &quot;files.associations&quot;: &#123;</span><br><span class="line">        &quot;*.vue&quot;: &quot;vue&quot;</span><br><span class="line">    &#125;,</span><br><span class="line">    &quot;emmet.syntaxProfiles&quot;: &#123;</span><br><span class="line">        &quot;vue-html&quot;: &quot;html&quot;,</span><br><span class="line">        &quot;vue&quot;: &quot;html&quot;</span><br><span class="line">    &#125;,</span><br><span class="line">    &quot;emmet.includeLanguages&quot;: &#123;</span><br><span class="line">        &quot;vue-html&quot;: &quot;html&quot;,</span><br><span class="line">        &quot;wxml&quot;: &quot;html&quot;</span><br><span class="line">    &#125;,</span><br><span class="line">    &quot;git.autofetch&quot;: true,</span><br><span class="line">    &quot;git.confirmSync&quot;: false,</span><br><span class="line">    &#x2F;&#x2F; 添加 vue 支持</span><br><span class="line">    &quot;eslint.validate&quot;: [</span><br><span class="line">        &quot;javascript&quot;,</span><br><span class="line">        &quot;javascriptreact&quot;,</span><br><span class="line">        &quot;html&quot;,</span><br><span class="line">        &#123;</span><br><span class="line">            &quot;language&quot;: &quot;vue&quot;,</span><br><span class="line">            &quot;autoFix&quot;: true</span><br><span class="line">        &#125;</span><br><span class="line">    ],</span><br><span class="line">    &quot;javascript.validate.enable&quot;: true,</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    &quot;explorer.confirmDragAndDrop&quot;: true,</span><br><span class="line"></span><br><span class="line">    &quot;fileheader.Author&quot;: &quot;HISUN&quot;,</span><br><span class="line">    &quot;fileheader.LastModifiedBy&quot;: &quot;HISUN&quot;,</span><br><span class="line">    &quot;breadcrumbs.enabled&quot;: true,</span><br><span class="line"></span><br><span class="line">    &quot;javascript.updateImportsOnFileMove.enabled&quot;: &quot;always&quot;,</span><br><span class="line">    &quot;javascript.implicitProjectConfig.experimentalDecorators&quot;: true,</span><br><span class="line"></span><br><span class="line">    &quot;html.format.indentInnerHtml&quot;: true,</span><br><span class="line">    &quot;html.format.endWithNewline&quot;: true,</span><br><span class="line">    &quot;html-css-class-completion.enableEmmetSupport&quot;: true,</span><br><span class="line">    &quot;window.zoomLevel&quot;: 0,</span><br><span class="line">    &quot;[javascript]&quot;: &#123;</span><br><span class="line">        &quot;editor.defaultFormatter&quot;: &quot;HookyQR.beautify&quot;</span><br><span class="line">    &#125;,</span><br><span class="line">    &quot;files.autoSave&quot;: &quot;off&quot;,</span><br><span class="line">    &quot;workbench.sideBar.location&quot;: &quot;right&quot;,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://huangyuye.github.io/2021/05/09/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/windows%E5%B7%A5%E5%85%B7/vscode%E9%85%8D%E7%BD%AE&%E6%93%8D%E4%BD%9C/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="yuye Huang">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="HYY">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/05/09/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/windows%E5%B7%A5%E5%85%B7/vscode%E9%85%8D%E7%BD%AE&%E6%93%8D%E4%BD%9C/" class="post-title-link" itemprop="url">未命名</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-05-09 15:52:56" itemprop="dateCreated datePublished" datetime="2021-05-09T15:52:56+00:00">2021-05-09</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/" itemprop="url" rel="index"><span itemprop="name">知识库</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/windows%E5%B7%A5%E5%85%B7/" itemprop="url" rel="index"><span itemprop="name">windows工具</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p><strong>参考链接</strong></p>
+<p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/fd945e8e099d">https://www.jianshu.com/p/fd945e8e099d</a></p>
+<p><strong>配置步骤</strong></p>
+<p>文件 》 设置 》 首选项：区分用户区和工作区</p>
+<p><strong>插件安装</strong></p>
+<p><strong>基础插件</strong></p>
+<p>1、汉化包</p>
+<p>插件：Chinese(Simplified) Language Pack for Visual Stidio Code 中文汉化包</p>
+<p>配置：按快捷键Ctrl+Shift+P调出命令面板，输入Configure Display Language，选择zh-ch，然后重启vs code</p>
+<p>2、Auto Close Tag 自动闭合标签</p>
+<p>3、Auto Rename Tag 尾部闭合标签同步修改</p>
+<p>4、Bracket Pair Colorizer 用不同颜色高亮显示匹配的括号</p>
+<p>5、Highlight Matching Tag 高亮显示匹配标签</p>
+<p>6、Vscode-icons VSCode 文件图标</p>
+<p>7、TODO Highlight 高亮</p>
+<p>使用：输入TODO &amp; FIXME 文本</p>
+<p>8、Code Spell Checker 单词拼写检查</p>
+<p>9、Improt Cost 成本提示</p>
+<p>说明：这个插件可以在你导入工具包的时候提示这个包的体积，如果体积过大就需要考虑压缩包，为后期上线优化做准备。</p>
+<p>10、GitLens 查看Git信息</p>
+<p>说明：将光标移到代码行上，即可显示当前行最近的commit信息和作者</p>
+<p>11、Bookmarks 书签</p>
+<p>说明：对代码进行书签标记，通过快捷键实现快速跳转到书签位置。</p>
+<p>使用：</p>
+<p>12、koroFileHeader</p>
+<p><strong>配置：</strong>参考 <a target="_blank" rel="noopener" href="https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE">https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE</a></p>
+<p>// 文件头部注释  “fileheader.customMade”: {    “Descripttion”: “”,    “Author”: “yuye.huang”,    “Date”: “Do not edit”,    “LastEditors”: “yuye.huang”,    “LastEditTime”: “Do not Edit”  },  // 函数注释  “fileheader.cursorMode”: {    // “name”:””,    // “test”:”test font”,    “msg”: “”,    “param”: “”,    “return”: “”  },</p>
+<p><strong>使用：</strong></p>
+<p>文件头部添加注释:</p>
+<p>window：ctrl+alt+i,mac：ctrl+cmd+i</p>
+<p>在光标处添加函数注释:</p>
+<p>window：ctrl+alt+t,mac：ctrl+cmd+t</p>
+<p><strong>扩展插件</strong></p>
+<p>1、Vscode-element-helper</p>
+<p>说明：使用element-ui库的可以安装这个插件，编写标签时自动提示element标签名称。</p>
+<p>2、Version Lens 工具包版本信息</p>
+<p>说明：在package.json中显示你下载安装的npm工具包的版本信息，同时会告诉你当前包的最新版本。</p>
+<p>3、Vetur VUE语言包</p>
+<p>说明：Vetur对VUE提供了很好的语言支持，没有安装该插件之前之前编写后缀名为.vue的文件时代码是白色的</p>
+<p>使用：安装插件后编写vue文件输入s，按Tab键就可以自动补全模版。</p>
+<p>4、<strong>Settings Sync VSCode设置同步到Gist</strong></p>
+<p>说明：有时候我们到了新公司或者换了新电脑需要配置新的开发环境，这时候一个一个下载插件，再重新配置vs code就非常麻烦而且你还不一定记得那么全面，通过这个插件我们可以将当前vs code中的配置上传到Gist，之后再通过Gist下载，就可以将所有配置同步到新环境中了。</p>
+<p>使用：</p>
+<ol>
+<li>在Github首页点击头像，选择Settings进入设置页面。</li>
+<li>点击左侧侧边栏Developer settings，</li>
+<li>进入开发者设置。选择Personal access tokens，点击右侧Generate new token。</li>
+<li>填写token名称，在下方勾选gist。</li>
+<li>点击下方的Generate token按钮生成一个新的token。将生成的新的token保存下来。</li>
+<li>在vscode中安装Settings Sync插件，输入Ctrl+Shift+p输入Sync，选择更新/上传配置。</li>
+<li>将github中生成的token输入，点击回车。</li>
+<li>在控制台中自动生成一串id,之后便可以通过token和id进行配置同步。</li>
+<li>输入Ctrl+Shift+p输入Sync，选择下载配置，输入token和id即可同步下载。</li>
+<li>可以在配置文件中选择是否自动上传和下载</li>
+</ol>
+<p><strong>常用配置</strong></p>
+<p>1、关闭标签介绍信息（延时）</p>
+<p>配置：”editor.hover.delay”: 5000,</p>
+<p>2、自动折行</p>
+<p>说明：设置代码根据编辑器窗口大小自动折行</p>
+<p>配置：”editor.wordWrap”: “on”,</p>
+<p>3、字体设置</p>
+<p>配置：</p>
+<p> // 一款适合代码显示的字体包（需要将字体包下载到本地）</p>
+<p> “editor.fontFamily”: “Source Code Pro, ‘Source Code Pro’”,</p>
+<p> // 设置代码字体大小</p>
+<p> “editor.fontSize”: 15,</p>
+<p>4、自动保存</p>
+<p>配置：”files.autoSave”: “off”,</p>
+<p>选项：</p>
+<p>off：关闭自动保存。</p>
+<p>afterDelay：当文件修改后的时间超过”Files：Auto Save Delay”中配置的值时自动进行保存。</p>
+<p>onFocusChange：编辑器失去焦点时自动保存更新后的文件。</p>
+<p>onWindowChange：窗口失去焦点时自动保存更新后的文件。</p>
+<p>5、关闭代码提示</p>
+<p>配置：”editor.quickSuggestions”: { “other”: false, “comments”: false, “strings”: false }</p>
+<p>6、// 控制可以打开多个标签页</p>
+<p>  “workbench.editor.enablePreview”: false,</p>
+<p><strong>快捷键</strong></p>
+<p><strong>编辑器与窗口管理</strong></p>
+<p>Ctrl+Shift+P: 打开命令面板。</p>
+<p>Ctrl+Shift+N: 新建窗口。</p>
+<p>Ctrl+Shift+W: 关闭窗口。</p>
+<p>切分窗口：Ctrl+1/Ctrl+3/Ctrl+3</p>
+<p>Ctrl+H：最小化窗口</p>
+<p>Ctrl+B：显示/隐藏侧边栏</p>
+<p>Ctrl+”+/-“：放大/缩小界面</p>
+<p><strong>文件操作</strong></p>
+<p>Ctrl+N：新建文件</p>
+<p>Ctrl+W：关闭文件</p>
+<p>Ctrl+Tab：文件切换</p>
+<p><strong>格式调整</strong></p>
+<p>Ctrl+C/Ctrl+V：复制或剪切当前行/当前选中内容</p>
+<p>Alt+Up/Down：向上/下移动一行</p>
+<p>Shift+Alt+Up//Down：向上/下复制一行</p>
+<p>Ctrl+Delete：删除当前行</p>
+<p>Shift+Alt+Left/Right：从光标开始向左/右选择内容</p>
+<p><strong>代码编辑</strong></p>
+<p>Ctrl+D：选中下一个相同内容</p>
+<p>Ctrl+Shift+L：选中所有相同内容</p>
+<p>Ctrl+F：查找内容</p>
+<p>Ctrl+Shit+F：在整个文件夹中查找内容</p>
+<p><strong>不同语言环境配置</strong></p>
+<p><strong>vue</strong></p>
+<p>参考链接：</p>
+<p><a target="_blank" rel="noopener" href="https://segmentfault.com/a/1190000014796012">https://segmentfault.com/a/1190000014796012</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/benbentu/p/9661998.html">https://www.cnblogs.com/benbentu/p/9661998.html</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/f15b67c94c78">https://www.jianshu.com/p/f15b67c94c78</a></p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/userkang/article/details/84302629">https://blog.csdn.net/userkang/article/details/84302629</a></p>
+<p>配置文件：</p>
+<p>- Vetur : 语法高亮等功能 - ESlint : 代码风格检测 - Prettier formatter <strong>for</strong> Visual Studio Code: 为了配合 ESlint vue 的模板格式化： “vetur.format.defaultFormatter.html”:”js-beautify-html” vue 模板的 eslint 校验    “eslint.validate”: [        “javascript”,        “javascriptreact”,        “html”,        “vue”,        {            “language”: “html”,            “autoFix”: <strong>true</strong>        }    ] Prettier 设置去除不必要空格：”prettier.semi”: <strong>false</strong> Prettier 设置格式化后”变’：”prettier.singleQuote”: true 在 vscode 中排除 node_modules 等文件夹： “files.<strong>exclude</strong>“: {    “<strong>/.git”: true,    “</strong>/.svn”: true,    “<strong>/.hg”: true,    “</strong>/CVS”: true,    “<strong>/.DS_Store”: true,    “</strong>/node_modules”: true,    “<strong>/package-<strong>lock</strong>.json”: true, }, 以新行结束 “html.<strong>format</strong>.endWithNewline”: false 完整的 vue 相关用户设置如下 “files.<strong>exclude</strong>“: {    “</strong>/.git”: true,    “<strong>/.svn”: true,    “</strong>/.hg”: true,    “<strong>/CVS”: true,    “</strong>/.DS_Store”: true,    “<strong>/node_modules”: true,    “</strong>/package-<strong>lock</strong>.json”: true }, “vetur.<strong>format</strong>.defaultFormatter.html”: “js-beautify-html”, “editor.formatOnSave”: true, “prettier.semi”: false, “prettier.singleQuote”: true, “html.<strong>format</strong>.endWithNewline”: true, “eslint.<strong>validate</strong>“: [    “javascript”,    “javascriptreact”,    “html”,    “vue”,    {        “<strong>language</strong>“: “html”,        “autoFix”: true    } ]</p>
+<p><strong>小程序</strong></p>
+<p>参考链接：</p>
+<p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/4b849843c3b9">https://www.jianshu.com/p/4b849843c3b9</a></p>
+<p>安装插件：</p>
+<p>1、minapp</p>
+<p>2、wechat-snippet</p>
+<p>3、wxml</p>
+<p>4、wechat-snippet</p>
+<p><strong>Wepy</strong></p>
+<p>参考链接：</p>
+<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/cisum/p/9852571.html">https://www.cnblogs.com/cisum/p/9852571.html</a></p>
+<p>安装插件Vetur后打开.wpy文件，在右下角点击“纯文本”选择”.wpy的配置文件关联”选择”Vue”后，语法变为高亮： <strong>files.associations</strong></p>
+<p>// 配置语言的文件关联(如: “*.extension”: “html”)。这些关联的优先级高于已安装语言的默认关联。</p>
+<p>“files.associations”: {</p>
+<p>​    “*.vue”: “vue”,</p>
+<p>​    “*.wpy”: “vue”,</p>
+<p>​    “*.wxss”: “postcss”,</p>
+<p>​    “*.tpl”: “vue”,</p>
+<p>​    “*.md@xxx”: “markdown”,</p>
+<p>​    “*.wepy”: “vue”,</p>
+<p>​    “*.cjson”: “jsonc”,</p>
+<p>​    “*.wxs”: “javascript”</p>
+<p>  },</p>
+<p>// 添加emmet语法支持 wxml 文件(当然也可以配置支持vue文件)</p>
+<p>“emmet.includeLanguages”: {</p>
+<p>​    “wxml”: “html”</p>
+<p>  },</p>
+<p>  // “emmet.syntaxProfiles”: {</p>
+<p>  //   “vue-html”: “html”,</p>
+<p>  //   “vue”: “html”</p>
+<p>  // },</p>
+<p>“minapp-vscode.disableAutoConfig”: true,</p>
+<p><strong>格式化插件</strong></p>
+<p>参考链接：</p>
+<p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/e73f1b429788?utm_campaign=maleskine&utm_content=note&utm_medium=seo_notes&utm_source=recommendation"><strong>https://www.jianshu.com/p/e73f1b429788?utm_campaign=maleskine&amp;utm_content=note&amp;utm_medium=seo_notes&amp;utm_source=recommendation</strong></a></p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_34413065/article/details/86133692">https://blog.csdn.net/weixin_34413065/article/details/86133692</a></p>
+<p><strong>wpy的文件都是用vue的高亮规则：</strong></p>
+<p>“files.associations”: {</p>
+<p>​        “*.vue”: “vue”,</p>
+<p>​        “*.wpy”: “vue”,</p>
+<p>​        “*.wxml”: “html”,</p>
+<p>​        “*.wxss”: “css”</p>
+<p>​    },</p>
+<p>​    “emmet.syntaxProfiles”: {</p>
+<p>​        “vue-html”: “html”,</p>
+<p>​        “vue”: “html”</p>
+<p>​    },</p>
+<p>**wpy-beautify &amp; vetur语法高亮 &amp;**<strong>vscode-wxml 语法支持及代码片段</strong></p>
+<p><strong>vetur：</strong></p>
+<p>说明：插件的使用需要修改下vs-code对于文件格式的判断才能使用不同的插件，点击文件右下角可以修改文件格式并应用于所有该格式的文件</p>
+<p>wpy-beautify插件配置：</p>
+<p>wpy-beautify插件使用：</p>
+<p>{</p>
+<p>​      “key”: “ctrl+shift+6”,          </p>
+<p>​      “command”: “wpyBeautify.format”,</p>
+<p>​      “when”: “editorTextFocus &amp;&amp; !editorReadonly” </p>
+<p>​    }</p>
+<p><strong>最新配置</strong></p>
+<p><strong>用户空间</strong></p>
+<p>{</p>
+<p>  “editor.fontSize”: 12,</p>
+<p>  // 一个制表符等于的空格数。该设置在 <code>editor.detectIndentation</code> 启用时根据文件内容进行重写。</p>
+<p>  “editor.tabSize”: 2,</p>
+<p>  // 自动保存</p>
+<p>  “files.autoSave”: “off”,</p>
+<p>  // 控制编辑器是否应呈现缩进参考线</p>
+<p>  “editor.renderIndentGuides”: true,</p>
+<p>  // 当打开文件时，将基于文件内容检测 “editor.tabSize” 和 “editor.insertSpaces”。</p>
+<p>  “editor.detectIndentation”: false,</p>
+<p>  “window.zoomLevel”: 1,</p>
+<p>  “editor.wordWrap”: “on”,</p>
+<p>  “workbench.iconTheme”: “vscode-icons”,</p>
+<p>  “editor.wordSeparators”: “`~!@#$%^&amp;*()=+[{]}\|;:’&quot;,.&lt;&gt;/?。”,</p>
+<p>  “editor.minimap.enabled”: true,</p>
+<p>  // 配置 glob 模式以排除文件和文件夹。</p>
+<p>  “files.exclude”: {</p>
+<p>​    “**/.git”: true,</p>
+<p>​    “**/.svn”: true,</p>
+<p>​    “**/.hg”: true,</p>
+<p>​    “**/CVS”: true,</p>
+<p>​    “**/.DS_Store”: true,</p>
+<p>​    “**/.DS_Store”: true,</p>
+<p>​    // “**/node_modules”: true,</p>
+<p>​    “**/bower_components”: true</p>
+<p>​    // “**/dist”: true</p>
+<p>  },</p>
+<p>  // 配置语言的文件关联(如: “*.extension”: “html”)。这些关联的优先级高于已安装语言的默认关联。</p>
+<p>  “files.associations”: {</p>
+<p>​      “*.vue”: “vue”,</p>
+<p>​      “*.wpy”: “vue”,</p>
+<p>​      “*.wxss”: “postcss”,</p>
+<p>​      “*.tpl”: “vue”,</p>
+<p>​      “*.md@xxx”: “markdown”,</p>
+<p>​      “*.wepy”: “vue”</p>
+<p>  },</p>
+<p>  // 关闭代码提示 // 控制键入时是否应自动显示建议</p>
+<p>  “editor.quickSuggestions”: {</p>
+<p>​    “other”: true,</p>
+<p>​    “comments”: true,</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://huangyuye.github.io/2021/05/09/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/windows%E5%B7%A5%E5%85%B7/%E6%96%B0%E7%94%B5%E8%84%91%E7%8E%AF%E5%A2%83%E5%87%86%E5%A4%87/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="yuye Huang">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="HYY">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/05/09/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/windows%E5%B7%A5%E5%85%B7/%E6%96%B0%E7%94%B5%E8%84%91%E7%8E%AF%E5%A2%83%E5%87%86%E5%A4%87/" class="post-title-link" itemprop="url">未命名</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-05-09 15:52:56" itemprop="dateCreated datePublished" datetime="2021-05-09T15:52:56+00:00">2021-05-09</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -426,7 +1408,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://huangyuye.github.io/2021/04/26/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/windows%E5%B7%A5%E5%85%B7/%E7%94%B5%E8%84%91%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7/">
+    <link itemprop="mainEntityOfPage" href="https://huangyuye.github.io/2021/05/09/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/windows%E5%B7%A5%E5%85%B7/%E7%94%B5%E8%84%91%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -440,7 +1422,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2021/04/26/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/windows%E5%B7%A5%E5%85%B7/%E7%94%B5%E8%84%91%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7/" class="post-title-link" itemprop="url">未命名</a>
+            <a href="/2021/05/09/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/windows%E5%B7%A5%E5%85%B7/%E7%94%B5%E8%84%91%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7/" class="post-title-link" itemprop="url">未命名</a>
         </h2>
 
         <div class="post-meta">
@@ -450,7 +1432,7 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2021-04-26 14:59:29" itemprop="dateCreated datePublished" datetime="2021-04-26T14:59:29+00:00">2021-04-26</time>
+              <time title="创建时间：2021-05-09 15:52:56" itemprop="dateCreated datePublished" datetime="2021-05-09T15:52:56+00:00">2021-05-09</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -611,7 +1593,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://huangyuye.github.io/2021/04/26/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/%E5%89%8D%E7%AB%AF/%E9%A1%B9%E7%9B%AE%E5%9B%BE%E7%89%87%E5%BC%95%E7%94%A8/">
+    <link itemprop="mainEntityOfPage" href="https://huangyuye.github.io/2021/05/09/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/%E5%89%8D%E7%AB%AF/%E9%A1%B9%E7%9B%AE%E5%9B%BE%E7%89%87%E5%BC%95%E7%94%A8/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -625,7 +1607,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2021/04/26/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/%E5%89%8D%E7%AB%AF/%E9%A1%B9%E7%9B%AE%E5%9B%BE%E7%89%87%E5%BC%95%E7%94%A8/" class="post-title-link" itemprop="url">未命名</a>
+            <a href="/2021/05/09/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/%E5%89%8D%E7%AB%AF/%E9%A1%B9%E7%9B%AE%E5%9B%BE%E7%89%87%E5%BC%95%E7%94%A8/" class="post-title-link" itemprop="url">未命名</a>
         </h2>
 
         <div class="post-meta">
@@ -635,7 +1617,7 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2021-04-26 14:59:29" itemprop="dateCreated datePublished" datetime="2021-04-26T14:59:29+00:00">2021-04-26</time>
+              <time title="创建时间：2021-05-09 15:52:56" itemprop="dateCreated datePublished" datetime="2021-05-09T15:52:56+00:00">2021-05-09</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -691,611 +1673,6 @@
 <p>域名发散：是将静态资源放在多个子域名下，就可以多线程下载，提高并行度，使客户端加载静态资源更加迅速。</p>
 <p>域名发散是pc端为了利用浏览器的多线程并行下载能力。而域名收敛多用与移动端，提高性能，因为dns解析是从后向前迭代解析，如果域名过多性能会下降，增加DNS的解析开销。</p>
 
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://huangyuye.github.io/2021/04/26/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/20200819-%E5%AF%B9%E8%B1%A1%E5%BA%8F%E5%88%97%E5%8C%96/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="yuye Huang">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="HYY">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/04/26/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/20200819-%E5%AF%B9%E8%B1%A1%E5%BA%8F%E5%88%97%E5%8C%96/" class="post-title-link" itemprop="url">未命名</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-04-26 14:59:29" itemprop="dateCreated datePublished" datetime="2021-04-26T14:59:29+00:00">2021-04-26</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/" itemprop="url" rel="index"><span itemprop="name">知识库</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="对象序列化概念"><a href="#对象序列化概念" class="headerlink" title="对象序列化概念"></a>对象序列化概念</h2><p><strong>把变量对象从内存中变成可存储或传输的过程称之为序列化。(字节序列)</strong></p>
-<p>序列化之后，就可以把序列化后的内容写入磁盘，或者通过网络传输到别的机器上。</p>
-<p>对象的“序列化”并没有保存对象所有的内容，而仅仅保留了对象的属性，没有保留对象的方法。</p>
-<ul>
-<li>使用    ObjectOutputStream流 写一个被实例化的对象</li>
-</ul>
-<p><strong>把变量内容从序列化的对象重新读到内存里称之为反序列化。</strong></p>
-<ul>
-<li>使用 ObjectInputStream流 可以直接把被序列化的对象给反序列化出来。</li>
-<li>当一个对象被反序列化时，这个对象的构造函数将不会在被调用的。</li>
-</ul>
-<h2 id="Serializable接口-amp-serialVersionUID"><a href="#Serializable接口-amp-serialVersionUID" class="headerlink" title="Serializable接口 &amp; serialVersionUID"></a><strong>Serializable接口 &amp; serialVersionUID</strong></h2><ul>
-<li><p>serialVersionUID 用于解决对象序列化和反序列化的版本兼容问题.</p>
-<ol>
-<li><strong>类的serialVersionUID的默认值</strong>完全依赖于Java编译器的实现，对于同一个类，用不同的Java编译器编译，有可能会导致不同的 serialVersionUID，也有可能相同。为了提高serialVersionUID的独立性和确定性，强烈建议在一个可序列化类中显示的定义serialVersionUID，为它赋予明确的值。</li>
-<li><strong>显式地定义serialVersionUID有两种用途：</strong><ol>
-<li>在某些场合，希望类的不同版本对序列化兼容，因此需要确保类的不同版本具有相同的serialVersionUID；</li>
-<li>在某些场合，不希望类的不同版本对序列化兼容，因此需要确保类的不同版本具有不同的serialVersionUID。</li>
-</ol>
-</li>
-</ol>
-</li>
-</ul>
-<ul>
-<li><p>Serializable是<a href="https://link.zhihu.com/?target=http://java.io">http://java.io</a>包中定义的、用于实现Java类的序列化操作而提供的一个<strong>语义级别</strong>的接口。Serializable序列化接口没有任何方法或者字段，只是用于标识可序列化的语义。实现了Serializable接口的类可以被ObjectOutputStream转换为字节流，同时也可以通过ObjectInputStream再将其解析为对象。</p>
-</li>
-<li><ol>
-<li>序列化保存的是对象的状态，静态变量属于类的状态，因此 序列化并不保存静态变量。</li>
-<li>如果父类已经实现了Serializable序列化接口的话，其子类就不用再实现这个接口了，但是反过来就不成立了。</li>
-</ol>
-</li>
-</ul>
-<h2 id="自定义序列化"><a href="#自定义序列化" class="headerlink" title="自定义序列化"></a>自定义序列化</h2><p>实现<strong>Externalizable</strong>接口</p>
-<p>相对于Serializable接口的区别：实现该接口会调用无参构造方法</p>
-<p>使用场景：对某些敏感数据进行加密操作后再序列化；反序列化对加密数据进行解密操作。</p>
-<h2 id="阻止序列化"><a href="#阻止序列化" class="headerlink" title="阻止序列化"></a>阻止序列化</h2><p>阻止<strong>非静态属性</strong>的序列化，用transient关键词修饰</p>
-<h2 id="可序列化的场景-amp-条件"><a href="#可序列化的场景-amp-条件" class="headerlink" title="可序列化的场景&amp;条件"></a>可序列化的场景&amp;条件</h2><ol>
-<li>父类已经实现了Serializable序列化接口（递归）</li>
-<li>非静态的数据成员才会通过序列化操作被序列化</li>
-<li>未被<strong>transient</strong>标记的数据成员</li>
-<li>子类是可序列化的，其父类不是可序列化的，但是其父类有无参的构造函数，可支持序列化，但子类继承自父类中的成员不会序列化输出到文件/网络。</li>
-</ol>
-<h3 id="关于无参构造函数"><a href="#关于无参构造函数" class="headerlink" title="关于无参构造函数"></a>关于无参构造函数</h3><ol>
-<li><p>单一对象,无继承关系:若想实现序列化与反序列化,则必须实现序列化接口,否则报异常:NotSerializableException</p>
-</li>
-<li><p>对象间有继承关系,但无引用关系,若想实现序列化与反序列化,则父类必须实现序列化接口或提供无参构造函数,否则报invalidClassException</p>
-</li>
-<li><p>对象间有继承关系,并且有引用关系,若想实现序列化与反序列化,则父类必须实现序列化接口</p>
-</li>
-</ol>
-<h2 id="扩展阅读"><a href="#扩展阅读" class="headerlink" title="扩展阅读"></a>扩展阅读</h2><h3 id="idea-生成serialVersionUID"><a href="#idea-生成serialVersionUID" class="headerlink" title="idea 生成serialVersionUID"></a>idea 生成serialVersionUID</h3><ul>
-<li>Settings &gt; Editor &gt; Inspections &gt; 勾选 Serializable class without ‘serialVersionUID’</li>
-</ul>
-<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/yaomingyang/article/details/79321939">https://blog.csdn.net/yaomingyang/article/details/79321939</a></p>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_19782019/article/details/80422143">https://blog.csdn.net/qq_19782019/article/details/80422143</a></p>
-<p><a target="_blank" rel="noopener" href="https://www.ibm.com/developerworks/cn/java/j-5things1/">https://www.ibm.com/developerworks/cn/java/j-5things1/</a></p>
-<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/huangdabing/p/9231948.html">https://www.cnblogs.com/huangdabing/p/9231948.html</a></p>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/m0_38001814/article/details/86584446">https://blog.csdn.net/m0_38001814/article/details/86584446</a></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://huangyuye.github.io/2021/04/26/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/20200822-Java%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B(%E4%B8%80)/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="yuye Huang">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="HYY">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/04/26/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/20200822-Java%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B(%E4%B8%80)/" class="post-title-link" itemprop="url">未命名</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-04-26 14:59:29" itemprop="dateCreated datePublished" datetime="2021-04-26T14:59:29+00:00">2021-04-26</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/" itemprop="url" rel="index"><span itemprop="name">知识库</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><h3 id="线程-amp-进程"><a href="#线程-amp-进程" class="headerlink" title="线程&amp;进程"></a>线程&amp;进程</h3><p><strong>进程：</strong>是程序的一次执行过程，是系统运行程序的基本单位</p>
-<p><strong>线程：</strong>比进程更小的执行单位，一个进程的执行过程中会产生多个线程。</p>
-<p><strong>不同点：</strong></p>
-<ol>
-<li>进程之间是完全独立的；多个线程共享进程的<strong>堆</strong>和<strong>方法区</strong>资源(线程间可能会相互影响)，但是每个线程有独立的程序计数器、虚拟机栈、本地方法栈。</li>
-<li>线程间切换工作上下文时资源消耗比进程小（被称为轻量级线程）<ol>
-<li>线程执行开销小，但不利于资源的管理和保护</li>
-</ol>
-</li>
-</ol>
-<p><strong>问题</strong>：</p>
-<p>程序计数器、虚拟机栈、本地方法栈为什么是私有的？</p>
-<p>首先先来了解<strong>程序计数器</strong>的作用—记住程序线程的运行位置：</p>
-<ol>
-<li>字节码解释器通过改变程序计数器来依次读取指令，从而实现代码的流程控制，如顺序执行、选择、循环</li>
-<li>多线程情况下，程序计数器用于记录当前线程执行位置，从而使得当线程被切换回来时能够知道该线程上次运行到哪里了。</li>
-</ol>
-<p>总结：所以，程序计数器私有主要是为了<strong>线程切换后能恢复到正确的执行位置</strong>。</p>
-<p><strong>虚拟机栈(Java方法)：</strong> 每个 Java 方法在执行的同时会创建一个栈帧用于存储局部变量表、操作数栈、常量池引用等信息。从方法调用直至执行完成的过程，就对应着一个栈帧在 Java 虚拟机栈中入栈和出栈的过程。<br><strong>本地方法栈：</strong> 和虚拟机栈所发挥的作用非常相似，区别是： 虚拟机栈为虚拟机执行 Java 方法 （也就是字节码）服务，而本地方法栈则为虚拟机使用到的 Native 方法服务。 在 HotSpot 虚拟机中和 Java 虚拟机栈合二为一。</p>
-<p>所以，为了<strong>保证线程中的局部变量不被别的线程访问到</strong>，虚拟机栈和本地方法栈是线程私有的。</p>
-<p><strong>堆</strong>和<strong>方法区</strong>是所有线程共享的资源，其中堆是进程中最大的一块内存，主要用于存放新创建的对象 (几乎所有对象都在这里分配内存)，方法区主要用于存放已被加载的类信息、常量、静态变量、即时编译器编译后的代码等数据。</p>
-<h3 id="为什么要使用多线程"><a href="#为什么要使用多线程" class="headerlink" title="为什么要使用多线程"></a>为什么要使用多线程</h3><ol>
-<li>线程间的切换和调度的成本远小于进程</li>
-<li>充分利用多核CPU同时运行多个线程，提高系统并发能力和性能</li>
-</ol>
-<p>单核CPU时代：提高CPU和IO设备的综合利用率</p>
-<p>多核CPU时代：提高CPU利用率</p>
-<h4 id="多线程可能带来的问题"><a href="#多线程可能带来的问题" class="headerlink" title="多线程可能带来的问题"></a>多线程可能带来的问题</h4><ol>
-<li>内存泄漏</li>
-<li>死锁</li>
-<li>线程不安全等</li>
-</ol>
-<h3 id="线程的生命周期和状态"><a href="#线程的生命周期和状态" class="headerlink" title="线程的生命周期和状态"></a>线程的生命周期和状态</h3><ol>
-<li>NEW</li>
-<li>RUNNABLE</li>
-<li>BLOCKED</li>
-<li>WAITING、TIME_WATING</li>
-<li>TERMINATED</li>
-</ol>
-<h4 id="状态切换"><a href="#状态切换" class="headerlink" title="状态切换"></a>状态切换</h4><p>线程创建之后它将处于 <strong>NEW（新建）</strong> 状态，</p>
-<p>调用 <code>start()</code> 方法后开始运行，线程这时候处于 <strong>READY（可运行）</strong> 状态。</p>
-<p>可运行状态的线程获得了 CPU 时间片（timeslice）后就处于 <strong>RUNNING（运行）</strong> 状态。</p>
-<p><code>操作系统隐藏 Java 虚拟机（JVM）中的 READY 和 RUNNING 状态，它只能看到 RUNNABLE 状态。所以 Java 系统一般将这两个状态统称为 RUNNABLE（运行中） 状态 。</code></p>
-<p>当线程执行 <code>wait()</code>方法之后，线程进入 <strong>WAITING（等待）</strong> 状态。进入等待状态的线程需要依靠其他线程的通知才能够返回到运行状态，</p>
-<p>而 <strong>TIME_WAITING(超时等待)</strong> 状态相当于在等待状态的基础上增加了超时限制，比如通过 <code>sleep（long millis）</code>方法或 <code>wait（long millis）</code>方法可以将 Java 线程置于 TIMED WAITING 状态。</p>
-<p>当超时时间到达后 Java 线程将会返回到 <strong>RUNNABLE</strong> 状态。</p>
-<p>当线程调用同步方法时，在没有获取到锁的情况下，线程将会进入到 <strong>BLOCKED（阻塞）</strong> 状态。</p>
-<p>线程在执行 Runnable 的<code>run()</code>方法之后将会进入到 <strong>TERMINATED（终止）</strong> 状态。</p>
-<h3 id="关于线程上下文切换"><a href="#关于线程上下文切换" class="headerlink" title="关于线程上下文切换"></a>关于线程上下文切换</h3><p>多线程编程中一般线程的个数都大于 CPU 核心的个数，而<strong>一个 CPU 核心在任意时刻只能被一个线程使用</strong>，为了让这些线程都能得到有效执行，CPU 采取的策略是为每个线程分配时间片并轮转的形式。当一个线程的时间片用完的时候就会重新处于就绪状态让给其他线程使用，这个过程就属于一次上下文切换。</p>
-<p>概括来说就是：当前任务在执行完 CPU 时间片切换到另一个任务之前会先保存自己的状态，以便下次再切换回这个任务时，可以再加载这个任务的状态。<strong>任务从保存到再加载的过程就是一次上下文切换</strong>。</p>
-<h3 id="关于start-和run"><a href="#关于start-和run" class="headerlink" title="关于start()和run()"></a>关于start()和run()</h3><p><strong>调用 start 方法方可启动线程并使线程进入就绪状态，而 run 方法只是 thread 的一个普通方法调用，还是在主线程里执行。</strong></p>
-<h3 id="sleep-方法和-wait-方法"><a href="#sleep-方法和-wait-方法" class="headerlink" title="sleep() 方法和 wait() 方法"></a>sleep() 方法和 wait() 方法</h3><p>两者最主要的区别在于：<strong>sleep 方法没有释放锁，而 wait 方法释放了锁</strong> 。</p>
-<h3 id="线程死锁"><a href="#线程死锁" class="headerlink" title="线程死锁"></a>线程死锁</h3><p>线程死锁描述的是这样一种情况：多个线程同时被阻塞，它们中的一个或者全部都在等待某个资源被释放。由于线程被无限期地阻塞，因此程序不可能正常终止。</p>
-<p>死锁产生的四个必要条件：</p>
-<ol>
-<li>互斥条件</li>
-<li>请求与保持条件</li>
-<li>不剥夺条件</li>
-<li>循环等待条件</li>
-</ol>
-<p>通俗来讲，多个线程都在争夺相同的N个资源（<strong>均只有一份，互斥</strong>），等待缺少的资源时不丢掉本身已获取到的资源(<strong>请求与保持</strong>)，且不能抢夺别的线程占用的资源(<strong>不剥夺</strong>)，但是问题是想要正常运行，这些线程都需要别的线程已获取到的资源（<strong>循环等待</strong>）。</p>
-<p>如每个线程都在同时执行“拼凑拼图”的任务，但拼图却只有一份(<strong>互斥</strong>)。或者说多个分别捡到不同星数的龙珠的人都想要召唤神龙。</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://huangyuye.github.io/2021/04/26/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/20200825-JAVA%E5%AE%B9%E5%99%A8/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="yuye Huang">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="HYY">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/04/26/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/20200825-JAVA%E5%AE%B9%E5%99%A8/" class="post-title-link" itemprop="url">未命名</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-04-26 14:59:29" itemprop="dateCreated datePublished" datetime="2021-04-26T14:59:29+00:00">2021-04-26</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/" itemprop="url" rel="index"><span itemprop="name">知识库</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h3 id="HashMap"><a href="#HashMap" class="headerlink" title="HashMap"></a>HashMap</h3><p>组成结构：数组和链表</p>
-<p>存储算法：根据key值的hashcode经过取余算法定位其所在数组的位置，再根据key的equals方法匹配相同key值获取对应相应的对象。</p>
-<p>案例：</p>
-<p><strong>（1）hashmap存储</strong></p>
-<p>存值规则：把Key的hashCode 与HashMap的容量 取余得出该Key存储在数组所在位置的下标<strong>（源码定位Key存储在数组的哪个位置是以hashCode &amp; (HashMap容量-1)算法得出）</strong>这里为方便理解使用此方式；</p>
-<p>//为了演示方便定义一个容量大小为3的hashMap（其默认为16）</p>
-<p>HashMap map=newHashMap(3);</p>
-<p>map.put(“a”,1); 得到key 为“a” 的hashcode 值为97然后根据 该值和hashMap 容量取余97%3得到存储位到数组下标为1;</p>
-<p>map.put(“b”,2); 得到key 为“b” 的hashcode 值为98,98%3到存储位到数组下标为2;</p>
-<p>map.put(“c”,3); 得到key 为“c” 的hashcode 值为99，99%3到存储位到数组下标为0;</p>
-<p>map.put(“d”,4); 得到key 为“d” 的hashcode 值为100，100%3到存储位到数组下标为1;</p>
-<p>map.put(“e”,5); 得到key 为“e” 的hashcode 值为101，101%3到存储位到数组下标为2;</p>
-<p>map.put(“f”,6); 得到key 为“f” 的hashcode 值为102，102%3到存储位到数组下标为0;</p>
-<p><img src="https://pic4.zhimg.com/80/v2-fceb57a8de2759203613d5bd343dc37d_1440w.jpg" alt="img"></p>
-<p><strong>（2）hashmap的查找key</strong></p>
-<p>得到key在数组中的位置：根据上图，当我们获取key 为“a”的对象时，那么我们首先获得 key的hashcode97%3得到存储位到数组下标为1;</p>
-<p>匹配得到对应key值对象：得到数组下表为1的数据“a”和“c”对象， 然后再根据 key.equals()来匹配获取对应key的数据对象；</p>
-<p>hashcode 对于HashMapde:如果没有hashcode 就意味着HashMap存储的时候是没有规律可寻的，那么每当我们map.get()方法的时候，就要把map里面的对象一一拿出来进行equals匹配，这样效率是不是会超级慢；</p>
-<h2 id="5、hashcode方法文档说明"><a href="#5、hashcode方法文档说明" class="headerlink" title="5、hashcode方法文档说明"></a><strong>5、hashcode方法文档说明</strong></h2><p>在equals方法没被修改的前提下，多次调用同一对象的hashcode方法返回的值必须是相同的整数；</p>
-<p>如果两个对象互相equals，那么这两个对象的hashcode值必须相等；</p>
-<p>为不同对象生成不同的hashcode可以提升哈希表的性能；</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://huangyuye.github.io/2021/04/26/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/20200825-equals&hashcode/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="yuye Huang">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="HYY">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/04/26/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/20200825-equals&hashcode/" class="post-title-link" itemprop="url">未命名</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-04-26 14:59:29" itemprop="dateCreated datePublished" datetime="2021-04-26T14:59:29+00:00">2021-04-26</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/" itemprop="url" rel="index"><span itemprop="name">知识库</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="默认的equals与hashcode"><a href="#默认的equals与hashcode" class="headerlink" title="默认的equals与hashcode"></a>默认的equals与hashcode</h1><ol>
-<li>equals：判断两个对象的引用指向的是不是同一个对象</li>
-<li>hashcode：根据对象地址生成一个整数数值；</li>
-</ol>
-<h2 id="重写场景"><a href="#重写场景" class="headerlink" title="重写场景"></a>重写场景</h2><p>需求：若对象间特定的几个属性值相等，则判定对象相等</p>
-<p>问题：默认的equals和hashcode判定的是对象的引用，两个new出来的对象引用一定不同</p>
-<p>解决方案：重写equals方法和hashcode方法</p>
-<p>只重写equals方法的话会出现对象equals相等但是hashcode不等的情况（hashcode默认判断引用地址），放到hashSet中也有存在两个对象。</p>
-<p>HashMap 则是先根据Key值的hashcode分配和获取对象保存数组下标的，然后再根据equals区分唯一值。也存在一样的问题。</p>
-<h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p>为什么重写equals时必须重写hashCode方法？</p>
-<p>前提：</p>
-<p><strong>如果两个对象相等，则hashcode一定也是相同的；</strong><br><strong>两个对象相等,对两个对象分别调用equals方法都返回true；</strong></p>
-<p>两个对象有相同的hashcode值，它们也不一定是相等的；（如HashMap）</p>
-<p>因此，equals 方法被覆盖过，则 hashCode 方法也必须被覆盖；<br>hashCode() 的<strong>默认行为是对堆上的对象产生独特值</strong>。如果没有重写 hashCode()，则该 class 的两个对象无论如何都不会相等（即使这两个对象指向相同的数据）；</p>
-<p><a target="_blank" rel="noopener" href="https://juejin.im/post/6844903854639693837#heading-3">https://juejin.im/post/6844903854639693837#heading-3</a></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://huangyuye.github.io/2021/04/26/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/20200825-%E5%8F%8D%E5%B0%84/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="yuye Huang">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="HYY">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/04/26/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/20200825-%E5%8F%8D%E5%B0%84/" class="post-title-link" itemprop="url">未命名</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-04-26 14:59:29" itemprop="dateCreated datePublished" datetime="2021-04-26T14:59:29+00:00">2021-04-26</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/" itemprop="url" rel="index"><span itemprop="name">知识库</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="反射"><a href="#反射" class="headerlink" title="反射"></a>反射</h1><p>在不使用反射时，构造对象使用 new 方式实现，这种方式在<strong>编译期</strong>就可以把对象的类型确定下来。</p>
-<p>使用反射后，在程序<strong>运行过程</strong>中<strong>动态</strong>获取类信息和调用类方法。</p>
-<p>反射的<strong>思想</strong>：<strong>在程序运行过程中确定和解析数据类的类型。</strong></p>
-<p>反射的<strong>作用</strong>：对于在<code>编译期</code>无法确定使用哪个数据类的场景，通过<code>反射</code>可以在程序运行时<strong>构造出不同的数据类实例</strong>。</p>
-<h1 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h1><p><a target="_blank" rel="noopener" href="https://juejin.im/post/6864324335654404104">https://juejin.im/post/6864324335654404104</a></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://huangyuye.github.io/2021/04/26/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/20200826-Java%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B(%E4%B8%89)/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="yuye Huang">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="HYY">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/04/26/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/20200826-Java%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B(%E4%B8%89)/" class="post-title-link" itemprop="url">未命名</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-04-26 14:59:29" itemprop="dateCreated datePublished" datetime="2021-04-26T14:59:29+00:00">2021-04-26</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/" itemprop="url" rel="index"><span itemprop="name">知识库</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          
       
     </div>
 
@@ -1379,7 +1756,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">52</span>
+          <span class="site-state-item-count">53</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>

@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta name="referrer" content="no-referrer" />
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"huangyuye.github.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="基础集合概述 https:&#x2F;&#x2F;www.javatpoint.com&#x2F;collections-in-java  Queue [kju] 增删查 添加（add&#x2F;offer）：容量超过限制，返回false还是抛异常——抛异常处理更加耗时，offer直接返回false的方式更好 删除（remove&#x2F;poll）：空队列，remove抛异常，poll返回null 查看（element&#x2F;peek）：空队列，el">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JAVA 容器">
+<meta property="og:url" content="https://huangyuye.github.io/2021/05/09/Java/%E7%AC%94%E8%AE%B0/%E5%AE%B9%E5%99%A8/%E5%9F%BA%E7%A1%80/index.html">
+<meta property="og:site_name" content="HYY">
+<meta property="og:description" content="基础集合概述 https:&#x2F;&#x2F;www.javatpoint.com&#x2F;collections-in-java  Queue [kju] 增删查 添加（add&#x2F;offer）：容量超过限制，返回false还是抛异常——抛异常处理更加耗时，offer直接返回false的方式更好 删除（remove&#x2F;poll）：空队列，remove抛异常，poll返回null 查看（element&#x2F;peek）：空队列，el">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/huangyuye/huangyuye.github.io@data/img/java-collection-hierarchy.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/huangyuye/huangyuye.github.io@data/img/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20210425174828.jpg">
+<meta property="article:published_time" content="2021-05-09T15:52:56.156Z">
+<meta property="article:modified_time" content="2021-05-09T15:52:56.156Z">
+<meta property="article:author" content="yuye Huang">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/huangyuye/huangyuye.github.io@data/img/java-collection-hierarchy.png">
+
+<link rel="canonical" href="https://huangyuye.github.io/2021/05/09/Java/%E7%AC%94%E8%AE%B0/%E5%AE%B9%E5%99%A8/%E5%9F%BA%E7%A1%80/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>JAVA 容器 | HYY</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">HYY</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://huangyuye.github.io/2021/05/09/Java/%E7%AC%94%E8%AE%B0/%E5%AE%B9%E5%99%A8/%E5%9F%BA%E7%A1%80/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="yuye Huang">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="HYY">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          JAVA 容器
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-05-09 15:52:56" itemprop="dateCreated datePublished" datetime="2021-05-09T15:52:56+00:00">2021-05-09</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="基础"><a href="#基础" class="headerlink" title="基础"></a>基础</h1><h3 id="集合概述"><a href="#集合概述" class="headerlink" title="集合概述"></a>集合概述</h3><p><img src="https://cdn.jsdelivr.net/gh/huangyuye/huangyuye.github.io@data/img/java-collection-hierarchy.png" alt="img"></p>
+<p><a target="_blank" rel="noopener" href="https://www.javatpoint.com/collections-in-java">https://www.javatpoint.com/collections-in-java</a></p>
+<ul>
+<li><strong>Queue</strong> [kju]<ul>
+<li>增删查<ul>
+<li>添加（add/offer）：容量超过限制，返回false还是抛异常——抛异常处理更加耗时，offer直接返回false的方式更好</li>
+<li>删除（remove/poll）：空队列，remove抛异常，poll返回null</li>
+<li>查看（element/peek）：空队列，element抛异常，peek返回null</li>
+</ul>
+</li>
+<li><strong>Deque</strong>（double-ended queue，双端队列）</li>
+<li>实现<ul>
+<li><code>PriorityQueue</code>  implements Queue</li>
+<li><code>ArrayDequq</code> implements Deque</li>
+<li><code>LinkedList</code> implements List, Deque</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>Set</strong><ul>
+<li><code>HashSet</code>：implements Set，且底层使用HashMap使用<ul>
+<li><code>LinkedHashSet</code> extends HashSet implements Set ，底层是LinkedHashMap，能够按照添加的顺序遍历；</li>
+</ul>
+</li>
+<li><code>TreeSet</code> implements NavigableSet（SortedSet）<ul>
+<li>底层使用红黑树，能够按照添加元素的顺序进行遍历，排序的方式有自然排序和定制排序。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>List</strong><ul>
+<li>ArrayList</li>
+<li><code>LinkedList</code> implements List, Deque，支持双端操作的线性表<ul>
+<li>双向链表(JDK1.6 之前为循环链表，JDK1.7 取消了循环)</li>
+<li>Vector 和 Stack 已过时</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>Map</strong><ul>
+<li>HashMap：JDK1.8之后使用了数组+链表+红黑树<ul>
+<li>当链表长度大于阈值（默认为 8）（将链表转换成红黑树前会判断，如果当前数组的长度小于 64，那么会选择先进行数组扩容，而不是转换为红黑树）时，将链表转化为红黑树，以减少搜索时间</li>
+</ul>
+</li>
+<li>LinkedHashMap：在HashMap底层结构的基础上，增加了一条双向链表，使得上面的结构可以保持键值对的插入顺序。</li>
+<li>Hashtable： 数组+链表组成（拉链法解决哈希冲突）已过期</li>
+<li><strong><code>TreeMap</code></strong> implements NavigableMap&lt;K,V&gt;（SortedMap） ：红黑树（自平衡的排序二叉树）</li>
+</ul>
+</li>
+</ul>
+<p><strong>为什么要使用集合？替代数组，提高了数组存储的灵活性</strong>：不仅可以用来存储不同类型不同数量的对象，还可以保存具有映射关系的数据。</p>
+<p><strong>如何选用集合？</strong></p>
+<ul>
+<li><code>List</code>(对付顺序的好帮手)： 存储的元素是有序的、可重复的。</li>
+<li><code>Set</code>(注重独一无二的性质): 存储的元素是无序的、不可重复的。</li>
+<li><code>Map</code>(用 Key 来搜索的专家): 使用键值对（key-value）存储，类似于数学上的函数 y=f(x)，“x”代表 key，”y”代表 value，Key 是无序的、不可重复的，value 是无序的、可重复的，每个键最多映射到一个值。</li>
+</ul>
+<h3 id="集合之List"><a href="#集合之List" class="headerlink" title="集合之List"></a>集合之List</h3><h3 id="集合之Set"><a href="#集合之Set" class="headerlink" title="集合之Set"></a>集合之Set</h3><h3 id="Map接口"><a href="#Map接口" class="headerlink" title="Map接口"></a>Map接口</h3><h3 id="Collections工具使用"><a href="#Collections工具使用" class="headerlink" title="Collections工具使用"></a>Collections工具使用</h3><h4 id="排序操作"><a href="#排序操作" class="headerlink" title="排序操作"></a>排序操作</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">reverse</span><span class="params">(List list)</span><span class="comment">//反转</span></span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">shuffle</span><span class="params">(List list)</span><span class="comment">//随机排序</span></span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">sort</span><span class="params">(List list)</span><span class="comment">//按自然排序的升序排序</span></span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">sort</span><span class="params">(List list, Comparator c)</span><span class="comment">//定制排序，由Comparator控制排序逻辑</span></span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">swap</span><span class="params">(List list, <span class="keyword">int</span> i , <span class="keyword">int</span> j)</span><span class="comment">//交换两个索引位置的元素</span></span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">rotate</span><span class="params">(List list, <span class="keyword">int</span> distance)</span><span class="comment">//旋转。当distance为正数时，将list后distance个元素整体移到前面。当distance为负数时，将 list的前distance个元素整体移到后面</span></span></span><br></pre></td></tr></table></figure>
+
+<h4 id="查找-替换操作"><a href="#查找-替换操作" class="headerlink" title="查找,替换操作"></a>查找,替换操作</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">binarySearch</span><span class="params">(List list, Object key)</span><span class="comment">//对List进行二分查找，返回索引，注意List必须是有序的</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">max</span><span class="params">(Collection coll)</span><span class="comment">//根据元素的自然顺序，返回最大的元素。 类比int min(Collection coll)</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">max</span><span class="params">(Collection coll, Comparator c)</span><span class="comment">//根据定制排序，返回最大元素，排序规则由Comparatator类控制。类比int min(Collection coll, Comparator c)</span></span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">fill</span><span class="params">(List list, Object obj)</span><span class="comment">//用指定的元素代替指定list中的所有元素。</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">frequency</span><span class="params">(Collection c, Object o)</span><span class="comment">//统计元素出现次数</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">indexOfSubList</span><span class="params">(List list, List target)</span><span class="comment">//统计target在list中第一次出现的索引，找不到则返回-1，类比int lastIndexOfSubList(List source, list target).</span></span></span><br><span class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">replaceAll</span><span class="params">(List list, Object oldVal, Object newVal)</span>, 用新元素替换旧元素</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="同步控制"><a href="#同步控制" class="headerlink" title="同步控制"></a>同步控制</h4><p>不推荐，需要线程安全的集合类型时请考虑使用 JUC 包下的并发集合</p>
+<h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><h3 id="容器之间对比方面（如比较ArrayList和LinkedList）"><a href="#容器之间对比方面（如比较ArrayList和LinkedList）" class="headerlink" title="容器之间对比方面（如比较ArrayList和LinkedList）"></a>容器之间对比方面（如比较ArrayList和LinkedList）</h3><ul>
+<li>底层数据结构（数组vs链表）</li>
+<li>操作的时间复杂度（增删查）</li>
+<li>内存空间占用/容量</li>
+<li>是否支持随机访问（数组vs非数组）</li>
+<li>线程安全（底层同步锁）</li>
+<li>效率</li>
+</ul>
+<p>内存空间占用：如ArrayList 的空间浪费主要体现在在 list 列表的结尾会预留一定的容量空间，而 LinkedList 的空间花费则体现在它的每一个元素都需要消耗比 ArrayList 更多的空间（因为要存放直接后继和直接前驱以及数据）。</p>
+<h3 id="ArrayList的容量"><a href="#ArrayList的容量" class="headerlink" title="ArrayList的容量"></a><strong>ArrayList的容量</strong></h3><h4 id="最大容量"><a href="#最大容量" class="headerlink" title="最大容量"></a>最大容量</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">    * The maximum size of array to allocate.</span></span><br><span class="line"><span class="comment">    * Some VMs reserve some header words in an array.</span></span><br><span class="line"><span class="comment">    * Attempts to allocate larger arrays may result in</span></span><br><span class="line"><span class="comment">    * OutOfMemoryError: Requested array size exceeds VM limit</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">   <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> MAX_ARRAY_SIZE = Integer.MAX_VALUE - <span class="number">8</span>;</span><br></pre></td></tr></table></figure>
+
+<h4 id="扩容"><a href="#扩容" class="headerlink" title="扩容"></a>扩容</h4><p>向 ArrayList 添加大量元素之前最好先使用<code>ensureCapacity</code> 方法，以减少增量重新分配的次数</p>
+<h4 id="扩容倍数"><a href="#扩容倍数" class="headerlink" title="扩容倍数"></a>扩容倍数</h4><p>扩容时会指定目标容量，优先将新容量更新为旧容量的1.5倍；若容量还是不够，则取扩容目标容量minCapacity</p>
+<h4 id="负载因子"><a href="#负载因子" class="headerlink" title="负载因子"></a>负载因子</h4><p>ArrayList没有负载因子</p>
+<h3 id="idea-查看UML类图"><a href="#idea-查看UML类图" class="headerlink" title="idea 查看UML类图"></a>idea 查看UML类图</h3><p>右键类 -&gt; Diagrams -&gt; show diagram 查看UML类图</p>
+<h3 id="对象比较"><a href="#对象比较" class="headerlink" title="对象比较"></a>对象比较</h3><ul>
+<li><code>java.lang.Comparable</code> ：compareTo(Object obj) 声明<strong>自身与其他</strong>对象的比较逻辑</li>
+<li> <code>java.util.Comparator</code>：compare(Object o1, Object o2) 比较器，用于定制相同类型的<strong>任意两个</strong>对象比较的逻辑</li>
+</ul>
+<h3 id="LinkedList-底层结构"><a href="#LinkedList-底层结构" class="headerlink" title="LinkedList 底层结构"></a>LinkedList 底层结构</h3><ul>
+<li>jdk1.7优化：<ul>
+<li>jdk1.6需要初始化header Entry对象，浪费空间</li>
+</ul>
+</li>
+</ul>
+<h3 id="hashCode-与-equals-的相关规定："><a href="#hashCode-与-equals-的相关规定：" class="headerlink" title="hashCode()与 equals() 的相关规定："></a><strong><code>hashCode()</code>与 <code>equals()</code> 的相关规定：</strong></h3><ol>
+<li>如果两个对象相等，则 <code>hashcode</code> 一定也是相同的</li>
+<li>两个对象相等,对两个 <code>equals()</code> 方法返回 true</li>
+<li>两个对象有相同的 <code>hashcode</code> 值，它们也不一定是相等的</li>
+<li>综上，<code>equals()</code> 方法被覆盖过，则 <code>hashCode()</code> 方法也必须被覆盖</li>
+<li><code>hashCode() </code>的默认行为是对堆上的对象产生独特值。如果没有重写 <code>hashCode()</code>，则该 class 的两个对象无论如何都不会相等（即使这两个对象指向相同的数据）。</li>
+</ol>
+<h3 id="HashMap的底层实现"><a href="#HashMap的底层实现" class="headerlink" title="HashMap的底层实现"></a>HashMap的底层实现</h3><ul>
+<li><p>jdk1.8之前</p>
+<ul>
+<li>底层数据结构：数组+链表</li>
+<li><strong>putVal：</strong><code>头插法</code>插入链表表头</li>
+</ul>
+</li>
+<li><p>jdk1.8之后</p>
+<ul>
+<li>当链表长度大于阈值（默认为 8）（将链表转换成红黑树前会判断，如果当前数组的长度小于 64，那么会选择先进行数组扩容，而不是转换为红黑树）时，将链表转化为红黑树，以减少搜索时间。</li>
+<li>红黑树是为了解决二叉查找树的缺陷，因为二叉查找树在某些情况下会退化成一个线性结构。</li>
+<li><strong>putVal：</strong><code>尾插法</code>插入链表表头</li>
+</ul>
+</li>
+<li><p>putVal</p>
+<ul>
+<li>(n-1) &amp; hash判断当前元素存放位置（n为数组长度）</li>
+<li>判断相同位置元素的hash值和key值是否相同，相同则覆盖；不相同则通过拉链法解决冲突<ul>
+<li>所谓 <strong>“拉链法”</strong> 就是：将链表和数组相结合。也就是说创建一个链表数组，数组中每一格就是一个链表。若遇到哈希冲突，则将冲突的值加到链表中即可。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>HashMap的容量是 2 的幂次方</strong></p>
+<ul>
+<li><p>扩容机制：resize</p>
+<ul>
+<li>进行扩容，会伴随着一次重新 hash 分配，并且会遍历 hash 表中所有的元素，是非常耗时的。在编写程序中，要尽量避免 resize。</li>
+</ul>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/LLF_1241352445/article/details/81321991">HashMap的容量为什么是2的幂次方？</a></p>
+<ul>
+<li>对象计算的hash值，范围值很大，不能直接用作数组下标，所以需要将hash值对数组长度n做取模操作后得到余数作为数组下标，而取模运算为：<code>(n - 1) &amp; hash</code>（<strong>那为什么取模不是用的%符号呢</strong>）</li>
+</ul>
+<ol>
+<li><p>选用该算法是因为使用位运算是特别高效的运算</p>
+<ol>
+<li>取余(%)操作中如果除数是 2 的幂次则等价于与其除数减一的与(&amp;)操作（也就是说 hash%length==hash&amp;(length-1)的前提是 length 是 2 的 n 次方；）。” 并且 采用二进制位操作 &amp;，相对于%能够提高运算效率，这就解释了 HashMap 的长度为什么是 2 的幂次方。</li>
+</ol>
+</li>
+<li><p>基于条件1，当HashMap的容量是16时，它的二进制是10000，(n-1)的二进制是01111，这样可以使得不同的hash值，和(n-1)进行位运算后，能够得出不同的值（1&amp;1=1，<strong>1&amp;0=0，0&amp;0=0</strong>）。可以使得添加的元素均匀分布在HashMap中的数组上，减少hash碰撞，避免形成链表的结构，使得查询效率降低！</p>
+<ol>
+<li>如果hash table[]的尺寸很小，比如只有2个，如果要放进10个keys的话，那么碰撞非常频繁，于是一个O(1)的查找算法，就变成了链表遍历，性能变成了O(n)</li>
+</ol>
+</li>
+</ol>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://coolshell.cn/articles/9606.html">多线程操作死循环问题</a> </p>
+<ul>
+<li><p>1.8之前，并发下的 Rehash 会造成元素之间会形成一个循环链表</p>
+<ul>
+<li><p>1.8之前，hash桶的链表节点使用的是**<code>头插法</code>**插入到链表中</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">addEntry</span><span class="params">(<span class="keyword">int</span> hash, K key, V value, <span class="keyword">int</span> bucketIndex)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    Entry&lt;K,V&gt; e = table[bucketIndex];</span><br><span class="line">    table[bucketIndex] = <span class="keyword">new</span> Entry&lt;K,V&gt;(hash, key, value, e);</span><br><span class="line">    <span class="comment">//查看当前的size是否超过了我们设定的阈值threshold，如果超过，需要resize</span></span><br><span class="line">    <span class="keyword">if</span> (size++ &gt;= threshold)</span><br><span class="line">        resize(<span class="number">2</span> * table.length);</span><br><span class="line">&#125; </span><br></pre></td></tr></table></figure></li>
+<li><p>新旧数组链表元素迁移：</p>
+<ul>
+<li><p>假设旧数组中某元素指向的链表节点为：node1-node2-node3，则迁移到新数组中链表节点的变化情况为：（假设数组容量为4）</p>
+<ul>
+<li>第一次loop迁移：node1</li>
+<li>第二次loop迁移：node2-node1</li>
+<li>第三次loop迁移：node3-node2-node1</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/huangyuye/huangyuye.github.io@data/img/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20210425174828.jpg"></p>
+</li>
+</ul>
+</li>
+<li><p>Hash表这个容器当有数据要插入时，都会检查容量有没有超过设定的thredhold，如果超过，需要增大Hash表的尺寸，但是这样一来，整个Hash表里的无素都需要被重算一遍。这叫rehash，这个成本相当的大。</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>HashMap的N种遍历方式：</p>
+</li>
+<li><p>负载因子loadFactor</p>
+<ul>
+<li>loadFactor越趋近于1，那么 数组中存放的数据(entry)也就越多，也就越密，会导致查找元素效率低</li>
+<li>太小导致数组的利用率低，存放的数据会很分散</li>
+</ul>
+</li>
+<li><p>查询效率</p>
+<ul>
+<li>数组的查询效率为O(1)，链表的查询效率是O(n)，红黑树的查询效率是O(log n)，n为桶中的元素个数。</li>
+<li>所以当位于链表中的结点过多，显然通过key值依次查找效率就太低了。因此JDK1.8在解决哈希冲突时有了较大的变化，<strong>当链表长度大于阈值（默认为8）时，将链表转化为红黑树</strong>，以提高查询效率。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="ConcurrentHashMap"><a href="#ConcurrentHashMap" class="headerlink" title="ConcurrentHashMap"></a>ConcurrentHashMap</h3><ul>
+<li>JDK1.8之前<ul>
+<li><strong><code>Segment</code> 数组结构和 <code>HashEntry</code> 数组结构组成</strong><ul>
+<li>Segment 实现了 <code>ReentrantLock</code>,所以 <code>Segment</code> 是一种可重入锁，扮演锁的角色。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>JDK1.8<ul>
+<li>取消了 <code>Segment</code> 分段锁，采用 CAS 和 <code>synchronized</code> 来保证并发安全</li>
+<li><code>synchronized</code> 只锁定当前链表或红黑二叉树的首节点，这样只要 hash 不冲突，就不会产生并发，效率又提升 N 倍。</li>
+</ul>
+</li>
+</ul>
+<h3 id="数据元素插入"><a href="#数据元素插入" class="headerlink" title="数据元素插入"></a>数据元素插入</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//arraycopy()这个实现数组之间复制的方法一定要看一下，下面就用到了arraycopy()方法实现数组自己复制自己</span></span><br><span class="line">System.arraycopy(elementData, index, elementData, index + <span class="number">1</span>, size - index);</span><br><span class="line">elementData[index] = element;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="相关接口"><a href="#相关接口" class="headerlink" title="相关接口"></a>相关接口</h3><ul>
+<li>RandomAccess接口<ul>
+<li>数组天然支持快速随机访问，RandomAccess接口只是用于标识容器可快速访问以切换不同的遍历方法</li>
+</ul>
+</li>
+<li>NavigableMap / NavigableSet 接口<ul>
+<li>提供对集合内元素的搜索的能力</li>
+</ul>
+</li>
+<li>Iterable接口</li>
+<li>SortMap：对集合中的元素根据键排序的能力</li>
+</ul>
+<h3 id="无序性"><a href="#无序性" class="headerlink" title="无序性"></a>无序性</h3><p>什么是无序性？无序性不等于随机性 ，无序性是指存储的数据在底层数组中并非按照数组索引的顺序添加 ，而是根据数据的哈希值决定的。</p>
+<h2 id="TODO"><a href="#TODO" class="headerlink" title="TODO"></a>TODO</h2><ol>
+<li>红黑树和二叉查找树的对比</li>
+<li>HashMap resize 扩容方法实现</li>
+</ol>
+<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><p><a target="_blank" rel="noopener" href="https://gitee.com/SnailClimb/JavaGuide/blob/master/docs/java/collection/Java%E9%9B%86%E5%90%88%E6%A1%86%E6%9E%B6%E5%B8%B8%E8%A7%81%E9%9D%A2%E8%AF%95%E9%A2%98.md">docs/java/collection/Java集合框架常见面试题.md · SnailClimb/JavaGuide - Gitee.com</a></p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2021/05/09/Java/%E7%AC%94%E8%AE%B0/%E5%AE%B9%E5%99%A8/%E5%BA%8F%E5%88%97%E5%8C%96%E4%B8%8E%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96/" rel="prev" title="">
+      <i class="fa fa-chevron-left"></i> 
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2021/05/09/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/%E9%9D%A2%E8%AF%95%E5%87%86%E5%A4%87/20201108-%E7%AE%80%E5%8E%86/" rel="next" title="">
+       <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%9F%BA%E7%A1%80"><span class="nav-number">1.</span> <span class="nav-text">基础</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%9B%86%E5%90%88%E6%A6%82%E8%BF%B0"><span class="nav-number">1.0.1.</span> <span class="nav-text">集合概述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%9B%86%E5%90%88%E4%B9%8BList"><span class="nav-number">1.0.2.</span> <span class="nav-text">集合之List</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%9B%86%E5%90%88%E4%B9%8BSet"><span class="nav-number">1.0.3.</span> <span class="nav-text">集合之Set</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Map%E6%8E%A5%E5%8F%A3"><span class="nav-number">1.0.4.</span> <span class="nav-text">Map接口</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Collections%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8"><span class="nav-number">1.0.5.</span> <span class="nav-text">Collections工具使用</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%8E%92%E5%BA%8F%E6%93%8D%E4%BD%9C"><span class="nav-number">1.0.5.1.</span> <span class="nav-text">排序操作</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9F%A5%E6%89%BE-%E6%9B%BF%E6%8D%A2%E6%93%8D%E4%BD%9C"><span class="nav-number">1.0.5.2.</span> <span class="nav-text">查找,替换操作</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%90%8C%E6%AD%A5%E6%8E%A7%E5%88%B6"><span class="nav-number">1.0.5.3.</span> <span class="nav-text">同步控制</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%B6%E4%BB%96"><span class="nav-number">1.1.</span> <span class="nav-text">其他</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%B9%E5%99%A8%E4%B9%8B%E9%97%B4%E5%AF%B9%E6%AF%94%E6%96%B9%E9%9D%A2%EF%BC%88%E5%A6%82%E6%AF%94%E8%BE%83ArrayList%E5%92%8CLinkedList%EF%BC%89"><span class="nav-number">1.1.1.</span> <span class="nav-text">容器之间对比方面（如比较ArrayList和LinkedList）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ArrayList%E7%9A%84%E5%AE%B9%E9%87%8F"><span class="nav-number">1.1.2.</span> <span class="nav-text">ArrayList的容量</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9C%80%E5%A4%A7%E5%AE%B9%E9%87%8F"><span class="nav-number">1.1.2.1.</span> <span class="nav-text">最大容量</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%89%A9%E5%AE%B9"><span class="nav-number">1.1.2.2.</span> <span class="nav-text">扩容</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%89%A9%E5%AE%B9%E5%80%8D%E6%95%B0"><span class="nav-number">1.1.2.3.</span> <span class="nav-text">扩容倍数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%B4%9F%E8%BD%BD%E5%9B%A0%E5%AD%90"><span class="nav-number">1.1.2.4.</span> <span class="nav-text">负载因子</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#idea-%E6%9F%A5%E7%9C%8BUML%E7%B1%BB%E5%9B%BE"><span class="nav-number">1.1.3.</span> <span class="nav-text">idea 查看UML类图</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AF%B9%E8%B1%A1%E6%AF%94%E8%BE%83"><span class="nav-number">1.1.4.</span> <span class="nav-text">对象比较</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#LinkedList-%E5%BA%95%E5%B1%82%E7%BB%93%E6%9E%84"><span class="nav-number">1.1.5.</span> <span class="nav-text">LinkedList 底层结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#hashCode-%E4%B8%8E-equals-%E7%9A%84%E7%9B%B8%E5%85%B3%E8%A7%84%E5%AE%9A%EF%BC%9A"><span class="nav-number">1.1.6.</span> <span class="nav-text">hashCode()与 equals() 的相关规定：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#HashMap%E7%9A%84%E5%BA%95%E5%B1%82%E5%AE%9E%E7%8E%B0"><span class="nav-number">1.1.7.</span> <span class="nav-text">HashMap的底层实现</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ConcurrentHashMap"><span class="nav-number">1.1.8.</span> <span class="nav-text">ConcurrentHashMap</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E5%85%83%E7%B4%A0%E6%8F%92%E5%85%A5"><span class="nav-number">1.1.9.</span> <span class="nav-text">数据元素插入</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%9B%B8%E5%85%B3%E6%8E%A5%E5%8F%A3"><span class="nav-number">1.1.10.</span> <span class="nav-text">相关接口</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%97%A0%E5%BA%8F%E6%80%A7"><span class="nav-number">1.1.11.</span> <span class="nav-text">无序性</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#TODO"><span class="nav-number">1.2.</span> <span class="nav-text">TODO</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%82%E8%80%83%E9%93%BE%E6%8E%A5"><span class="nav-number">1.3.</span> <span class="nav-text">参考链接</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">yuye Huang</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">53</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">18</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/huangyuye" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;huangyuye" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:747776824@qq.com" title="E-Mail → mailto:747776824@qq.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title"><i class="fa fa-link fa-fw"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://www.yuque.com/huangyuye/qzf3af" title="https:&#x2F;&#x2F;www.yuque.com&#x2F;huangyuye&#x2F;qzf3af" rel="noopener" target="_blank">语雀</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">yuye Huang</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

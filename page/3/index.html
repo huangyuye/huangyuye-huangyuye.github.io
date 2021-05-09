@@ -156,7 +156,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://huangyuye.github.io/2021/04/26/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/20201209-jenkins%20vs%20teamCity/">
+    <link itemprop="mainEntityOfPage" href="https://huangyuye.github.io/2021/05/09/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/20200914-Excel%E6%93%8D%E4%BD%9C/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -170,7 +170,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2021/04/26/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/20201209-jenkins%20vs%20teamCity/" class="post-title-link" itemprop="url">未命名</a>
+            <a href="/2021/05/09/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/20200914-Excel%E6%93%8D%E4%BD%9C/" class="post-title-link" itemprop="url">未命名</a>
         </h2>
 
         <div class="post-meta">
@@ -180,7 +180,911 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2021-04-26 14:59:29" itemprop="dateCreated datePublished" datetime="2021-04-26T14:59:29+00:00">2021-04-26</time>
+              <time title="创建时间：2021-05-09 15:52:56" itemprop="dateCreated datePublished" datetime="2021-05-09T15:52:56+00:00">2021-05-09</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/" itemprop="url" rel="index"><span itemprop="name">知识库</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h1><ol>
+<li>HSSF (Horrible SpreadSheet Format（电子表格格式）的缩写)<ol>
+<li>对应.xls 文件，兼容 Office97-2003 版本 ）（一个sheet最大行数65536，最大列数256）</li>
+</ol>
+</li>
+<li>XSSF<ol>
+<li>容 Office2007及以后版本 （一个sheet最大行数1048576，最大列数16384）</li>
+</ol>
+</li>
+<li><strong>SXSSF</strong> （低内存占用的操作方式）<ol>
+<li>SXSSFWorkbook w3= new SXSSFWorkbook(100);//内存中保留100条数据，其余写入硬盘临时文件</li>
+</ol>
+</li>
+</ol>
+<h2 id="文档结构类"><a href="#文档结构类" class="headerlink" title="文档结构类"></a>文档结构类</h2><p>HSSFWorkbook excel文档对象<br>HSSFSheet excel的sheet<br>HSSFRow excel的行<br>HSSFCell excel的单元格<br>HSSFFont excel字体<br>HSSFName 名称<br>HSSFDataFormat 日期格式<br>HSSFHeader sheet头<br>HSSFFooter sheet尾<br>HSSFCellStyle cell样式<br>HSSFDateUtil 日期<br>HSSFPrintSetup 打印<br>HSSFErrorConstants 错误信息表</p>
+<h3 id="POI"><a href="#POI" class="headerlink" title="POI"></a>POI</h3><h3 id="easyExcel"><a href="#easyExcel" class="headerlink" title="easyExcel"></a>easyExcel</h3><p><a target="_blank" rel="noopener" href="https://github.com/alibaba/easyexcel/blob/master/src/test/java/com/alibaba/easyexcel/test/demo/web/WebTest.java">https://github.com/alibaba/easyexcel/blob/master/src/test/java/com/alibaba/easyexcel/test/demo/web/WebTest.java</a></p>
+<h3 id="easyPoi"><a href="#easyPoi" class="headerlink" title="easyPoi"></a>easyPoi</h3><p><a target="_blank" rel="noopener" href="https://gitee.com/lemur/easypoi">https://gitee.com/lemur/easypoi</a></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://huangyuye.github.io/2021/05/09/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/20200925-Git%E5%86%85%E5%AE%B9/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="yuye Huang">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="HYY">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/05/09/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/20200925-Git%E5%86%85%E5%AE%B9/" class="post-title-link" itemprop="url">未命名</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-05-09 15:52:56" itemprop="dateCreated datePublished" datetime="2021-05-09T15:52:56+00:00">2021-05-09</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/" itemprop="url" rel="index"><span itemprop="name">知识库</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h3 id="git常用场景使用技巧"><a href="#git常用场景使用技巧" class="headerlink" title="git常用场景使用技巧"></a><strong>git常用场景使用技巧</strong></h3><ol>
+<li><p>功能开发到一半，突然要修复线上问题 （保存现场）</p>
+<ol>
+<li>在开发分支上：<code>git stash</code> = <code>git stash save</code> 保存未提交的内容（<strong>前提是修改的文件已被版本库追踪过</strong>）<ol>
+<li>想要添加保存信息则执行：<code>git stash save -a “message”</code> （git stash save 命令将来会被git stash push 代替）</li>
+<li>默认情况下，<code>git stash</code> 只会贮藏已修改和暂存的 <strong>已跟踪</strong> 文件。如果指定 –include-untracked 或 -u 选项，Git 也会贮藏任何未跟踪文件。</li>
+</ol>
+</li>
+<li>切换到其他分支修复bug</li>
+<li>修复完后回到原开发分支，并执行 <code>git stash pop</code> (<code>git stash pop</code> = <code>git stash apply  stash@&#123;0&#125;</code> + <code>git stash drop  stash@&#123;0&#125;</code>)</li>
+</ol>
+</li>
+<li><p>不小心把代码提交到错的分支上 （<strong>假设错误分支为test，目标分支为 dev</strong> ）</p>
+<ol>
+<li><strong>简易操作</strong>：切换到在目标分支dev下执行-&gt; <code>git cherry-pick commitId1 commitId2</code> …</li>
+<li><strong>git rebase</strong>：<code>git rebase --onto dev &lt;开始的commitId&gt; &lt;结束的commitId&gt; </code><ol start="2">
+<li>执行上述操作后，实际上git 会将dev作为基底分支，将 &lt;开始的commitId&gt; &lt;结束的commitId&gt;  做的相应改变重做一遍，重做的commitId可能跟旧的commitId不一样（若是能ff，则commitId一样），重做后，HEAD指针指向最新的commitId上（游离状态，没有指向任何分支上）</li>
+<li>切换到目标分支 <code> git checkout dev</code></li>
+<li>将dev分支指向重做的最新的提交点上 <code>git reset --hard  commitId</code> （也属于变基操作，会产生线性提交历史）</li>
+</ol>
+</li>
+</ol>
+</li>
+<li><p>需要将其他分支的文件复用过来：</p>
+<ol>
+<li><code>git checkout source_path(其他分支) filename1 filename2 ... (其他分支的文件) </code></li>
+</ol>
+</li>
+<li><p>需要删除中途某次提交：git revert </p>
+<ol>
+<li><code>git revert commitID</code> 使用一次新的commit来回滚之前的commit</li>
+<li>revert 是逆向回放</li>
+</ol>
+</li>
+<li><p><strong>本地仓库</strong>需要回退到某个版本（亦可用于版本前进）：git reset</p>
+<ol>
+<li> <code>git reset --hard commitId</code> ： 将 commitId 和 commitId 之后的所有提交记录均删除；但是如果 merge 其他老的分支到该分支，commitId后面被回滚的commit应该还会被引入<strong>（一般在提交点push到公共分支之前操作）</strong></li>
+<li><code>git reset --soft commitId</code>：此次提交之后的修改会被退回到暂存区。(回退版本<strong>commitId后的修改还保留在本地工作空间</strong>)</li>
+<li><code>git reset commitId</code> 默认使用选项 –mixed，此次提交之后的修改会被退回到工作区</li>
+<li><code>git reset</code> 用于将当前分支指向任意提交点，包括其他分支的提交点，即可在任意提交点来回穿梭</li>
+</ol>
+</li>
+<li><p>代码版本回退错误，想要重新回到最新提交点，但是提交历史已丢失了（通过git log 查看不到提交记录）</p>
+<ol>
+<li>使用 <code>git reflog</code> 查看历史操作记录，找到对应要恢复的提交点，执行 git reset 相关方法</li>
+</ol>
+</li>
+<li><p>已经推送到远程公共分支的代码版本正确的回退姿势（<strong>暂时未理解原理</strong>）</p>
+<ol>
+<li><code>git reset --hard commitId1</code>（要回退的版本）：该操作把 working, index, HEAD 都强行置为 commitId1</li>
+<li><code>git reset --soft commitId2</code>（最新提交点）</li>
+</ol>
+</li>
+<li><p><strong>本地仓库</strong>，存在多余的提交，想要压缩成一次提交</p>
+<ol>
+<li>将上一次提交和这次提交作为一次提交 <code>git commit --amend</code> </li>
+<li>多次提交压缩：<code>git rebase -i HEAD~n</code>  (n表示要合并的最近提交的次数)</li>
+<li><strong>（一般在提交点push到公共分支之前操作）</strong></li>
+</ol>
+</li>
+<li><p><code>git merge</code> 合并时建议使用 <code>--no--ff</code> 选项保留完整的提交历史（<strong>否则该命令默认策略：“优先–ff，若不能ff则–no-ff”</strong>）</p>
+</li>
+<li><p>比较各个区域的修改差异</p>
+<ol>
+<li>git diff – cached：比较缓存区与本地库最近一次commit内容</li>
+</ol>
+<ul>
+<li>git diff：比较缓存区与工作区 </li>
+<li>git diff HEAD | git diff commitId 比较工作区与本地最近一次commit内容 （工作区会包含已暂存和未暂存的文件内容）</li>
+</ul>
+</li>
+<li><p>想要查看某次提交做了哪些改动</p>
+<ol>
+<li><code>git show commitId</code> (相较以下命令常用)</li>
+<li><code>git show HEAD@&#123;5&#125;</code>  查看仓库中 HEAD 在五次前的所指向的提交</li>
+</ol>
+</li>
+<li><p>版本迭代发布之际，需要合并其他分支的代码时，查看哪些分支已合并或未合并到当前分支</p>
+<ol>
+<li>查看哪些分支已经合并到当前分支：git branch –merged </li>
+<li>查看哪些分支没有合并到当前分支 git branch –no-merged </li>
+</ol>
+</li>
+<li><p>查看某分支还有哪些提交尚未合并到主分支？</p>
+<ol>
+<li><strong>双点</strong>：<ol>
+<li>在 feature 分支中而不在 master 分支中的提交：<code>git log master..feature</code> </li>
+<li>在你当前分支中而不在远程 <code>origin</code> 中的提交：<code>git log origin/master..HEAD</code></li>
+</ol>
+</li>
+<li><strong>三点</strong>：<ol>
+<li>想看 master 或者 feature 中包含的但不是两者共有的提交：<code>git log master...feature</code> </li>
+<li>增加 –left-right 选项可以显示每个提交到底处于哪一侧的分支</li>
+</ol>
+</li>
+<li><strong>多点</strong>：<ol>
+<li>^ 字符或者 –not 来指明你不希望提交被包含其中的分支（以下命令等价）<ol>
+<li>git log refA..refB</li>
+<li>git log ^refA refB</li>
+<li>git log refB –not refA</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+<p><strong>概念</strong></p>
+<ol>
+<li>本地跟踪分支、远程跟踪分支、远程分支 （pull = fetch + merge）</li>
+</ol>
+<hr>
+<h3 id="其他知识点补充"><a href="#其他知识点补充" class="headerlink" title="其他知识点补充"></a><strong>其他知识点补充</strong></h3><ol>
+<li><p>变基 &amp; git merge 区别、commitId 的时间线是否有序</p>
+<ol>
+<li>变基：以另一个分支为基底分支，保留基底分支在共同祖先之后的提交，再将两个分支<strong>最近的</strong>一个<strong>共同祖先</strong>之后的属于”当前变基操作分支”的提交点，<strong>重做</strong>到基底分支上(<strong>commitId会发生变化</strong>)，均作为当前变基操作分支的内容。</li>
+<li>变基后将内容merge 到另一个分支时会丢失该分支提交历史</li>
+</ol>
+</li>
+<li><p>git rebase –onto master &lt;开始的commitId&gt; &lt;结束的commitId&gt; （游离指针 HEAD)</p>
+<ol>
+<li>git rebase master feature ：将feature分支以master作为基底分支，将feature分支上在共同祖先之后的提交点重做一遍 （省去切换分支到feature上的操作）</li>
+<li>git rebase –onto master feature feature-child1 ：将feature分支以master作为基底分支，将feature分支上在共同祖先之后的提交点重做一遍，但暂时并不想合并 feature-child1 中的修改 （feature-child1一般是feature的子分支）</li>
+</ol>
+</li>
+<li><p>Git 合并两个分支时，<strong>如果顺着一个分支走下去可以到达另一个分支的话</strong>，那么 Git 在合并两者时，只会简单地把指针右移，叫做“快进”（fast-forward）（<strong>如果不能到达另一个分支，则会执行 –no-ff</strong> ）</p>
+<ol>
+<li>非ff：Merge made by the ‘recursive’ strategy. （通过“递归”策略进行合并）</li>
+<li>merge 时可以指定提交信息 -m</li>
+</ol>
+</li>
+<li><p>git reset –hard commitId 用于将当前分支指向任意提交点，包括其他分支的提交点</p>
+</li>
+<li><p>git checkout 可以将 HEAD 引用 指向到任意提交点（游离状态-HEAD指针没有指向对象的分支）</p>
+</li>
+<li><p>Git push 时如何避免出现 “Merge branch ‘master’ of …”</p>
+<ol>
+<li>每次从远程分支 pull 新的变动，其实都会执行一次 git merge &lt;远程仓库&gt;/&lt;远程分支&gt;</li>
+<li>git pull = git fetch + git merge ：若你本地的远程跟踪分支落后于远程分支，且在这段时间你还在本地分支进行开发并且做了提交，之后你使用git fetch 拉取远程最新的改动，这个时候你的远程跟踪分支与本地开发分支的提交历史就会产生分叉，执行 git pull 或 git merge origin/master的话就会产生合并记录（**–no-ff**）</li>
+<li>可以使用 git pull –rebase （git fetch + git rebase） 变基方式去除自动生成的 log 信息<ol>
+<li>从 remote 分支拉取更新到本地时，使用 rebase。</li>
+<li>当完成 bug 修复或新功能时，使用 merge 将子分支合并到主分支。</li>
+<li>没有人应该 rebase 一根共享的分支。</li>
+</ol>
+</li>
+</ol>
+</li>
+<li><p>HEAD：</p>
+<ol>
+<li>HEAD就是当前活跃分支的游标。</li>
+<li>HEAD并非只能指向分支的最顶端，实际上它可以指向任何一个提交节点，它就是 Git内部用来追踪当前位置的东东。</li>
+</ol>
+</li>
+<li><p><code>git checkout -b mybranch origin/mybranch</code> (可以指定本地分支名)</p>
+<p>= <code>git checkout --track origin/mybranch</code></p>
+<p>= <code>git checkout origin/mybranch</code> </p>
+</li>
+<li><p>查看某次提交的改动</p>
+<ol>
+<li><code>git show commitId</code></li>
+</ol>
+</li>
+<li><p>查看二进制对象文件：</p>
+<ol>
+<li>git的底层命令：git cat-file -p HEAD (-p： pretty-print object’s content)</li>
+</ol>
+</li>
+<li><p>通过具体指定一个提交来拉取该文件的对应版本：</p>
+<ol>
+<li><code>git reset eb43bf file.txt</code></li>
+</ol>
+</li>
+<li><p>查看某个文件中内容的更改记录：</p>
+<ol>
+<li>git blame -L 69,82 Makefile （每一行分别来自哪个提交和提交者，-L可以指定行数）</li>
+</ol>
+</li>
+<li><p>二分查找 git bisect</p>
+</li>
+<li><p> <code>--patch</code> 选项</p>
+</li>
+<li><p>打包本地仓库：git bundle create repo.bundle HEAD master</p>
+</li>
+<li><p>git 撤销commit中单个文件的修改：（未验证）</p>
+<ul>
+<li>git log <fileName>（首先查询这个文件的log）</li>
+<li>git reset <commit-id> <fileName> （其次查找到这个文件的上次commit id xxx，并对其进行reset操作）</li>
+<li> git checkout <fileName> 撤销对此文件的修改</li>
+<li>git commit –amend + git push origin <remoteBranch> （最后amend一下，再push上去）</li>
+</ul>
+</li>
+</ol>
+<hr>
+<h3 id="Git开发工作流"><a href="#Git开发工作流" class="headerlink" title="Git开发工作流"></a>Git开发工作流</h3><p><a target="_blank" rel="noopener" href="https://juejin.im/post/6844903635533594632#heading-0">https://juejin.im/post/6844903635533594632#heading-0</a></p>
+<ol>
+<li>可以 <strong>在本地</strong> 随便重写历史记录（推送到远程公共分支之前）。 但是在对提交内容感到满意并准备与他人分享之前，应当避免推送你的工作。</li>
+</ol>
+<h3 id="GIt工具"><a href="#GIt工具" class="headerlink" title="GIt工具"></a>GIt工具</h3><ol>
+<li><p>如何选择修订版本（即提交点）</p>
+<ol>
+<li><strong>简短的 SHA-1</strong>：可使用简短的 SHA-1来指定唯一的修订版本</li>
+<li><strong>祖先引用</strong>：使用 ~ 或者 ^ 指定上一个父提交，~n 或者 ^ n指向前N个父提交，用法如下<ol>
+<li>HEAD~3：当前HEAD指针指向的提交点的第三父提交</li>
+<li>commitId~~：该提交点的第二父提交点</li>
+</ol>
+</li>
+</ol>
+</li>
+<li><p>交互式暂存 <code>git add -i</code> 更友好的操作界面</p>
+</li>
+<li><p>贮藏与清理</p>
+<ol>
+<li>从贮藏创建一个分支：git stash branch testchanges</li>
+<li>清理工作目录：<ol>
+<li>git clean；默认情况下，git clean 命令只会移除没有忽略的未跟踪文件。 </li>
+<li>git clean -i：交互式清理</li>
+<li> git clean -f -d：移除工作目录中所有未追踪的文件以及空的子目录。</li>
+<li>git clean -n（或者–dry-run）：“做一次演习然后告诉你 将要 移除什么”；要查看空目录需加上-d选项</li>
+</ol>
+</li>
+</ol>
+</li>
+<li><p>重写历史：</p>
+<ol>
+<li>修改提交记录：git rebase -i （可以压缩提交或者拆分提交）<ol>
+<li>squash 压缩提交到前一次提交</li>
+<li>edit 进入对应提交点上，可以在做相应修改并提交到历史线上。</li>
+</ol>
+</li>
+<li>修改大批量的提交：(<strong>未测试通过</strong>)<ol>
+<li>删除某次提交中引入的某个文件（如密码文件），且在所有的提交点中都恢复不了该文件： <code>git filter-branch --tree-filter &#39;rm -f passwords.txt&#39; HEAD</code></li>
+</ol>
+</li>
+</ol>
+</li>
+<li><p>关于重置（ <code>reset</code> 和 <code>checkout</code>）</p>
+<ol>
+<li>首先要了解git中的三棵树：</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">HEAD</span><br><span class="line">上一次提交的快照，下一次提交的父结点</span><br><span class="line">Index</span><br><span class="line">预期的下一次提交的快照</span><br><span class="line">Working Directory</span><br><span class="line">沙盒</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li><strong>HEAD</strong> 是当前分支引用的指针，它总是指向该分支上的最后一次提交。这表示 HEAD 将是下一次提交的父结点。通常，理解 HEAD 的最简方式，就是将它看做 该分支上的最后一次提交 的快照。<ol>
+<li>递归查看树结构：git ls-tree -r HEAD</li>
+<li>查看二进制对象文件：git的底层命令：git cat-file -p HEAD (-p： pretty-print object’s content)</li>
+</ol>
+</li>
+<li><strong>索引</strong>是你的 预期的下一次提交。 <ol>
+<li>Git 将上一次检出到工作目录中的所有文件填充到索引区，它们看起来就像最初被检出时的样子。（<strong>git的每次提交都是全量文件的快照</strong>） 之后你会将其中一些文件替换为新版本，接着通过 git commit 将它们转换为树来用作新的提交。</li>
+<li>git ls-files -s</li>
+</ol>
+</li>
+<li>可以把<strong>工作目录</strong>当做 沙盒。<ol>
+<li>HEAD、索引树 将工作区的文件的内容存储在 .git 文件夹中。而工作目录会将它们解包为实际的文件以便编辑。</li>
+<li>在将修改提交到暂存区并记录到历史之前，可以随意更改工作目录的文件内容。</li>
+</ol>
+</li>
+<li><strong>切换分支或克隆的过程：</strong>当检出一个分支时，它会修改 <strong>HEAD</strong> 指向新的分支引用，将 <strong>索引</strong> 填充为该次提交的快照， 然后将 <strong>索引</strong> 的内容复制到 <strong>工作目录</strong> 中。</li>
+<li>git reset 到底做了什么？<ol>
+<li>先了解文件提交到版本库的链路：工作树 -&gt; 索引树 -&gt; 对象区(HEAD所指向)；回退的链路则反之</li>
+<li>移动 HEAD的指向：与改变 HEAD 自身不同（checkout 所做的）；reset 移动 HEAD 指向的分支所指向的提交点。（<strong>可以理解为，HEAD是一个引用/指针，指针指向分支对象，相当于HEAD的实际对象是分支对象，reset 是修改这个HEAD对象的commitId属性（调用分支对象的setter方法）；而checkout相当于修改HEAD的引用，引用另一个对象</strong>）</li>
+<li>git reset –soft：（移动 HEAD 分支的指向）撤销了上一次 git commit 命令，<strong>然后停止</strong>；HEAD树回退到上一次提交的版本，工作区、索引树不变。</li>
+<li>git reset –mixed：（使索引看起来像 HEAD）撤销 commit、取消暂存 add ，<strong>然后停止</strong></li>
+<li>git reset –hard：（使工作目录看起来像索引）撤销 commit、取消暂存 add ，还原工作区内容</li>
+</ol>
+</li>
+<li>通过具体指定一个提交来拉取该文件的对应版本：<ol>
+<li><code>git reset eb43bf file.txt</code> (更新索引)</li>
+<li><code>git checkout eb43bf file.txt</code>  (更新索引树和工作空间)</li>
+</ol>
+</li>
+</ol>
+</li>
+<li><p>git commit操作逻辑：</p>
+<ol>
+<li>取得索引中的内容并将它保存为一个永久的快照，然后创建一个指向该快照的提交对象</li>
+<li>最后更新 master 来指向本次提交 （HEAD会一直指向当前分支，而该分支会指向最后一次提交的快照（即对象区的内容））</li>
+</ol>
+</li>
+</ol>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://huangyuye.github.io/2021/05/09/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/20201027-%E5%AE%B9%E5%99%A8&%E5%90%8C%E6%AD%A5&%E5%B9%B6%E5%8F%91%E5%AE%B9%E5%99%A8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="yuye Huang">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="HYY">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/05/09/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/20201027-%E5%AE%B9%E5%99%A8&%E5%90%8C%E6%AD%A5&%E5%B9%B6%E5%8F%91%E5%AE%B9%E5%99%A8/" class="post-title-link" itemprop="url">未命名</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-05-09 15:52:56" itemprop="dateCreated datePublished" datetime="2021-05-09T15:52:56+00:00">2021-05-09</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/" itemprop="url" rel="index"><span itemprop="name">知识库</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="20201027-并发-amp-同步容器"><a href="#20201027-并发-amp-同步容器" class="headerlink" title="20201027-并发&amp;同步容器"></a>20201027-并发&amp;同步容器</h1><h2 id="名词"><a href="#名词" class="headerlink" title="名词"></a>名词</h2><p>nanos 毫微秒</p>
+<p>nil 零/无</p>
+<p>Deque  双端队列容器</p>
+<h2 id="常用容器相关超类"><a href="#常用容器相关超类" class="headerlink" title="常用容器相关超类"></a>常用容器相关超类</h2><ul>
+<li>Iterator(迭代器)<ul>
+<li>不同类型的集合的操作方法基本上都是使用抽象迭代器来遍历集合元素进行相关操作，需要具体的迭代器实现类来实现迭代细节。（Iterator中没有涉及具体的数据结构和算法）</li>
+</ul>
+</li>
+<li>Collection(单个元素对象的序列，下面三个子接口设计目的：最大程度抽象出元素的操作)<ul>
+<li>List：一个有序的Collection（或者叫做序列）</li>
+<li>Set</li>
+<li>Queue</li>
+</ul>
+</li>
+<li>Map(“键值对”映射表)</li>
+</ul>
+<h3 id="Map（散列表）"><a href="#Map（散列表）" class="headerlink" title="Map（散列表）"></a>Map（散列表）</h3><ul>
+<li>遍历函数<ul>
+<li><strong>keySet：Set<K></strong> （hashSet又由HashMap实现）</li>
+<li>values：Set<V></li>
+<li>entrySet：Set&lt;Map.Entry&lt;K, V&gt;&gt;</li>
+</ul>
+</li>
+<li>类型<ul>
+<li>HashMap<ul>
+<li>tab hash数组</li>
+<li>hash冲突链表保存元素</li>
+</ul>
+</li>
+<li>LinkedHashMap<ul>
+<li>继承HashMap</li>
+</ul>
+</li>
+<li>TreeMap</li>
+</ul>
+</li>
+</ul>
+<h3 id="List"><a href="#List" class="headerlink" title="List"></a>List</h3><p>函数</p>
+<ul>
+<li>add()：<ul>
+<li>modCount ++ </li>
+<li>扩容检查（涉及数组复制）</li>
+</ul>
+</li>
+<li>remove()：<ul>
+<li>modCount++;</li>
+<li>把需要删除index后面的都往前移一位然后再把最后一个去掉。<ul>
+<li>numMoved = size - index - 1</li>
+<li>System.arraycopy(elementData, index+1, elementData, index, numMoved)</li>
+<li>elementData[–size] = null; </li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>有序，可以重复</p>
+<p>List包含特殊的遍历器：ListIterator，支持双向访问、允许从一个指定位置开始遍历</p>
+<p><strong>ArrayList 继承了AbstractList且实现了List，但是AbstractList已经实现了List</strong></p>
+<p><strong>AbstractList 内部类：</strong>Itr implements ListIterator；ListItr extends  Itr</p>
+<p>equals 和 contains方法都使用了迭代器遍历来实现</p>
+<h2 id="Set"><a href="#Set" class="headerlink" title="Set"></a>Set</h2><ul>
+<li>HashSet<ul>
+<li><strong>使用HashMap实现</strong>，value是默认对象</li>
+</ul>
+</li>
+<li>LinkedHashSet<ul>
+<li>继承hashSet</li>
+<li>使用LinkedHashMap实现</li>
+<li>LinkedHashSet会根据add，remove这些操作的顺序在遍历时返回固定的集合顺序。这个顺序不是元素的大小顺序，而是可以保证2次遍历的顺序是一样的。</li>
+</ul>
+</li>
+<li>TreeSet<ul>
+<li>TreeSet内的元素必须实现Comparable接口</li>
+</ul>
+</li>
+</ul>
+<h2 id="抽象类"><a href="#抽象类" class="headerlink" title="抽象类"></a>抽象类</h2><p>AbstractCollection<E>;、AbstractMap&lt;K,V&gt;、AbstractList<E>和AbstractSet<E></p>
+<p>各个集合的关键区别就在每个集合所使用的数据结构和算法上，所以在<strong>抽象类</strong>层面都没有涉及具体的数据结构和算法，只对操作这些数据结构的方法做了基本实现。</p>
+<h2 id="AbstractList"><a href="#AbstractList" class="headerlink" title="AbstractList"></a>AbstractList<E></h2><p><strong>AbstractList 内部类：</strong>Itr implements ListIterator；ListItr extends  Itr</p>
+<h2 id="AbstractMap-lt-K-V-gt"><a href="#AbstractMap-lt-K-V-gt" class="headerlink" title="AbstractMap&lt;K,V&gt;"></a>AbstractMap&lt;K,V&gt;</h2><p>implements Map&lt;K,V&gt;，实现了除entrySet()方法外的基本所有方法；</p>
+<p>返回键集的Set<K> keySet()和返回值集的Collection<V> values()：返回来一个实现Set<K>或Collection<V>的类对象，类对象的所有操作都是在原映射表的基础上进行的，这种操作叫视图。（重写AbstractSet的一个匿名内部类返回）</p>
+<h2 id="ArrayList-amp-LinkList"><a href="#ArrayList-amp-LinkList" class="headerlink" title="ArrayList &amp; LinkList"></a>ArrayList &amp; LinkList</h2><p>ArrayList<E>通过数组实现：数组中元素间的内存地址是连续的、只能存储一种类数据类型的元素。数组长度固定</p>
+<p>LinkList<E>使用了双向链表；LinkList继承了Deque<E>接口，实现<strong>双端队列</strong>头尾进出的特点。</p>
+<p>链表的特点：长度不固定，可以随时增加和减少、链表中的元素在内存地址上可以是连续的，也可以是不连续的</p>
+<p>ArrayList 继承了AbstractList且实现了List</p>
+<p>ArrayList  在添加元素之前会进行容量检查；扩容目标容量大小为原容量的1.5倍；扩容涉及数组的复制</p>
+<p>在遍历元素上ArrayList<E>存在更有效的方式，他实现了RandomAccess接口，代表ArrayList<E>支持快速访问。 RandomAccess本身是一个空接口，这种接口一般用来代表一类特征，RandomAccess代表实现类具有快速访问的特征。</p>
+<p>LinkedList 添加对象时需要创建Node对象而开辟内存空间；</p>
+<p>LinkedList元素在将元素插入到链表中间位置的场景耗时很久；插入到头部最快。</p>
+<p>LinkedList添加第一个元素的时候，first=last=newNode;</p>
+<p>LinkedList add(i, ele)时，将下标为i的元素的prev元素节点（如果为null，则ele为first节点），作为ele的prev元素节点，当前元素ele的next节点指向下标为i的元素；再将下标为i的元素的节点的prev元素节点指向当前元素ele；（linkBefore）</p>
+<p>LinkedList根据下标i索引元素的方式：对比下标跟链表长度的一半，判断是在前半部分还是后半部分，若是前半部分，则从first节点向后遍历；否则从last节点前序遍历</p>
+<p><strong>问题：</strong></p>
+<p>1、为什么链表将元素插入到链表中间位置耗时最近？</p>
+<p>2、为很么链表将元素插入到链表头部的时间与插入到尾部的时间不一致？</p>
+<h2 id="红黑树、TreeMap与TreeSet"><a href="#红黑树、TreeMap与TreeSet" class="headerlink" title="红黑树、TreeMap与TreeSet"></a>红黑树、TreeMap与TreeSet</h2><p>Map&amp;Set: 不能添加重复元素的集，不能通过索引来访问的集; (由数组实现的散列表+链表/红黑树)</p>
+<p>Set由Map实现,但是Set继承自Collection集合,而map为键值映射</p>
+<p>TreeMap: 每次put元素时会遍历比较key值,优先使用比较器进行比较,后使用默认的compareTo方法比较;<strong>TreeMap.Entry</strong> implements Map.Entry, 即红黑树</p>
+<h2 id="CopyOnWriteList"><a href="#CopyOnWriteList" class="headerlink" title="CopyOnWriteList"></a>CopyOnWriteList</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">List&lt;Integer&gt; list = <span class="keyword">new</span> CopyOnWriteList&lt;&gt;(); <span class="comment">// list引用地址 #list001, list.array引用地址 # array001</span></span><br><span class="line">list.add(<span class="number">1</span>);</span><br><span class="line">list.sort(Integer.compareTo()); <span class="comment">// list引用地址不变，list.array引用地址 #array002</span></span><br><span class="line">list.add(<span class="number">2</span>); <span class="comment">// list引用地址不变，list.array引用地址 #array003</span></span><br></pre></td></tr></table></figure>
+
+<ol>
+<li>ArrayList 在add元素时不会修改数组的指向</li>
+<li>ArrayList 和 CopyOnWriteList 在sort时都会修改数组的指向</li>
+<li>ArrayList 在使用iterator遍历时，首先会记录当前list修改操作的次数n，后续遍历执行next()时会检查n是否修改，如果修改，则抛出ConcurrentModificationException（遍历外部类的最新数组）；CopyOnWriteList 则能正常遍历，因为遍历的是旧的引用数组。</li>
+</ol>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://huangyuye.github.io/2021/05/09/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/20201031-springCloud%E5%BE%AE%E6%9C%8D%E5%8A%A1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="yuye Huang">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="HYY">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/05/09/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/20201031-springCloud%E5%BE%AE%E6%9C%8D%E5%8A%A1/" class="post-title-link" itemprop="url">未命名</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-05-09 15:52:56" itemprop="dateCreated datePublished" datetime="2021-05-09T15:52:56+00:00">2021-05-09</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/" itemprop="url" rel="index"><span itemprop="name">知识库</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="spring-技术体系演变"><a href="#spring-技术体系演变" class="headerlink" title="spring 技术体系演变"></a>spring 技术体系演变</h2><ol>
+<li>spring</li>
+<li>springboot</li>
+<li>spring cloud netflix</li>
+<li>spring cloud alibaba （微服务开发的一站式解决方案）</li>
+</ol>
+<h2 id="nacos"><a href="#nacos" class="headerlink" title="nacos"></a>nacos</h2><ul>
+<li><p>配置管理</p>
+</li>
+<li><p>服务管理</p>
+</li>
+</ul>
+<p>服务注册中心 + 配置中心（涉及CAP理论）</p>
+<h2 id="feign"><a href="#feign" class="headerlink" title="feign"></a>feign</h2><p>feign = ribbon + hystricx</p>
+<p>feign 对微服务的调用实际上也是类似使用 restTemplate 进行http 调用，只是进行了封装。</p>
+<h2 id="gateway-amp-feign"><a href="#gateway-amp-feign" class="headerlink" title="gateway &amp; feign"></a>gateway &amp; feign</h2><p>gateway(API路由管理方式)： 提供统一的路由方式，基于filter链的方式提供网关基本功能（如安全、监控/指标，和限流）</p>
+<h2 id="sentinal"><a href="#sentinal" class="headerlink" title="sentinal"></a>sentinal</h2><p>以流量为切入点，从流量控制、熔断降级、系统负载保护等多维度保护服务的稳定性</p>
+<p>sentinal的限流配置可以与nacos配合使用（除此之外，sentinal还有很多配置的持久化方式）</p>
+<h2 id="fescar"><a href="#fescar" class="headerlink" title="fescar"></a>fescar</h2><p>即seata，分布式事务解决方案</p>
+<h2 id="skywalking"><a href="#skywalking" class="headerlink" title="skywalking"></a>skywalking</h2><p>服务链路追踪</p>
+<p>常见的<strong>APM</strong>系统对比：zipkin vs pinpoint vs skywalking （Application Performance Management应用性能管理）</p>
+<h2 id="gateway、sentinal、feign的关系和配合？？"><a href="#gateway、sentinal、feign的关系和配合？？" class="headerlink" title="gateway、sentinal、feign的关系和配合？？"></a>gateway、sentinal、feign的关系和配合？？</h2>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://huangyuye.github.io/2021/05/09/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/20201110-smartDoc/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="yuye Huang">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="HYY">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/05/09/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/20201110-smartDoc/" class="post-title-link" itemprop="url">未命名</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-05-09 15:52:56" itemprop="dateCreated datePublished" datetime="2021-05-09T15:52:56+00:00">2021-05-09</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/" itemprop="url" rel="index"><span itemprop="name">知识库</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="smart-doc-实践"><a href="#smart-doc-实践" class="headerlink" title="smart-doc 实践"></a>smart-doc 实践</h2><h3 id="maven-插件原理"><a href="#maven-插件原理" class="headerlink" title="maven 插件原理"></a>maven 插件原理</h3><p><strong>场景1：</strong></p>
+<ul>
+<li>pom文件未指定包含插件 xxxPlugin </li>
+<li>执行maven命令的时候时候会提示 xxxPlugin.jar 不存在</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://huangyuye.github.io/2021/05/09/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/20201124-%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="yuye Huang">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="HYY">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/05/09/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/20201124-%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/" class="post-title-link" itemprop="url">未命名</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-05-09 15:52:56" itemprop="dateCreated datePublished" datetime="2021-05-09T15:52:56+00:00">2021-05-09</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/" itemprop="url" rel="index"><span itemprop="name">知识库</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p><strong>单元测试</strong></p>
+<p>单元测试是指对软件中的<strong>最小可测单元</strong>进行检查和验证；</p>
+<p>根据测试金字塔原理，越往上层的测试，所需测试投入比例越大，效果也越差。单测成本小，且更容易发现问题。（效果：单元测试 &gt; 集成测试 &gt; UI测试）</p>
+<p><strong>分层测试</strong></p>
+<p>Service =&gt; Biz层 =&gt; （外部服务访问层、DAO层、Redis访问层）</p>
+<p>每一层均使用mock 框架屏蔽下层的具体实现。</p>
+<p><strong>单元测试过程</strong></p>
+<p>数据准备 =&gt; 构造参数（+打桩）=&gt; 执行测试 =&gt; 结果验证 =&gt; 清理（必要）</p>
+<ol>
+<li>数据准备：测试用例需要依赖一些数据，数据来源一般是数据库，而又不能依赖DAO层的代码，需要使用原生jdbc去插入数据，<strong>测试代码编写效率低</strong></li>
+<li>构造参数：入参赋值（<strong>代码行数多</strong>）</li>
+<li>执行测试：直接调用被测方法</li>
+<li>结果验证：验证方法的返回值、数据库数据是否正确、某外部方法是否被调用过n次等</li>
+<li>必要的清理：对打桩进行清理、对数据库脏数据进行清理</li>
+</ol>
+<p><strong>痛点</strong></p>
+<ol>
+<li>重构代码需要改写大量单元测试用例<ol>
+<li>大量的Service 层单元测试,biz层单元测试都要重写；有时候Service调用biz层接口时，参数传错了，而由于开发人员编写单元测试时不规范，参数匹配使用了 anyxxx()，导致参数传错的bug未被发现。</li>
+</ol>
+</li>
+<li>测试库数据随意修改导致的单元测试不稳定<ol>
+<li>DAO层单元测试直连测试库，由于测试库的数据可以被任意修改，从而导致测试依赖的数据被更改，单元测试不通过，另外开发在编写单元测试时，没有清理意识，导致测试库大量垃圾数据。</li>
+</ol>
+</li>
+<li>单元测试结果校验缺失<ol>
+<li>例如一个SaveItem()接口，执行完成后除了要验证执行成功以外，还应该验证落库数据的正确性，而编写这部分测试代码需要大量的使用原生jdbc 接口查询sql，并逐字段验证正确性，代码编写效率低下。</li>
+</ol>
+</li>
+</ol>
+<p><strong>参考文章</strong>-《有赞单元测试实践》</p>
+<p><a target="_blank" rel="noopener" href="https://tech.youzan.com/youzan-test-practice/">https://tech.youzan.com/youzan-test-practice/</a></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://huangyuye.github.io/2021/05/09/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/20201209-jenkins%20vs%20teamCity/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="yuye Huang">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="HYY">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/05/09/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/20201209-jenkins%20vs%20teamCity/" class="post-title-link" itemprop="url">未命名</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-05-09 15:52:56" itemprop="dateCreated datePublished" datetime="2021-05-09T15:52:56+00:00">2021-05-09</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -230,7 +1134,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://huangyuye.github.io/2021/04/26/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/20201210-JSR/">
+    <link itemprop="mainEntityOfPage" href="https://huangyuye.github.io/2021/05/09/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/20201210-JSR/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -244,7 +1148,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2021/04/26/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/20201210-JSR/" class="post-title-link" itemprop="url">未命名</a>
+            <a href="/2021/05/09/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/20201210-JSR/" class="post-title-link" itemprop="url">未命名</a>
         </h2>
 
         <div class="post-meta">
@@ -254,7 +1158,7 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2021-04-26 14:59:29" itemprop="dateCreated datePublished" datetime="2021-04-26T14:59:29+00:00">2021-04-26</time>
+              <time title="创建时间：2021-05-09 15:52:56" itemprop="dateCreated datePublished" datetime="2021-05-09T15:52:56+00:00">2021-05-09</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -304,7 +1208,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://huangyuye.github.io/2021/04/26/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/20210309-cas%E5%8D%95%E7%82%B9%E7%99%BB%E5%BD%95/">
+    <link itemprop="mainEntityOfPage" href="https://huangyuye.github.io/2021/05/09/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/20210309-cas%E5%8D%95%E7%82%B9%E7%99%BB%E5%BD%95/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -318,7 +1222,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2021/04/26/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/20210309-cas%E5%8D%95%E7%82%B9%E7%99%BB%E5%BD%95/" class="post-title-link" itemprop="url">未命名</a>
+            <a href="/2021/05/09/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/20210309-cas%E5%8D%95%E7%82%B9%E7%99%BB%E5%BD%95/" class="post-title-link" itemprop="url">未命名</a>
         </h2>
 
         <div class="post-meta">
@@ -328,7 +1232,7 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2021-04-26 14:59:29" itemprop="dateCreated datePublished" datetime="2021-04-26T14:59:29+00:00">2021-04-26</time>
+              <time title="创建时间：2021-05-09 15:52:56" itemprop="dateCreated datePublished" datetime="2021-05-09T15:52:56+00:00">2021-05-09</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -381,7 +1285,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://huangyuye.github.io/2021/04/26/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/%E7%90%86%E8%A7%A3%E8%AE%A1%E7%AE%97%E6%9C%BA/dos%E5%91%BD%E4%BB%A4/">
+    <link itemprop="mainEntityOfPage" href="https://huangyuye.github.io/2021/05/09/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/%E7%90%86%E8%A7%A3%E8%AE%A1%E7%AE%97%E6%9C%BA/dos%E5%91%BD%E4%BB%A4/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -395,7 +1299,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2021/04/26/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/%E7%90%86%E8%A7%A3%E8%AE%A1%E7%AE%97%E6%9C%BA/dos%E5%91%BD%E4%BB%A4/" class="post-title-link" itemprop="url">未命名</a>
+            <a href="/2021/05/09/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/%E7%90%86%E8%A7%A3%E8%AE%A1%E7%AE%97%E6%9C%BA/dos%E5%91%BD%E4%BB%A4/" class="post-title-link" itemprop="url">未命名</a>
         </h2>
 
         <div class="post-meta">
@@ -405,7 +1309,7 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2021-04-26 14:59:29" itemprop="dateCreated datePublished" datetime="2021-04-26T14:59:29+00:00">2021-04-26</time>
+              <time title="创建时间：2021-05-09 15:52:56" itemprop="dateCreated datePublished" datetime="2021-05-09T15:52:56+00:00">2021-05-09</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -437,818 +1341,6 @@
 
       
           
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://huangyuye.github.io/2021/04/26/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/%E7%90%86%E8%A7%A3%E8%AE%A1%E7%AE%97%E6%9C%BA/dos%E5%91%BD%E5%90%8D/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="yuye Huang">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="HYY">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/04/26/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/%E7%90%86%E8%A7%A3%E8%AE%A1%E7%AE%97%E6%9C%BA/dos%E5%91%BD%E5%90%8D/" class="post-title-link" itemprop="url">未命名</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-04-26 14:59:29" itemprop="dateCreated datePublished" datetime="2021-04-26T14:59:29+00:00">2021-04-26</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/" itemprop="url" rel="index"><span itemprop="name">知识库</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/%E7%90%86%E8%A7%A3%E8%AE%A1%E7%AE%97%E6%9C%BA/" itemprop="url" rel="index"><span itemprop="name">理解计算机</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="dos命令"><a href="#dos命令" class="headerlink" title="dos命令"></a>dos命令</h1>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://huangyuye.github.io/2021/04/26/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/%E7%90%86%E8%A7%A3%E8%AE%A1%E7%AE%97%E6%9C%BA/%E4%BA%92%E8%81%94%E7%BD%91%E5%8D%8F%E8%AE%AE/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="yuye Huang">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="HYY">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/04/26/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/%E7%90%86%E8%A7%A3%E8%AE%A1%E7%AE%97%E6%9C%BA/%E4%BA%92%E8%81%94%E7%BD%91%E5%8D%8F%E8%AE%AE/" class="post-title-link" itemprop="url">未命名</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-04-26 14:59:29" itemprop="dateCreated datePublished" datetime="2021-04-26T14:59:29+00:00">2021-04-26</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/" itemprop="url" rel="index"><span itemprop="name">知识库</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/%E7%90%86%E8%A7%A3%E8%AE%A1%E7%AE%97%E6%9C%BA/" itemprop="url" rel="index"><span itemprop="name">理解计算机</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="互联网背景"><a href="#互联网背景" class="headerlink" title="互联网背景"></a>互联网背景</h2><p>我们每天都在使用互联网上网冲浪，而网站的资源是部署在另台机器上的，那么处于两地的主机是如何通信的呢？</p>
-<p>互联网的核心是一系列协议，总称为“互联网协议”。他们对电脑如何连接和组网，做出了详尽的规定。主机之间通信的时候，正是因为都遵从了这一系列协议，消息才正常从一方送达至另一方，且正确的理解对方发送消息的含义。</p>
-<h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><h2 id="互联网分层模型"><a href="#互联网分层模型" class="headerlink" title="互联网分层模型"></a>互联网分层模型</h2><p>互联网的实现分为很多层级，用户接触到的，只是最上面一层，如在主机上使用的桌面应用，浏览器网站，每次简单的界面操作，实际涉及到消息从最上一层一直逐层传递到最底层。</p>
-<p>分层模型有多种，较容易理解的是五层模型，由上至下分为以下层级：</p>
-<ol>
-<li>应用层（用户接触的）</li>
-<li>传输层</li>
-<li>网络层</li>
-<li>链接层</li>
-<li>实体层</li>
-</ol>
-<p>每一层都是为完成某种功能，而为实现这些功能，就需要共同遵从各层的规则，大家都遵从的规则，就叫做协议。</p>
-<h2 id="实体层"><a href="#实体层" class="headerlink" title="实体层"></a>实体层</h2><p>电脑要组网，首先要将电脑连接起来（光缆、电缆、无线电波等方式）。这个层级的内容称为“实体层“，它是把电脑连接起来的物理手段。这一层级主要规定了网络的一些电气特征（描述电流、电压等），作用是负责传送0/1的电信号。</p>
-<h2 id="链接层"><a href="#链接层" class="headerlink" title="链接层"></a>链接层</h2><h3 id="链接层的定义"><a href="#链接层的定义" class="headerlink" title="链接层的定义"></a>链接层的定义</h3><p>单纯的0/1电信号没有任何意义，必须规定解读方式：多少个电信号算一组？每个信号位有何意义？</p>
-<p>链接层的功能就是为了确定电信号0和1的分组方式。</p>
-<h3 id="链接层之以太网协议"><a href="#链接层之以太网协议" class="headerlink" title="链接层之以太网协议"></a>链接层之以太网协议</h3><p>以太网协议是其中一种，也是最主流的电信号分组方式。</p>
-<p>以太网规定，一组电信号构成一个数据包，叫做”帧”（Frame）。每一帧分成两个部分：标头（Head）和数据（Data）。</p>
-<p>“标头”的长度，固定为18字节。”数据”的长度，最短为46字节，最长为1500字节。因此，整个”帧”最短为64字节，最长为1518字节。如果数据很长，就必须分割成多个帧进行发送。</p>
-<h3 id="链接层之MAC地址"><a href="#链接层之MAC地址" class="headerlink" title="链接层之MAC地址"></a>链接层之MAC地址</h3><p>发送者、接收者的标识：<strong>MAC地址</strong></p>
-<p>以太网规定，连入网络的所有设备，都必须具有”网卡”接口。数据包必须是从一块网卡，传送到另一块网卡。网卡的地址，就是数据包的发送地址和接收地址，这叫做MAC地址。</p>
-<p>MAC地址：machine access control </p>
-<p>长度是12个十六进制数，即48个二进制位(2^4)</p>
-<h3 id="链接层之广播"><a href="#链接层之广播" class="headerlink" title="链接层之广播"></a>链接层之广播</h3><p>假设以太网数据包已经知道了接收方的mac地址。获取方式见详见ARP协议</p>
-<p>以太网使用一种广播的方式，向本网络内所有 计算机发送数据包，让每台计算机判断是否为接收方，若为接收方则处理数据包，否则丢弃。</p>
-<p>判断是否为接收方的方式是对比数据包的标头中包含的目标mac地址是否与自身的mac地址相同</p>
-<h3 id="链接层之ARP协议"><a href="#链接层之ARP协议" class="headerlink" title="链接层之ARP协议"></a>链接层之ARP协议</h3><p>（<code>Address Resolution Protocol</code>）ARP寻址是用在数据链路层上的。我们上网的电脑都有网卡。那么在数据链路层的进行传递的时候，是没有IP的概念，都是通过找到对端设备的硬件地址，也就是网卡地址来做传输。这个硬件地址标准称为MAC地址。寻找对方MAC地址的过程就是ARP寻址。</p>
-<p>示例：局域网内，从192.168.0.5来ping下192.168.0.8。得到交互流程如下。</p>
-<p>1 首先是一个ARP广播报文，由192.168.0.5发出，可以看到带的广播报文是who has 192.168.0.8 tell 192.168.0.5 （目标<code>MAC地址</code>是<code>FF-FF-FF-FF-FF-FF</code>）</p>
-<p>2 随后192.168.0.8回复 192.168.0.8 is at 00:0C:29:DE:DF:87</p>
-<p>3 找到MAC地址后，随后就是ping报文</p>
-<p>计算机中会维护一个ARP缓存表（包含一个<code>寿命值</code>TTL，也称作生存时间），这个表记录着IP地址与MAC地址的映射关系，我们可以通过在电脑的控制台通过arp -a指令查看一下我们自己计算机的ARP缓存表。他们是主机<code>最近</code>运行时获得关于其他主机的<code>IP地址</code>到<code>MAC地址</code>的映射，当需要发送数据的时候，主机就会根据数据报中的<code>目标IP地址</code>信息，然后在ARP缓存表中进行查找对应的<code>MAC地址</code>，最后通过<strong>网卡</strong>将数据发送出去。</p>
-<p>如果两台主机不在同一个子网络，那么事实上没有办法得到对方的MAC地址，只能把数据包传送到两个子网络连接处的”网关”（gateway），让网关去处理。</p>
-<p><strong>ARP协议的主要工作就是建立、查询、更新、删除ARP表项。</strong></p>
-<h2 id="网络层"><a href="#网络层" class="headerlink" title="网络层"></a>网络层</h2><h3 id="网络层之由来"><a href="#网络层之由来" class="headerlink" title="网络层之由来"></a>网络层之由来</h3><p>以太网采用广播方式发送数据包，所有成员人手一”包”，不仅效率低，而且局限在发送者所在的子网络。也就是说，如果两台计算机不在同一个子网络，广播是传不过去的。</p>
-<p>如果是同一个子网络，就采用广播方式发送，否则就采用”路由”方式发送。MAC地址本身无法做到这一点。它只与厂商有关，与所处网络无关。所以就引出了“网络层”之“网络地址”的出现。</p>
-<p>网络地址是管理员分配的，mac地址是绑定在网卡上的。</p>
-<p>网络地址帮助我们确定计算机所在的子网络，MAC地址则将数据包送到该子网络中的目标网卡。即需先处理网络地址，然后再处理MAC地址。</p>
-<h3 id="网络层之IP地址"><a href="#网络层之IP地址" class="headerlink" title="网络层之IP地址"></a>网络层之IP地址</h3><p>规定网络地址的协议，叫做IP协议。它所定义的地址，就被称为IP地址。</p>
-<p>网络地址/IP地址：IP协议第四版IPv4规定地址由32个二进制位组成，习惯上分为四段十进制数。</p>
-<p>IP地址包含网络部分和主机部分。处于同一个自网络的主机，IP地址的网络部分必定相同。那如何判断网络部分呢？使用子网掩码，网络部分为1，主机部分为0。</p>
-<p>判断任意两个IP地址是否处在同一个子网络。方法是将两个IP地址与子网掩码分别进行AND运算（两个数位都为1，运算结果为1，否则为0），然后比较结果是否相同，如果是的话，就表明它们在同一个子网络中，否则就不是。</p>
-<h2 id="传输层"><a href="#传输层" class="headerlink" title="传输层"></a>传输层</h2><h3 id="传输层之由来"><a href="#传输层之由来" class="headerlink" title="传输层之由来"></a>传输层之由来</h3><p>有了MAC地址和IP地址，我们已经可以在互联网上任意两台主机上建立通信。但是每台主机上又运行着多个应用程序，那如何知道数据包是发送到哪个应用程序上的呢？也就是说，我们还需要一个参数，表示这个数据包到底供哪个程序（进程）使用。这个参数就叫做”端口”（port），它其实是每一个使用网卡的程序的编号。</p>
-<p><strong>“传输层”的功能，就是建立”端口到端口”的通信。相比之下，”网络层”的功能是建立”主机到主机”的通信。只要确定主机和端口，我们就能实现程序之间的交流。</strong></p>
-<p>“端口”是0到65535之间的一个整数，正好16个二进制位。0到1023的端口被系统占用，用户只能选用大于1023的端口。</p>
-<h3 id="传输层之TCP-amp-UDP协议"><a href="#传输层之TCP-amp-UDP协议" class="headerlink" title="传输层之TCP&amp;UDP协议"></a>传输层之TCP&amp;UDP协议</h3><p>UDP协议的优点是比较简单，容易实现，但是缺点是可靠性较差，一旦数据包发出，无法知道对方是否收到。</p>
-<p>TCP协议能够确保数据不会遗失。它的缺点是过程复杂、实现困难、消耗较多的资源。</p>
-<h2 id="应用层"><a href="#应用层" class="headerlink" title="应用层"></a>应用层</h2><p>应用程序收到”传输层”的数据，接下来就要进行解读。由于互联网是开放架构，数据来源五花八门，必须事先规定好格式，否则根本无法解读。</p>
-<p><strong>“应用层”的作用，就是规定应用程序的数据格式。</strong></p>
-<h2 id="数据包最终组成"><a href="#数据包最终组成" class="headerlink" title="数据包最终组成"></a>数据包最终组成</h2><p><img src="%5Bhttps://gitee.com/huangyuye/Self-DocBlog/blob/master/%E7%90%86%E8%A7%A3%E8%AE%A1%E7%AE%97%E6%9C%BA/%E6%95%B0%E6%8D%AE%E5%8C%85.png%5D(https://gitee.com/huangyuye/Self-DocBlog/blob/master/%E7%90%86%E8%A7%A3%E8%AE%A1%E7%AE%97%E6%9C%BA/%E6%95%B0%E6%8D%AE%E5%8C%85.png" alt="avatar"></p>
-<h2 id="新计算机上网设置"><a href="#新计算机上网设置" class="headerlink" title="新计算机上网设置"></a>新计算机上网设置</h2><ul>
-<li><p>本机的IP地址</p>
-</li>
-<li><p>子网掩码</p>
-</li>
-<li><p>网关的IP地址</p>
-</li>
-<li><p>DNS的IP地址</p>
-</li>
-</ul>
-<h3 id="动态IP地址"><a href="#动态IP地址" class="headerlink" title="动态IP地址"></a>动态IP地址</h3><p>“动态IP地址”，指计算机开机后，会自动分配到一个IP地址，不用人为设定。它使用的协议叫做<a target="_blank" rel="noopener" href="http://zh.wikipedia.org/zh/DHCP">DHCP协议</a>。</p>
-<p>这个协议规定，每一个子网络中，有一台计算机负责管理本网络的所有IP地址，它叫做”DHCP服务器”。新的计算机加入网络，必须向”DHCP服务器”发送一个”DHCP请求”数据包，申请IP地址和相关的网络参数。</p>
-<p>但是局域网内的计算机发送数据包，必须知道目标主机的MAC地址和IP地址，新加入的计算机不知道DHCP服务器的这两个地址，怎么发送数据包呢？</p>
-<p>DHCP协议做了一些巧妙的规定，规定如下：</p>
-<p>首先，DHCP协议是一种<strong>应用层</strong>协议，建议在UDP之上。DHCP‘应用数据包组成为</p>
-<p>（1）最前面的”以太网标头”，设置发出方（本机）的MAC地址和接收方（DHCP服务器）的MAC地址。前者就是本机网卡的MAC地址，后者这时不知道，就填入一个广播MAC地址：FF-FF-FF-FF-FF-FF。</p>
-<p>（2）后面的”IP标头”，设置发出方的IP地址和接收方的IP地址。这时，对于这两者，本机都不知道。于是，发出方的IP地址就设为0.0.0.0，接收方的IP地址设为255.255.255.255。</p>
-<p>（3）最后的”UDP标头”，设置发出方的端口和接收方的端口。这一部分是DHCP协议规定好的，发出方是68端口，接收方是67端口。</p>
-<p>数据包构造完成发出，流程如下：</p>
-<p>因为接收方的MAC地址是FF-FF-FF-FF-FF-FF，看不出是发给谁的，所以每台收到这个包的计算机，还必须分析这个包的IP地址，才能确定是不是发给自己的。当看到发出方IP地址是0.0.0.0，接收方是255.255.255.255，于是DHCP服务器知道”这个包是发给我的”，而其他计算机就可以丢弃这个包。</p>
-<p>接下来，DHCP服务器读出这个包的数据内容，分配好IP地址，发送回去一个”DHCP响应”数据包。这个响应包的结构也是类似的，以太网标头的<strong>MAC地址</strong>是双方的网卡地址，IP标头的IP地址是DHCP服务器的IP地址（发出方）和255.255.255.255（接收方），UDP标头的端口是67（发出方）和68（接收方），分配给请求端的IP地址和本网络的具体参数则包含在Data部分。</p>
-<p>新加入的计算机收到这个响应包，于是就知道了自己的IP地址、子网掩码、网关地址、DNS服务器等等参数。</p>
-<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><p>阮一峰—互联网协议入门：</p>
-<p><a target="_blank" rel="noopener" href="http://www.ruanyifeng.com/blog/2012/05/internet_protocol_suite_part_i.html">http://www.ruanyifeng.com/blog/2012/05/internet_protocol_suite_part_i.html</a></p>
-<p><a target="_blank" rel="noopener" href="http://www.ruanyifeng.com/blog/2012/06/internet_protocol_suite_part_ii.html">http://www.ruanyifeng.com/blog/2012/06/internet_protocol_suite_part_ii.html</a></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://huangyuye.github.io/2021/04/26/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91%E6%B5%81%E7%A8%8B/idea%20+%20http/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="yuye Huang">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="HYY">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/04/26/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91%E6%B5%81%E7%A8%8B/idea%20+%20http/" class="post-title-link" itemprop="url">未命名</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-04-26 14:59:29" itemprop="dateCreated datePublished" datetime="2021-04-26T14:59:29+00:00">2021-04-26</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/" itemprop="url" rel="index"><span itemprop="name">知识库</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91%E6%B5%81%E7%A8%8B/" itemprop="url" rel="index"><span itemprop="name">软件开发流程</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="IDEA接口调试工具"><a href="#IDEA接口调试工具" class="headerlink" title="IDEA接口调试工具"></a>IDEA接口调试工具</h2><h3 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h3><p><a target="_blank" rel="noopener" href="https://segmentfault.com/a/1190000021714448">https://segmentfault.com/a/1190000021714448</a></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://huangyuye.github.io/2021/04/26/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91%E6%B5%81%E7%A8%8B/%E5%BC%80%E5%8F%91%E6%B5%81%E7%A8%8B%E5%AE%9E%E8%B7%B5/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="yuye Huang">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="HYY">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/04/26/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91%E6%B5%81%E7%A8%8B/%E5%BC%80%E5%8F%91%E6%B5%81%E7%A8%8B%E5%AE%9E%E8%B7%B5/" class="post-title-link" itemprop="url">未命名</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-04-26 14:59:29" itemprop="dateCreated datePublished" datetime="2021-04-26T14:59:29+00:00">2021-04-26</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/" itemprop="url" rel="index"><span itemprop="name">知识库</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91%E6%B5%81%E7%A8%8B/" itemprop="url" rel="index"><span itemprop="name">软件开发流程</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <ol>
-<li>使用xmind编写简略的需求分析方案<ol>
-<li>前后端交互设计&amp;流程说明</li>
-<li>领域模型拆解</li>
-<li>接口设计：新增/修改接口</li>
-<li>数据结构设计（数据格式预定义及输出）</li>
-</ol>
-</li>
-<li>使用processon绘制流程图</li>
-<li>接口定义&amp;开发&amp;单测<ol>
-<li>编写 Json 数据<ol>
-<li>notepad++</li>
-<li>在线：<a target="_blank" rel="noopener" href="https://jsoneditoronline.org/">https://jsoneditoronline.org/</a></li>
-<li><strong>数据库存储需求</strong>：在线将json数据压缩成一行</li>
-</ol>
-</li>
-<li>GsonFormat根据json数据生成实体对象（新建类 -&gt; Alt + Insert）</li>
-</ol>
-</li>
-<li>接口文档输出（或数据格式预定义及输出）</li>
-<li>接口前后端联调</li>
-</ol>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://huangyuye.github.io/2021/04/26/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/%E9%9D%A2%E8%AF%95%E5%87%86%E5%A4%87/20201108-%E7%AE%80%E5%8E%86/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="yuye Huang">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="HYY">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/04/26/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/%E9%9D%A2%E8%AF%95%E5%87%86%E5%A4%87/20201108-%E7%AE%80%E5%8E%86/" class="post-title-link" itemprop="url">未命名</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-04-26 14:59:29" itemprop="dateCreated datePublished" datetime="2021-04-26T14:59:29+00:00">2021-04-26</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/" itemprop="url" rel="index"><span itemprop="name">知识库</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/%E9%9D%A2%E8%AF%95/" itemprop="url" rel="index"><span itemprop="name">面试</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="简历工具"><a href="#简历工具" class="headerlink" title="简历工具"></a>简历工具</h2><ul>
-<li>超级简历</li>
-<li>五百丁</li>
-</ul>
-<h3 id="简历内容"><a href="#简历内容" class="headerlink" title="简历内容"></a>简历内容</h3><h4 id="基本信息"><a href="#基本信息" class="headerlink" title="基本信息"></a>基本信息</h4><p>姓名、性别、联系方式、1寸照</p>
-<p>居住地、期望地</p>
-<h4 id="项目经验"><a href="#项目经验" class="headerlink" title="项目经验"></a>项目经验</h4><h5 id="怎么写？"><a href="#怎么写？" class="headerlink" title="怎么写？"></a>怎么写？</h5><p>参照STAR法则来写项目经验；STAR法则,即为Situation Task Action Result的缩写，具体含义是</p>
-<ul>
-<li>Situation: 事情是在什么情况下发生</li>
-<li>Task: 你是如何明确你的任务的</li>
-<li>Action: 针对这样的情况分析，你采用了什么行动方式</li>
-<li>Result: 结果怎样，在这样的情况下你学习到了什么</li>
-</ul>
-<p>简而言之，STAR法则，就是一种讲述自己故事的方式，或者说，是一个清晰、条理的作文模板。不管是什么，合理熟练运用此法则，可以轻松的对面试官描述事物的逻辑方式，表现出自己分析阐述问题的清晰性、条理性和逻辑性。</p>
-<p><strong>关注点</strong></p>
-<ul>
-<li><p>效力公司</p>
-</li>
-<li><p>行业领域</p>
-</li>
-<li><p>擅长的技术语言</p>
-</li>
-<li><p>项目复杂度，承担角色与角色变化(人的变化/技术的变化/环境的变化/不同工作经历相同角色的不同点)</p>
-</li>
-<li><p>时间节点</p>
-</li>
-</ul>
-<p><strong>示例</strong></p>
-<p>[公司名] [岗位] [时间]</p>
-<p>[项目名称]</p>
-<p>[项目介绍]</p>
-<p>[负责内容]</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">厦门南讯软件科技有限公司 Java研发工程师 2016.11月-至今</span><br><span class="line">1、ECRP项目组基础框架</span><br><span class="line">- 项目说明：Springboot项目开发的脚手架，提供一套完整的工具，快速处理问题与项目构建</span><br><span class="line">- 项目背景——项目组实施过程存在以下问题：</span><br><span class="line">	a.个人实施项目多，项目交付时间紧张，新员工入门较慢</span><br><span class="line">	b.多个项目中使用的技术框架不一致，需要集成组件功能时需重新开发，且集成方式多种多样。需要重新了解并调配组件参数</span><br><span class="line">	c.规范、工具多项目组未统一，资源不共享</span><br><span class="line">以上问题，往往又会导致项目实施周期延长，项目交接困难，项目模块集成困难等问题；因此，搭建了一个个开项目基础框架，集成了常用的组件、功能，用于后期项目实施快速开发使用。</span><br><span class="line">- 工作内容：负责基础框架底层搭建，组件开发，开发规范定义。输出框架&amp;规范文档，进行团队分享，推进实行</span><br><span class="line">- 技术栈：springboot，redis、mq、es、swagger、springboot-admin应用监控、jasypt配置文件加解密工具</span><br><span class="line">- 项目现状：目前基础框架分为两个工程，基础依赖模块与项目实施模块；项目实施模块包括web模块、任务调度模块以及应用监控模块。项目组使用项目实施模块开发过程中可按需引用基础依赖模块中的组件依赖。</span><br><span class="line">- 项目效果：ECRP项目组基础框架在公司项目团队中被广泛使用，且已作为杭州项目研发团队的入职必备文档。通过使用基础框架开发，提升了项目实施效率，缩短项目实施开发周期，大大的降低项目开发成本。</span><br><span class="line"></span><br><span class="line">2、ECRP储值系统</span><br><span class="line">- 工作内容：</span><br><span class="line">	- 负责储值系统开放平台开发，独自搭建底层框架，通过引入用户验证与鉴权、服务报文加解密处理，API请求限流等各种服务的访问安全控制，分布式锁，提高交易的安全性与正确性；引入自动化生成sdk模板代码的工具，提升开发效率。</span><br><span class="line">	- 使用redis自建延时异步通知系统，储值交易后分时段异步回调，避免网络丢包造成用户损失。</span><br><span class="line">- 技术栈：vue、springboot、redis、es</span><br><span class="line">- powerdesigner建模工具分享，开发流程分享</span><br><span class="line"></span><br><span class="line">3、ECRP导购系统</span><br><span class="line">- 工作内容：</span><br><span class="line">	- 遵循规范化开发标准，对系统底层进行重构，通过不断的抽取与整合代码，优化代码质量，为团队后续的开发提供了便利。</span><br><span class="line">	- 优化应用发布流程，大大缩短多环境下模块工程的构建时长</span><br><span class="line">	- git常见场景开发技巧分享，提高团队协作质量</span><br><span class="line">	- 单元测试实践，团队内部推行，提高代码质量</span><br><span class="line">- 技术栈：vue、springboot、redis、easyexcel、sls</span><br></pre></td></tr></table></figure>
-
-
-
-<h4 id="专业技能"><a href="#专业技能" class="headerlink" title="专业技能"></a>专业技能</h4><ol>
-<li>熟悉java基础与部分设计模式</li>
-<li>熟悉spring&amp;springBoot框架的使用及熟悉相关原理</li>
-<li>熟悉使用redis缓存技术，activemq等三方中间件</li>
-<li>熟悉使用mysql</li>
-<li>熟悉Maven工程模块的管理</li>
-<li>掌握Linux 操作系统命令</li>
-</ol>
-<h4 id="工作期望-amp-个人评价"><a href="#工作期望-amp-个人评价" class="headerlink" title="工作期望&amp;个人评价"></a>工作期望&amp;个人评价</h4><ul>
-<li>对自己有一个全方位的一个描述总结，让别人更好的解读你。或者在此处，高亮你的优点特长有哪些。</li>
-<li>即使不写个人评价，也一定记得写上工作期望。</li>
-</ul>
-<p><strong>个人评价</strong></p>
-<p>1、专注于工作，做得比说得好。（换一个角度说自己的缺点）</p>
-<p>2、课上是认真专注的，课间是爱开玩笑的，课下是爱学习的。</p>
-<p>3、优势：热爱技术、自学能力强，有良好的自我认知。有良好的心态、情商与沟通能力。</p>
-<p>4、工作态度：第一,要高效完成自己的本职工作。第二,要在完成的基础上寻找完美。第三,要在完美的基础上,与其他同事 互相交流学习,互相提升。工作是一种生活方式,不是一份养家糊口的差事。</p>
-<p>课上认真专注，课间爱开玩笑，课下爱好学习；有能力完全胜任本职工作，平时工作中能够协助同事解决技术难题。</p>
-<p><strong>工作期望</strong></p>
-<p>1、定位：主攻后端，可在其他方面打打辅助。</p>
-<p>2、爱好新鲜与激情的血液，希望在新环境中能重拾与保持初入职场时的朝气与干劲，只为能成为更优秀的同学。（能够在交流的同时反思自己的不足，且术业有专攻，再年轻的程序员身上也有值得你学习的地方）</p>
-<p>3、期望能与一群优秀的同僚共事，互相交流学习，互相提升。（想做垫底的那位同学，因为想进步，不够优秀）</p>
-<h4 id="教育经历"><a href="#教育经历" class="headerlink" title="教育经历"></a>教育经历</h4><p>中国计量大学 - 通信工程专业    2013.9月 - 2017.6月</p>
-<h4 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h4><p>1、CET4：542</p>
-<p>2、获奖：在校获得两次奖学金；在南讯获得三次优秀员工表彰（团队-多次优秀团队表彰）</p>
-<p>3、代码：模块功能新对接平台类型仅花2小时对接；编写的代码曾在公司团队作为优秀代码分享；</p>
-<h3 id="AARRR-amp-RARRA"><a href="#AARRR-amp-RARRA" class="headerlink" title="AARRR &amp; RARRA"></a>AARRR &amp; RARRA</h3><h3 id="公司介绍"><a href="#公司介绍" class="headerlink" title="公司介绍"></a>公司介绍</h3><p>为大消费领域的企业提供数据化的客户资源管理云服务解决方案</p>
-<p>帮助企业建立品牌体验、客户深度洞察、数据营销体系，最终帮助企业完成以用户为中心的运营模式转型</p>
-<h4 id="客道云"><a href="#客道云" class="headerlink" title="客道云"></a>客道云</h4><p>零售企业全渠道管理平台</p>
-<p>提供全渠道数据清洗整合服务，统一运营，统一工具，统一会员    </p>
-<p><strong>能力</strong></p>
-<p>全渠道数据报表呈现</p>
-<p>可视化数据洞察</p>
-<p>数据决策支撑</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://huangyuye.github.io/2021/04/26/Java/%E7%AC%94%E8%AE%B0/%E5%AE%B9%E5%99%A8/%E5%9F%BA%E7%A1%80/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="yuye Huang">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="HYY">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/04/26/Java/%E7%AC%94%E8%AE%B0/%E5%AE%B9%E5%99%A8/%E5%9F%BA%E7%A1%80/" class="post-title-link" itemprop="url">JAVA 容器</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-04-26 14:59:29" itemprop="dateCreated datePublished" datetime="2021-04-26T14:59:29+00:00">2021-04-26</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="基础"><a href="#基础" class="headerlink" title="基础"></a>基础</h1><h3 id="集合概述"><a href="#集合概述" class="headerlink" title="集合概述"></a>集合概述</h3><p><img src="https://cdn.jsdelivr.net/gh/huangyuye/huangyuye.github.io@data/img/java-collection-hierarchy.png" alt="img"></p>
-<p><a target="_blank" rel="noopener" href="https://www.javatpoint.com/collections-in-java">https://www.javatpoint.com/collections-in-java</a></p>
-<ul>
-<li><strong>Queue</strong> [kju]<ul>
-<li>增删查<ul>
-<li>添加（add/offer）：容量超过限制，返回false还是抛异常——抛异常处理更加耗时，offer直接返回false的方式更好</li>
-<li>删除（remove/poll）：空队列，remove抛异常，poll返回null</li>
-<li>查看（element/peek）：空队列，element抛异常，peek返回null</li>
-</ul>
-</li>
-<li><strong>Deque</strong>（double-ended queue，双端队列）</li>
-<li>实现<ul>
-<li><code>PriorityQueue</code>  implements Queue</li>
-<li><code>ArrayDequq</code> implements Deque</li>
-<li><code>LinkedList</code> implements List, Deque</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><strong>Set</strong><ul>
-<li><code>HashSet</code>：implements Set，且底层使用HashMap使用<ul>
-<li><code>LinkedHashSet</code> extends HashSet implements Set ，底层是LinkedHashMap，能够按照添加的顺序遍历；</li>
-</ul>
-</li>
-<li><code>TreeSet</code> implements NavigableSet（SortedSet）<ul>
-<li>底层使用红黑树，能够按照添加元素的顺序进行遍历，排序的方式有自然排序和定制排序。</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><strong>List</strong><ul>
-<li>ArrayList</li>
-<li><code>LinkedList</code> implements List, Deque，支持双端操作的线性表<ul>
-<li>双向链表(JDK1.6 之前为循环链表，JDK1.7 取消了循环)</li>
-<li>Vector 和 Stack 已过时</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><strong>Map</strong><ul>
-<li>HashMap：JDK1.8之后使用了数组+链表+红黑树<ul>
-<li>当链表长度大于阈值（默认为 8）（将链表转换成红黑树前会判断，如果当前数组的长度小于 64，那么会选择先进行数组扩容，而不是转换为红黑树）时，将链表转化为红黑树，以减少搜索时间</li>
-</ul>
-</li>
-<li>LinkedHashMap：在HashMap底层结构的基础上，增加了一条双向链表，使得上面的结构可以保持键值对的插入顺序。</li>
-<li>Hashtable： 数组+链表组成（拉链法解决哈希冲突）已过期</li>
-<li><strong><code>TreeMap</code></strong> implements NavigableMap&lt;K,V&gt;（SortedMap） ：红黑树（自平衡的排序二叉树）</li>
-</ul>
-</li>
-</ul>
-<p><strong>为什么要使用集合？替代数组，提高了数组存储的灵活性</strong>：不仅可以用来存储不同类型不同数量的对象，还可以保存具有映射关系的数据。</p>
-<p><strong>如何选用集合？</strong></p>
-<ul>
-<li><code>List</code>(对付顺序的好帮手)： 存储的元素是有序的、可重复的。</li>
-<li><code>Set</code>(注重独一无二的性质): 存储的元素是无序的、不可重复的。</li>
-<li><code>Map</code>(用 Key 来搜索的专家): 使用键值对（key-value）存储，类似于数学上的函数 y=f(x)，“x”代表 key，”y”代表 value，Key 是无序的、不可重复的，value 是无序的、可重复的，每个键最多映射到一个值。</li>
-</ul>
-<h3 id="集合之List"><a href="#集合之List" class="headerlink" title="集合之List"></a>集合之List</h3><h3 id="集合之Set"><a href="#集合之Set" class="headerlink" title="集合之Set"></a>集合之Set</h3><h3 id="Map接口"><a href="#Map接口" class="headerlink" title="Map接口"></a>Map接口</h3><h3 id="Collections工具使用"><a href="#Collections工具使用" class="headerlink" title="Collections工具使用"></a>Collections工具使用</h3><h4 id="排序操作"><a href="#排序操作" class="headerlink" title="排序操作"></a>排序操作</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">reverse</span><span class="params">(List list)</span><span class="comment">//反转</span></span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">shuffle</span><span class="params">(List list)</span><span class="comment">//随机排序</span></span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">sort</span><span class="params">(List list)</span><span class="comment">//按自然排序的升序排序</span></span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">sort</span><span class="params">(List list, Comparator c)</span><span class="comment">//定制排序，由Comparator控制排序逻辑</span></span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">swap</span><span class="params">(List list, <span class="keyword">int</span> i , <span class="keyword">int</span> j)</span><span class="comment">//交换两个索引位置的元素</span></span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">rotate</span><span class="params">(List list, <span class="keyword">int</span> distance)</span><span class="comment">//旋转。当distance为正数时，将list后distance个元素整体移到前面。当distance为负数时，将 list的前distance个元素整体移到后面</span></span></span><br></pre></td></tr></table></figure>
-
-<h4 id="查找-替换操作"><a href="#查找-替换操作" class="headerlink" title="查找,替换操作"></a>查找,替换操作</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">binarySearch</span><span class="params">(List list, Object key)</span><span class="comment">//对List进行二分查找，返回索引，注意List必须是有序的</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">max</span><span class="params">(Collection coll)</span><span class="comment">//根据元素的自然顺序，返回最大的元素。 类比int min(Collection coll)</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">max</span><span class="params">(Collection coll, Comparator c)</span><span class="comment">//根据定制排序，返回最大元素，排序规则由Comparatator类控制。类比int min(Collection coll, Comparator c)</span></span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">fill</span><span class="params">(List list, Object obj)</span><span class="comment">//用指定的元素代替指定list中的所有元素。</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">frequency</span><span class="params">(Collection c, Object o)</span><span class="comment">//统计元素出现次数</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">indexOfSubList</span><span class="params">(List list, List target)</span><span class="comment">//统计target在list中第一次出现的索引，找不到则返回-1，类比int lastIndexOfSubList(List source, list target).</span></span></span><br><span class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">replaceAll</span><span class="params">(List list, Object oldVal, Object newVal)</span>, 用新元素替换旧元素</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="同步控制"><a href="#同步控制" class="headerlink" title="同步控制"></a>同步控制</h4><p>不推荐，需要线程安全的集合类型时请考虑使用 JUC 包下的并发集合</p>
-<h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><h3 id="容器之间对比方面（如比较ArrayList和LinkedList）"><a href="#容器之间对比方面（如比较ArrayList和LinkedList）" class="headerlink" title="容器之间对比方面（如比较ArrayList和LinkedList）"></a>容器之间对比方面（如比较ArrayList和LinkedList）</h3><ul>
-<li>底层数据结构（数组vs链表）</li>
-<li>操作的时间复杂度（增删查）</li>
-<li>内存空间占用/容量</li>
-<li>是否支持随机访问（数组vs非数组）</li>
-<li>线程安全（底层同步锁）</li>
-<li>效率</li>
-</ul>
-<p>内存空间占用：如ArrayList 的空间浪费主要体现在在 list 列表的结尾会预留一定的容量空间，而 LinkedList 的空间花费则体现在它的每一个元素都需要消耗比 ArrayList 更多的空间（因为要存放直接后继和直接前驱以及数据）。</p>
-<h3 id="ArrayList的容量"><a href="#ArrayList的容量" class="headerlink" title="ArrayList的容量"></a><strong>ArrayList的容量</strong></h3><h4 id="最大容量"><a href="#最大容量" class="headerlink" title="最大容量"></a>最大容量</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">    * The maximum size of array to allocate.</span></span><br><span class="line"><span class="comment">    * Some VMs reserve some header words in an array.</span></span><br><span class="line"><span class="comment">    * Attempts to allocate larger arrays may result in</span></span><br><span class="line"><span class="comment">    * OutOfMemoryError: Requested array size exceeds VM limit</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">   <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> MAX_ARRAY_SIZE = Integer.MAX_VALUE - <span class="number">8</span>;</span><br></pre></td></tr></table></figure>
-
-<h4 id="扩容"><a href="#扩容" class="headerlink" title="扩容"></a>扩容</h4><p>向 ArrayList 添加大量元素之前最好先使用<code>ensureCapacity</code> 方法，以减少增量重新分配的次数</p>
-<h4 id="扩容倍数"><a href="#扩容倍数" class="headerlink" title="扩容倍数"></a>扩容倍数</h4><p>扩容时会指定目标容量，优先将新容量更新为旧容量的1.5倍；若容量还是不够，则取扩容目标容量minCapacity</p>
-<h4 id="负载因子"><a href="#负载因子" class="headerlink" title="负载因子"></a>负载因子</h4><p>ArrayList没有负载因子</p>
-<h3 id="idea-查看UML类图"><a href="#idea-查看UML类图" class="headerlink" title="idea 查看UML类图"></a>idea 查看UML类图</h3><p>右键类 -&gt; Diagrams -&gt; show diagram 查看UML类图</p>
-<h3 id="对象比较"><a href="#对象比较" class="headerlink" title="对象比较"></a>对象比较</h3><ul>
-<li><code>java.lang.Comparable</code> ：compareTo(Object obj) 声明<strong>自身与其他</strong>对象的比较逻辑</li>
-<li> <code>java.util.Comparator</code>：compare(Object o1, Object o2) 比较器，用于定制相同类型的<strong>任意两个</strong>对象比较的逻辑</li>
-</ul>
-<h3 id="LinkedList-底层结构"><a href="#LinkedList-底层结构" class="headerlink" title="LinkedList 底层结构"></a>LinkedList 底层结构</h3><ul>
-<li>jdk1.7优化：<ul>
-<li>jdk1.6需要初始化header Entry对象，浪费空间</li>
-</ul>
-</li>
-</ul>
-<h3 id="hashCode-与-equals-的相关规定："><a href="#hashCode-与-equals-的相关规定：" class="headerlink" title="hashCode()与 equals() 的相关规定："></a><strong><code>hashCode()</code>与 <code>equals()</code> 的相关规定：</strong></h3><ol>
-<li>如果两个对象相等，则 <code>hashcode</code> 一定也是相同的</li>
-<li>两个对象相等,对两个 <code>equals()</code> 方法返回 true</li>
-<li>两个对象有相同的 <code>hashcode</code> 值，它们也不一定是相等的</li>
-<li>综上，<code>equals()</code> 方法被覆盖过，则 <code>hashCode()</code> 方法也必须被覆盖</li>
-<li><code>hashCode() </code>的默认行为是对堆上的对象产生独特值。如果没有重写 <code>hashCode()</code>，则该 class 的两个对象无论如何都不会相等（即使这两个对象指向相同的数据）。</li>
-</ol>
-<h3 id="HashMap的底层实现"><a href="#HashMap的底层实现" class="headerlink" title="HashMap的底层实现"></a>HashMap的底层实现</h3><ul>
-<li><p>jdk1.8之前</p>
-<ul>
-<li>底层数据结构：数组+链表</li>
-<li><strong>putVal：</strong><code>头插法</code>插入链表表头</li>
-</ul>
-</li>
-<li><p>jdk1.8之后</p>
-<ul>
-<li>当链表长度大于阈值（默认为 8）（将链表转换成红黑树前会判断，如果当前数组的长度小于 64，那么会选择先进行数组扩容，而不是转换为红黑树）时，将链表转化为红黑树，以减少搜索时间。</li>
-<li>红黑树是为了解决二叉查找树的缺陷，因为二叉查找树在某些情况下会退化成一个线性结构。</li>
-<li><strong>putVal：</strong><code>尾插法</code>插入链表表头</li>
-</ul>
-</li>
-<li><p>putVal</p>
-<ul>
-<li>(n-1) &amp; hash判断当前元素存放位置（n为数组长度）</li>
-<li>判断相同位置元素的hash值和key值是否相同，相同则覆盖；不相同则通过拉链法解决冲突<ul>
-<li>所谓 <strong>“拉链法”</strong> 就是：将链表和数组相结合。也就是说创建一个链表数组，数组中每一格就是一个链表。若遇到哈希冲突，则将冲突的值加到链表中即可。</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p><strong>HashMap的容量是 2 的幂次方</strong></p>
-<ul>
-<li><p>扩容机制：resize</p>
-<ul>
-<li>进行扩容，会伴随着一次重新 hash 分配，并且会遍历 hash 表中所有的元素，是非常耗时的。在编写程序中，要尽量避免 resize。</li>
-</ul>
-</li>
-<li><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/LLF_1241352445/article/details/81321991">HashMap的容量为什么是2的幂次方？</a></p>
-<ul>
-<li>对象计算的hash值，范围值很大，不能直接用作数组下标，所以需要将hash值对数组长度n做取模操作后得到余数作为数组下标，而取模运算为：<code>(n - 1) &amp; hash</code>（<strong>那为什么取模不是用的%符号呢</strong>）</li>
-</ul>
-<ol>
-<li><p>选用该算法是因为使用位运算是特别高效的运算</p>
-<ol>
-<li>取余(%)操作中如果除数是 2 的幂次则等价于与其除数减一的与(&amp;)操作（也就是说 hash%length==hash&amp;(length-1)的前提是 length 是 2 的 n 次方；）。” 并且 采用二进制位操作 &amp;，相对于%能够提高运算效率，这就解释了 HashMap 的长度为什么是 2 的幂次方。</li>
-</ol>
-</li>
-<li><p>基于条件1，当HashMap的容量是16时，它的二进制是10000，(n-1)的二进制是01111，这样可以使得不同的hash值，和(n-1)进行位运算后，能够得出不同的值（1&amp;1=1，<strong>1&amp;0=0，0&amp;0=0</strong>）。可以使得添加的元素均匀分布在HashMap中的数组上，减少hash碰撞，避免形成链表的结构，使得查询效率降低！</p>
-<ol>
-<li>如果hash table[]的尺寸很小，比如只有2个，如果要放进10个keys的话，那么碰撞非常频繁，于是一个O(1)的查找算法，就变成了链表遍历，性能变成了O(n)</li>
-</ol>
-</li>
-</ol>
-</li>
-<li><p><a target="_blank" rel="noopener" href="https://coolshell.cn/articles/9606.html">多线程操作死循环问题</a> </p>
-<ul>
-<li><p>1.8之前，并发下的 Rehash 会造成元素之间会形成一个循环链表</p>
-<ul>
-<li><p>1.8之前，hash桶的链表节点使用的是**<code>头插法</code>**插入到链表中</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">addEntry</span><span class="params">(<span class="keyword">int</span> hash, K key, V value, <span class="keyword">int</span> bucketIndex)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    Entry&lt;K,V&gt; e = table[bucketIndex];</span><br><span class="line">    table[bucketIndex] = <span class="keyword">new</span> Entry&lt;K,V&gt;(hash, key, value, e);</span><br><span class="line">    <span class="comment">//查看当前的size是否超过了我们设定的阈值threshold，如果超过，需要resize</span></span><br><span class="line">    <span class="keyword">if</span> (size++ &gt;= threshold)</span><br><span class="line">        resize(<span class="number">2</span> * table.length);</span><br><span class="line">&#125; </span><br></pre></td></tr></table></figure></li>
-<li><p>新旧数组链表元素迁移：</p>
-<ul>
-<li><p>假设旧数组中某元素指向的链表节点为：node1-node2-node3，则迁移到新数组中链表节点的变化情况为：（假设数组容量为4）</p>
-<ul>
-<li>第一次loop迁移：node1</li>
-<li>第二次loop迁移：node2-node1</li>
-<li>第三次loop迁移：node3-node2-node1</li>
-</ul>
-<p><img src="https://cdn.jsdelivr.net/gh/huangyuye/huangyuye.github.io@data/img/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20210425174828.jpg"></p>
-</li>
-</ul>
-</li>
-<li><p>Hash表这个容器当有数据要插入时，都会检查容量有没有超过设定的thredhold，如果超过，需要增大Hash表的尺寸，但是这样一来，整个Hash表里的无素都需要被重算一遍。这叫rehash，这个成本相当的大。</p>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>HashMap的N种遍历方式：</p>
-</li>
-<li><p>负载因子loadFactor</p>
-<ul>
-<li>loadFactor越趋近于1，那么 数组中存放的数据(entry)也就越多，也就越密，会导致查找元素效率低</li>
-<li>太小导致数组的利用率低，存放的数据会很分散</li>
-</ul>
-</li>
-<li><p>查询效率</p>
-<ul>
-<li>数组的查询效率为O(1)，链表的查询效率是O(n)，红黑树的查询效率是O(log n)，n为桶中的元素个数。</li>
-<li>所以当位于链表中的结点过多，显然通过key值依次查找效率就太低了。因此JDK1.8在解决哈希冲突时有了较大的变化，<strong>当链表长度大于阈值（默认为8）时，将链表转化为红黑树</strong>，以提高查询效率。</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<h3 id="ConcurrentHashMap"><a href="#ConcurrentHashMap" class="headerlink" title="ConcurrentHashMap"></a>ConcurrentHashMap</h3><ul>
-<li>JDK1.8之前<ul>
-<li><strong><code>Segment</code> 数组结构和 <code>HashEntry</code> 数组结构组成</strong><ul>
-<li>Segment 实现了 <code>ReentrantLock</code>,所以 <code>Segment</code> 是一种可重入锁，扮演锁的角色。</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>JDK1.8<ul>
-<li>取消了 <code>Segment</code> 分段锁，采用 CAS 和 <code>synchronized</code> 来保证并发安全</li>
-<li><code>synchronized</code> 只锁定当前链表或红黑二叉树的首节点，这样只要 hash 不冲突，就不会产生并发，效率又提升 N 倍。</li>
-</ul>
-</li>
-</ul>
-<h3 id="数据元素插入"><a href="#数据元素插入" class="headerlink" title="数据元素插入"></a>数据元素插入</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//arraycopy()这个实现数组之间复制的方法一定要看一下，下面就用到了arraycopy()方法实现数组自己复制自己</span></span><br><span class="line">System.arraycopy(elementData, index, elementData, index + <span class="number">1</span>, size - index);</span><br><span class="line">elementData[index] = element;</span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="相关接口"><a href="#相关接口" class="headerlink" title="相关接口"></a>相关接口</h3><ul>
-<li>RandomAccess接口<ul>
-<li>数组天然支持快速随机访问，RandomAccess接口只是用于标识容器可快速访问以切换不同的遍历方法</li>
-</ul>
-</li>
-<li>NavigableMap / NavigableSet 接口<ul>
-<li>提供对集合内元素的搜索的能力</li>
-</ul>
-</li>
-<li>Iterable接口</li>
-<li>SortMap：对集合中的元素根据键排序的能力</li>
-</ul>
-<h3 id="无序性"><a href="#无序性" class="headerlink" title="无序性"></a>无序性</h3><p>什么是无序性？无序性不等于随机性 ，无序性是指存储的数据在底层数组中并非按照数组索引的顺序添加 ，而是根据数据的哈希值决定的。</p>
-<h2 id="TODO"><a href="#TODO" class="headerlink" title="TODO"></a>TODO</h2><ol>
-<li>红黑树和二叉查找树的对比</li>
-<li>HashMap resize 扩容方法实现</li>
-</ol>
-<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><p><a target="_blank" rel="noopener" href="https://gitee.com/SnailClimb/JavaGuide/blob/master/docs/java/collection/Java%E9%9B%86%E5%90%88%E6%A1%86%E6%9E%B6%E5%B8%B8%E8%A7%81%E9%9D%A2%E8%AF%95%E9%A2%98.md">docs/java/collection/Java集合框架常见面试题.md · SnailClimb/JavaGuide - Gitee.com</a></p>
-
       
     </div>
 
@@ -1332,7 +1424,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">52</span>
+          <span class="site-state-item-count">53</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
