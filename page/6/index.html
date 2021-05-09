@@ -156,7 +156,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://huangyuye.github.io/2021/04/11/yuque/Hexo%E4%B8%BB%E9%A2%98%E7%BE%8E%E5%8C%96/">
+    <link itemprop="mainEntityOfPage" href="https://huangyuye.github.io/2020/08/19/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/20200819-%E5%AF%B9%E8%B1%A1%E5%BA%8F%E5%88%97%E5%8C%96/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -170,7 +170,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2021/04/11/yuque/Hexo%E4%B8%BB%E9%A2%98%E7%BE%8E%E5%8C%96/" class="post-title-link" itemprop="url">Hexo主题美化</a>
+            <a href="/2020/08/19/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/20200819-%E5%AF%B9%E8%B1%A1%E5%BA%8F%E5%88%97%E5%8C%96/" class="post-title-link" itemprop="url">对象序列化</a>
         </h2>
 
         <div class="post-meta">
@@ -180,15 +180,32 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2021-04-11 10:52:23" itemprop="dateCreated datePublished" datetime="2021-04-11T10:52:23+00:00">2021-04-11</time>
+              <time title="创建时间：2020-08-19 00:00:00" itemprop="dateCreated datePublished" datetime="2020-08-19T00:00:00+00:00">2020-08-19</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-05-09 16:17:39" itemprop="dateModified" datetime="2021-05-09T16:17:39+00:00">2021-05-09</time>
+                <time title="修改时间：2021-05-09 16:43:58" itemprop="dateModified" datetime="2021-05-09T16:43:58+00:00">2021-05-09</time>
               </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/" itemprop="url" rel="index"><span itemprop="name">知识库</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" itemprop="url" rel="index"><span itemprop="name">基础知识</span></a>
+                </span>
+            </span>
 
           
 
@@ -201,34 +218,64 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><h2 id=""><a href="#" class="headerlink" title=""></a></h2><h2 id="什么是-Hexo"><a href="#什么是-Hexo" class="headerlink" title="什么是 Hexo?"></a>什么是 Hexo?</h2><p>Hexo 是一个博客框架，可以将 markdown 格式的文件解析成静态网页</p>
-<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>参考 <a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/">Hexo 官网</a></p>
-<h2 id="基础文件"><a href="#基础文件" class="headerlink" title="基础文件"></a>基础文件</h2><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">.</span><br><span class="line">├── _config.yml <span class="comment"># 网站配置</span></span><br><span class="line">├── package.json <span class="comment"># 打包依赖</span></span><br><span class="line">├── scaffolds <span class="comment"># 模板文件夹，新建文章时，Hexo 会根据 scaffold 来建立文件</span></span><br><span class="line">├── source <span class="comment"># 资源文件夹是存放用户资源的地方</span></span><br><span class="line">|   ├── _drafts <span class="comment"># 草稿箱</span></span><br><span class="line">|   └── _posts <span class="comment"># 源码</span></span><br><span class="line">└── themes <span class="comment"># 网站主题文件，Hexo 会根据主题来生成静态页面</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="命令"><a href="#命令" class="headerlink" title="命令"></a>命令</h2><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Hexo 有三种默认布局：post、page 和 draft</span></span><br><span class="line">hexo new [<span class="type">layout</span>] &lt;title&gt;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 在创建这三种不同类型的文件时，它们将会被保存到不同的路径</span></span><br><span class="line"><span class="comment"># post	source/_posts</span></span><br><span class="line"><span class="comment"># page	source</span></span><br><span class="line"><span class="comment"># draft	source/_drafts</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="Front-matter"><a href="#Front-matter" class="headerlink" title="Front-matter"></a>Front-matter</h2><p>Front-matter 是文件最上方以  <code>---</code>  分隔的区域，用于指定个别文件的变量</p>
-<h3 id="分类和标签"><a href="#分类和标签" class="headerlink" title="分类和标签"></a>分类和标签</h3><p>文章支持分类和标签，您可以在 Front-matter 中设置</p>
-<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">tags:</span><br><span class="line"></span><br><span class="line"><span class="bullet">-</span> PS3</span><br><span class="line"><span class="bullet">-</span> Games</span><br><span class="line">  categories:</span><br><span class="line"><span class="bullet">-</span> [Diary, PlayStation]</span><br><span class="line"><span class="bullet">-</span> [Diary, Games]</span><br><span class="line"><span class="bullet">-</span> [Life]</span><br></pre></td></tr></table></figure>
-
-<h2 id="使用主题"><a href="#使用主题" class="headerlink" title="使用主题"></a>使用主题</h2><p>可以到 <a target="_blank" rel="noopener" href="https://hexo.io/themes/">Hexo</a> 官网下载主题，进入到你的 hexo 博客根路径下的 themes 文件夹，将对应主题下载下来。<br>我这里使用到了 <a target="_blank" rel="noopener" href="https://github.com/theme-next/hexo-theme-next">next 主题</a>，具体引入步骤见<a target="_blank" rel="noopener" href="http://theme-next.iissnan.com/">使用文档</a></p>
+          <h2 id="对象序列化概念"><a href="#对象序列化概念" class="headerlink" title="对象序列化概念"></a>对象序列化概念</h2><p><strong>把变量对象从内存中变成可存储或传输的过程称之为序列化。(字节序列)</strong></p>
+<p>序列化之后，就可以把序列化后的内容写入磁盘，或者通过网络传输到别的机器上。</p>
+<p>对象的“序列化”并没有保存对象所有的内容，而仅仅保留了对象的属性，没有保留对象的方法。</p>
 <ul>
-<li>主站_config.yml 文件中指定主题名称、语言</li>
-<li>主题目录下的_config.yml 文件中进行客制化配置</li>
+<li>使用    ObjectOutputStream流 写一个被实例化的对象</li>
 </ul>
-<h3 id="关于分类和标签"><a href="#关于分类和标签" class="headerlink" title="关于分类和标签"></a>关于分类和标签</h3><p>开启这两个菜单项之后需要在 source 目录底下手动创建文件夹与 index.md 文件，如标签项（~/source/tags/index.md）：</p>
-<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title: 标签</span><br><span class="line">date: xxx</span><br><span class="line">type: &quot;tags&quot;</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
-
-<h3 id="自动生成分类"><a href="#自动生成分类" class="headerlink" title="自动生成分类"></a>自动生成分类</h3><p>安装日志的自动分类插件 hexo-auto-category</p>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo<span class="literal">-auto</span><span class="literal">-category</span> -<span class="literal">-save</span></span><br></pre></td></tr></table></figure>
-
-<p>在站点根目录下的_config.yml 添加：</p>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Generate categories from directory-tree</span></span><br><span class="line"><span class="comment"># Dependencies: https://github.com/xu-song/hexo-auto-category</span></span><br><span class="line"><span class="comment"># depth: the depth of directory-tree you want to generate, should &gt; 0</span></span><br><span class="line">auto_category:</span><br><span class="line"> enable: true</span><br><span class="line"> depth:</span><br></pre></td></tr></table></figure>
-
-<p>参考文章<a target="_blank" rel="noopener" href="https://blog.eson.org/pub/e2f6e239/">【Hexo 插件系列】日志的自动分类插件 hexo-auto-category</a></p>
-<h3 id="自动生成标题"><a href="#自动生成标题" class="headerlink" title="自动生成标题"></a>自动生成标题</h3><p>Hexo 功能增强插件<a target="_blank" rel="noopener" href="https://segmentfault.com/a/1190000018402194"> hexo-enchancer</a></p>
-<p><code>npm install hexo-enhancer _--save_</code><br>或<br><code>yarn add hexo-enhancer</code></p>
-<p>hexo-enhancer 解析文件名的正则表达式如下:<br><code>/^.?(\d&#123;4&#125;)[-_]?(\d&#123;2&#125;)[-_]?(\d&#123;2&#125;).?[-_.@_# ]*(.*)$/_</code></p>
+<p><strong>把变量内容从序列化的对象重新读到内存里称之为反序列化。</strong></p>
+<ul>
+<li>使用 ObjectInputStream流 可以直接把被序列化的对象给反序列化出来。</li>
+<li>当一个对象被反序列化时，这个对象的构造函数将不会在被调用的。</li>
+</ul>
+<h2 id="Serializable接口-amp-serialVersionUID"><a href="#Serializable接口-amp-serialVersionUID" class="headerlink" title="Serializable接口 &amp; serialVersionUID"></a><strong>Serializable接口 &amp; serialVersionUID</strong></h2><ul>
+<li><p>serialVersionUID 用于解决对象序列化和反序列化的版本兼容问题.</p>
+<ol>
+<li><strong>类的serialVersionUID的默认值</strong>完全依赖于Java编译器的实现，对于同一个类，用不同的Java编译器编译，有可能会导致不同的 serialVersionUID，也有可能相同。为了提高serialVersionUID的独立性和确定性，强烈建议在一个可序列化类中显示的定义serialVersionUID，为它赋予明确的值。</li>
+<li><strong>显式地定义serialVersionUID有两种用途：</strong><ol>
+<li>在某些场合，希望类的不同版本对序列化兼容，因此需要确保类的不同版本具有相同的serialVersionUID；</li>
+<li>在某些场合，不希望类的不同版本对序列化兼容，因此需要确保类的不同版本具有不同的serialVersionUID。</li>
+</ol>
+</li>
+</ol>
+</li>
+</ul>
+<ul>
+<li><p>Serializable是<a href="https://link.zhihu.com/?target=http://java.io">http://java.io</a>包中定义的、用于实现Java类的序列化操作而提供的一个<strong>语义级别</strong>的接口。Serializable序列化接口没有任何方法或者字段，只是用于标识可序列化的语义。实现了Serializable接口的类可以被ObjectOutputStream转换为字节流，同时也可以通过ObjectInputStream再将其解析为对象。</p>
+</li>
+<li><ol>
+<li>序列化保存的是对象的状态，静态变量属于类的状态，因此 序列化并不保存静态变量。</li>
+<li>如果父类已经实现了Serializable序列化接口的话，其子类就不用再实现这个接口了，但是反过来就不成立了。</li>
+</ol>
+</li>
+</ul>
+<h2 id="自定义序列化"><a href="#自定义序列化" class="headerlink" title="自定义序列化"></a>自定义序列化</h2><p>实现<strong>Externalizable</strong>接口</p>
+<p>相对于Serializable接口的区别：实现该接口会调用无参构造方法</p>
+<p>使用场景：对某些敏感数据进行加密操作后再序列化；反序列化对加密数据进行解密操作。</p>
+<h2 id="阻止序列化"><a href="#阻止序列化" class="headerlink" title="阻止序列化"></a>阻止序列化</h2><p>阻止<strong>非静态属性</strong>的序列化，用transient关键词修饰</p>
+<h2 id="可序列化的场景-amp-条件"><a href="#可序列化的场景-amp-条件" class="headerlink" title="可序列化的场景&amp;条件"></a>可序列化的场景&amp;条件</h2><ol>
+<li>父类已经实现了Serializable序列化接口（递归）</li>
+<li>非静态的数据成员才会通过序列化操作被序列化</li>
+<li>未被<strong>transient</strong>标记的数据成员</li>
+<li>子类是可序列化的，其父类不是可序列化的，但是其父类有无参的构造函数，可支持序列化，但子类继承自父类中的成员不会序列化输出到文件/网络。</li>
+</ol>
+<h3 id="关于无参构造函数"><a href="#关于无参构造函数" class="headerlink" title="关于无参构造函数"></a>关于无参构造函数</h3><ol>
+<li><p>单一对象,无继承关系:若想实现序列化与反序列化,则必须实现序列化接口,否则报异常:NotSerializableException</p>
+</li>
+<li><p>对象间有继承关系,但无引用关系,若想实现序列化与反序列化,则父类必须实现序列化接口或提供无参构造函数,否则报invalidClassException</p>
+</li>
+<li><p>对象间有继承关系,并且有引用关系,若想实现序列化与反序列化,则父类必须实现序列化接口</p>
+</li>
+</ol>
+<h2 id="扩展阅读"><a href="#扩展阅读" class="headerlink" title="扩展阅读"></a>扩展阅读</h2><h3 id="idea-生成serialVersionUID"><a href="#idea-生成serialVersionUID" class="headerlink" title="idea 生成serialVersionUID"></a>idea 生成serialVersionUID</h3><ul>
+<li>Settings &gt; Editor &gt; Inspections &gt; 勾选 Serializable class without ‘serialVersionUID’</li>
+</ul>
+<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/yaomingyang/article/details/79321939">https://blog.csdn.net/yaomingyang/article/details/79321939</a></p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_19782019/article/details/80422143">https://blog.csdn.net/qq_19782019/article/details/80422143</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.ibm.com/developerworks/cn/java/j-5things1/">https://www.ibm.com/developerworks/cn/java/j-5things1/</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/huangdabing/p/9231948.html">https://www.cnblogs.com/huangdabing/p/9231948.html</a></p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/m0_38001814/article/details/86584446">https://blog.csdn.net/m0_38001814/article/details/86584446</a></p>
 
       
     </div>
@@ -248,7 +295,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://huangyuye.github.io/2021/04/06/yuque/Windows%20%E5%BC%80%E7%AE%B1/">
+    <link itemprop="mainEntityOfPage" href="https://huangyuye.github.io/2020/06/20/%E6%97%A5%E8%AE%B0/20200620-%E6%97%A5%E8%AE%B0/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -262,7 +309,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2021/04/06/yuque/Windows%20%E5%BC%80%E7%AE%B1/" class="post-title-link" itemprop="url">Windows 开箱</a>
+            <a href="/2020/06/20/%E6%97%A5%E8%AE%B0/20200620-%E6%97%A5%E8%AE%B0/" class="post-title-link" itemprop="url">日记</a>
         </h2>
 
         <div class="post-meta">
@@ -272,15 +319,24 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2021-04-06 15:19:54" itemprop="dateCreated datePublished" datetime="2021-04-06T15:19:54+00:00">2021-04-06</time>
+              <time title="创建时间：2020-06-20 00:00:00" itemprop="dateCreated datePublished" datetime="2020-06-20T00:00:00+00:00">2020-06-20</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-05-09 16:17:39" itemprop="dateModified" datetime="2021-05-09T16:17:39+00:00">2021-05-09</time>
+                <time title="修改时间：2021-05-09 16:43:58" itemprop="dateModified" datetime="2021-05-09T16:43:58+00:00">2021-05-09</time>
               </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%97%A5%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">日记</span></a>
+                </span>
+            </span>
 
           
 
@@ -293,171 +349,49 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="浏览器"><a href="#浏览器" class="headerlink" title="浏览器"></a>浏览器</h2><p>下载最新的 <a target="_blank" rel="noopener" href="https://www.microsoft.com/zh-cn/edge">Microsoft Edge</a>，使用默认的必应搜索引擎</p>
-<h2 id="代理服务器"><a href="#代理服务器" class="headerlink" title="代理服务器"></a>代理服务器</h2><p>如果有 vpn 账号，下载 Vpn 客户端，开启 PAC，并自动配置系统代理<br>浏览器下载 SwitchyOmega 插件实现快速切换代理，可以选择直接连接或者使用系统代理（即 vpn 代理）</p>
-<p><code>ss 与 gfwlist</code> <a target="_blank" rel="noopener" href="https://github.com/gfwlist/gfwlist">https://github.com/gfwlist/gfwlist</a></p>
-<h2 id="替换-CMD"><a href="#替换-CMD" class="headerlink" title="替换 CMD"></a>替换 CMD</h2><h3 id="PowerShell"><a href="#PowerShell" class="headerlink" title="PowerShell"></a>PowerShell</h3><p>Windows powershell 的升级版<br>下载地址：<a target="_blank" rel="noopener" href="https://github.com/PowerShell/PowerShell">https://github.com/PowerShell/PowerShell</a></p>
-<h3 id="Windows-Terminal"><a href="#Windows-Terminal" class="headerlink" title="Windows Terminal"></a>Windows Terminal</h3><p>Microsoft Store 下载 Windows Terminal，可以集成各个命令行工具，如上述提到的 powershell，以及 cmder 等<br>除此之外，还可以使用 wsl windows 子系统的方式，集成 linux 子系统命令行工具</p>
-<h3 id="Vim"><a href="#Vim" class="headerlink" title="Vim"></a>Vim</h3><p>使用 <a target="_blank" rel="noopener" href="https://www.cnblogs.com/Eric-jx/p/10491922.html">vim</a> 快速的在命令行中操作文件</p>
-<h4 id="vim-相关配置修改"><a href="#vim-相关配置修改" class="headerlink" title="vim 相关配置修改"></a>vim 相关配置修改</h4><ol>
-<li> cmd 中执行 vim 命令，执行 vim 指令<code>:version</code>查看配置文件路径，可以看到配置文件为<code>C:\Program Files (x86)\Vim\_vimrc</code></li>
-<li> 修改配置文件，关闭 un~临时文件的输出</li>
+          <h1 id="混过去的三年程序员生涯，你还要继续吗？"><a href="#混过去的三年程序员生涯，你还要继续吗？" class="headerlink" title="混过去的三年程序员生涯，你还要继续吗？"></a>混过去的三年程序员生涯，你还要继续吗？</h1><h2 id="现状"><a href="#现状" class="headerlink" title="现状"></a>现状</h2><p>笔者是一名已经有三年开发经验的Java开发工程师，过去三年一直在同一家公司搬砖，也就是当下仍就职的公司。<br>我司是一家致力于为零售行业提供数字化、智能化客户资源管理云服务解决方案的企业，从我大四实习起就一直在这家公司工作。<br>作为非计算机科班出生的大四学生，本就输在了起跑线上，大四那年还放弃与同班同学为伍踏入培训机构的学习道路，<br>一股脑的把自己锁在出租屋里，跟着马士兵的视频捯饬了几个月。期间还有跑到过一家创业公司去，想着当个无薪劳动力，<br>也算是能积累点实习经验。奈何笔者本人是一名学渣，且前三年偷懒欠下不少帐，大四还是得花时间来还的，没错，多次“矿工”后这家创业公司还是跟我说了声再见。<br>不过后来想想也不是什么坏事，毕竟这家公司让我做的更多是前端的东西，也不符合我的java后端开发的职业规划。再后来呢到了大四秋招，<br>除了自己本校校招，笔者还经常跑到其他院校的宣讲会蹭下机会，但都因没有项目经验、非计算机科班生、没有参加正规计算机培训等原因屡屡碰壁，<br>不过归根结底还是只能怪自己没有学习扎实吧。虽然屡遭打击，但是我仍不放弃继续参加校招、宣讲、社招，这样反反复复坚持了2个月后，<br>终于被我现在这家公司收下啦，一直做到现在，说实话也是有点感激公司当时给我的这个机会，也是碰巧当年公司刚好开始在杭州筹备研发团队。</p>
+<p>这三年呢，最开始是在项目研发团队工作，一开始什么都不太熟悉，没用过框架，没完整的做过项目，所以会遇到很多坎。也是好在当时有前辈带着做了个项目，<br>做的事情也是根据现成的系统做二开，所以项目进度不算急。笔者当时负责的是定时任务-客户模块，主要做外部接口数据定时获取与解析入库，对于当时的我来说，不管是业务还是技术对我来说<br>都是新的知识点，求知欲望强烈，常常是加班到凌晨，也少不了半夜call前辈咨询问题。文章开头也提到了，我司是客户资源管理系统，客户模块是最核心且很复杂的模块，<br>当时的主管让我去熟悉和梳理整个项目的数据库表，并输出客户合并的方案。没有错，是整个项目的数据表，涉及客户的表就有几十张。作为刚踏入职场的小白来说，我完全懵掉了，<br>但是又自认为不该逃避，最终花了整整一个多月的时间，反复梳理、讨论、确认，最终把客户合并的功能给做出来了，也是我踏入职场后第一个做出来的功能。<br>说实话，我现在还认为这个功能可能会存在风险或问题，但是那一个多月的经验让我印象深刻，所有问题都是能解决的，不放弃就有希望。也很幸运，在那之后没多久举办的年会上我荣获进步奖，<br>对我那段时间的努力表示了认可。</p>
+<p>再后来呢，在公司一直兢兢业业，认真做好负责的工作内容，也一直对自己的编码规范有较高要求，至今我都认为，代码写的丑，架构再好也白搭。</p>
+<p>后来就成为了略有经验的java工程师，做什么项目都有了底气。但也遇到过很坑的事故，比如说项目安全事件，数据库备份版本回退事件，<br>经历了一个研发独自驻点解决前人留下的烂摊子，三天就睡了几个小时处理，想想就脊椎骨疼，不过幸好咬咬牙都扛过去了，<br>对笔者来说也是作为程序员来说难忘的经历吧，毕竟不常见哈哈。</p>
+<p>去年一年，笔者经历了两次部门调动，从储值产品研发，被调动到项目中心研发，再到导购产品研发，也就是我现在所在的团队部门。<br>虽说调整了两次部门，但是在相应的岗位下，笔者都尽力把认为最合适的方案引入到项目开发中。<br>比如说做储值产品时，为解决储值交易并发问题，引入了redis分布式锁 保证同一时刻同一储值客户不会发生重复交易问题；<br>为避免交易过程多系统交互时网络丢包或服务器宕机升级导致的分布式事务异常，数据不一致问题，笔者搭建了异步回调系统，<br>以及引入消息回查方式保证双系统间的数据一致。<br>在项目中心时，笔者考虑到所有项目实施时用到的基础功能或工具类都要反复开发，所以专门把基础模块抽取复用，<br>独立成基础依赖包，作为项目实施的脚手架。到导购产品项目时，导购项目分为两个服务端工程，一个是小程序，一个是管理后台，<br>两个工程使用到的model和service层都各自维护，没办法做到复用。笔者接到这个项目时，首先将两个项目整合到一起，<br>并且把基础的模块抽取复用 让导购系统更容易维护和拓展。</p>
+<p>说了这么多，有没有觉得笔者的三年经历简简单单用几段话就说完了，确实是这样，<br>没有给自己布置任何的课余作业 没有去开源社区逛街的日常，也没有记录自己的程序员日记。<br>只能说，笔者只是规规矩矩的搬了三年的砖。肯定有很多同样三年的小伙伴此时已经有了属于自己的丰富的博客，<br>有自己完善的工具集合和代码段；当然也有跟笔者一样的小伙伴，总希望来点什么不一样的改变，但是总找不到方向，<br>找不到坚持，或许也在默默地等待同样的下一个三年了。难道，你还想这样继续吗？笔者不想，所以也就写下了这篇文章，<br>从这篇文章开始，去做下不一样的程序员。</p>
+<p>那么 ，笔者接下来会做哪些调整呢，感兴趣的小伙伴，请继续跟着我往下看。</p>
+<h2 id="规划"><a href="#规划" class="headerlink" title="规划"></a>规划</h2><h3 id="保持热情"><a href="#保持热情" class="headerlink" title="保持热情"></a>保持热情</h3><ol>
+<li>做题</li>
 </ol>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">set</span> noundofile</span><br><span class="line"><span class="built_in">set</span> nobackup</span><br><span class="line"><span class="built_in">set</span> noswapfile</span><br></pre></td></tr></table></figure>
-
+<p>每天都要保持好学的状态，作为一名程序员，笔者认为必须让你的脑细胞每天都在保持思考，每天不断思考加学习会让你对新事物更感兴趣。</p>
+<ol start="2">
+<li>热点博文</li>
+</ol>
+<p>关注热点技术，与前沿技术不脱节，可以的话建议尝试动手。</p>
 <ol start="3">
-<li>修改 vim 操作的文件编码，可参考<a target="_blank" rel="noopener" href="http://c.biancheng.net/view/3024.html">http://c.biancheng.net/view/3024.html</a></li>
+<li>总结<br>坚持每日的小整理，每周的大总结，有可能的话可以输出博文，能够自己讲出所以然来的东西才真正属于你的。</li>
 </ol>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 编码设置 start http://c.biancheng.net/view/3024.html</span></span><br><span class="line"><span class="built_in">set</span> fileencodings=utf<span class="literal">-8</span>,ucs<span class="literal">-bom</span>,gb18030,gbk,gb2312,cp936</span><br><span class="line"><span class="built_in">set</span> termencoding=utf<span class="literal">-8</span></span><br><span class="line"><span class="built_in">set</span> encoding=utf<span class="literal">-8</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="NVM-下载"><a href="#NVM-下载" class="headerlink" title="NVM 下载"></a>NVM 下载</h2><blockquote>
-<p>这个标题下的内容建议仅开发同学关注</p>
-</blockquote>
-<p>不管是使用 windows 还是系统系统，很多时候我们都需要在本地电脑运行一些前端项目，这时候会用到 nodejs 环境以及 npm 包管理工具，所以下载 <a target="_blank" rel="noopener" href="https://github.com/coreybutler/nvm-windows/releases">nvm</a> 可以帮助你方便的管理与切换 node 环境版本</p>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">nvm install &lt;nodejs.version&gt;</span><br><span class="line">nvm use &lt;nodejs.version&gt;</span><br></pre></td></tr></table></figure>
-
-<h3 id="cnpm"><a href="#cnpm" class="headerlink" title="cnpm"></a>cnpm</h3><p>npm 是 node 官方的包管理器。cnpm 是个中国版的 npm，是淘宝定制的 cnpm (gzip 压缩支持) 命令行工具代替默认的 npm。npm 和 cnpm 只是下载器的不同</p>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install <span class="literal">-g</span> cnpm -<span class="literal">-registry</span>=https://registry.npm.taobao.org</span><br></pre></td></tr></table></figure>
-
-<h3 id="nrm"><a href="#nrm" class="headerlink" title="nrm"></a>nrm</h3><p>nrm 这个包的功能可以让我们随意的切换我们下载包的地址。</p>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cnpm i nrm <span class="literal">-g</span></span><br><span class="line">nrm <span class="built_in">ls</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="Ruby-gem-下载"><a href="#Ruby-gem-下载" class="headerlink" title="Ruby gem 下载"></a>Ruby gem 下载</h3><p>使用 travis ci 时可能需要用到 <a target="_blank" rel="noopener" href="https://rubyinstaller.org/">gem</a>下载 travis 工具</p>
-<h3 id="命令权限"><a href="#命令权限" class="headerlink" title="命令权限"></a>命令权限</h3><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">set-executionpolicy</span> remotesigned</span><br></pre></td></tr></table></figure>
-
-<h2 id="Typora"><a href="#Typora" class="headerlink" title="Typora"></a>Typora</h2><p><a target="_blank" rel="noopener" href="https://typora.io/windows/dev_release.html">Typora </a>是一款强大简洁的 markdown 文本编辑器，可以使用它高效的编码 md 文档</p>
-<h2 id="listary"><a href="#listary" class="headerlink" title="listary"></a>listary</h2><p><a target="_blank" rel="noopener" href="https://www.listary.com/download">Listary</a> 是一个革命性的 Windows 搜索工具，可以帮你快速查找文件和启动应用程序</p>
-<h2 id="snipaste"><a href="#snipaste" class="headerlink" title="snipaste"></a>snipaste</h2><p>很好用的截图工具，支持多张截图拼图，快捷键—F1：截图；F3：将截图放在桌面进行拼图，下载地址点<a target="_blank" rel="noopener" href="https://zh.snipaste.com/">这里</a></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://huangyuye.github.io/2021/04/05/yuque/%E8%AF%AD%E9%9B%80-Hexo-GitHub/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="yuye Huang">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="HYY">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/04/05/yuque/%E8%AF%AD%E9%9B%80-Hexo-GitHub/" class="post-title-link" itemprop="url">语雀-Hexo-GitHub</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-04-05 11:17:36" itemprop="dateCreated datePublished" datetime="2021-04-05T11:17:36+00:00">2021-04-05</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-05-09 16:17:40" itemprop="dateModified" datetime="2021-05-09T16:17:40+00:00">2021-05-09</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h3 id=""><a href="#" class="headerlink" title=""></a></h3><h2 id="角色介绍"><a href="#角色介绍" class="headerlink" title="角色介绍"></a>角色介绍</h2><h3 id="语雀"><a href="#语雀" class="headerlink" title="语雀"></a>语雀</h3><p>云端写作工具</p>
-<h4 id="Web-Hook"><a href="#Web-Hook" class="headerlink" title="Web Hook"></a>Web Hook</h4><p>可以创建写作时的钩子，即可以监听文章内容的变更事件（更新、新建、删除等）并请求某接口（get 请求）</p>
-<h3 id="Hexo"><a href="#Hexo" class="headerlink" title="Hexo"></a>Hexo</h3><p><a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/index.html">Hexo</a>是一个博客框架，支持专注于.md 格式的内容编辑后快速生成静态博客页面</p>
-<h3 id="Github"><a href="#Github" class="headerlink" title="Github"></a>Github</h3><p>提供托管生成的静态页面的功能</p>
-<h4 id="GitHub-Actions"><a href="#GitHub-Actions" class="headerlink" title="GitHub Actions"></a>GitHub Actions</h4><p>可以作为 travis ci 的替代方案</p>
-<h3 id="Travis"><a href="#Travis" class="headerlink" title="Travis"></a>Travis</h3><p><a target="_blank" rel="noopener" href="https://travis-ci.com/">Travis</a>是一个提供 github 项目的 CI 持续集成的免费平台<br>Travis 可以通过 api 的方式触发构建过程</p>
-<h3 id="腾讯云函数-serverless"><a href="#腾讯云函数-serverless" class="headerlink" title="腾讯云函数 serverless"></a>腾讯云函数 serverless</h3><p>使用平台支持的语言（如 php、python 等）编写核心代码并设置代码运行的条件（可定时触发或者 API 触发等），代码即可在腾讯云基础设施上弹性、安全地运行。</p>
-<h2 id="角色关系"><a href="#角色关系" class="headerlink" title="角色关系"></a>角色关系</h2><ul>
-<li>可以在 GitHub 中创建 github pages 作为 <code>博客</code>  项目 ，用于保存自己的博客的前端资源文件，且可以通过 github 提供的个人博客域名展示自己的博客内容</li>
-<li>Hexo 为博客框架，可以将编写的<code>文章</code>(.md 文件)按照 <code>hexo模板</code>  格式生成前端静态资源文件。hexo 框架支持配置在生成前端资源文件之后将你的文件推送部署到 github 进行托管</li>
-<li>Travis 为持续集成工具，可以为你免去使用 hexo 框架带来的一些冗余且重复性的操作，但在此之前你需要像下面这样做：<ul>
-<li>你需要维护你的 <code>文章</code> （.md 文件）到 github 的某个项目中，当然你可以选择复用博客项目，使用该项目的另一个分支即可</li>
-<li>登入 travis，关联你的 gitHub 项目（托管 <code>文章</code>  的项目与分支）</li>
-<li>在托管 <code>文章</code> 的项目根目录下配置好 travis 的配置文件，配置内容包括将 hexo 构建生成博客内容、hexo 部署博客内容到 <code>博客</code>  项目、访问 <code>博客</code>  项目的授权信息等（涉及到博客项目的 push 操作）</li>
-<li>登入 travis，配置好相关的 gitHub 访问授权</li>
-<li>以上配置结束后，后续你只需要专心关注你的文章，必及时将你的文章内容推送到 github，travis 就会自动化地帮你构建出博客内容，并发布最新内容到你的个人博客了</li>
-</ul>
-</li>
-<li>语雀为写作工具，写作内容自带云同步效果，且拥有较好的写作用户体验，所以可以考虑放弃在本地机器中用 typora 等工具写文章，直接到语雀上进行云写作。这样就衍生出一个新问题，之前本地写的文章都可以推送到 github，且由 travis 和 hexo 帮你生成并搭建出你的个人博客内容，那语雀上写的文章能不能也达到这效果？答案是可以的</li>
-<li>语雀 web hook 可以监听你的写作行为，可以在更新文章时触发调用某个外部的 API 接口，而 travis 恰好提供了这种机制，提供了 travis api 接口，允许外部触发 github 项目的 build 流程，该 api 方法为 post 请求</li>
-<li>但是语雀 web hook 限制了调用的 API 必须是 get 请求的，不能是 post 请求的，所以就需要使用腾讯云函数</li>
-</ul>
-<h2 id="搭建流程"><a href="#搭建流程" class="headerlink" title="搭建流程"></a>搭建流程</h2><h2 id="授权问题"><a href="#授权问题" class="headerlink" title="授权问题"></a>授权问题</h2><ol>
-<li>travis ci 可以使用两种方式访问 Github：<ul>
-<li>一种是使用 github 的 personal access token（使用环境变量的方式配置到 travis）</li>
-<li>一种是使用 ssh key 的方式，将 ssh 公钥配置到 github 的 travis 项目中，前提会将公钥文件通过 travis 的加密方式加密，生成 xxx.enc 文件，并将密钥配置到 travis 环境变量中，明文显示的公钥文件可删除</li>
-</ul>
-</li>
-<li>同上，travis ci 同步语雀文章需要使用到语雀的 <a target="_blank" rel="noopener" href="https://www.yuque.com/settings/tokens">personal access token</a></li>
+<h3 id="课外功课"><a href="#课外功课" class="headerlink" title="课外功课"></a>课外功课</h3><ol>
+<li>考虑做一个属于自己的项目，最好是能在日常使用的产品</li>
 </ol>
-<h2 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h2><ul>
-<li>调用 travis api 时，语雀 webhook 以及 serverless 云函数中的<code>仓库slug</code>参数值（user_name/repo_name）必须先进行 urlencode，否则接口调用会报 404 错误。（<strong>一定要注意，这个坑折腾了很长时间</strong>）</li>
-</ul>
-<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">&quot;@type&quot;</span>: <span class="string">&quot;error&quot;</span>,</span><br><span class="line">  <span class="attr">&quot;error_type&quot;</span>: <span class="string">&quot;not_found&quot;</span>,</span><br><span class="line">  <span class="attr">&quot;error_message&quot;</span>: <span class="string">&quot;resource not found (or insufficient access)&quot;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>建议先根据仓库 slug 查询仓库 id 避免后续修改仓库名称导致 404 等错误<ul>
-<li>api.travis-ci.org/repo/3121806s7/requests</li>
-</ul>
-</li>
-<li>语雀 webhook 不能直接构建脚本直接发起 POST 请求到 Travis，所以可以通过代理服务触发 Travis CI API<ul>
-<li>腾讯云函数作为代理服务，Web Hook 的请求发送至该服务后，该服务去触发 Travis 的 CI 构建。</li>
-</ul>
-</li>
-<li>针对语雀图片无法正常显示的解决办法（语雀防盗链）<ul>
-<li>在主题的 layout 文件夹中的 post.ejs 文件请求头中加上一句</li>
-</ul>
-</li>
-</ul>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;referrer&quot;</span> <span class="attr">content</span>=<span class="string">&quot;no-referrer&quot;</span> /&gt;</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="为你的博客搭建图床"><a href="#为你的博客搭建图床" class="headerlink" title="为你的博客搭建图床"></a>为你的博客搭建图床</h2><p><a target="_blank" rel="noopener" href="https://www.yuque.com/huangyuye/blog/qabgtz">PicGo + GitHub 创建自己的免费图床</a></p>
-<h2 id="美化你的博客主题"><a href="#美化你的博客主题" class="headerlink" title="美化你的博客主题"></a>美化你的博客主题</h2><p><a target="_blank" rel="noopener" href="https://www.yuque.com/huangyuye/blog/eqqt0i">Hexo 主题美化</a></p>
-<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><ul>
-<li>《<a target="_blank" rel="noopener" href="https://www.yuque.com/hxfqg9/web/gtb5ck">语雀自动同步到 hexo 博客</a>》</li>
-<li>《<a target="_blank" rel="noopener" href="https://www.yuque.com/joashzhao/blog/sync-yuque-to-hexo#egrli">语雀自动同步 HEXO 机器人——搭建细节</a>》</li>
-<li>《<a target="_blank" rel="noopener" href="https://segmentfault.com/a/1190000017797561">Hexo 博客终极玩法：云端写作，自动部署</a>》</li>
-</ul>
-<h2 id="TODO"><a href="#TODO" class="headerlink" title="TODO"></a>TODO</h2><ol>
-<li>了解 GitHub Pages，需要搭建 github.io 的 repo_name 可否自定义？可否自定义 repo_branch？</li>
-<li>语雀 - Hexo - Github 同步之后，能否在博客中加上本地机器写的文章？</li>
-<li>博客主题：Hexo 美化 与 GitHub Pages 美化</li>
-<li>使用 GitHub Actions 替代 Travis</li>
-<li>学会云管理自己的配置—<a target="_blank" rel="noopener" href="https://www.cnblogs.com/thinkam/p/10922920.html">Gist</a></li>
+<h3 id="把自己当新人"><a href="#把自己当新人" class="headerlink" title="把自己当新人"></a>把自己当新人</h3><ol>
+<li>经常向自己提问，自己擅长什么技能？优势是什么？能做什么？公司为什么需要你？想象自己如果重新面试新公司，你能拿出什么来？</li>
 </ol>
-
+<h2 id="实践"><a href="#实践" class="headerlink" title="实践"></a>实践</h2><h3 id="做题记录"><a href="#做题记录" class="headerlink" title="做题记录"></a>做题记录</h3><p>参考链接：<a target="_blank" rel="noopener" href="https://baijiahao.baidu.com/s?id=1669904169998381448&amp;wfr=spider&amp;for=pc">https://baijiahao.baidu.com/s?id=1669904169998381448&amp;wfr=spider&amp;for=pc</a></p>
+<h4 id="数据结构篇"><a href="#数据结构篇" class="headerlink" title="数据结构篇"></a>数据结构篇</h4><ol>
+<li>二叉树</li>
+<li>链表</li>
+<li>栈和队列</li>
+<li>二进制</li>
+</ol>
+<h4 id="基础算法篇"><a href="#基础算法篇" class="headerlink" title="基础算法篇"></a>基础算法篇</h4><ol>
+<li>二分搜索</li>
+<li>排序算法</li>
+<li>动态规划</li>
+</ol>
+<h4 id="算法思维"><a href="#算法思维" class="headerlink" title="算法思维"></a>算法思维</h4><ol>
+<li>递归思维</li>
+<li>滑动窗口思想</li>
+<li>二叉搜索树</li>
+<li>回溯法</li>
+</ol>
+<h4 id="基础算法篇-1"><a href="#基础算法篇-1" class="headerlink" title="基础算法篇"></a>基础算法篇</h4><h4 id="算法思维-1"><a href="#算法思维-1" class="headerlink" title="算法思维"></a>算法思维</h4><h3 id="课外功课-1"><a href="#课外功课-1" class="headerlink" title="课外功课"></a>课外功课</h3>
       
     </div>
 
@@ -541,14 +475,14 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">53</span>
+          <span class="site-state-item-count">52</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">18</span>
+        <span class="site-state-item-count">21</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
   </nav>
