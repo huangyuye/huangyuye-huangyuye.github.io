@@ -180,7 +180,7 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2021-05-09 15:52:56" itemprop="dateCreated datePublished" datetime="2021-05-09T15:52:56+00:00">2021-05-09</time>
+              <time title="创建时间：2021-05-09 15:53:56" itemprop="dateCreated datePublished" datetime="2021-05-09T15:53:56+00:00">2021-05-09</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -268,6 +268,174 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://huangyuye.github.io/2021/05/09/Java/%E7%AC%94%E8%AE%B0/%E5%AE%B9%E5%99%A8/%E5%BA%8F%E5%88%97%E5%8C%96%E4%B8%8E%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="yuye Huang">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="HYY">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/05/09/Java/%E7%AC%94%E8%AE%B0/%E5%AE%B9%E5%99%A8/%E5%BA%8F%E5%88%97%E5%8C%96%E4%B8%8E%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96/" class="post-title-link" itemprop="url">未命名</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-05-09 15:53:56" itemprop="dateCreated datePublished" datetime="2021-05-09T15:53:56+00:00">2021-05-09</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="1、什么是序列化与反序列化？"><a href="#1、什么是序列化与反序列化？" class="headerlink" title="1、什么是序列化与反序列化？"></a><strong>1、什么是序列化与反序列化？</strong></h2><ul>
+<li><p>序列化：指把堆内存中的 Java 对象数据，通过某种方式把对象存储到磁盘文件中或者传递给其他网络节点（在网络上传输），这个过程称为序列化。通俗来说就是将数据结构或对象转换成二进制串的过程</p>
+</li>
+<li><p>反序列化：把磁盘文件中的对象数据或者把网络节点上的对象数据，恢复成Java对象模型的过程。也就是将在序列化过程中所生成的二进制串转换成数据结构或者对象的过程</p>
+</li>
+</ul>
+<h2 id="2、为什么要做序列化？"><a href="#2、为什么要做序列化？" class="headerlink" title="2、为什么要做序列化？"></a><strong>2、为什么要做序列化？</strong></h2><ul>
+<li><p>在分布式系统中，此时需要把对象在网络上传输，就得把对象数据转换为二进制形式，需要共享的数据的 JavaBean 对象，都得做序列化。</p>
+</li>
+<li><p>服务器钝化：如果服务器发现某些对象好久没活动了，那么服务器就会把这些内存中的对象持久化在本地磁盘文件中（Java对象转换为二进制文件）；如果服务器发现某些对象需要活动时，先去内存中寻找，找不到再去磁盘文件中反序列化我们的对象数据，恢复成 Java 对象。这样能节省服务器内存。</p>
+</li>
+</ul>
+<h2 id="3、Java-怎么进行序列化？"><a href="#3、Java-怎么进行序列化？" class="headerlink" title="3、Java 怎么进行序列化？"></a><strong>3、Java 怎么进行序列化？</strong></h2><ul>
+<li><p>需要做序列化的对象的类，必须实现序列化接口：Java.lang.Serializable 接口（这是一个标志接口，没有任何抽象方法），Java 中大多数类都实现了该接口，比如：String，Integer</p>
+</li>
+<li><p>底层会判断，如果当前对象是 Serializable 的实例，才允许做序列化，Java对象 <code>instanceof Serializable</code> 来判断。</p>
+</li>
+<li><p>在 Java 中使用对象流来完成序列化和反序列化</p>
+</li>
+</ul>
+<p>　<strong>ObjectOutputStream</strong>：通过 writeObject()方法做序列化操作</p>
+<p>　<strong>ObjectInputStream</strong>：通过 readObject() 方法做反序列化操作</p>
+<p><img src="https://cdn.jsdelivr.net/gh/huangyuye/huangyuye.github.io@data/img/PhYVoF5wx8dElg4.png" alt="img"></p>
+<h3 id="第一步：创建一个-JavaBean-对象"><a href="#第一步：创建一个-JavaBean-对象" class="headerlink" title="第一步：创建一个 JavaBean 对象"></a><strong>第一步：创建一个 JavaBean 对象</strong></h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> lombok.AllArgsConstructor;</span><br><span class="line"><span class="keyword">import</span> lombok.Data;</span><br><span class="line"><span class="keyword">import</span> lombok.NoArgsConstructor;</span><br><span class="line"><span class="keyword">import</span> java.io.Serializable;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Data</span></span><br><span class="line"><span class="meta">@NoArgsConstructor</span></span><br><span class="line"><span class="meta">@AllArgsConstructor</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Person</span> <span class="keyword">implements</span> <span class="title">Serializable</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> age;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">toString</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;Person [name=&quot;</span> + name + <span class="string">&quot;, age=&quot;</span> + age + <span class="string">&quot;]&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="第二步：使用-ObjectOutputStream-对象实现序列化"><a href="#第二步：使用-ObjectOutputStream-对象实现序列化" class="headerlink" title="第二步：使用 ObjectOutputStream 对象实现序列化"></a><strong>第二步：使用 ObjectOutputStream 对象实现序列化</strong></h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//在根目录下新建一个 io 的文件夹</span></span><br><span class="line">   OutputStream op = <span class="keyword">new</span> FileOutputStream(<span class="string">&quot;io&quot;</span>+File.separator+<span class="string">&quot;a.txt&quot;</span>); </span><br><span class="line">   ObjectOutputStream ops = <span class="keyword">new</span> ObjectOutputStream(op); </span><br><span class="line">   ops.writeObject(<span class="keyword">new</span> Person(<span class="string">&quot;vae&quot;</span>,<span class="number">1</span>));   </span><br><span class="line">ops.close();</span><br><span class="line"><span class="comment">// 我们打开 a.txt 文件，发现里面的内容乱码，注意这不需要我们来看懂，这是二进制文件，计算机能读懂就行了。</span></span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>错误一：</strong>如果新建的 Person 对象没有实现 Serializable 接口，那么上面的操作会报错：</p>
+<p><img src="D:\AppData\YoudaoNote\qqB53912A331D409871E525BE52BFB5C3B\c301f97fba5249a5b3f2e347f918bcb7\0-2013853053.png" alt="img"></p>
+<h3 id="第三步：使用ObjectInputStream-对象实现反序列化"><a href="#第三步：使用ObjectInputStream-对象实现反序列化" class="headerlink" title="第三步：使用ObjectInputStream 对象实现反序列化"></a><strong>第三步：使用ObjectInputStream 对象实现反序列化</strong></h3><p><strong>反序列化的对象必须要提供该对象的字节码文件.class</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">InputStream in = <span class="keyword">new</span> FileInputStream(<span class="string">&quot;io&quot;</span> + File.separator + <span class="string">&quot;a.txt&quot;</span>);</span><br><span class="line">   ObjectInputStream os = <span class="keyword">new</span> ObjectInputStream(in);</span><br><span class="line">   <span class="keyword">byte</span>[] buffer = <span class="keyword">new</span> <span class="keyword">byte</span>[<span class="number">10</span>];</span><br><span class="line">   <span class="keyword">int</span> len = -<span class="number">1</span>;</span><br><span class="line">   Person p = (Person)os.readObject();</span><br><span class="line">   System.out.println(p);  <span class="comment">//Person [name=vae, age=1] os.close();</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="常见问题"><a href="#常见问题" class="headerlink" title="常见问题"></a>常见问题</h2><h3 id="如果某些数据不需要做序列化，比如密码，比如上面的年龄？"><a href="#如果某些数据不需要做序列化，比如密码，比如上面的年龄？" class="headerlink" title="如果某些数据不需要做序列化，比如密码，比如上面的年龄？"></a>如果某些数据不需要做序列化，比如密码，比如上面的年龄？</h3><p><strong>解决办法：</strong>在字段面前加上 transient</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> String name;<span class="comment">//需要序列化 </span></span><br><span class="line"><span class="keyword">transient</span> <span class="keyword">private</span> <span class="keyword">int</span> age;<span class="comment">//不需要序列化</span></span><br></pre></td></tr></table></figure>
+
+
+
+<p>那么我们在反序列化的时候，打印出来的就是Person [name=vae, age=0]，整型数据默认值为 0 </p>
+<h3 id="对象版本变化"><a href="#对象版本变化" class="headerlink" title="对象版本变化"></a>对象版本变化</h3><p><strong>在完成序列化操作后，由于项目的升级或修改，可能我们会对序列化对象进行修改，比如增加某个字段，那么我们在进行反序列化就会报错：</strong></p>
+<p><img src="https://cdn.jsdelivr.net/gh/huangyuye/huangyuye.github.io@data/img/28-918255453.png" alt="img"></p>
+<p><img src="D:\AppData\YoudaoNote\qqB53912A331D409871E525BE52BFB5C3B\8d3a27ce65024caeaf3cb59bda842a17\5-1053058670.png" alt="img"></p>
+<p><strong>解决办法：</strong>在 JavaBean 对象中增加一个 serialVersionUID 字段，用来固定这个版本，无论我们怎么修改，版本都是一致的，就能进行反序列化了</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">long</span> serialVersionUID = <span class="number">8656128222714547171L</span>;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>后面反序列化出来的对象属性以最新版本的为准。</p>
+<p>而txt文件中的内容不会变，仍然仅记录的最初始的对象，而反序列化，会根据版本号，找到当前最新的对象（版本号已经固定不变，会根据版本号去找；）</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://huangyuye.github.io/2021/05/09/Java/%E7%AC%94%E8%AE%B0/%E5%AE%B9%E5%99%A8/%E9%9B%86%E5%90%88%E5%B7%A5%E5%85%B7/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="yuye Huang">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="HYY">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/05/09/Java/%E7%AC%94%E8%AE%B0/%E5%AE%B9%E5%99%A8/%E9%9B%86%E5%90%88%E5%B7%A5%E5%85%B7/" class="post-title-link" itemprop="url">未命名</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-05-09 15:53:56" itemprop="dateCreated datePublished" datetime="2021-05-09T15:53:56+00:00">2021-05-09</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="Collections"><a href="#Collections" class="headerlink" title="Collections"></a>Collections</h2><h2 id="Arrays"><a href="#Arrays" class="headerlink" title="Arrays"></a>Arrays</h2><h2 id="Objects"><a href="#Objects" class="headerlink" title="Objects"></a>Objects</h2>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://huangyuye.github.io/2021/05/09/Java/%E7%AC%94%E8%AE%B0/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/Java%20%E5%A4%8D%E4%B9%A0%E7%AC%94%E8%AE%B0/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -292,7 +460,7 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2021-05-09 15:52:56" itemprop="dateCreated datePublished" datetime="2021-05-09T15:52:56+00:00">2021-05-09</time>
+              <time title="创建时间：2021-05-09 15:53:56" itemprop="dateCreated datePublished" datetime="2021-05-09T15:53:56+00:00">2021-05-09</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -362,6 +530,92 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://huangyuye.github.io/2021/05/09/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/mq/%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="yuye Huang">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="HYY">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/05/09/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/mq/%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/" class="post-title-link" itemprop="url">未命名</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-05-09 15:53:56" itemprop="dateCreated datePublished" datetime="2021-05-09T15:53:56+00:00">2021-05-09</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/" itemprop="url" rel="index"><span itemprop="name">知识库</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/mq/" itemprop="url" rel="index"><span itemprop="name">mq</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <ul>
+<li><p>docker 镜像仓库配置</p>
+</li>
+<li><p>docker 镜像搜索</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> docker search activemq</span> </span><br></pre></td></tr></table></figure></li>
+<li><p>docker 镜像拉取</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> docker pull webcenter/activemq</span></span><br></pre></td></tr></table></figure></li>
+<li><p>docker 容器运行</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> -d 后台运行</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> --name 指定容器名称</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> -p 端口映射</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 最后指定镜像</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> docker run -d --name activemq -p 61617:61616 -p 8162:8161 webcenter/activemq</span></span><br></pre></td></tr></table></figure></li>
+<li><p>进入容器</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> -i：表示以“交互模式”运行容器</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> -t：表示容器启动后会进入其命令行</span> </span><br><span class="line"><span class="meta">#</span><span class="bash"> [/bin/bash] 表示执行容器内的该命令</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> docker <span class="built_in">exec</span> -it activemq /bin/bash</span> </span><br></pre></td></tr></table></figure></li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://huangyuye.github.io/2021/05/09/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/mysql/20201110-mysql%E4%BD%BF%E7%94%A8%E5%9C%BA%E6%99%AF%E6%8A%80%E5%B7%A7/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -386,7 +640,7 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2021-05-09 15:52:56" itemprop="dateCreated datePublished" datetime="2021-05-09T15:52:56+00:00">2021-05-09</time>
+              <time title="创建时间：2021-05-09 15:53:56" itemprop="dateCreated datePublished" datetime="2021-05-09T15:53:56+00:00">2021-05-09</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -491,7 +745,7 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2021-05-09 15:52:56" itemprop="dateCreated datePublished" datetime="2021-05-09T15:52:56+00:00">2021-05-09</time>
+              <time title="创建时间：2021-05-09 15:53:56" itemprop="dateCreated datePublished" datetime="2021-05-09T15:53:56+00:00">2021-05-09</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -565,7 +819,7 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2021-05-09 15:52:56" itemprop="dateCreated datePublished" datetime="2021-05-09T15:52:56+00:00">2021-05-09</time>
+              <time title="创建时间：2021-05-09 15:53:56" itemprop="dateCreated datePublished" datetime="2021-05-09T15:53:56+00:00">2021-05-09</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -659,7 +913,7 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2021-05-09 15:52:56" itemprop="dateCreated datePublished" datetime="2021-05-09T15:52:56+00:00">2021-05-09</time>
+              <time title="创建时间：2021-05-09 15:53:56" itemprop="dateCreated datePublished" datetime="2021-05-09T15:53:56+00:00">2021-05-09</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -990,7 +1244,7 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2021-05-09 15:52:56" itemprop="dateCreated datePublished" datetime="2021-05-09T15:52:56+00:00">2021-05-09</time>
+              <time title="创建时间：2021-05-09 15:53:56" itemprop="dateCreated datePublished" datetime="2021-05-09T15:53:56+00:00">2021-05-09</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -1231,447 +1485,6 @@
 <p>  “editor.quickSuggestions”: {</p>
 <p>​    “other”: true,</p>
 <p>​    “comments”: true,</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://huangyuye.github.io/2021/05/09/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/windows%E5%B7%A5%E5%85%B7/%E6%96%B0%E7%94%B5%E8%84%91%E7%8E%AF%E5%A2%83%E5%87%86%E5%A4%87/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="yuye Huang">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="HYY">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/05/09/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/windows%E5%B7%A5%E5%85%B7/%E6%96%B0%E7%94%B5%E8%84%91%E7%8E%AF%E5%A2%83%E5%87%86%E5%A4%87/" class="post-title-link" itemprop="url">未命名</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-05-09 15:52:56" itemprop="dateCreated datePublished" datetime="2021-05-09T15:52:56+00:00">2021-05-09</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/" itemprop="url" rel="index"><span itemprop="name">知识库</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/windows%E5%B7%A5%E5%85%B7/" itemprop="url" rel="index"><span itemprop="name">windows工具</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p><strong>JAVA 环境变量配置</strong></p>
-<ol>
-<li>下载jdk：x64</li>
-</ol>
-<p><a target="_blank" rel="noopener" href="https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html">https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html</a></p>
-<p>\2. 配置环境变量：</p>
-<p>配置java_home以及输出对应bin路径到class_path</p>
-<p><strong>配置maven</strong></p>
-<p>\1. 下载maven：</p>
-<p><a target="_blank" rel="noopener" href="http://maven.apache.org/download.cgi">http://maven.apache.org/download.cgi</a></p>
-<p>\2. 配置环境变量</p>
-<p>maven_home</p>
-<p><strong>配置mysql</strong></p>
-<p>\1. 下载mysql：</p>
-<p><a target="_blank" rel="noopener" href="https://dev.mysql.com/downloads/mysql/">https://dev.mysql.com/downloads/mysql/</a></p>
-<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/ziyoublog/p/9722849.html">https://www.cnblogs.com/ziyoublog/p/9722849.html</a></p>
-<p>\2. 配置环境变量</p>
-<p><strong>idea开发工具：</strong></p>
-<ol>
-<li>安装idea插件：</li>
-</ol>
-<ul>
-<li><p>Power mode II</p>
-</li>
-<li><p>lombok</p>
-</li>
-<li><p>Alibaba Java Coding Guidelines </p>
-</li>
-<li><ul>
-<li>代码规范扫描</li>
-</ul>
-</li>
-<li><p>maven helper</p>
-</li>
-</ul>
-<ol>
-<li>配置idea模板</li>
-</ol>
-<p><img src="D:/AppData/YoudaoNote/qqB53912A331D409871E525BE52BFB5C3B/53108c3c75324bfa9aed24f53616ea40/attachment.png" alt="powerDesigner的常用配置及使用技巧 + idea注释模板配置.pdf"></p>
-<p><img src="D:\AppData\YoudaoNote\qqB53912A331D409871E525BE52BFB5C3B\347fd90399f64b9a89582b54b4e61ea0\clipboard.png" alt="img"></p>
-<p><strong>环境变量配置</strong></p>
-<p>给已安装的软件配置快捷方式（软连接），并统一放置在同一文件夹，配置系统环境变量 Path，通过 win键 + R 输入 软件文件名即可快速打开软件</p>
-<p><strong>常用工具下载：</strong></p>
-<ul>
-<li><p>有道云笔记</p>
-</li>
-<li><p>接口测试工具</p>
-</li>
-<li><ul>
-<li>postman （在线postman亦可）</li>
-<li>jmeter</li>
-</ul>
-</li>
-<li><p>vs code</p>
-</li>
-<li><p>Tim、钉钉    </p>
-</li>
-<li><p>google浏览器</p>
-</li>
-<li><p>Listary File Search &amp; App Launcher</p>
-</li>
-<li><p>cmder</p>
-</li>
-<li><ul>
-<li><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/5b7c985240a7">https://www.jianshu.com/p/5b7c985240a7</a></li>
-</ul>
-</li>
-<li><p>7z</p>
-</li>
-<li><p>iobot uninstaller</p>
-</li>
-<li><p>ditto</p>
-</li>
-</ul>
-<p><strong>其他</strong></p>
-<p>1、chocolately 包管理工具</p>
-<p>2、steam    xxxxxx</p>
-<p>3、xbox</p>
-<p>4、docker for windows</p>
-<p>5、Moboxterm 全 能终端神器</p>
-<p>6、spacesniffer (磁盘空间分析工具)</p>
-<p>7、sdkman SDK管理利器</p>
-<p>8、everything 文件名搜索工具，类似Listary</p>
-<p>9、listary File Search &amp; App Launcher</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://huangyuye.github.io/2021/05/09/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/windows%E5%B7%A5%E5%85%B7/%E7%94%B5%E8%84%91%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="yuye Huang">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="HYY">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/05/09/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/windows%E5%B7%A5%E5%85%B7/%E7%94%B5%E8%84%91%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7/" class="post-title-link" itemprop="url">未命名</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-05-09 15:52:56" itemprop="dateCreated datePublished" datetime="2021-05-09T15:52:56+00:00">2021-05-09</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/" itemprop="url" rel="index"><span itemprop="name">知识库</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/windows%E5%B7%A5%E5%85%B7/" itemprop="url" rel="index"><span itemprop="name">windows工具</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="磁盘空间占用分析工具"><a href="#磁盘空间占用分析工具" class="headerlink" title="磁盘空间占用分析工具"></a>磁盘空间占用分析工具</h2><p>spacesniffer（空间嗅探器）</p>
-<h3 id="大文件清单"><a href="#大文件清单" class="headerlink" title="大文件清单"></a>大文件清单</h3><ol>
-<li>C:\pagefile.sys：11.1GB (虚拟内存文件，内存不够时会将数据放到该文件，可以考虑迁移到其他盘符)</li>
-<li>C:\hiberfil.sys：6.3GB</li>
-<li>~\AppData\Local</li>
-</ol>
-<h2 id="中转清单"><a href="#中转清单" class="headerlink" title="中转清单"></a>中转清单</h2><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV137411K7V1/?spm_id_from=333.788.recommend_more_video.-1">https://www.bilibili.com/video/BV137411K7V1/?spm_id_from=333.788.recommend_more_video.-1</a></p>
-<p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Xt4y1m7r7/?spm_id_from=333.788.recommend_more_video.-1">https://www.bilibili.com/video/BV1Xt4y1m7r7/?spm_id_from=333.788.recommend_more_video.-1</a></p>
-<ol>
-<li><p>cleanmypc 清理垃圾</p>
-</li>
-<li><p>geek 卸载软件</p>
-</li>
-<li><p>snipaste 电脑截图</p>
-</li>
-<li><p>utools 小型应用市场</p>
-</li>
-<li><p>spacesniffer 磁盘空间占用分析工具</p>
-</li>
-<li><p>geek uninstaller 软件卸载</p>
-</li>
-<li><p>Edge 浏览器</p>
-</li>
-<li><p>播放器：PotPlayer</p>
-</li>
-<li><p>notepads</p>
-</li>
-<li><p>杀毒：火绒</p>
-</li>
-<li><p>window 关闭自动更新</p>
-</li>
-<li><p>桌面整理.exe</p>
-</li>
-<li><p>软件下载器：腾讯软件管家、uTools（百宝箱）</p>
-</li>
-<li><p>万彩办公大师</p>
-</li>
-<li><p>截图工具</p>
-<ol>
-<li>shareX</li>
-<li>tim 屏幕录制，截图等</li>
-</ol>
-</li>
-<li><p>图片查看工具：honey view</p>
-</li>
-<li><p>下载器：IDM、NDM</p>
-</li>
-<li><p>输入法：搜狗</p>
-</li>
-<li><p>剪贴板：ditto</p>
-</li>
-<li><p>RST（硬盘优化）</p>
-</li>
-</ol>
-<h2 id="资源搜索"><a href="#资源搜索" class="headerlink" title="资源搜索"></a>资源搜索</h2><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1TN411d7FL/?spm_id_from=333.788.recommend_more_video.3">https://www.bilibili.com/video/BV1TN411d7FL/?spm_id_from=333.788.recommend_more_video.3</a></p>
-<p>一、资源导航网站<br>1、书享家（电子书资源网站导航）：<a target="_blank" rel="noopener" href="http://shuxiangjia.cn/">http://shuxiangjia.cn/</a><br>2、学吧导航（自学资源网站导航）：<a target="_blank" rel="noopener" href="https://www.xue8nav.com/">https://www.xue8nav.com/</a><br>3、科塔学术（学术资源网站导航）：<a target="_blank" rel="noopener" href="https://site.sciping.com/">https://site.sciping.com/</a><br>4、HiPPTer（PPT资源网站导航）：<a target="_blank" rel="noopener" href="http://www.hippter.com/">http://www.hippter.com/</a><br>5、Seeseed（设计素材资源导航）：<a target="_blank" rel="noopener" href="https://www.seeseed.com/">https://www.seeseed.com/</a></p>
-<p>二、工具导航网站<br>1、阿猫阿狗导航（互联网工具导航）：<a target="_blank" rel="noopener" href="https://dh.woshipm.com/">https://dh.woshipm.com/</a><br>2、创造狮（互联网工具导航）：<a target="_blank" rel="noopener" href="http://chuangzaoshi.com/index">http://chuangzaoshi.com/index</a><br>3、addog（广告营销工具导航）：<a target="_blank" rel="noopener" href="https://www.addog.vip/">https://www.addog.vip/</a><br>4、199it（数据导航）：<a target="_blank" rel="noopener" href="http://hao.199it.com/">http://hao.199it.com/</a><br>5、雪球导航（财经工具导航）：<a target="_blank" rel="noopener" href="https://xueqiu.com/dh">https://xueqiu.com/dh</a><br>6、打假导航（国家部门导航）：<a target="_blank" rel="noopener" href="http://www.dajiadaohang.com/">http://www.dajiadaohang.com/</a><br>7、搜狗网址导航（地方部门导航）：<a target="_blank" rel="noopener" href="http://123.sogou.com/diqu/">http://123.sogou.com/diqu/</a></p>
-<p>三、聚合搜索平台<br>1、一个开始：<a target="_blank" rel="noopener" href="https://aur.one/">https://aur.one</a><br>2、虫部落：<a target="_blank" rel="noopener" href="https://search.chongbuluo.com/">https://search.chongbuluo.com/</a></p>
-<h2 id="电脑壁纸"><a href="#电脑壁纸" class="headerlink" title="电脑壁纸"></a>电脑壁纸</h2><ol>
-<li><p>wallpaper engine （对标 火萤、upupoo）</p>
-<ul>
-<li>steam（游戏工厂）下载</li>
-</ul>
-</li>
-<li><p>雨滴桌面</p>
-</li>
-</ol>
-<ul>
-<li>链接<ul>
-<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/48499093">https://zhuanlan.zhihu.com/p/48499093</a></li>
-<li><a target="_blank" rel="noopener" href="https://bbs.rainmeter.cn/">https://bbs.rainmeter.cn/</a></li>
-</ul>
-</li>
-<li>定制桌面，也可以整理桌面（可安装dock插件）：</li>
-<li>RocketDock : 简化任务栏</li>
-</ul>
-<ol start="3">
-<li>桌面专业整理工具：fences</li>
-</ol>
-<ul>
-<li>（对标腾讯桌面整理、蜂窝桌面整理）</li>
-<li>steam 收费下载</li>
-</ul>
-<ol start="4">
-<li>透明任务栏:打开windows商店搜索translucentTB（可对标RocketDock）</li>
-</ol>
-<ul>
-<li>TranslucentTB汉化版软件 链接：<a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1B7_yNt1NuGteK93BXay8jg">https://pan.baidu.com/s/1B7_yNt1NuGteK93BXay8jg</a> 提取码：2fe1</li>
-</ul>
-<ol start="5">
-<li>致美化<ul>
-<li>素材网站</li>
-</ul>
-</li>
-<li>屏保<ol>
-<li>Fliqlo：<a target="_blank" rel="noopener" href="https://www.screensaversplanet.com/screensavers/fliqlo-flip-clock-314/">https://www.screensaversplanet.com/screensavers/fliqlo-flip-clock-314/</a></li>
-</ol>
-</li>
-</ol>
-<p>RocketDock下载链接：<a target="_blank" rel="noopener" href="https://share.weiyun.com/5m8MbTX">https://share.weiyun.com/5m8MbTX</a> 密码：53ppwy<br>TranslucentTB下载链接：<a target="_blank" rel="noopener" href="https://share.weiyun.com/5kire7w">https://share.weiyun.com/5kire7w</a> 密码：f8qasr<br>StartIsBack下载链接：<a target="_blank" rel="noopener" href="https://share.weiyun.com/5FHacKV">https://share.weiyun.com/5FHacKV</a> 密码：sqmuid<br>我的世界鼠标指针下载链接：<a target="_blank" rel="noopener" href="https://share.weiyun.com/5am70hU">https://share.weiyun.com/5am70hU</a> 密码：9kf88e</p>
-<h2 id="电脑重装"><a href="#电脑重装" class="headerlink" title="电脑重装"></a>电脑重装</h2><p>deepin：<a target="_blank" rel="noopener" href="https://www.deepin.org/zh/">https://www.deepin.org/zh/</a></p>
-<h2 id="电脑跑分"><a href="#电脑跑分" class="headerlink" title="电脑跑分"></a>电脑跑分</h2><p>MSI afterburner（官网下载）：<a target="_blank" rel="noopener" href="http://download-cn.msi.com/uti_exe/vga/MSIAfterburnerSetup.zip">http://download-cn.msi.com/uti_exe/vga/MSIAfterburnerSetup.zip</a></p>
-<p>Aida64（官网试用版，有功能限制）：<a target="_blank" rel="noopener" href="http://download.aida64.com/aida64extreme620.exe">http://download.aida64.com/aida64extreme620.exe</a></p>
-<p>Aida64（网络绿色版）：<a target="_blank" rel="noopener" href="http://cr2.197946.com/aida64extreme_build_5157_xbnj9z3mdy.zip">http://cr2.197946.com/aida64extreme_build_5157_xbnj9z3mdy.zip</a></p>
-<p>AS SSD （官网英文版）：<a target="_blank" rel="noopener" href="https://www.alex-is.de/PHP/fusion/downloads.php?cat_id=4&amp;file_id=9">https://www.alex-is.de/PHP/fusion/downloads.php?cat_id=4&amp;file_id=9</a><br>AS SSD （网络汉化版）：<a target="_blank" rel="noopener" href="http://forspeed.onlinedown.net/down/newdown/3/12/AS%20SSD%20Benchmark%202.0.7316.34247.zip">http://forspeed.onlinedown.net/down/newdown/3/12/AS%20SSD%20Benchmark%202.0.7316.34247.zip</a></p>
-<p>Crystal DiskMark（官网下载）：<a target="_blank" rel="noopener" href="https://zh.osdn.net/frs/redir.php?m=xtom_us&amp;f=crystaldiskmark/71859/CrystalDiskMark7_0_0hShizuku.zip">https://zh.osdn.net/frs/redir.php?m=xtom_us&amp;f=crystaldiskmark%2F71859%2FCrystalDiskMark7_0_0hShizuku.zip</a></p>
-<p>HD tune Pro（官网15天试用版）：<a target="_blank" rel="noopener" href="http://www.hdtune.com/files/hdtunepro_575_trial.exe">http://www.hdtune.com/files/hdtunepro_575_trial.exe</a></p>
-<p>3D Mark（官网）：<a target="_blank" rel="noopener" href="https://www.3dmark.com/">https://www.3dmark.com/</a></p>
-<h2 id="程序员软件"><a href="#程序员软件" class="headerlink" title="程序员软件"></a>程序员软件</h2><p>1、抓包工具 charles （或fiddler）</p>
-<p>2、远程连接工具：xshell 家庭版</p>
-<p>3、在线 http 请求工具：postwoman</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://huangyuye.github.io/2021/05/09/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/%E5%89%8D%E7%AB%AF/%E9%A1%B9%E7%9B%AE%E5%9B%BE%E7%89%87%E5%BC%95%E7%94%A8/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="yuye Huang">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="HYY">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/05/09/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/%E5%89%8D%E7%AB%AF/%E9%A1%B9%E7%9B%AE%E5%9B%BE%E7%89%87%E5%BC%95%E7%94%A8/" class="post-title-link" itemprop="url">未命名</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-05-09 15:52:56" itemprop="dateCreated datePublished" datetime="2021-05-09T15:52:56+00:00">2021-05-09</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/" itemprop="url" rel="index"><span itemprop="name">知识库</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">前端</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="项目图片引用"><a href="#项目图片引用" class="headerlink" title="项目图片引用"></a>项目图片引用</h2><ol>
-<li>阿里巴巴矢量图（iconfont字体图标）<ol>
-<li>上传图标到矢量库</li>
-<li>项目中引用：@font-face {}</li>
-<li>根据矢量库图标对应编号使用字体图标</li>
-</ol>
-</li>
-<li>svg图片<ol>
-<li>Scalable Vector Graphics，意思为可缩放的矢量图形</li>
-<li>使用 XML 格式定义图形：用文本工具打开svg图片时内容为xml格式</li>
-<li>在放大或改变尺寸的情况下其图形质量不会有所损失</li>
-<li><strong>svg图片格式可上传到阿里巴巴矢量库</strong>：<ol>
-<li>下载原文件 图标制作模板.AI -&gt;  设置图标大小 -&gt; 存储为svg格式（建议使用存储为svg，不要使用导出为svg）-&gt; 上传图标到阿里矢量库 -&gt; 命名图标及定义图标标签，完成上传</li>
-<li><a target="_blank" rel="noopener" href="https://www.iconfont.cn/help/detail?spm=a313x.7781069.1998910419.d1c73b2de&amp;helptype=draw&amp;step=">https://www.iconfont.cn/help/detail?spm=a313x.7781069.1998910419.d1c73b2de&amp;helptype=draw&amp;step=</a></li>
-</ol>
-</li>
-</ol>
-</li>
-</ol>
-<p><strong>域名收敛</strong>.</p>
-<p>PC 时代为了突破浏览器的域名并发限制。有了域名发散。浏览器有并发限制，是为了防止DDOS攻击。</p>
-<p>域名收敛：将静态资源放在一个域名下。减少DNS解析的开销。</p>
-<p>域名发散：是将静态资源放在多个子域名下，就可以多线程下载，提高并行度，使客户端加载静态资源更加迅速。</p>
-<p>域名发散是pc端为了利用浏览器的多线程并行下载能力。而域名收敛多用与移动端，提高性能，因为dns解析是从后向前迭代解析，如果域名过多性能会下降，增加DNS的解析开销。</p>
 
       
     </div>

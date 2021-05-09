@@ -156,6 +156,806 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://huangyuye.github.io/2021/05/09/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/20200827-Java%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B%E8%A7%86%E9%A2%91/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="yuye Huang">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="HYY">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/05/09/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/20200827-Java%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B%E8%A7%86%E9%A2%91/" class="post-title-link" itemprop="url">未命名</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-05-09 15:53:56" itemprop="dateCreated datePublished" datetime="2021-05-09T15:53:56+00:00">2021-05-09</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/" itemprop="url" rel="index"><span itemprop="name">知识库</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <ol>
+<li>synchronized 默认是非公平锁，与线程申请锁顺序和等待锁时间无关</li>
+<li>reentrantLock可实现公平锁，tryLock，lockInterruptablly</li>
+<li>wait与notify结合与synchronized关键字使用建立同步模型<ol>
+<li>避免在获得obj锁后才能够去调用obj的wait与notify/notifyAll三个方法，否则就会报错。（即synchronized代码块内）</li>
+<li>在调用wait的时候，线程自动释放其占有的对象锁，同时不会去申请对象锁。当线程被唤醒的时候，它才再次获得了去获得对象锁的权利。（<strong>要等到获得锁后才真正可执行</strong>）</li>
+<li>notify仅唤醒一个线程并允许它去获得锁（<strong>由JVM确定唤醒哪个线程</strong>），notifyAll是唤醒所有等待这个对象的线程并允许它们去获得对象锁。（<strong>要等到获得锁后才真正可执行</strong>）</li>
+<li>notifyAll，虽然是对每个wait的对象都调用一次notify，但是这个还是<strong>有顺序的</strong>，每个对象都保存这一个等待对象链，调用的顺序就是这个链的顺序。</li>
+<li>当线程B调用obj.notify/notifyAll的时候，B正持有obj锁，因此，A1,A2,A3虽被唤醒，但是仍无法获得obj锁。直到B退出synchronized块，释放obj锁后，A1,A2,A3中的一个才有机会获得锁继续执行。（<strong>由JVM确定哪个线程获得锁-非公平</strong>）</li>
+<li>永远选择使用notifyAll而非notify，notify容易造成死锁，所有线程都在wait</li>
+</ol>
+</li>
+<li>生产者消费者问题：<ol>
+<li>synchronized 同步生产方法，生产者线程获得锁进入代码块后，若容器容量达到上限，则调用对象.wait()方法释放锁，其他生产者线程可以获得对象锁并进入同步生成方法，再次判断容器元素数量，达到上限则同样调用wait()方法并释放锁。此时多个生产者线程均在wait()，等待被唤醒。</li>
+<li>基于条件1情况下，此时消费者线程进入消费方法，消费了容器元素，并调用notifyAll()方法唤醒所有等待线程，此时等待中的所有生产者线程被唤醒，但是都在等待获得对象锁才能继续往前执行，得到对象锁的生产者线程需要再次判断元素数量，避免导致超出容器容量。</li>
+</ol>
+</li>
+<li>使用 lock 和 condition 代替 synchronized + wait/notify<ol>
+<li>lock.lock()，condition.await()，condition.signalAll() 一起使用</li>
+<li>lock可以精确指定唤醒的线程</li>
+</ol>
+</li>
+<li>ThreadLocal 线程局部变量<ol>
+<li>内存泄漏：<a target="_blank" rel="noopener" href="https://juejin.im/post/6844903683751149582">https://juejin.im/post/6844903683751149582</a></li>
+<li>空间换时间</li>
+</ol>
+</li>
+<li>socket长连接（TCP&amp;UDP）</li>
+<li>Java的线程池是基于并发容器实现的</li>
+<li>线程安全的单例模式—以下方式既不用加锁，也能实现懒加载<ol>
+<li>使用静态内部类：访问静态内部类的时候才会加载静态内部类</li>
+</ol>
+</li>
+<li>并发容器<ol>
+<li>ConcurrentHashMap（分段同步锁，默认16段，细化锁的粒度；1.8后node cas替代了section分段锁）— HashTable 锁住整个容器对象</li>
+<li>高并发且有排序需求，使用ConcurrentSkipMap替代TreeMap(SortedMap)<ol>
+<li>排序map：插入慢</li>
+</ol>
+</li>
+<li>CopyOnWriteList 对比 ArrayList和Vector<ol>
+<li>适合写少读多的场景（如监听器队列）</li>
+<li>写时复制列表：<ol>
+<li>读的效率高，写效率低</li>
+<li>写的时候，复制一份新的数据，不影响其他线程读数据旧的数据，写完后，将旧对象的引用指向新数据对象。</li>
+<li><a target="_blank" rel="noopener" href="http://ifeve.com/java-copy-on-write/">http://ifeve.com/java-copy-on-write/</a></li>
+</ol>
+</li>
+</ol>
+</li>
+<li>queue 英 [kjuː] 并发场景使用的队列分为以下两种<ol>
+<li>ConcurrentLinkedQueue  （并发<strong>加锁</strong>且<strong>无界</strong>单向队列-单向链表）<ol>
+<li>offer() // 同 add 方法</li>
+<li>poll()   //  获取第一个元素，且删除</li>
+<li>peek() //  获取第一个元素，但不删除</li>
+</ol>
+</li>
+<li>BlockingQueue 阻塞队列<ol>
+<li>队列实现<ol>
+<li>LinkedBlockingQueue (-)</li>
+<li>ArrayBlockingQueue (有界)</li>
+</ol>
+</li>
+<li>方法<ol>
+<li>put()：如果满了，线程会等待</li>
+<li>take()：如果空了，线程会等待</li>
+<li>add()：如果满了，线程会抛异常</li>
+<li>offer() // 同 add 方法，不会抛异常，而是返回添加结果boolean</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>DelayQueue 延迟队列，元素根据可消费时间排序<ol>
+<li>元素要实现Delayed接口（Delayed接口实现了Comparable接口）</li>
+<li>适用场景：执行定时任务</li>
+</ol>
+</li>
+<li>TransferQueue：（效率较高）<ol>
+<li>transfer() 场景：实时消息处理，生产者生产数据直接传送给消费者，若没有消费者或消费者来不及处理时，则生产者阻塞（如游戏服务器上接收消息传达给客户端）</li>
+<li>put()：不会阻塞，直接放入队列</li>
+<li>take()：消费</li>
+</ol>
+</li>
+<li>SynchronousQueue：（特殊的TransferQueue，容量为0，生产者生产数据时必须要有消费者消费）<ol>
+<li>put()：若没有消费者则阻塞</li>
+<li>add()：若没有消费者会抛异常</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>deque 英 [dek] 双端队列 </li>
+</ol>
+</li>
+<li>线程池<ol>
+<li>需从Executor顶层接口说起，定义标准接口execute(Runnable r)</li>
+<li>ExecutorService（interface 服务，执行任务）<ol>
+<li>submit(Runnable r)</li>
+<li>submit(Callable c)</li>
+</ol>
+</li>
+<li>Runnable &amp; Callable<ol>
+<li>Callable：有返回值，且可以捕获checked异常</li>
+</ol>
+</li>
+<li>Executors：工具类（工厂方法&amp;工具方法）</li>
+<li>ThreadPool 线程池<ol>
+<li>ExecutorService executorService = Executors.newFixedThreadPool(size); // 固定线程数量线程池</li>
+<li>Executors.newCachedThreadPool(); // 弹性数量的线程池，新增任务，若池子里没有空闲的线程，则新增线程执行任务，线程的空闲时间超过N秒后自动销毁，N秒可在创建线程池时可指定。</li>
+<li>Executors.newScheduledThreadPool(); // 英 [ˈʃedjuːl] 美 [ˈskedʒuːl] 定时执行任务，参考DelayQueue，替代Timer（Scheduled复用线程，Timer每次都新起线程），定时模式如下：<ol>
+<li>固定频率执行</li>
+</ol>
+</li>
+<li>Executors.newSingleThreadPool();  // 任务需顺序执行的场景</li>
+<li>Executors.newWorkStealingPool();  // daemon守护线程线程池（精灵线程、后台线程） （若没有非守护线程工作，则销毁？）// 0、1、2、3 四个线程<ol>
+<li>内部机制：ForkJoinPool</li>
+</ol>
+</li>
+<li>ForkJoinPool（精灵线程）</li>
+</ol>
+</li>
+<li>Future &amp; FutureTask<ol>
+<li>FutureTask 是 <strong>Future</strong> 和 <strong>Runnable 的实现类</strong>；FutureTask的重写的run方法中执行了Callable.call()方法</li>
+<li>FutureTask <strong>包含Callable引用</strong>，包含Callable形参的构造器；</li>
+<li>FutureTask.get()阻塞获取返回值的原理：(Future阻塞拿到返回值的原理)<ol>
+<li>循环等待Task任务的结果(用outcome表示执行结果，state变量表示任务运行状态)</li>
+</ol>
+</li>
+<li></li>
+</ol>
+</li>
+</ol>
+</li>
+<li>synchronized是悲观锁，juc包中的原子类使用的是乐观锁测试，使用cas算法，由硬件直接支持原子性。<ol>
+<li>存在ABA问题：A-&gt;B  的过程中已被其他线程执行了 A-&gt;B-&gt;A 操作</li>
+<li>ABA漏洞可以采用 java 原子引用类解决？？</li>
+</ol>
+</li>
+<li>越大的素数，需要计算的时间越长：</li>
+</ol>
+<p><code>for(int i=2;i&lt;num/2;i++)&#123;if(num%i==0) return false&#125;</code></p>
+<ol start="14">
+<li>创建线程、销毁线程都要操作系统的用户态-&gt;内核态（消耗系统资源）</li>
+</ol>
+<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><p>Java多线程之wait(),notify(),notifyAll()：</p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/alex197963/article/details/6863662">https://blog.csdn.net/alex197963/article/details/6863662</a></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://huangyuye.github.io/2021/05/09/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/20200906-Java%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B%E4%B9%8BCPU%E7%BC%93%E5%AD%98/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="yuye Huang">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="HYY">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/05/09/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/20200906-Java%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B%E4%B9%8BCPU%E7%BC%93%E5%AD%98/" class="post-title-link" itemprop="url">未命名</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-05-09 15:53:56" itemprop="dateCreated datePublished" datetime="2021-05-09T15:53:56+00:00">2021-05-09</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/" itemprop="url" rel="index"><span itemprop="name">知识库</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <ul>
+<li><p>多线程操作共享变量，变量值不一致。</p>
+</li>
+<li><p>使用volatile关键字修饰共享变量，保证共享变量在线程之间的可见性。</p>
+<ul>
+<li>synchronized 关键字也能保证共享变量在多个线程之间的可见性</li>
+<li>CAS 机制也能保证共享变量在多个线程之间的可见性</li>
+</ul>
+</li>
+<li><p>CPU读写模型是引发变量可见性的原因</p>
+<ul>
+<li> 主存RAM存取速度比 CPU操作慢得多，为避免CPU高速处理能力不能充分发挥作用，所以CPU处理器引入了高速缓冲存储器。（造价高，容量较主存小）</li>
+<li>程序局部性原理（？？？）：CPU试图访问主存的某一单元时，会认为临近单元后续被利用的可能性很大，所以CPU在存取主存单元时，计算机硬件会自动把包括该单元在内的那一组单元调入高速缓存，之后CPU就可以直接对高速缓存数据进行存取。（一组单元称为内存块<code>block</code>，通常是连续的64个字节）</li>
+</ul>
+</li>
+<li><p>CPU Cache相关术语</p>
+<ul>
+<li>Cache Line &amp; Slot &amp; Hot Data &amp; Cache Hit<ul>
+<li>Cache Line = Slot </li>
+<li>高速缓存会将其存储单元均分成若干等份，每一等份就是一个缓存行，如今主流CPU的缓存行一般都是64个字节</li>
+<li>被缓存行缓存的数据称之为热点数据（hot data）</li>
+</ul>
+</li>
+<li>Cache Hit &amp; Cache Miss &amp; Hit Latency<ul>
+<li>Cache Hit：当CPU通过<code>寄存器</code>中存储的数据地址请求访问数据时（包括读操作和写操作），首先会在Cache中查找，如果找到了则直接返回Cache中存储的数据，这称为<strong>缓存命中</strong>（cache hit），根据操作类型又可分为读缓存命中和写缓存命中。</li>
+<li>Hit Latency：命中延迟是指判断Cache中是否缓存了目标数据所花的时间。</li>
+</ul>
+</li>
+<li>Cache分级：速度— L1 &gt; L2 &gt; L3（L3在CPU的多个核心之间共享）</li>
+<li>Cache替换算法 &amp; Cache Line Conflict<ul>
+<li>常用的算法：“最近最少使用算法”（LRU算法）least recently used；原理：为每行设置一个计数器，把名中行的计数器清零，其他各行计数器加1，当需要替换时淘汰行计数器计数值最大的数据行出局</li>
+</ul>
+</li>
+<li>时钟周期：完成一次存取操作所需的时间—主频倒数（寄存器、高速缓存、主存都有主频）</li>
+</ul>
+</li>
+<li><p>Cache结构设计和缓存关联性（<code>关联主内存</code>）</p>
+<ul>
+<li><strong>CPU高速缓存组成</strong>：整个Cache被分为S个组，每个组又有E行个最小的存储单元——Cache Line；而一个Cache Line中有B（B=64）个字节用来存储数据，即每个Cache Line能存储64个字节的数据</li>
+<li><strong>Cache Line组成</strong>：包含1个有效位（valid bit）、t个标记位（tag bit）、数据<ul>
+<li>— valid bit用来表示该缓存行是否有效；tag bit用来协助寻址，唯一标识存储在Cache Line中的块；而Cache Line里的64个字节其实是对应内存地址中的数据拷贝。</li>
+</ul>
+</li>
+<li>将高速缓存内的数据映射到主内存的数据（<strong>缓存关联性</strong>）<ul>
+<li>完全关联(Fully associative cache) <ul>
+<li>以32位操作系统（意味着到内存寻址时是通过32位地址）为例，，比如有一个0101…10 000000 - 0101…10 111111（为了节省版面省略了高26位中的部分bit位，这个区间代表高26位相同但低6位不同的64个地址，即64字节的内存块（主内存的存储单元：连续的64个字节））内存块需要缓存，那么它将会被随机存放到一个可用的Slot中，并将高26位作为该Slot的tag bit（前文说到每行除了存储内存块的64字节Cache Line，还额外有1个bit标识该行是否有效和t个bit作为该行的唯一ID，本例中t就是26）。这样当内存需要存取这个地址范围内的数据地址时，首先会去Cache中找是否缓存了高26位（tag bit）为0101…10的Slot，如果找到了再根据数据地址的低6位定位到Cache Line的某个存储单元上，这个低6位称为字节偏移（word offset）。<ul>
+<li>6位字节偏移(2^6=64个字节)——<strong>主内存的存储单元block的大小固定位64个字节</strong></li>
+<li>26位 tag bit 作为数据块唯一标识，用于寻址时轮询所有缓存行(slot)并匹配数据块</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>直接映射(Direct mapped cache) <ul>
+<li>包含tag bit 位数据地址 + slot offset(定位slot) + word offset 字节偏移（缓存行）</li>
+<li>对于给定的32位数据地址，首先不管低6位，取出中间的<code>slot offset</code>个bit位，定位出是哪一个Slot，然后比较该Slot的<code>tag bit</code>是否和数据地址的剩余高位匹配，如果匹配那么表示Cache Hit，最后在根据低6位从该Slot的Cache Line中找到具体的存储单元进行存取数据。</li>
+<li>缺点：低位相同但高位不同的内存块会被映射到同一个Slot上（因为对SlotCount取模之后结果相同），如果碰巧CPU请求存取这些内存块，那么将只有一个内存块能够被缓存到Cache中对应的Slot上，也就是说容易发生Cache Line Conflict。</li>
+</ul>
+</li>
+<li>N路组关联(N-way set associative cache) <ul>
+<li>对Direct Mapped Cache和Full Associative Cache的一个结合，思路是不要对于给定的数据地址就定死了放在哪个Slot上。</li>
+<li>先将Cache均分成S个组，每个组都有E个Slot。假设将我的L1 Cache 128KB按16个Slot划分为一个组，那么组数为：<code>128 * 1024 / 64</code>（Slot数）/ 16 = 128 个组（我们将每个组称为一个Set，表示一组Slot的集合）；与Direct Mapped Cache不同的地方就是将原本表示映射到哪个Slot的11个中间bit位改成了用7个bit位表示映射到哪个Set上，在确定Set之后，内存块将被放入该Set的哪个Slot是随机的（可能当时哪个可以用就放到哪个了），然后以剩余的高位19个bit位作为最终存放该内存块的<code>tag bit</code>。</li>
+<li>对于一个给定的数据地址只会将其映射到特定的Set上，这样就大大减小了Cache Line Conflict的几率，并且CPU在查找Slot时只需在具体的某个Set中线性查找，而Set中的Slot个数较少（分组分得越多，每个组的Slot就越少），这样线性查找的时间复杂度也近似O(1)了。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>如何编写对Cache Hit友好的程序？为提高Cache命中率，要充分发挥局部性原理。</p>
+<ul>
+<li><p><strong>时间局部性</strong>：对于同一数据可能被多次使用，自第一次加载到Cache Line后，后面的访问就可以多次从Cache Line中命中，从而提高读取速度（而不是从下层缓存读取）。</p>
+</li>
+<li><p><strong>空间局部性</strong>：一个Cache Line有64字节块，我们可以充分利用一次加载64字节的空间，把程序后续会访问的数据，一次性全部加载进来，从而提高Cache Line命中率（而不是重新去寻址读取）。</p>
+</li>
+<li><p>实际操作：读取时尽量读取相邻的数据地址</p>
+<ul>
+<li><p>以上操作带来的负面影响：造成缓存一致性问题。</p>
+</li>
+<li><p>解决方案：（缓存一致性协议）</p>
+<ul>
+<li><pre><code>这是一个跟踪每个缓存行的状态的缓存子系统。该系统使用一个称为 “总线动态监视” 或者称为*“总线嗅探”* 的技术来监视在系统总线上发生的所有事务，以检测缓存中的某个地址上何时发生了读取或写入操作。
+当这个缓存子系统在系统总线上检测到对缓存中加载的内存区域进行的读取操作时，它会将该缓存行的状态更改为 “shared”。如果它检测到对该地址的写入操作时，会将缓存行的状态更改为 “invalid”。
+该缓存子系统想知道，当该系统在监视系统总线时，系统是否在其缓存中包含数据的惟一副本。如果数据由它自己的 CPU 进行了更新，那么这个缓存子系统会将缓存行的状态从 “exclusive” 更改为 “modified”。如果该缓存子系统检测到另一个处理器对该地址的读取，它会阻止访问，更新系统内存中的数据，然后允许该处理的访问继续进行。它还允许将该缓存行的状态标记为 shared。
+</code></pre>
+</li>
+<li><p>各CPU都会通过总线嗅探来监视其他CPU，一旦某个CPU对自己Cache中缓存的共享变量做了修改（能做修改的前提是共享变量所在的缓存行的状态不是无效的），那么就会导致其他缓存了该共享变量的CPU将该变量所在的Cache Line置为无效状态，在下次CPU访问无效状态的缓存行时会首先要求对共享变量做了修改的CPU将修改从Cache写回主存，然后自己再从主存中将最新的共享变量读到自己的缓存行中。（这里的CPU指的是CPU核心）</p>
+</li>
+<li><p>并且，缓存一致性协议通过缓存锁定来保证CPU修改缓存行中的共享变量并通知其他CPU将对应缓存行置为无效这一操作的原子性，即当某个CPU修改位于自己缓存中的共享变量时会禁止其他也缓存了该共享变量的CPU访问自己缓存中的对应缓存行，并在缓存锁定结束前通知这些CPU将对应缓存行置为无效状态。</p>
+</li>
+<li><p>在缓存锁定出现之前，是通过总线锁定来实现CPU之间的同步的，即CPU在回写主存时会锁定总线不让其他CPU访问主存，但是这种机制开销较大，一个CPU对共享变量的操作会导致其他CPU对其他共享变量的访问。(锁粒度由总线细化到CPU核心)</p>
+</li>
+</ul>
+</li>
+<li><p>缓存一致性协议带来的问题：<strong>伪共享</strong>——不同CPU核心对同一缓存行的不同字节数据的操作可能会导致缓存锁定（变成串行程序，降低了并发性（乒乓效应））</p>
+</li>
+<li><p>伪共享问题解决方案：</p>
+<ul>
+<li>缓存行填充（Cache Line Padding），通过增加两个变量的地址距离使之位于两个不同的缓存行上，如此对共享变量X和Y的操作不会相互影响。</li>
+<li>线程不直接操作全局共享变量，而是将全局共享变量读取一份副本到自己的局部变量，局部变量在线程之间是不可见的因此随你线程怎么玩，最后线程再将玩出来的结果写回全局变量。（再进行锁定）</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>并发编程的三要素是：原子性、可见性、有序性。</p>
+</li>
+<li><p><strong>锁释放有着volatile域写语义</strong>？？ &amp; 原子类CAS更新有着volatile域写语义</p>
+</li>
+<li><p>Unsafe类中的CAS自旋</p>
+<ul>
+<li>CAS操作在x86上是由cmpxchg（Compare Exchange）实现的（不同指令集有所不同）</li>
+<li>JDK提供的AtomicXxx`系列原子操作类已能满足大多数需求</li>
+<li><strong>原子类封装了一个volatile域</strong>：将改写立即刷新到主存；将改写立即刷新到主存</li>
+</ul>
+</li>
+<li><p>volatile禁止重排序</p>
+<ul>
+<li>volatile产生的汇编指令lock具有个指令屏障使得该屏障之前的指令不能重排序到屏障之后。</li>
+<li>volatile的作用案例：使用单例模式的并发优化案例<ul>
+<li>懒加载模式<ul>
+<li>利用类加载过程的初始化阶段会执行<strong>类构造器</strong><clinit>，按照显式声明为<strong>静态变量</strong>初始化的特点。</li>
+<li><strong>当类被主动引用时应当立即对其初始化</strong>！！！</li>
+<li>对类的主动引用：<ul>
+<li>new、getStatic、putStatic、invokeStatic</li>
+<li>通过java.lang.reflect包的方法对该类进行反射调用时</li>
+<li>当初始化一个类时，如果他的父类没被初始化，那么先初始化其父类</li>
+<li>当JVM启动时，首先会初始化main函数所在的类</li>
+</ul>
+</li>
+<li>对类的被动引用：<ul>
+<li>通过子类访问父类静态变量，子类不会被立即初始化</li>
+<li>通过数组定义引用的类不会被立即初始化</li>
+<li>访问某个类的常量，该类不会被立即初始化（因为经过编译阶段的常量传播优化，该常量已被复制一份到当前类的常量池中了）</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>饿汉模式1</li>
+<li>饿汉模式2</li>
+<li>DoubleCheckedLocking</li>
+<li>DCL2</li>
+<li>InstanceHolder</li>
+<li>枚举实例的构造器只会被调用一次</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://huangyuye.github.io/2021/05/09/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/20200909-%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="yuye Huang">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="HYY">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/05/09/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/20200909-%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/" class="post-title-link" itemprop="url">未命名</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-05-09 15:53:56" itemprop="dateCreated datePublished" datetime="2021-05-09T15:53:56+00:00">2021-05-09</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/" itemprop="url" rel="index"><span itemprop="name">知识库</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="如何进行单元测试"><a href="#如何进行单元测试" class="headerlink" title="如何进行单元测试"></a>如何进行单元测试</h2><p><strong>参考链接：</strong></p>
+<p><a target="_blank" rel="noopener" href="https://www.zhihu.com/question/27313846/answer/853193909?utm_source=wechat_session&amp;utm_medium=social&amp;utm_oi=983101242913976320&amp;utm_content=group2_Answer&amp;utm_campaign=shareopn">https://www.zhihu.com/question/27313846/answer/853193909?utm_source=wechat_session&amp;utm_medium=social&amp;utm_oi=983101242913976320&amp;utm_content=group2_Answer&amp;utm_campaign=shareopn</a></p>
+<p><strong>单元测试”称为“开发阶段的自动化测试“。</strong></p>
+<ol>
+<li> 由开发同学完成</li>
+<li>测试是自动化的</li>
+<li>不一定是只验证一个“单元”的正确性</li>
+</ol>
+<p><strong>单元测试在市面上的介绍存在的问题</strong></p>
+<ol>
+<li>仅集中在介绍某个工具或者框架怎么用（比如JUnit，mockito，jest等）</li>
+<li>一些理论上的对这种测试好处的介绍，通篇是“应该做测试”，“这么做了就容易得到高内聚的代码“</li>
+<li>只拿“纯函数”的测试举例子，几乎没有复杂的依赖（无法贴合实际项目：业务逻辑、数据分析的job代码）<ol>
+<li>函数的输入就是其所有可见的上下文了。对于一个纯函数，开发者者很容易构造其<strong>上下文</strong>。</li>
+</ol>
+</li>
+<li><strong>很少有关于真正为什么这个事情难以落地的讨论</strong></li>
+</ol>
+<p><strong>实践起来常见问题</strong></p>
+<ol>
+<li>没想明白要验证什么</li>
+<li>对依赖的处理方式的拿捏是测试里最难的地方。（对不纯的依赖都要尽量mock）<ol>
+<li>比如：验证一个下单打折的函数是否能计算出正确的折扣，往往先要从DB获取折扣数据(依赖)，才能做计算。</li>
+<li>如果mock掉这个DB查询的依赖，那这个单元测试的假设是：<strong>“读取折扣的SQL本身是肯定没错的，因此不验证它，只验证读到折扣数据后，根据输入金额得到折扣金额的逻辑是正确的“</strong></li>
+<li>如果不mock掉DB查询的依赖，即使用真的生产DB做验证，这里测试的目标就从“<strong>验证计算折扣的逻辑</strong>”变成“<strong>验证计算折扣这个功能是否正确</strong>“。<ol>
+<li>這裏已经不是“单元”了，而是一个函数 + 一句SQL执行 + DB功能正确的（局部）“集成”测试，是几个组件一起测试才能实现这个验证。这样的测试代价是必须部署一个真的数据库，还要准备数据和<strong>后门</strong>。</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+<p><strong>到底要不要做”局部集成测试“而非实际的单元测试？</strong></p>
+<ul>
+<li>你的目标就是要测“一小段代码是不是正确”。你可以很有信心的保证其他依赖的正确性都能保证。那明显，这时就不用花精力做集成了。怎么简单怎么来。这样的测试甚至都不需要启动Spring这类框架，运行速度会很快。</li>
+<li>你在开发一个小的lib。这个lib就很纯，没有任何复杂的依赖，那么单元测试就足够了。</li>
+<li>如果团队已经安排了专人做这块的集成测试，开发人员就没必要做重复劳动了。如果这块测试的不好，应该优先去和那个测试同学沟通，看看怎么改善。沟通无效，在manager知情和同意下，再自己补。</li>
+<li>如果开发自己做集成可以更容易构造全集成，而测试不太容易构造的例子，那么还是自己集成测试一下比较好。性价比高。</li>
+<li>如果是要测试一个端到端的接口返回正确，那么唯一的办法就是集成测试——真的启动server，使用真的数据库、Redis、队列……，做端到端的测试。这时也许docker可以帮助你一键启动全套环境。</li>
+<li>如果一个测试涉及到依赖的核心功能，也必须得做集成测试。比如要测试一个Exception是不是会让当前事务真的回滚，同时发生的其他事务因为隔离级别不会受到影响，那么你必须引入真的，和生产一模一样的支持事务的数据库才行。</li>
+<li>如果是前端测试，基本上也必须得做集成测试。就算可以mock掉所有的后端接口，也得引入浏览器或者App框架才能测试。</li>
+</ul>
+<p><strong>单元测试目的</strong></p>
+<p>验证“自己写的一小段代码是不是符合设计逻辑的“。</p>
+<p><strong>单元测试的出发点</strong></p>
+<p>开发人员为了保证代码质量应该怎样做</p>
+<p><strong>单元测试怎么做？</strong></p>
+<ul>
+<li>确定测试的目标，到底想验证什么</li>
+<li>基于这个目标，找到和维护需要的工具，比如Runner，Mock，覆盖率统计工具等，Embedded数据库等</li>
+<li>留足给测试的时间，并通过code review的手段来保证写有效的测试</li>
+<li>给一些典型的场景如何做测试写一写文档，积累经验（比如如何测试要模拟时间的案例？）</li>
+<li>统计测试同学给开发同学报bug的数据，盯紧代码质量不高的同学，多做沟通</li>
+<li>根据出现bug的数量和scope来推动部分关键代码的测试质量的改善</li>
+<li>在能达成测试目标的前提下，看看能够整合一些工具，降低维护测试依赖的成本</li>
+</ul>
+<p><strong>单元测试的好处</strong></p>
+<ol>
+<li>让你写出更好的代码：只有高内聚、低耦合而且接口设计合理的代码才易于测试；</li>
+<li>让你在修改代码时更有信心。</li>
+</ol>
+<h2 id="单元测试概念"><a href="#单元测试概念" class="headerlink" title="单元测试概念"></a>单元测试概念</h2><h3 id="单元测试框架"><a href="#单元测试框架" class="headerlink" title="单元测试框架"></a>单元测试框架</h3><h4 id="junit"><a href="#junit" class="headerlink" title="junit"></a>junit</h4><p>基本框架</p>
+<h4 id="testNG"><a href="#testNG" class="headerlink" title="testNG"></a>testNG</h4><p>可以很容易地编写自定义测试。</p>
+<p>如果您拥有执行测试所需的测试数据，TestNG可以轻松获取要编写单元测试的测试数据。</p>
+<h3 id="模拟框架"><a href="#模拟框架" class="headerlink" title="模拟框架"></a>模拟框架</h3><h4 id="EasyMock"><a href="#EasyMock" class="headerlink" title="EasyMock"></a>EasyMock</h4><p>Mockito的替代品</p>
+<ol>
+<li>录制：EasyMock.expect(mock.someMethod())</li>
+<li>执行：EasyMock.replay(mock)</li>
+<li>验证期望：EasyMock.verify(mock)</li>
+</ol>
+<p>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD</p>
+<h4 id="Mockito-amp-JMockit"><a href="#Mockito-amp-JMockit" class="headerlink" title="Mockito &amp; JMockit"></a>Mockito &amp; JMockit</h4><ol>
+<li><h1 id="先进行Stub：when-mock-someMethod-then"><a href="#先进行Stub：when-mock-someMethod-then" class="headerlink" title="先进行Stub：when(mock.someMethod()).then()"></a>先进行Stub：when(mock.someMethod()).then()</h1><h4 id="Mockito-Vs-JMockit"><a href="#Mockito-Vs-JMockit" class="headerlink" title="Mockito Vs JMockit"></a>Mockito Vs JMockit</h4></li>
+</ol>
+<ol>
+<li><p>Stub：when(mock.someMethod()).then()</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>1bd18958d9aa8a5bf6a3acce872ed9d752807f29</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><p>验证行为：verify(mock).someMethod()</p>
+</li>
+</ol>
+<h4 id="PowerMock"><a href="#PowerMock" class="headerlink" title="PowerMock"></a>PowerMock</h4><p>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD<br>用于模拟复杂场景<br>=======<br>模拟复杂场景</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>1bd18958d9aa8a5bf6a3acce872ed9d752807f29</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>想要模拟静态方法、构造函数和私有方法时，Powermock非常有用。</p>
+<h3 id="结合项目框架使用的mock框架"><a href="#结合项目框架使用的mock框架" class="headerlink" title="结合项目框架使用的mock框架"></a>结合项目框架使用的mock框架</h3><p>Spring 有 Spring Test、Spring MVC Test</p>
+<h3 id="断言"><a href="#断言" class="headerlink" title="断言"></a>断言</h3><h4 id="AssertJ-Hamcrest"><a href="#AssertJ-Hamcrest" class="headerlink" title="AssertJ / Hamcrest"></a>AssertJ / Hamcrest</h4><p>Hamcrest提供了AssertJ的替代方案来编写断言。</p>
+<h3 id="Spring-Unit"><a href="#Spring-Unit" class="headerlink" title="Spring Unit"></a>Spring Unit</h3><p>Web层- Spring MockMVC</p>
+<p>数据层- DataJpaTest</p>
+<p>业务层-基于Mockito的测试，最好不要启动Spring Context</p>
+<h3 id="断言JSON响应"><a href="#断言JSON响应" class="headerlink" title="断言JSON响应"></a>断言JSON响应</h3><h4 id="JSONAssert-JSONPath"><a href="#JSONAssert-JSONPath" class="headerlink" title="JSONAssert / JSONPath"></a>JSONAssert / JSONPath</h4><h3 id="测试覆盖率"><a href="#测试覆盖率" class="headerlink" title="测试覆盖率"></a>测试覆盖率</h3><p>Cobertura</p>
+<h3 id="jenkins"><a href="#jenkins" class="headerlink" title="jenkins"></a>jenkins</h3><p>利用 jenkins 等持续集成工具定时/有代码变更时运行单元测试，保证修改不会破坏已有的代码功能。</p>
+<h3 id="Test-Doubles：Fakes、Mocks-以及-Stubs"><a href="#Test-Doubles：Fakes、Mocks-以及-Stubs" class="headerlink" title="Test Doubles：Fakes、Mocks 以及 Stubs"></a>Test Doubles：Fakes、Mocks 以及 Stubs</h3><p><strong>double：</strong>极相似的对应物</p>
+<p>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD<br>double存在的意义：用来对系统(或者将粒度放小为模块，单元)进行隔离<br>=======<br>用来对系统(或者将粒度放小为模块，单元)进行隔离</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>1bd18958d9aa8a5bf6a3acce872ed9d752807f29</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+<p><strong>Dummy</strong></p>
+<p>对象被四处传递，但是从不被真正使用。通常他们只是用来填充参数列表。</p>
+<p><strong>Fake</strong><br>Fakes are objects that have working implementations, but not same as production one. Usually they take some shortcut and have simplified version of production code.Fake 是那些包含了生产环境下具体实现的简化版本的对象。（用于Test的测试实现类）</p>
+<p><strong>Stub</strong></p>
+<p>Stub is an object that holds predefined data and uses it to answer calls during tests. It is used when we cannot or don’t want to involve objects that would answer with real data or have undesirable side effects.Stub 代指那些包含了预定义好的数据并且在测试时返回给调用者的对象。Stub 常被用于我们不希望返回真实数据或者造成其他副作用的场景。（提供Query数据的对象）</p>
+<p>stub是state-based，关注的是输入和输出。</p>
+<p>stub意为踩熄</p>
+<p><strong>Mock</strong></p>
+<p>Mocks are objects that register calls they receive. In test assertion we can verify on Mocks that all expected actions were performed.Mocks 代指那些仅记录它们的调用信息的对象，在测试断言中我们需要验证 Mocks 被进行了符合期望的调用。(模拟行为的对象)</p>
+<p>mock是interaction-based，关注的是交互过程。</p>
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/26942686">https://zhuanlan.zhihu.com/p/26942686</a></p>
+<h3 id="Classical-和-Mockist-TDD-测试风格"><a href="#Classical-和-Mockist-TDD-测试风格" class="headerlink" title="Classical 和 Mockist  TDD 测试风格"></a>Classical 和 Mockist  TDD 测试风格</h3><p>验证状态 vs 验证行为</p>
+<h3 id="SUT-amp-UUT-amp-AUT"><a href="#SUT-amp-UUT-amp-AUT" class="headerlink" title="SUT &amp; UUT &amp; AUT"></a>SUT &amp; UUT &amp; AUT</h3><p>SUT（system under test，被测试系统）</p>
+<p>UUT（unit under test，被测试单元）</p>
+<p>AUT（application under test，被测试应用软件）</p>
+<h3 id="扩展阅读"><a href="#扩展阅读" class="headerlink" title="扩展阅读"></a>扩展阅读</h3><ol>
+<li><p>《单元测试之道》</p>
+</li>
+<li><p>《修改代码的艺术》</p>
+</li>
+<li><p>Mocks Aren’t Stubs</p>
+</li>
+</ol>
+<h2 id="项目实践"><a href="#项目实践" class="headerlink" title="项目实践"></a>项目实践</h2><h3 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h3><p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/67801427">https://zhuanlan.zhihu.com/p/67801427</a></p>
+<p><a target="_blank" rel="noopener" href="http://tengj.top/2017/12/28/springboot12/">http://tengj.top/2017/12/28/springboot12/</a></p>
+<h3 id="场景一、测试控制层"><a href="#场景一、测试控制层" class="headerlink" title="场景一、测试控制层"></a>场景一、测试控制层</h3><h5 id="前置步骤"><a href="#前置步骤" class="headerlink" title="前置步骤"></a>前置步骤</h5><ol>
+<li>生成<code>TargetController</code>的单元测试类<code>TargetControllerTest</code>（一般包括整个controller的所有方法的testCase）</li>
+</ol>
+<p>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD<br>2. 生成目标方法<code>targetMethod</code>的单元测试方法<code>testTargetMethod</code><br>=======<br>2. 生成<code>targetMethod</code>的单元测试方法<code>testTargetMethod</code></p>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>1bd18958d9aa8a5bf6a3acce872ed9d752807f29</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+<ol start="3">
+<li><p>注解声明单元测试类</p>
+<ol>
+<li>方式一</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 声明测试是在spring环境下运行的，这样就可以启用Spring的相关支持。</span></span><br><span class="line"><span class="meta">@RunWith(SpringRunner.class)</span></span><br><span class="line"><span class="comment">// 注解负责扫描配置来构建测试用的Spring上下文环境。它默认搜索@SpringBootConfiguration类，除非我们通过classes属性指定配置类，或者通过自定义内嵌的@Configuration类来指定配置。</span></span><br><span class="line"><span class="meta">@SpringBootTest</span></span><br></pre></td></tr></table></figure>
+
+<ol>
+<li><p>方式二</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@RunWith(SpringRunner.class)</span></span><br><span class="line"><span class="comment">// 实例化一个MockMvc的bean + 可指定只实例化某一到多个Controller（但是同样也会遵从配置类的注解去做更多的工作）</span></span><br><span class="line"><span class="meta">@WebMvcTest(AppCustomerController.class)</span></span><br></pre></td></tr></table></figure></li>
+</ol>
+</li>
+<li><p>准备MockMvc对象</p>
+<ol>
+<li><p>方式一</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Autowired</span></span><br><span class="line"><span class="keyword">private</span> WebApplicationContext wac;</span><br><span class="line"><span class="meta">@Autowired</span></span><br><span class="line"><span class="keyword">private</span> MockMvc mvc;</span><br><span class="line"><span class="meta">@BeforeEach</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">setUp</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    mvc = MockMvcBuilders.webAppContextSetup(wac).build(); <span class="comment">//初始化MockMvc对象</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><p>方式二</p>
+<ol>
+<li>可直接使用@WebMvcTest实例化的mockMvcBean</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Autowired</span></span><br><span class="line"><span class="keyword">private</span> MockMvc mvc;</span><br></pre></td></tr></table></figure></li>
+</ol>
+</li>
+<li><p>只实例化目标类，避免其他无关类的实例化开销（自定义内嵌的@Configuration类来指定配置）</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="meta">@ComponentScan(value = &quot;xxx&quot;,</span></span><br><span class="line"><span class="meta">        useDefaultFilters = false,</span></span><br><span class="line"><span class="meta">        includeFilters = @ComponentScan.Filter(</span></span><br><span class="line"><span class="meta">                type = FilterType.REGEX,</span></span><br><span class="line"><span class="meta">                pattern = &#123;&quot;xxx.TargetController&quot;&#125;)</span></span><br><span class="line"><span class="meta">)</span></span><br><span class="line"><span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">InnerConfig</span> </span>&#123; &#125;</span><br></pre></td></tr></table></figure></li>
+<li><p>解决TargetController被测对象的其他依赖问题</p>
+</li>
+<li><p>将测试目标的所有依赖bean声明为<strong>模拟的bean</strong>，这些模拟的bean将<strong>被注入测试目标bean</strong>。</p>
+</li>
+<li><p>构建MockHttpSession，解决请求过程中的用户验证问题</p>
+</li>
+<li><p>绝大部分的方法受限于公司封装的底层框架，必须实例化对应的bean，且为带参构造方法</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 内部嵌套javaConfig类</span></span><br><span class="line"><span class="meta">@Bean</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> SpringContext <span class="title">springContext</span><span class="params">(ConfigurableListableBeanFactory beanFactory)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> SpringContext(beanFactory); <span class="comment">// 由SqlContext实例化</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">@MockBean</span></span><br><span class="line">BaseService baseService;</span><br><span class="line"><span class="meta">@MockBean</span></span><br><span class="line">CustomerSessionService customerSessionService;</span><br></pre></td></tr></table></figure></li>
+<li><p>Mockito.spy()方法模拟出来的对象，调用该模拟对象的方法时，若该方法没有被”打桩“（预设），则会实际调用该方法真实逻辑。相比Mockito.mock()出来的模拟对象，若调用mock对象的方法没有被打桩，则返回默认值。</p>
+</li>
+<li><p>doReturn().when()与when().thenReturn()</p>
+<ol>
+<li>spy模拟对象<ol>
+<li>when(…) thenReturn(…)会调用真实的方法</li>
+<li> doReturn(…) when(…) 不会调用真实方法</li>
+</ol>
+</li>
+</ol>
+</li>
+<li><p>2.1.0版本以前的<strong>Mockito</strong>是<strong>不能mock final类和final方法的</strong>，之后的也要通过配置一些相关文件才行(<a target="_blank" rel="noopener" href="https://github.com/mockito/mockito/wiki/What's-new-in-Mockito-2#mock-the-unmockable-opt-in-mocking-of-final-classesmethods">Mock the unmockable: opt-in mocking of final classes/methods</a>)。因此，它的补充框架PowerMock也应运而生。</p>
+<ol>
+<li>创建配置文件 src/test/resources/mockito-extensions/org.mockito.plugins.MockMaker</li>
+<li>文件内容：mock-maker-inline</li>
+</ol>
+</li>
+</ol>
+<p>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD<br>12. powerMock（未实践）<br>=======<br>12. powerMock</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>1bd18958d9aa8a5bf6a3acce872ed9d752807f29</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+<pre><code><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@RunWith(PowerMockRunner.class)</span> <span class="comment">// 替代SpringRunner.class</span></span><br><span class="line"><span class="comment">// // powermock使用了自定义的PowerMockRunner，与spring集成时，可以代理至SpringJUnit4ClassRunner。</span></span><br><span class="line"><span class="meta">@PowerMockRunnerDelegate(SpringJUnit4ClassRunner.class)</span></span><br><span class="line"><span class="comment">// @PowerMockRunnerDelegate(Parameterized.class)</span></span><br><span class="line"><span class="meta">@PrepareForTest(&#123;StaticService.class&#125;)</span> <span class="comment">// 包含静态类的方法</span></span><br></pre></td></tr></table></figure>
+</code></pre>
+<ol start="13">
+<li>powerMock + org.mockito.plugins.MockMaker 冲突问题<ol>
+<li>org.mockito.internal.configuration.plugins.PluginLoader：java.lang.ClassNotFoundException: mock-maker-inline</li>
+<li>删掉扩展文件后：java.lang.NoSuchMethodError: org.mockito.MockingDetails.getMockCreationSettings()</li>
+</ol>
+</li>
+<li>@Mock 和 @InjectMocks 搭配使用（而非@MockBean）</li>
+</ol>
+<p>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD<br>    1. 而 @MockBean是 springBootTest提供的注解，用于将响应的bean注册到spring容器（且可指定beanName）<br>=======<br>    1. @MockBean是 springBootTest提供的注解，用于将响应的bean注册到spring容器（且可指定beanName）</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>1bd18958d9aa8a5bf6a3acce872ed9d752807f29</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+<pre><code><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@MockBean(name = &quot;guide.SgGuide&quot;)</span></span><br><span class="line">SgGuide sgGuide;</span><br></pre></td></tr></table></figure>
+</code></pre>
+<ol start="16">
+<li><p>ArgumentMatchers.any() vs Mockito.any() 是同一个东西，<strong>Mockito 继承了 ArgumentMatchers</strong></p>
+</li>
+<li><p>doxxx().when() 不能用于 @MockBean 场景下??? （given().willReturn()）</p>
+</li>
+<li><p><strong>mockMvc添加过滤器</strong></p>
+<ol>
+<li>mMockMvc = MockMvcBuilders.webAppContextSetup(context).addFilter(new UserFilter()).build();</li>
+</ol>
+</li>
+</ol>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://huangyuye.github.io/2021/05/09/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/20200914-Excel%E6%93%8D%E4%BD%9C/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -180,7 +980,7 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2021-05-09 15:52:56" itemprop="dateCreated datePublished" datetime="2021-05-09T15:52:56+00:00">2021-05-09</time>
+              <time title="创建时间：2021-05-09 15:53:56" itemprop="dateCreated datePublished" datetime="2021-05-09T15:53:56+00:00">2021-05-09</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -271,7 +1071,7 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2021-05-09 15:52:56" itemprop="dateCreated datePublished" datetime="2021-05-09T15:52:56+00:00">2021-05-09</time>
+              <time title="创建时间：2021-05-09 15:53:56" itemprop="dateCreated datePublished" datetime="2021-05-09T15:53:56+00:00">2021-05-09</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -625,7 +1425,7 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2021-05-09 15:52:56" itemprop="dateCreated datePublished" datetime="2021-05-09T15:52:56+00:00">2021-05-09</time>
+              <time title="创建时间：2021-05-09 15:53:56" itemprop="dateCreated datePublished" datetime="2021-05-09T15:53:56+00:00">2021-05-09</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -804,7 +1604,7 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2021-05-09 15:52:56" itemprop="dateCreated datePublished" datetime="2021-05-09T15:52:56+00:00">2021-05-09</time>
+              <time title="创建时间：2021-05-09 15:53:56" itemprop="dateCreated datePublished" datetime="2021-05-09T15:53:56+00:00">2021-05-09</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -899,7 +1699,7 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2021-05-09 15:52:56" itemprop="dateCreated datePublished" datetime="2021-05-09T15:52:56+00:00">2021-05-09</time>
+              <time title="创建时间：2021-05-09 15:53:56" itemprop="dateCreated datePublished" datetime="2021-05-09T15:53:56+00:00">2021-05-09</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -978,7 +1778,7 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2021-05-09 15:52:56" itemprop="dateCreated datePublished" datetime="2021-05-09T15:52:56+00:00">2021-05-09</time>
+              <time title="创建时间：2021-05-09 15:53:56" itemprop="dateCreated datePublished" datetime="2021-05-09T15:53:56+00:00">2021-05-09</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -1084,7 +1884,7 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2021-05-09 15:52:56" itemprop="dateCreated datePublished" datetime="2021-05-09T15:52:56+00:00">2021-05-09</time>
+              <time title="创建时间：2021-05-09 15:53:56" itemprop="dateCreated datePublished" datetime="2021-05-09T15:53:56+00:00">2021-05-09</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -1101,231 +1901,6 @@
                   ，
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://huangyuye.github.io/2021/05/09/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/20201210-JSR/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="yuye Huang">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="HYY">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/05/09/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/20201210-JSR/" class="post-title-link" itemprop="url">未命名</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-05-09 15:52:56" itemprop="dateCreated datePublished" datetime="2021-05-09T15:52:56+00:00">2021-05-09</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/" itemprop="url" rel="index"><span itemprop="name">知识库</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://huangyuye.github.io/2021/05/09/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/20210309-cas%E5%8D%95%E7%82%B9%E7%99%BB%E5%BD%95/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="yuye Huang">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="HYY">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/05/09/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/20210309-cas%E5%8D%95%E7%82%B9%E7%99%BB%E5%BD%95/" class="post-title-link" itemprop="url">未命名</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-05-09 15:52:56" itemprop="dateCreated datePublished" datetime="2021-05-09T15:52:56+00:00">2021-05-09</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/" itemprop="url" rel="index"><span itemprop="name">知识库</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h3 id="客户端"><a href="#客户端" class="headerlink" title="客户端"></a>客户端</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.jasig.cas.client<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>cas-client-core<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>$&#123;cas-client.version&#125;<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://huangyuye.github.io/2021/05/09/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/%E7%90%86%E8%A7%A3%E8%AE%A1%E7%AE%97%E6%9C%BA/dos%E5%91%BD%E4%BB%A4/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="yuye Huang">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="HYY">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/05/09/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/%E7%90%86%E8%A7%A3%E8%AE%A1%E7%AE%97%E6%9C%BA/dos%E5%91%BD%E4%BB%A4/" class="post-title-link" itemprop="url">未命名</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-05-09 15:52:56" itemprop="dateCreated datePublished" datetime="2021-05-09T15:52:56+00:00">2021-05-09</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/" itemprop="url" rel="index"><span itemprop="name">知识库</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/%E7%90%86%E8%A7%A3%E8%AE%A1%E7%AE%97%E6%9C%BA/" itemprop="url" rel="index"><span itemprop="name">理解计算机</span></a>
                 </span>
             </span>
 
