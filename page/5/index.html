@@ -156,6 +156,367 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://huangyuye.github.io/2020/09/25/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/20200925-Git%E5%86%85%E5%AE%B9/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="yuye Huang">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="HYY">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/09/25/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/20200925-Git%E5%86%85%E5%AE%B9/" class="post-title-link" itemprop="url">Git内容</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-09-25 00:00:00" itemprop="dateCreated datePublished" datetime="2020-09-25T00:00:00+00:00">2020-09-25</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-05-15 05:36:44" itemprop="dateModified" datetime="2021-05-15T05:36:44+00:00">2021-05-15</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/" itemprop="url" rel="index"><span itemprop="name">知识库</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" itemprop="url" rel="index"><span itemprop="name">基础知识</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h3 id="git常用场景使用技巧"><a href="#git常用场景使用技巧" class="headerlink" title="git常用场景使用技巧"></a><strong>git常用场景使用技巧</strong></h3><ol>
+<li><p>功能开发到一半，突然要修复线上问题 （保存现场）</p>
+<ol>
+<li>在开发分支上：<code>git stash</code> = <code>git stash save</code> 保存未提交的内容（<strong>前提是修改的文件已被版本库追踪过</strong>）<ol>
+<li>想要添加保存信息则执行：<code>git stash save -a “message”</code> （git stash save 命令将来会被git stash push 代替）</li>
+<li>默认情况下，<code>git stash</code> 只会贮藏已修改和暂存的 <strong>已跟踪</strong> 文件。如果指定 –include-untracked 或 -u 选项，Git 也会贮藏任何未跟踪文件。</li>
+</ol>
+</li>
+<li>切换到其他分支修复bug</li>
+<li>修复完后回到原开发分支，并执行 <code>git stash pop</code> (<code>git stash pop</code> = <code>git stash apply  stash@&#123;0&#125;</code> + <code>git stash drop  stash@&#123;0&#125;</code>)</li>
+</ol>
+</li>
+<li><p>不小心把代码提交到错的分支上 （<strong>假设错误分支为test，目标分支为 dev</strong> ）</p>
+<ol>
+<li><strong>简易操作</strong>：切换到在目标分支dev下执行-&gt; <code>git cherry-pick commitId1 commitId2</code> …</li>
+<li><strong>git rebase</strong>：<code>git rebase --onto dev &lt;开始的commitId&gt; &lt;结束的commitId&gt; </code><ol start="2">
+<li>执行上述操作后，实际上git 会将dev作为基底分支，将 &lt;开始的commitId&gt; &lt;结束的commitId&gt;  做的相应改变重做一遍，重做的commitId可能跟旧的commitId不一样（若是能ff，则commitId一样），重做后，HEAD指针指向最新的commitId上（游离状态，没有指向任何分支上）</li>
+<li>切换到目标分支 <code> git checkout dev</code></li>
+<li>将dev分支指向重做的最新的提交点上 <code>git reset --hard  commitId</code> （也属于变基操作，会产生线性提交历史）</li>
+</ol>
+</li>
+</ol>
+</li>
+<li><p>需要将其他分支的文件复用过来：</p>
+<ol>
+<li><code>git checkout source_path(其他分支) filename1 filename2 ... (其他分支的文件) </code></li>
+</ol>
+</li>
+<li><p>需要删除中途某次提交：git revert </p>
+<ol>
+<li><code>git revert commitID</code> 使用一次新的commit来回滚之前的commit</li>
+<li>revert 是逆向回放</li>
+</ol>
+</li>
+<li><p><strong>本地仓库</strong>需要回退到某个版本（亦可用于版本前进）：git reset</p>
+<ol>
+<li> <code>git reset --hard commitId</code> ： 将 commitId 和 commitId 之后的所有提交记录均删除；但是如果 merge 其他老的分支到该分支，commitId后面被回滚的commit应该还会被引入<strong>（一般在提交点push到公共分支之前操作）</strong></li>
+<li><code>git reset --soft commitId</code>：此次提交之后的修改会被退回到暂存区。(回退版本<strong>commitId后的修改还保留在本地工作空间</strong>)</li>
+<li><code>git reset commitId</code> 默认使用选项 –mixed，此次提交之后的修改会被退回到工作区</li>
+<li><code>git reset</code> 用于将当前分支指向任意提交点，包括其他分支的提交点，即可在任意提交点来回穿梭</li>
+</ol>
+</li>
+<li><p>代码版本回退错误，想要重新回到最新提交点，但是提交历史已丢失了（通过git log 查看不到提交记录）</p>
+<ol>
+<li>使用 <code>git reflog</code> 查看历史操作记录，找到对应要恢复的提交点，执行 git reset 相关方法</li>
+</ol>
+</li>
+<li><p>已经推送到远程公共分支的代码版本正确的回退姿势（<strong>暂时未理解原理</strong>）</p>
+<ol>
+<li><code>git reset --hard commitId1</code>（要回退的版本）：该操作把 working, index, HEAD 都强行置为 commitId1</li>
+<li><code>git reset --soft commitId2</code>（最新提交点）</li>
+</ol>
+</li>
+<li><p><strong>本地仓库</strong>，存在多余的提交，想要压缩成一次提交</p>
+<ol>
+<li>将上一次提交和这次提交作为一次提交 <code>git commit --amend</code> </li>
+<li>多次提交压缩：<code>git rebase -i HEAD~n</code>  (n表示要合并的最近提交的次数)</li>
+<li><strong>（一般在提交点push到公共分支之前操作）</strong></li>
+</ol>
+</li>
+<li><p><code>git merge</code> 合并时建议使用 <code>--no--ff</code> 选项保留完整的提交历史（<strong>否则该命令默认策略：“优先–ff，若不能ff则–no-ff”</strong>）</p>
+</li>
+<li><p>比较各个区域的修改差异</p>
+<ol>
+<li>git diff – cached：比较缓存区与本地库最近一次commit内容</li>
+</ol>
+<ul>
+<li>git diff：比较缓存区与工作区 </li>
+<li>git diff HEAD | git diff commitId 比较工作区与本地最近一次commit内容 （工作区会包含已暂存和未暂存的文件内容）</li>
+</ul>
+</li>
+<li><p>想要查看某次提交做了哪些改动</p>
+<ol>
+<li><code>git show commitId</code> (相较以下命令常用)</li>
+<li><code>git show HEAD@&#123;5&#125;</code>  查看仓库中 HEAD 在五次前的所指向的提交</li>
+</ol>
+</li>
+<li><p>版本迭代发布之际，需要合并其他分支的代码时，查看哪些分支已合并或未合并到当前分支</p>
+<ol>
+<li>查看哪些分支已经合并到当前分支：git branch –merged </li>
+<li>查看哪些分支没有合并到当前分支 git branch –no-merged </li>
+</ol>
+</li>
+<li><p>查看某分支还有哪些提交尚未合并到主分支？</p>
+<ol>
+<li><strong>双点</strong>：<ol>
+<li>在 feature 分支中而不在 master 分支中的提交：<code>git log master..feature</code> </li>
+<li>在你当前分支中而不在远程 <code>origin</code> 中的提交：<code>git log origin/master..HEAD</code></li>
+</ol>
+</li>
+<li><strong>三点</strong>：<ol>
+<li>想看 master 或者 feature 中包含的但不是两者共有的提交：<code>git log master...feature</code> </li>
+<li>增加 –left-right 选项可以显示每个提交到底处于哪一侧的分支</li>
+</ol>
+</li>
+<li><strong>多点</strong>：<ol>
+<li>^ 字符或者 –not 来指明你不希望提交被包含其中的分支（以下命令等价）<ol>
+<li>git log refA..refB</li>
+<li>git log ^refA refB</li>
+<li>git log refB –not refA</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+<p><strong>概念</strong></p>
+<ol>
+<li>本地跟踪分支、远程跟踪分支、远程分支 （pull = fetch + merge）</li>
+</ol>
+<hr>
+<h3 id="其他知识点补充"><a href="#其他知识点补充" class="headerlink" title="其他知识点补充"></a><strong>其他知识点补充</strong></h3><ol>
+<li><p>变基 &amp; git merge 区别、commitId 的时间线是否有序</p>
+<ol>
+<li>变基：以另一个分支为基底分支，保留基底分支在共同祖先之后的提交，再将两个分支<strong>最近的</strong>一个<strong>共同祖先</strong>之后的属于”当前变基操作分支”的提交点，<strong>重做</strong>到基底分支上(<strong>commitId会发生变化</strong>)，均作为当前变基操作分支的内容。</li>
+<li>变基后将内容merge 到另一个分支时会丢失该分支提交历史</li>
+</ol>
+</li>
+<li><p>git rebase –onto master &lt;开始的commitId&gt; &lt;结束的commitId&gt; （游离指针 HEAD)</p>
+<ol>
+<li>git rebase master feature ：将feature分支以master作为基底分支，将feature分支上在共同祖先之后的提交点重做一遍 （省去切换分支到feature上的操作）</li>
+<li>git rebase –onto master feature feature-child1 ：将feature分支以master作为基底分支，将feature分支上在共同祖先之后的提交点重做一遍，但暂时并不想合并 feature-child1 中的修改 （feature-child1一般是feature的子分支）</li>
+</ol>
+</li>
+<li><p>Git 合并两个分支时，<strong>如果顺着一个分支走下去可以到达另一个分支的话</strong>，那么 Git 在合并两者时，只会简单地把指针右移，叫做“快进”（fast-forward）（<strong>如果不能到达另一个分支，则会执行 –no-ff</strong> ）</p>
+<ol>
+<li>非ff：Merge made by the ‘recursive’ strategy. （通过“递归”策略进行合并）</li>
+<li>merge 时可以指定提交信息 -m</li>
+</ol>
+</li>
+<li><p>git reset –hard commitId 用于将当前分支指向任意提交点，包括其他分支的提交点</p>
+</li>
+<li><p>git checkout 可以将 HEAD 引用 指向到任意提交点（游离状态-HEAD指针没有指向对象的分支）</p>
+</li>
+<li><p>Git push 时如何避免出现 “Merge branch ‘master’ of …”</p>
+<ol>
+<li>每次从远程分支 pull 新的变动，其实都会执行一次 git merge &lt;远程仓库&gt;/&lt;远程分支&gt;</li>
+<li>git pull = git fetch + git merge ：若你本地的远程跟踪分支落后于远程分支，且在这段时间你还在本地分支进行开发并且做了提交，之后你使用git fetch 拉取远程最新的改动，这个时候你的远程跟踪分支与本地开发分支的提交历史就会产生分叉，执行 git pull 或 git merge origin/master的话就会产生合并记录（**–no-ff**）</li>
+<li>可以使用 git pull –rebase （git fetch + git rebase） 变基方式去除自动生成的 log 信息<ol>
+<li>从 remote 分支拉取更新到本地时，使用 rebase。</li>
+<li>当完成 bug 修复或新功能时，使用 merge 将子分支合并到主分支。</li>
+<li>没有人应该 rebase 一根共享的分支。</li>
+</ol>
+</li>
+</ol>
+</li>
+<li><p>HEAD：</p>
+<ol>
+<li>HEAD就是当前活跃分支的游标。</li>
+<li>HEAD并非只能指向分支的最顶端，实际上它可以指向任何一个提交节点，它就是 Git内部用来追踪当前位置的东东。</li>
+</ol>
+</li>
+<li><p><code>git checkout -b mybranch origin/mybranch</code> (可以指定本地分支名)</p>
+<p>= <code>git checkout --track origin/mybranch</code></p>
+<p>= <code>git checkout origin/mybranch</code> </p>
+</li>
+<li><p>查看某次提交的改动</p>
+<ol>
+<li><code>git show commitId</code></li>
+</ol>
+</li>
+<li><p>查看二进制对象文件：</p>
+<ol>
+<li>git的底层命令：git cat-file -p HEAD (-p： pretty-print object’s content)</li>
+</ol>
+</li>
+<li><p>通过具体指定一个提交来拉取该文件的对应版本：</p>
+<ol>
+<li><code>git reset eb43bf file.txt</code></li>
+</ol>
+</li>
+<li><p>查看某个文件中内容的更改记录：</p>
+<ol>
+<li>git blame -L 69,82 Makefile （每一行分别来自哪个提交和提交者，-L可以指定行数）</li>
+</ol>
+</li>
+<li><p>二分查找 git bisect</p>
+</li>
+<li><p> <code>--patch</code> 选项</p>
+</li>
+<li><p>打包本地仓库：git bundle create repo.bundle HEAD master</p>
+</li>
+<li><p>git 撤销commit中单个文件的修改：（未验证）</p>
+<ul>
+<li>git log <fileName>（首先查询这个文件的log）</li>
+<li>git reset <commit-id> <fileName> （其次查找到这个文件的上次commit id xxx，并对其进行reset操作）</li>
+<li> git checkout <fileName> 撤销对此文件的修改</li>
+<li>git commit –amend + git push origin <remoteBranch> （最后amend一下，再push上去）</li>
+</ul>
+</li>
+</ol>
+<hr>
+<h3 id="Git开发工作流"><a href="#Git开发工作流" class="headerlink" title="Git开发工作流"></a>Git开发工作流</h3><p><a target="_blank" rel="noopener" href="https://juejin.im/post/6844903635533594632#heading-0">https://juejin.im/post/6844903635533594632#heading-0</a></p>
+<ol>
+<li>可以 <strong>在本地</strong> 随便重写历史记录（推送到远程公共分支之前）。 但是在对提交内容感到满意并准备与他人分享之前，应当避免推送你的工作。</li>
+</ol>
+<h3 id="GIt工具"><a href="#GIt工具" class="headerlink" title="GIt工具"></a>GIt工具</h3><ol>
+<li><p>如何选择修订版本（即提交点）</p>
+<ol>
+<li><strong>简短的 SHA-1</strong>：可使用简短的 SHA-1来指定唯一的修订版本</li>
+<li><strong>祖先引用</strong>：使用 ~ 或者 ^ 指定上一个父提交，~n 或者 ^ n指向前N个父提交，用法如下<ol>
+<li>HEAD~3：当前HEAD指针指向的提交点的第三父提交</li>
+<li>commitId~~：该提交点的第二父提交点</li>
+</ol>
+</li>
+</ol>
+</li>
+<li><p>交互式暂存 <code>git add -i</code> 更友好的操作界面</p>
+</li>
+<li><p>贮藏与清理</p>
+<ol>
+<li>从贮藏创建一个分支：git stash branch testchanges</li>
+<li>清理工作目录：<ol>
+<li>git clean；默认情况下，git clean 命令只会移除没有忽略的未跟踪文件。 </li>
+<li>git clean -i：交互式清理</li>
+<li> git clean -f -d：移除工作目录中所有未追踪的文件以及空的子目录。</li>
+<li>git clean -n（或者–dry-run）：“做一次演习然后告诉你 将要 移除什么”；要查看空目录需加上-d选项</li>
+</ol>
+</li>
+</ol>
+</li>
+<li><p>重写历史：</p>
+<ol>
+<li>修改提交记录：git rebase -i （可以压缩提交或者拆分提交）<ol>
+<li>squash 压缩提交到前一次提交</li>
+<li>edit 进入对应提交点上，可以在做相应修改并提交到历史线上。</li>
+</ol>
+</li>
+<li>修改大批量的提交：(<strong>未测试通过</strong>)<ol>
+<li>删除某次提交中引入的某个文件（如密码文件），且在所有的提交点中都恢复不了该文件： <code>git filter-branch --tree-filter &#39;rm -f passwords.txt&#39; HEAD</code></li>
+</ol>
+</li>
+</ol>
+</li>
+<li><p>关于重置（ <code>reset</code> 和 <code>checkout</code>）</p>
+<ol>
+<li>首先要了解git中的三棵树：</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">HEAD</span><br><span class="line">上一次提交的快照，下一次提交的父结点</span><br><span class="line">Index</span><br><span class="line">预期的下一次提交的快照</span><br><span class="line">Working Directory</span><br><span class="line">沙盒</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li><strong>HEAD</strong> 是当前分支引用的指针，它总是指向该分支上的最后一次提交。这表示 HEAD 将是下一次提交的父结点。通常，理解 HEAD 的最简方式，就是将它看做 该分支上的最后一次提交 的快照。<ol>
+<li>递归查看树结构：git ls-tree -r HEAD</li>
+<li>查看二进制对象文件：git的底层命令：git cat-file -p HEAD (-p： pretty-print object’s content)</li>
+</ol>
+</li>
+<li><strong>索引</strong>是你的 预期的下一次提交。 <ol>
+<li>Git 将上一次检出到工作目录中的所有文件填充到索引区，它们看起来就像最初被检出时的样子。（<strong>git的每次提交都是全量文件的快照</strong>） 之后你会将其中一些文件替换为新版本，接着通过 git commit 将它们转换为树来用作新的提交。</li>
+<li>git ls-files -s</li>
+</ol>
+</li>
+<li>可以把<strong>工作目录</strong>当做 沙盒。<ol>
+<li>HEAD、索引树 将工作区的文件的内容存储在 .git 文件夹中。而工作目录会将它们解包为实际的文件以便编辑。</li>
+<li>在将修改提交到暂存区并记录到历史之前，可以随意更改工作目录的文件内容。</li>
+</ol>
+</li>
+<li><strong>切换分支或克隆的过程：</strong>当检出一个分支时，它会修改 <strong>HEAD</strong> 指向新的分支引用，将 <strong>索引</strong> 填充为该次提交的快照， 然后将 <strong>索引</strong> 的内容复制到 <strong>工作目录</strong> 中。</li>
+<li>git reset 到底做了什么？<ol>
+<li>先了解文件提交到版本库的链路：工作树 -&gt; 索引树 -&gt; 对象区(HEAD所指向)；回退的链路则反之</li>
+<li>移动 HEAD的指向：与改变 HEAD 自身不同（checkout 所做的）；reset 移动 HEAD 指向的分支所指向的提交点。（<strong>可以理解为，HEAD是一个引用/指针，指针指向分支对象，相当于HEAD的实际对象是分支对象，reset 是修改这个HEAD对象的commitId属性（调用分支对象的setter方法）；而checkout相当于修改HEAD的引用，引用另一个对象</strong>）</li>
+<li>git reset –soft：（移动 HEAD 分支的指向）撤销了上一次 git commit 命令，<strong>然后停止</strong>；HEAD树回退到上一次提交的版本，工作区、索引树不变。</li>
+<li>git reset –mixed：（使索引看起来像 HEAD）撤销 commit、取消暂存 add ，<strong>然后停止</strong></li>
+<li>git reset –hard：（使工作目录看起来像索引）撤销 commit、取消暂存 add ，还原工作区内容</li>
+</ol>
+</li>
+<li>通过具体指定一个提交来拉取该文件的对应版本：<ol>
+<li><code>git reset eb43bf file.txt</code> (更新索引)</li>
+<li><code>git checkout eb43bf file.txt</code>  (更新索引树和工作空间)</li>
+</ol>
+</li>
+</ol>
+</li>
+<li><p>git commit操作逻辑：</p>
+<ol>
+<li>取得索引中的内容并将它保存为一个永久的快照，然后创建一个指向该快照的提交对象</li>
+<li>最后更新 master 来指向本次提交 （HEAD会一直指向当前分支，而该分支会指向最后一次提交的快照（即对象区的内容））</li>
+</ol>
+</li>
+</ol>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://huangyuye.github.io/2020/09/18/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/20200918-Git/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -187,7 +548,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-05-09 16:43:58" itemprop="dateModified" datetime="2021-05-09T16:43:58+00:00">2021-05-09</time>
+                <time title="修改时间：2021-05-15 05:36:44" itemprop="dateModified" datetime="2021-05-15T05:36:44+00:00">2021-05-15</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -391,7 +752,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-05-09 16:43:58" itemprop="dateModified" datetime="2021-05-09T16:43:58+00:00">2021-05-09</time>
+                <time title="修改时间：2021-05-15 05:36:44" itemprop="dateModified" datetime="2021-05-15T05:36:44+00:00">2021-05-15</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -489,7 +850,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-05-09 16:43:58" itemprop="dateModified" datetime="2021-05-09T16:43:58+00:00">2021-05-09</time>
+                <time title="修改时间：2021-05-15 05:36:44" itemprop="dateModified" datetime="2021-05-15T05:36:44+00:00">2021-05-15</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -855,7 +1216,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-05-09 16:43:58" itemprop="dateModified" datetime="2021-05-09T16:43:58+00:00">2021-05-09</time>
+                <time title="修改时间：2021-05-15 05:36:44" itemprop="dateModified" datetime="2021-05-15T05:36:44+00:00">2021-05-15</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -1085,7 +1446,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-05-09 16:43:58" itemprop="dateModified" datetime="2021-05-09T16:43:58+00:00">2021-05-09</time>
+                <time title="修改时间：2021-05-15 05:36:44" itemprop="dateModified" datetime="2021-05-15T05:36:44+00:00">2021-05-15</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -1310,7 +1671,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-05-09 16:43:58" itemprop="dateModified" datetime="2021-05-09T16:43:58+00:00">2021-05-09</time>
+                <time title="修改时间：2021-05-15 05:36:44" itemprop="dateModified" datetime="2021-05-15T05:36:44+00:00">2021-05-15</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -1571,7 +1932,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-05-09 16:43:58" itemprop="dateModified" datetime="2021-05-09T16:43:58+00:00">2021-05-09</time>
+                <time title="修改时间：2021-05-15 05:36:44" itemprop="dateModified" datetime="2021-05-15T05:36:44+00:00">2021-05-15</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -1673,7 +2034,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-05-09 16:43:58" itemprop="dateModified" datetime="2021-05-09T16:43:58+00:00">2021-05-09</time>
+                <time title="修改时间：2021-05-15 05:36:44" itemprop="dateModified" datetime="2021-05-15T05:36:44+00:00">2021-05-15</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -1769,7 +2130,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-05-09 16:43:58" itemprop="dateModified" datetime="2021-05-09T16:43:58+00:00">2021-05-09</time>
+                <time title="修改时间：2021-05-15 05:36:44" itemprop="dateModified" datetime="2021-05-15T05:36:44+00:00">2021-05-15</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -1805,149 +2166,6 @@
 <p>反射的<strong>思想</strong>：<strong>在程序运行过程中确定和解析数据类的类型。</strong></p>
 <p>反射的<strong>作用</strong>：对于在<code>编译期</code>无法确定使用哪个数据类的场景，通过<code>反射</code>可以在程序运行时<strong>构造出不同的数据类实例</strong>。</p>
 <h1 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h1><p><a target="_blank" rel="noopener" href="https://juejin.im/post/6864324335654404104">https://juejin.im/post/6864324335654404104</a></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://huangyuye.github.io/2020/08/22/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/20200822-Java%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B(%E4%B8%80)/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="yuye Huang">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="HYY">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/08/22/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/20200822-Java%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B(%E4%B8%80)/" class="post-title-link" itemprop="url">Java并发编程(一)</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-08-22 00:00:00" itemprop="dateCreated datePublished" datetime="2020-08-22T00:00:00+00:00">2020-08-22</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-05-09 16:43:58" itemprop="dateModified" datetime="2021-05-09T16:43:58+00:00">2021-05-09</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/" itemprop="url" rel="index"><span itemprop="name">知识库</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" itemprop="url" rel="index"><span itemprop="name">基础知识</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><h3 id="线程-amp-进程"><a href="#线程-amp-进程" class="headerlink" title="线程&amp;进程"></a>线程&amp;进程</h3><p><strong>进程：</strong>是程序的一次执行过程，是系统运行程序的基本单位</p>
-<p><strong>线程：</strong>比进程更小的执行单位，一个进程的执行过程中会产生多个线程。</p>
-<p><strong>不同点：</strong></p>
-<ol>
-<li>进程之间是完全独立的；多个线程共享进程的<strong>堆</strong>和<strong>方法区</strong>资源(线程间可能会相互影响)，但是每个线程有独立的程序计数器、虚拟机栈、本地方法栈。</li>
-<li>线程间切换工作上下文时资源消耗比进程小（被称为轻量级线程）<ol>
-<li>线程执行开销小，但不利于资源的管理和保护</li>
-</ol>
-</li>
-</ol>
-<p><strong>问题</strong>：</p>
-<p>程序计数器、虚拟机栈、本地方法栈为什么是私有的？</p>
-<p>首先先来了解<strong>程序计数器</strong>的作用—记住程序线程的运行位置：</p>
-<ol>
-<li>字节码解释器通过改变程序计数器来依次读取指令，从而实现代码的流程控制，如顺序执行、选择、循环</li>
-<li>多线程情况下，程序计数器用于记录当前线程执行位置，从而使得当线程被切换回来时能够知道该线程上次运行到哪里了。</li>
-</ol>
-<p>总结：所以，程序计数器私有主要是为了<strong>线程切换后能恢复到正确的执行位置</strong>。</p>
-<p><strong>虚拟机栈(Java方法)：</strong> 每个 Java 方法在执行的同时会创建一个栈帧用于存储局部变量表、操作数栈、常量池引用等信息。从方法调用直至执行完成的过程，就对应着一个栈帧在 Java 虚拟机栈中入栈和出栈的过程。<br><strong>本地方法栈：</strong> 和虚拟机栈所发挥的作用非常相似，区别是： 虚拟机栈为虚拟机执行 Java 方法 （也就是字节码）服务，而本地方法栈则为虚拟机使用到的 Native 方法服务。 在 HotSpot 虚拟机中和 Java 虚拟机栈合二为一。</p>
-<p>所以，为了<strong>保证线程中的局部变量不被别的线程访问到</strong>，虚拟机栈和本地方法栈是线程私有的。</p>
-<p><strong>堆</strong>和<strong>方法区</strong>是所有线程共享的资源，其中堆是进程中最大的一块内存，主要用于存放新创建的对象 (几乎所有对象都在这里分配内存)，方法区主要用于存放已被加载的类信息、常量、静态变量、即时编译器编译后的代码等数据。</p>
-<h3 id="为什么要使用多线程"><a href="#为什么要使用多线程" class="headerlink" title="为什么要使用多线程"></a>为什么要使用多线程</h3><ol>
-<li>线程间的切换和调度的成本远小于进程</li>
-<li>充分利用多核CPU同时运行多个线程，提高系统并发能力和性能</li>
-</ol>
-<p>单核CPU时代：提高CPU和IO设备的综合利用率</p>
-<p>多核CPU时代：提高CPU利用率</p>
-<h4 id="多线程可能带来的问题"><a href="#多线程可能带来的问题" class="headerlink" title="多线程可能带来的问题"></a>多线程可能带来的问题</h4><ol>
-<li>内存泄漏</li>
-<li>死锁</li>
-<li>线程不安全等</li>
-</ol>
-<h3 id="线程的生命周期和状态"><a href="#线程的生命周期和状态" class="headerlink" title="线程的生命周期和状态"></a>线程的生命周期和状态</h3><ol>
-<li>NEW</li>
-<li>RUNNABLE</li>
-<li>BLOCKED</li>
-<li>WAITING、TIME_WATING</li>
-<li>TERMINATED</li>
-</ol>
-<h4 id="状态切换"><a href="#状态切换" class="headerlink" title="状态切换"></a>状态切换</h4><p>线程创建之后它将处于 <strong>NEW（新建）</strong> 状态，</p>
-<p>调用 <code>start()</code> 方法后开始运行，线程这时候处于 <strong>READY（可运行）</strong> 状态。</p>
-<p>可运行状态的线程获得了 CPU 时间片（timeslice）后就处于 <strong>RUNNING（运行）</strong> 状态。</p>
-<p><code>操作系统隐藏 Java 虚拟机（JVM）中的 READY 和 RUNNING 状态，它只能看到 RUNNABLE 状态。所以 Java 系统一般将这两个状态统称为 RUNNABLE（运行中） 状态 。</code></p>
-<p>当线程执行 <code>wait()</code>方法之后，线程进入 <strong>WAITING（等待）</strong> 状态。进入等待状态的线程需要依靠其他线程的通知才能够返回到运行状态，</p>
-<p>而 <strong>TIME_WAITING(超时等待)</strong> 状态相当于在等待状态的基础上增加了超时限制，比如通过 <code>sleep（long millis）</code>方法或 <code>wait（long millis）</code>方法可以将 Java 线程置于 TIMED WAITING 状态。</p>
-<p>当超时时间到达后 Java 线程将会返回到 <strong>RUNNABLE</strong> 状态。</p>
-<p>当线程调用同步方法时，在没有获取到锁的情况下，线程将会进入到 <strong>BLOCKED（阻塞）</strong> 状态。</p>
-<p>线程在执行 Runnable 的<code>run()</code>方法之后将会进入到 <strong>TERMINATED（终止）</strong> 状态。</p>
-<h3 id="关于线程上下文切换"><a href="#关于线程上下文切换" class="headerlink" title="关于线程上下文切换"></a>关于线程上下文切换</h3><p>多线程编程中一般线程的个数都大于 CPU 核心的个数，而<strong>一个 CPU 核心在任意时刻只能被一个线程使用</strong>，为了让这些线程都能得到有效执行，CPU 采取的策略是为每个线程分配时间片并轮转的形式。当一个线程的时间片用完的时候就会重新处于就绪状态让给其他线程使用，这个过程就属于一次上下文切换。</p>
-<p>概括来说就是：当前任务在执行完 CPU 时间片切换到另一个任务之前会先保存自己的状态，以便下次再切换回这个任务时，可以再加载这个任务的状态。<strong>任务从保存到再加载的过程就是一次上下文切换</strong>。</p>
-<h3 id="关于start-和run"><a href="#关于start-和run" class="headerlink" title="关于start()和run()"></a>关于start()和run()</h3><p><strong>调用 start 方法方可启动线程并使线程进入就绪状态，而 run 方法只是 thread 的一个普通方法调用，还是在主线程里执行。</strong></p>
-<h3 id="sleep-方法和-wait-方法"><a href="#sleep-方法和-wait-方法" class="headerlink" title="sleep() 方法和 wait() 方法"></a>sleep() 方法和 wait() 方法</h3><p>两者最主要的区别在于：<strong>sleep 方法没有释放锁，而 wait 方法释放了锁</strong> 。</p>
-<h3 id="线程死锁"><a href="#线程死锁" class="headerlink" title="线程死锁"></a>线程死锁</h3><p>线程死锁描述的是这样一种情况：多个线程同时被阻塞，它们中的一个或者全部都在等待某个资源被释放。由于线程被无限期地阻塞，因此程序不可能正常终止。</p>
-<p>死锁产生的四个必要条件：</p>
-<ol>
-<li>互斥条件</li>
-<li>请求与保持条件</li>
-<li>不剥夺条件</li>
-<li>循环等待条件</li>
-</ol>
-<p>通俗来讲，多个线程都在争夺相同的N个资源（<strong>均只有一份，互斥</strong>），等待缺少的资源时不丢掉本身已获取到的资源(<strong>请求与保持</strong>)，且不能抢夺别的线程占用的资源(<strong>不剥夺</strong>)，但是问题是想要正常运行，这些线程都需要别的线程已获取到的资源（<strong>循环等待</strong>）。</p>
-<p>如每个线程都在同时执行“拼凑拼图”的任务，但拼图却只有一份(<strong>互斥</strong>)。或者说多个分别捡到不同星数的龙珠的人都想要召唤神龙。</p>
 
       
     </div>
@@ -2032,7 +2250,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">52</span>
+          <span class="site-state-item-count">53</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
