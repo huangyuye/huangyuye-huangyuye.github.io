@@ -180,7 +180,7 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2021-05-15 05:36:44" itemprop="dateCreated datePublished" datetime="2021-05-15T05:36:44+00:00">2021-05-15</time>
+              <time title="创建时间：2021-05-15 05:40:05" itemprop="dateCreated datePublished" datetime="2021-05-15T05:40:05+00:00">2021-05-15</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -365,7 +365,7 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2021-05-15 05:36:44" itemprop="dateCreated datePublished" datetime="2021-05-15T05:36:44+00:00">2021-05-15</time>
+              <time title="创建时间：2021-05-15 05:40:05" itemprop="dateCreated datePublished" datetime="2021-05-15T05:40:05+00:00">2021-05-15</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -463,7 +463,7 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2021-05-15 05:36:44" itemprop="dateCreated datePublished" datetime="2021-05-15T05:36:44+00:00">2021-05-15</time>
+              <time title="创建时间：2021-05-15 05:40:05" itemprop="dateCreated datePublished" datetime="2021-05-15T05:40:05+00:00">2021-05-15</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -801,7 +801,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-05-15 05:37:08" itemprop="dateModified" datetime="2021-05-15T05:37:08+00:00">2021-05-15</time>
+                <time title="修改时间：2021-05-15 05:40:29" itemprop="dateModified" datetime="2021-05-15T05:40:29+00:00">2021-05-15</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -1133,7 +1133,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://huangyuye.github.io/2021/04/21/yuque/JMS%20%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B/">
+    <link itemprop="mainEntityOfPage" href="https://huangyuye.github.io/2021/04/29/yuque/%E6%95%B0%E6%8D%AE%E5%BA%93%E8%BF%81%E7%A7%BB%E8%AE%B0%E5%BD%95/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -1147,7 +1147,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2021/04/21/yuque/JMS%20%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B/" class="post-title-link" itemprop="url">JMS 快速上手</a>
+            <a href="/2021/04/29/yuque/%E6%95%B0%E6%8D%AE%E5%BA%93%E8%BF%81%E7%A7%BB%E8%AE%B0%E5%BD%95/" class="post-title-link" itemprop="url">数据库迁移记录</a>
         </h2>
 
         <div class="post-meta">
@@ -1157,14 +1157,14 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2021-04-21 10:50:36" itemprop="dateCreated datePublished" datetime="2021-04-21T10:50:36+00:00">2021-04-21</time>
+              <time title="创建时间：2021-04-29 07:59:05" itemprop="dateCreated datePublished" datetime="2021-04-29T07:59:05+00:00">2021-04-29</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-05-15 05:37:08" itemprop="dateModified" datetime="2021-05-15T05:37:08+00:00">2021-05-15</time>
+                <time title="修改时间：2021-05-15 05:40:29" itemprop="dateModified" datetime="2021-05-15T05:40:29+00:00">2021-05-15</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -1187,7 +1187,91 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          
+          <h2 id=""><a href="#" class="headerlink" title=""></a></h2><h2 id="简单场景数据迁移"><a href="#简单场景数据迁移" class="headerlink" title="简单场景数据迁移"></a>简单场景数据迁移</h2><h3 id="导出数据"><a href="#导出数据" class="headerlink" title="导出数据"></a>导出数据</h3><h4 id="导出表结构和表数据"><a href="#导出表结构和表数据" class="headerlink" title="导出表结构和表数据"></a>导出表结构和表数据</h4><p>1、导出数据库為 dbname 的表结构（其中用戶名為 root,密码為 dbpasswd,生成的脚本名為 db.sql）</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysqldump <span class="operator">-</span>uroot <span class="operator">-</span>pdbpasswd <span class="operator">-</span>d dbname <span class="operator">&gt;</span>db.sql;</span><br></pre></td></tr></table></figure>
+
+<p>2、导出數據库為 dbname 某张表(test)结构</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysqldump <span class="operator">-</span>uroot <span class="operator">-</span>pdbpasswd <span class="operator">-</span>d dbname test<span class="operator">&gt;</span>db.sql;</span><br></pre></td></tr></table></figure>
+
+<p>3、导出數據库為 dbname 所有表结构及表數據（不加-d）</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysqldump <span class="operator">-</span>uroot <span class="operator">-</span>pdbpasswd  dbname <span class="operator">&gt;</span>db.sql;</span><br></pre></td></tr></table></figure>
+
+<p>4、导出數據库為 dbname 某张表(test)结构及表數據（不加-d）</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysqldump <span class="operator">-</span>uroot <span class="operator">-</span>pdbpasswd dbname test<span class="operator">&gt;</span>db.sql;</span><br></pre></td></tr></table></figure>
+
+<h4 id="-1"><a href="#-1" class="headerlink" title=""></a></h4><h4 id="按条件导出"><a href="#按条件导出" class="headerlink" title="按条件导出"></a>按条件导出</h4><p><strong>语法：</strong></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysqldump <span class="operator">-</span>u用户名 <span class="operator">-</span>p密码 数据库名 表名 <span class="comment">--where=&quot;筛选条件&quot; &gt; 导出文件路径</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>示例：</strong></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mysqldump <span class="operator">-</span>h11<span class="number">.11</span><span class="number">.11</span><span class="number">.63</span> <span class="operator">-</span>uroot <span class="operator">-</span>p09327399 shentb<span class="operator">-</span>pro tbl_addresslist <span class="comment">--where=&quot;createtime &gt; &#x27;2019-02-27 00:00:00&#x27; and</span></span><br><span class="line">createtime <span class="operator">&lt;</span> <span class="string">&#x27;2019-02-27 23:59:00&#x27;</span>&quot; &gt; tbl_addresslist.sql</span><br></pre></td></tr></table></figure>
+
+<h2 id="-2"><a href="#-2" class="headerlink" title=""></a></h2><h3 id="导入目标库"><a href="#导入目标库" class="headerlink" title="导入目标库"></a>导入目标库</h3><p>导出的文件是标准的 sql 语句，可直接导入至新库。<strong>登入 Mysql：</strong></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mysql <span class="operator">-</span>h xxxx <span class="operator">-</span>uroot <span class="operator">-</span>pxxxx shentb<span class="operator">-</span>pro</span><br><span class="line">mysql <span class="operator">-</span>h11<span class="number">.11</span><span class="number">.11</span><span class="number">.11</span> <span class="operator">-</span>uroot <span class="operator">-</span>ppassword</span><br></pre></td></tr></table></figure>
+
+<p><strong>显示数据库列表</strong></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">show</span> databases;</span><br></pre></td></tr></table></figure>
+
+<p><strong>切换到要操作的数据库</strong></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">use database_name;</span><br></pre></td></tr></table></figure>
+
+<p><strong>执行导入</strong></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">source <span class="operator">/</span>root<span class="operator">/</span>file.txt</span><br></pre></td></tr></table></figure>
+
+<h2 id="特殊场景"><a href="#特殊场景" class="headerlink" title="特殊场景"></a>特殊场景</h2><p>假设系统版本将从 v1 升级到 v2，但是旧系统存量客户并不想升级，此时会出现两个版本系统线上并行情况。<br>且系统使用的是单实例数据库，若新版本系统还继续迭代，很可能就会出现表结构变更且旧版本系统不能兼容的情况，此时就需要将系统数据源拆分成不同实例，原有数据库的业务数据需要同步到新的数据库，此时新旧系统分别实体 db1 和 db2 数据库，且后续还会陆续将旧系统升级并迁移旧系统数据库。</p>
+<p>而部分数据库表设计中，可能会使用数据库自增 id 作为其他业务表的关联键，那么新旧系统并行过程中就要保证两个数据库的 id 号不能冲突，解决冲突的方式有：</p>
+<ul>
+<li><strong>将新系统相关业务表的自增 id 号翻倍，预留出充足的 id 号供旧系统使用</strong><ul>
+<li>梳理出使用自增 id 作为关联键的数据表，查询出当前最大自增 id 号 N，将新数据库中该表的 id 号修改为 N 的倍数（<strong>倍数根据场景修改</strong>）</li>
+</ul>
+</li>
+<li><strong>修改新旧系统的自增 id 号的步长和偏移量，保证两个数据库产生的 id 号不重复（需重启数据库）</strong><ul>
+<li><code>auto_increment_increment</code>：id 号增量值，也就是步长</li>
+<li><code>auto_increment_offset</code>：id 号起始值</li>
+</ul>
+</li>
+</ul>
+<p>一般建议系统先做好数据库主从，这样在迁移的时候能保证只停从库，不对其他客户的业务产生影响。且有临时库可以让你更方便的做迁移准备工作</p>
+<h3 id="如何修改数据表的自增-id-号？"><a href="#如何修改数据表的自增-id-号？" class="headerlink" title="如何修改数据表的自增 id 号？"></a>如何修改数据表的自增 id 号？</h3><p>除此之外，你将会遇到的问题是如何将旧数据库的 id 号同步到新数据库中</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">alter table #&#123;tableName&#125; AUTO_INCREMENT = #&#123;toId&#125;;</span><br></pre></td></tr></table></figure>
+
+<h3 id="如何修改自增-id-号的步长和偏移量？"><a href="#如何修改自增-id-号的步长和偏移量？" class="headerlink" title="如何修改自增 id 号的步长和偏移量？"></a>如何修改自增 id 号的步长和偏移量？</h3><p><strong>查看当前数据库配置</strong></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SHOW</span> VARIABLES <span class="keyword">LIKE</span> <span class="string">&#x27;auto_inc%&#x27;</span>;</span><br></pre></td></tr></table></figure>
+
+<p><strong>两种方式可以修改自增 id 号的步长和偏移量</strong></p>
+<ul>
+<li>修改 mysql 配置文件方式</li>
+</ul>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">vi <span class="operator">/</span>etc<span class="operator">/</span>my.cnf</span><br><span class="line">auto_increment_increment = &#123;n1&#125;;</span><br><span class="line">auto_increment_offset = &#123;n2&#125;;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>sql 语句修改（仅同一连接会话生效）</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># <span class="operator">&gt;</span> <span class="number">1227</span> <span class="operator">-</span> Access denied; you need (<span class="keyword">at</span> least <span class="keyword">one</span> <span class="keyword">of</span>) the SUPER privilege(s) <span class="keyword">for</span> this operation</span><br><span class="line"><span class="keyword">set</span> <span class="keyword">global</span> auto_increment_increment <span class="operator">=</span> <span class="number">2</span>;</span><br><span class="line"><span class="keyword">SET</span> @<span class="variable">@auto</span>_increment_increment <span class="operator">=</span> <span class="number">10</span>;  <span class="operator">/</span><span class="operator">/</span>设置步长</span><br><span class="line"><span class="keyword">SET</span> <span class="keyword">global</span> auto_increment_offset <span class="operator">=</span> <span class="number">10000</span>;  <span class="operator">/</span><span class="operator">/</span>设置起始偏移量</span><br><span class="line"># 系统定义的全局变量（又称系统变量）都是以@@开头，用户自定义变量（简称用户变量）以@开头</span><br></pre></td></tr></table></figure>
+
+<p>会话 session：只对当前会话产生影响,退出 mysql 后失效<br>全局 GLOBAL：对以后的 mysql 的连接都生效的，重启 mysql 后失效（reload 重载不会）<br>/etc/my.cnf 修改后重启永久生效</p>
+<h2 id="存储过程"><a href="#存储过程" class="headerlink" title="存储过程"></a>存储过程</h2><h3 id="Mysql-变量"><a href="#Mysql-变量" class="headerlink" title="Mysql 变量"></a>Mysql 变量</h3><p>1、局部变量(存储过程变量 declare)<br>2、用户变量：用户变量 在客户端链接到数据库实例整个过程中用户变量都是有效的<br>3、会话变量<br>4、全局变量</p>
+<h3 id="定义变量方式"><a href="#定义变量方式" class="headerlink" title="定义变量方式"></a>定义变量方式</h3><ul>
+<li>使用 set 或 select 直接赋值，变量名以 @ 开头.</li>
+<li>以 DECLARE 关键字声明的变量，只能在存储过程中使用，称为存储过程变量</li>
+</ul>
+<h3 id="存储过程语法"><a href="#存储过程语法" class="headerlink" title="存储过程语法"></a>存储过程语法</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span></span><br><span class="line">    [DEFINER = &#123; user | CURRENT_USER &#125;]</span><br><span class="line">　<span class="keyword">PROCEDURE</span> sp_name ([proc_parameter[,...]])</span><br><span class="line">    [characteristic ...] routine_body</span><br><span class="line"></span><br><span class="line">proc_parameter:</span><br><span class="line">    [ <span class="keyword">IN</span> <span class="operator">|</span> <span class="keyword">OUT</span> <span class="operator">|</span> <span class="keyword">INOUT</span> ] param_name type</span><br><span class="line"></span><br><span class="line">characteristic:</span><br><span class="line">    COMMENT <span class="string">&#x27;string&#x27;</span></span><br><span class="line">  <span class="operator">|</span> <span class="keyword">LANGUAGE</span> <span class="keyword">SQL</span></span><br><span class="line">  <span class="operator">|</span> [<span class="keyword">NOT</span>] <span class="keyword">DETERMINISTIC</span></span><br><span class="line">  | &#123; CONTAINS SQL | NO SQL | READS SQL DATA | MODIFIES SQL DATA &#125;</span><br><span class="line">  | SQL SECURITY &#123; DEFINER | INVOKER &#125;</span><br><span class="line"></span><br><span class="line">routine_body:</span><br><span class="line">　　Valid <span class="keyword">SQL</span> routine statement</span><br><span class="line">[begin_label:] <span class="keyword">BEGIN</span></span><br><span class="line">　　[statement_list]</span><br><span class="line">　　　　……</span><br><span class="line"><span class="keyword">END</span> [end_label]</span><br></pre></td></tr></table></figure>
+
+<h3 id="存储过程实例"><a href="#存储过程实例" class="headerlink" title="存储过程实例"></a>存储过程实例</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">DELIMITER <span class="operator">/</span><span class="operator">/</span></span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">PROCEDURE</span> demo_out_parameter(<span class="keyword">OUT</span> p_out <span class="type">int</span>)</span><br><span class="line">    <span class="keyword">BEGIN</span></span><br><span class="line">    <span class="keyword">SELECT</span> p_out;</span><br><span class="line">    <span class="keyword">SET</span> p_out<span class="operator">=</span></span><br><span class="line">    <span class="keyword">SELECT</span> p_out;</span><br><span class="line">    <span class="keyword">END</span> <span class="operator">/</span><span class="operator">/</span></span><br><span class="line">DELIMITER ;</span><br><span class="line"></span><br><span class="line">mysql <span class="operator">&gt;</span> <span class="keyword">SET</span> <span class="variable">@p</span>_out<span class="operator">=</span><span class="number">1</span>;</span><br><span class="line">mysql <span class="operator">&gt;</span> <span class="keyword">CALL</span> sp_demo_out_parameter(<span class="variable">@p</span>_out);</span><br></pre></td></tr></table></figure>
+
+<h3 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h3><p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/7b2d74701ccd">mysql 存储过程详细教程</a><br><a target="_blank" rel="noopener" href="https://segmentfault.com/a/1190000039248897">针对新手的 MYSQL 存储过程详解</a><br><a target="_blank" rel="noopener" href="https://segmentfault.com/a/1190000022856142">MySQL 存储过程编写指南</a></p>
+<h2 id="TODO"><a href="#TODO" class="headerlink" title="TODO"></a>TODO</h2><ul>
+<li>雪花算法<ul>
+<li><a target="_blank" rel="noopener" href="https://www.cnblogs.com/wuzhenzhao/p/13295382.html">分布式 ID 常见生成策略</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/0a7c527ccc13">数据库 ID 生成方案：号段模式</a></li>
+</ul>
+</li>
+<li>Mysql 设置 auto_increment_increment 和 auto_increment_offset<ul>
+<li>show variables like ‘%auto_inc%’;</li>
+</ul>
+</li>
+<li><a target="_blank" rel="noopener" href="https://segmentfault.com/a/1190000018780990">关于自增 id 你可能还不知道</a></li>
+</ul>
+
       
     </div>
 
@@ -1237,7 +1321,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-05-15 05:37:08" itemprop="dateModified" datetime="2021-05-15T05:37:08+00:00">2021-05-15</time>
+                <time title="修改时间：2021-05-15 05:40:29" itemprop="dateModified" datetime="2021-05-15T05:40:29+00:00">2021-05-15</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -1327,7 +1411,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-05-15 05:37:08" itemprop="dateModified" datetime="2021-05-15T05:37:08+00:00">2021-05-15</time>
+                <time title="修改时间：2021-05-15 05:40:29" itemprop="dateModified" datetime="2021-05-15T05:40:29+00:00">2021-05-15</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -1449,7 +1533,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-05-15 05:37:08" itemprop="dateModified" datetime="2021-05-15T05:37:08+00:00">2021-05-15</time>
+                <time title="修改时间：2021-05-15 05:40:29" itemprop="dateModified" datetime="2021-05-15T05:40:29+00:00">2021-05-15</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -1550,7 +1634,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-05-15 05:37:08" itemprop="dateModified" datetime="2021-05-15T05:37:08+00:00">2021-05-15</time>
+                <time title="修改时间：2021-05-15 05:40:29" itemprop="dateModified" datetime="2021-05-15T05:40:29+00:00">2021-05-15</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -1658,7 +1742,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-05-15 05:37:08" itemprop="dateModified" datetime="2021-05-15T05:37:08+00:00">2021-05-15</time>
+                <time title="修改时间：2021-05-15 05:40:30" itemprop="dateModified" datetime="2021-05-15T05:40:30+00:00">2021-05-15</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
