@@ -180,7 +180,7 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2021-05-15 05:40:05" itemprop="dateCreated datePublished" datetime="2021-05-15T05:40:05+00:00">2021-05-15</time>
+              <time title="创建时间：2021-05-15 05:40:48" itemprop="dateCreated datePublished" datetime="2021-05-15T05:40:48+00:00">2021-05-15</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -365,7 +365,7 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2021-05-15 05:40:05" itemprop="dateCreated datePublished" datetime="2021-05-15T05:40:05+00:00">2021-05-15</time>
+              <time title="创建时间：2021-05-15 05:40:48" itemprop="dateCreated datePublished" datetime="2021-05-15T05:40:48+00:00">2021-05-15</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -463,7 +463,7 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2021-05-15 05:40:05" itemprop="dateCreated datePublished" datetime="2021-05-15T05:40:05+00:00">2021-05-15</time>
+              <time title="创建时间：2021-05-15 05:40:48" itemprop="dateCreated datePublished" datetime="2021-05-15T05:40:48+00:00">2021-05-15</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -801,7 +801,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-05-15 05:40:29" itemprop="dateModified" datetime="2021-05-15T05:40:29+00:00">2021-05-15</time>
+                <time title="修改时间：2021-05-15 05:41:11" itemprop="dateModified" datetime="2021-05-15T05:41:11+00:00">2021-05-15</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -961,6 +961,11 @@
 </ul>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@SpringBootApplication</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SpringBootApplication</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        SpringApplication.run(SpringBootApplication.class, args);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
+<ul>
+<li>跳过打包</li>
+</ul>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 增加skipTests属性 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">properties</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">skipTests</span>&gt;</span>true<span class="tag">&lt;/<span class="name">skipTests</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;/<span class="name">properties</span>&gt;</span></span><br><span class="line"> <span class="comment">&lt;!-- 使用以下maven插件 --&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">build</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">plugins</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="name">plugin</span>&gt;</span></span><br><span class="line">       <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">       <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-maven-plugin<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;/<span class="name">plugin</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;/<span class="name">plugins</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;/<span class="name">build</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
 <h4 id="mybatis-plus"><a href="#mybatis-plus" class="headerlink" title="mybatis-plus"></a>mybatis-plus</h4><ul>
 <li>Maven 依赖</li>
 </ul>
@@ -1046,8 +1051,8 @@
 </ul>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ResourceBundle rb = ResourceBundle.getBundle(<span class="string">&quot;mybatis-plus&quot;</span>);</span><br><span class="line"><span class="comment">// todo rb.get...</span></span><br></pre></td></tr></table></figure>
 
-<p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/33b643bf001f">
-</a></p>
+<p>[</p>
+<p>](<a target="_blank" rel="noopener" href="https://www.jianshu.com/p/33b643bf001f">https://www.jianshu.com/p/33b643bf001f</a>)</p>
 <h4 id="Mybatis-查询映射-DTO"><a href="#Mybatis-查询映射-DTO" class="headerlink" title="Mybatis 查询映射 DTO"></a>Mybatis 查询映射 DTO</h4><p>todo</p>
 <h4 id="Test-注解"><a href="#Test-注解" class="headerlink" title="@Test  注解"></a><a href="/Test">@Test </a> 注解</h4><p>使用 <code>@org.junit.jupiter.api.Test</code> 而非 <code>@org.junit.Test</code>，后者会导致不能正常注册 springboot 应用</p>
 <h4 id="表字段默认值填充：自动填充功能"><a href="#表字段默认值填充：自动填充功能" class="headerlink" title="表字段默认值填充：自动填充功能"></a>表字段默认值填充：自动填充功能</h4><ul>
@@ -1065,6 +1070,72 @@
 
 <ul>
 <li><strong>注意</strong>：目前测试只对单个对象的操作有效</li>
+</ul>
+<h4 id="配置分页拦截器（不配置-IPAGE-分页无效）"><a href="#配置分页拦截器（不配置-IPAGE-分页无效）" class="headerlink" title="配置分页拦截器（不配置 IPAGE 分页无效）"></a>配置分页拦截器（不配置 IPAGE 分页无效）</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyBatisPlusConfig</span> </span>&#123;</span><br><span class="line">	<span class="comment">/*	旧版本配置</span></span><br><span class="line"><span class="comment">	@Bean</span></span><br><span class="line"><span class="comment">	public PaginationInterceptor paginationInterceptor()&#123;</span></span><br><span class="line"><span class="comment">		return new PaginationInterceptor();</span></span><br><span class="line"><span class="comment">	&#125;*/</span></span><br><span class="line"></span><br><span class="line">	<span class="comment">/**</span></span><br><span class="line"><span class="comment">	 * 新的分页插件,一缓和二缓遵循mybatis的规则,需要设置 MybatisConfiguration#useDeprecatedExecutor = false 避免缓存出现问题</span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line">	<span class="meta">@Bean</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> MybatisPlusInterceptor <span class="title">mybatisPlusInterceptor</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		MybatisPlusInterceptor interceptor = <span class="keyword">new</span> MybatisPlusInterceptor();</span><br><span class="line">		interceptor.addInnerInterceptor(<span class="keyword">new</span> PaginationInnerInterceptor(DbType.MYSQL));</span><br><span class="line">		<span class="keyword">return</span> interceptor;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Bean</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> ConfigurationCustomizer <span class="title">configurationCustomizer</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> configuration -&gt; configuration.setUseDeprecatedExecutor(<span class="keyword">false</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="sql-映射语句"><a href="#sql-映射语句" class="headerlink" title="sql 映射语句"></a>sql 映射语句</h4><ul>
+<li>定义通用的语句并在其他语句中复用 <code>&lt;include&gt;</code>标签</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 通用sql */</span></span><br><span class="line"><span class="operator">&lt;</span><span class="keyword">sql</span> id<span class="operator">=</span>&quot;Base_Column_List&quot;<span class="operator">&gt;</span></span><br><span class="line">    id,create_time,update_time, table_schema,table_name,need_migrate, priority,filter_mark</span><br><span class="line"><span class="operator">&lt;</span><span class="operator">/</span><span class="keyword">sql</span><span class="operator">&gt;</span></span><br><span class="line"><span class="comment">/* 使用&lt;include refid=“”/&gt;标签引用sql */</span></span><br><span class="line"><span class="operator">&lt;</span><span class="keyword">insert</span> id<span class="operator">=</span>&quot;insertIgnore&quot;<span class="operator">&gt;</span></span><br><span class="line">  <span class="keyword">insert</span> ignore <span class="keyword">into</span> db_migrate_table_info(</span><br><span class="line">  <span class="operator">&lt;</span>include refid<span class="operator">=</span>&quot;Base_Column_List&quot; <span class="operator">/</span><span class="operator">&gt;</span></span><br><span class="line">  )</span><br><span class="line">  select null, now(), now(), #&#123;tableSchema&#125;,`TABLE_NAME`, null, null, null</span><br><span class="line">  <span class="keyword">from</span> information_schema.TABLES</span><br><span class="line"><span class="operator">&lt;</span><span class="operator">/</span><span class="keyword">insert</span><span class="operator">&gt;</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>遍历参数</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 该语句接收一个名为&quot;dbValues&quot;的集合类型的参数，并以&quot;,&quot;分隔集合元素，且集合的元素仍为集合； */</span></span><br><span class="line"><span class="comment">/*  */</span></span><br><span class="line"><span class="operator">&lt;</span><span class="keyword">sql</span> id<span class="operator">=</span>&quot;values&quot;<span class="operator">&gt;</span></span><br><span class="line">    <span class="operator">&lt;</span>foreach item<span class="operator">=</span>&quot;item&quot; collection<span class="operator">=</span>&quot;dbValues&quot; separator<span class="operator">=</span>&quot;,&quot; <span class="operator">&gt;</span></span><br><span class="line">        <span class="operator">&lt;</span>foreach collection<span class="operator">=</span>&quot;item&quot; item<span class="operator">=</span>&quot;detailItem&quot; index<span class="operator">=</span>&quot;index&quot; <span class="keyword">open</span><span class="operator">=</span>&quot;(&quot;</span><br><span class="line">                 <span class="keyword">close</span><span class="operator">=</span>&quot;)&quot;  separator<span class="operator">=</span>&quot;,&quot;<span class="operator">&gt;</span></span><br><span class="line">            #&#123;detailItem&#125;</span><br><span class="line">        <span class="operator">&lt;</span><span class="operator">/</span>foreach<span class="operator">&gt;</span></span><br><span class="line">    <span class="operator">&lt;</span><span class="operator">/</span>foreach<span class="operator">&gt;</span></span><br><span class="line"><span class="operator">&lt;</span><span class="operator">/</span><span class="keyword">sql</span><span class="operator">&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="线程池"><a href="#线程池" class="headerlink" title="线程池"></a>线程池</h4><ul>
+<li><p>参数：</p>
+<ul>
+<li>corePoolSize：线程池中核心线程数的数量</li>
+<li>maximumPoolSize：在线程池中允许存在的最大线程数</li>
+<li>maximumQueueSize： 线程缓冲队列数量</li>
+<li>workQueue：工作队列，线程池中的当前线程数大于核心线程的话，那么接下来的任务会放入到队列中</li>
+</ul>
+</li>
+<li><p>逻辑：</p>
+<ul>
+<li>前 corePoolSize 个任务时，来一个任务就创建一个线程</li>
+<li>如果此时线程池中的当前线程大于了 maximumPoolSize 最大线程数，那么就会执行我们刚才设置的 handler 拒绝策略</li>
+<li>handler：如果超过了最大线程数 maximumPoolSize，那么就会执行我们设置的拒绝策略</li>
+</ul>
+</li>
+</ul>
+<p>理解：</p>
+<ul>
+<li><p>maximumPoolSize + maximumQueueSize = 同一时刻线程池能处理的线程数量</p>
+</li>
+<li><p>maximumPoolSize = 线程池中存在的线程数量大小（若设置为 32，则只会有 32 个线程处理请求）</p>
+</li>
+<li><p>maximumQueueSize：将超过 maximumPoolSize 的请求线程放到队列中，队列能存放的大小</p>
+</li>
+<li><p>java 获取核心数：Runtime.getRuntime().availableProcessors()</p>
+</li>
+</ul>
+<h4 id="logging"><a href="#logging" class="headerlink" title="logging"></a>logging</h4><ul>
+<li>Logback, Log4J2 , java util logging<ul>
+<li>Spring Boot 默认使用 Logback 作为日志记录工具</li>
+<li>如果希望引入其他日志框架，需要在引用 springboot 的时候排除依赖：</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">exclusions</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">exclusion</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-logging<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">exclusion</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">exclusions</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-log4j2<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>yaml 配置</li>
+</ul>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">logging:</span></span><br><span class="line">  <span class="attr">level:</span> <span class="comment"># 日志级别，后面跟类路径，给不同路径设置不同日志级别</span></span><br><span class="line">    <span class="attr">root:</span> <span class="string">info</span></span><br><span class="line">    <span class="attr">org:</span></span><br><span class="line">      <span class="attr">springframework:</span></span><br><span class="line">        <span class="attr">security:</span> <span class="string">DEBUG</span></span><br><span class="line">    <span class="attr">hibernate:</span> <span class="string">DEBUG</span></span><br><span class="line">  <span class="attr">file:</span></span><br><span class="line">    <span class="attr">path:</span> <span class="string">logs</span> <span class="comment"># 日志文件路径(相对于项目的路径)</span></span><br><span class="line">  <span class="attr">pattern:</span> <span class="comment"># 日志输出格式</span></span><br><span class="line">    <span class="attr">file:</span> <span class="string">&quot;%d&#123;yyyy-MMM-dd HH:mm:ss.SSS&#125; %-5level [%thread] %logger&#123;15&#125; - %msg%n&quot;</span></span><br><span class="line">    <span class="attr">console:</span> <span class="string">&quot;%d&#123;yyyy-MMM-dd HH:mm:ss.SSS&#125; %-5level [%thread] %logger&#123;15&#125; - %msg%n&quot;</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>参考链接：<a target="_blank" rel="noopener" href="https://www.jianshu.com/p/1fa12b92d5c4">https://www.jianshu.com/p/1fa12b92d5c4</a></li>
+</ul>
+<h4 id="HikariCP-配置"><a href="#HikariCP-配置" class="headerlink" title="HikariCP 配置"></a>HikariCP 配置</h4><ul>
+<li>出现问题：<code>java.sql.SQLException: Connection reset</code><ul>
+<li>解决方案：<ul>
+<li>配置连接池的 validationQuery 属性，检查不可用连接</li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 <h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><p><strong>以下内容尚未整理</strong></p>
 <ul>
@@ -1164,7 +1235,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-05-15 05:40:29" itemprop="dateModified" datetime="2021-05-15T05:40:29+00:00">2021-05-15</time>
+                <time title="修改时间：2021-05-15 05:41:11" itemprop="dateModified" datetime="2021-05-15T05:41:11+00:00">2021-05-15</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -1321,7 +1392,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-05-15 05:40:29" itemprop="dateModified" datetime="2021-05-15T05:40:29+00:00">2021-05-15</time>
+                <time title="修改时间：2021-05-15 05:41:11" itemprop="dateModified" datetime="2021-05-15T05:41:11+00:00">2021-05-15</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -1411,7 +1482,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-05-15 05:40:29" itemprop="dateModified" datetime="2021-05-15T05:40:29+00:00">2021-05-15</time>
+                <time title="修改时间：2021-05-15 05:41:11" itemprop="dateModified" datetime="2021-05-15T05:41:11+00:00">2021-05-15</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -1533,7 +1604,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-05-15 05:40:29" itemprop="dateModified" datetime="2021-05-15T05:40:29+00:00">2021-05-15</time>
+                <time title="修改时间：2021-05-15 05:41:11" itemprop="dateModified" datetime="2021-05-15T05:41:11+00:00">2021-05-15</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -1634,7 +1705,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-05-15 05:40:29" itemprop="dateModified" datetime="2021-05-15T05:40:29+00:00">2021-05-15</time>
+                <time title="修改时间：2021-05-15 05:41:11" itemprop="dateModified" datetime="2021-05-15T05:41:11+00:00">2021-05-15</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -1742,7 +1813,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-05-15 05:40:30" itemprop="dateModified" datetime="2021-05-15T05:40:30+00:00">2021-05-15</time>
+                <time title="修改时间：2021-05-15 05:41:11" itemprop="dateModified" datetime="2021-05-15T05:41:11+00:00">2021-05-15</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
