@@ -4,17 +4,6 @@
 
 
 
-## 参考链接
-
-- 聚石塔团队官网：https://www.yuque.com/fczggw/wu7u0k/gfhekf
-- 什么是VPC：https://zhuanlan.zhihu.com/p/33658624
-- k8s官网：https://kubernetes.io/zh/docs/concepts/services-networking/ingress/#%E6%9C%AF%E8%AF%AD
-- 《NodePort vs LoadBalancer vs Ingress》：
-  - https://blog.csdn.net/yang75108/article/details/101101384
-  - https://blog.csdn.net/yang75108/article/details/101268208
-
-
-
 ## 名词术语
 
 - VPC(Virtual Private Cloud)：私有云
@@ -37,13 +26,11 @@
 
 
 
-
-
 ## 应用service访问
 
 **多种方式**
 
-1、若实例部署配置Deployment如下
+1. 若实例部署配置Deployment如下
 
 ```yaml
 metadata:
@@ -56,6 +43,15 @@ metadata:
 
 集群内访问方式：${ app.kubernetes.io/name}.${app.kubernetes.io/projec}
 
+2. 配置集群服务，获得ClusterIP，使用ClusterIP
 
 
-2、配置集群服务，获得ClusterIP，使用ClusterIP
+
+## 参考链接
+
+- 聚石塔团队官网：https://www.yuque.com/fczggw/wu7u0k/gfhekf
+- 什么是VPC：https://zhuanlan.zhihu.com/p/33658624
+- k8s官网：https://kubernetes.io/zh/docs/concepts/services-networking/ingress/#%E6%9C%AF%E8%AF%AD
+- 《NodePort vs LoadBalancer vs Ingress》：
+  - https://blog.csdn.net/yang75108/article/details/101101384
+  - https://blog.csdn.net/yang75108/article/details/101268208

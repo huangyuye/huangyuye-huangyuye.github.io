@@ -18,12 +18,8 @@ vscode & webstorm均可，这里使用了vscode
     - 文件 > 首选项 > 设置
     - 配置如下
 
-    ```
-    
-    ```
-
   - .eslintrc.js：
-
+  
     - 根据该文件配置的eslint规则来检查和做一些简单的fix。（可以把适合自己团队的代码规范统一制定好并上传到至npm）
 
 - eslint-plugin-vue 新版本默认支持vue eslint语法检查

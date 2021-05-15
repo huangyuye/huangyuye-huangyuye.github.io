@@ -25,9 +25,13 @@
 
 参考连接： https://jingyan.baidu.com/article/22a299b539f9b19e18376a58.html
 
+
+
 ## 重装步骤
 
 在重装之前，查出预装的正版序列号，然后下载到相同版本的系统和软件，重装，输入序列号即可（大部分情况不用输入）。
+
+
 
 ### 步骤
 
@@ -37,9 +41,13 @@
    - 打开控制面板——程序和功能
 4. 下载Win10制作启动U盘，重装系统
 
+
+
 ### 参考链接
 
 https://www.jianshu.com/p/92ccdc138b46
+
+
 
 ### 其他
 
@@ -47,71 +55,6 @@ https://www.jianshu.com/p/92ccdc138b46
   - win + R -> 输入 powershell
   - 输入命令：(Get-WmiObject -query 'select * from SoftwareLicensingService').OA3xOriginalProductKey
 - 序列号：2NPVV-Q6VJF-TYPK3-6933X-HCFJX
-
-## 环境配置
-
-1. git重新下载
-
-   - 密钥重新生成：ssh-keygen -t rsa -C ""
-
-2. maven重新下载
-
-   - 配置settings.xml & 配置本地仓库
-
-3. idea
-
-   - module设置jdk
-   - settings配置
-
-   ```
-   修改主题
-   - editor > color scheme 
-   
-   字体大小
-   - editor > font
-   
-   代码补全匹配规则
-   - editor > General > Code Completion 
-   
-   包自动导入功能
-   - editor > auto import > Add unambiguous imports on the fly：快速添加明确的导入;Optimize imports on the fly：快速优化导入，优化的意思即自动帮助删除无用的导入。
-   
-   tab页面多行显示的设置
-   - editor > General > Editor Tabs 
-   
-   代码注释风格
-   - editor > Code Style > Java > Code Generation > Comment Code
-   
-   打开idea时的配置
-   Appearance & Behavior > System Settings > Startup&ShutDown 
-   Appearance & Behavior > System Settings > Project Opening 
-   ```
-
-   - 插件
-     - alibaba java coding
-     - lombok
-
-4. nodejs & npm & yarn & webpack
-
-   - npm
-   - webpack
-
-5. jdk
-
-   - 安装并配置环境变量JAVA_HOME
-   - idea配置sdk
-
-6. 快速运行软件
-
-   - Win + R 执行 系统环境命令
-   - 操作步骤：
-
-   ```
-   1. 首先，在某个地方新建一个文件夹，比如我的D:\ApplicationFiles\Portable\WIN_R_shortCuts
-   2. 然后，将这个路径加入到path中
-   3. 最后，将你需要的快捷方式放置到这个文件夹中，然后修改为你方便记忆与输入的名字
-   4.  Win + R 输入步骤3命名的名字，就可以运行了
-   ```
 
 
 
@@ -121,9 +64,11 @@ http://iknow.lenovo.com.cn/detail/dc_177365.html
 
 https://www.zhihu.com/question/54059979/answer/1218337202
 
+
+
 **名词**
 
-\1. ghost [ gəust ] 镜像
+1. ghost [ gəust ] 镜像
 
 何为ghost？：ghost，原意为幽灵。是一个封装镜像文件。简单来说就是把官方的正版纯净系统通过相关软件处理制作加入一些集成的最新驱动和一些最新的常用软件最后形成一个.GHO文件。然后你再把那个.GHO文件拿过来，克隆到你的电脑上。
 
@@ -161,72 +106,3 @@ http://power.zol.com.cn/542/5425545.html
 
 驱动程序，英文名为“Device Driver”，du全称为“设备驱动程序”， 是一种可以使计算机和设备通信的特殊程序，可以 说相当于硬件的接口，操作系统只有通过这个接口，才能控制硬件设备的工作
 
-**环境安装**
-
-1、cmder（集成git） https://www.jianshu.com/p/979db1a96f6d
-
-1.1、**添加cmder到右键菜单：**Cmder.exe /REGISTER ALL
-
-1.2、修改cmder的命令符为 $
-
-cd %CMDER_HOME%\\vender vim click.lua # 找到  local lambda = "λ" 将lamda符号修改成 $
-
-1.3、设置启动目录：setting -> Startup - > Task，修改{cmd::Cmder}项
-
-cmd /k "%ConEmuDir%\..\init.bat" -new_console:d:C:\
-
-1.4 生成ssh key
-
-ssh-keygen -t rsa -C "email@email.com" cat ~\.ssh\id_rsa.pub
-
-1.5、安装wget for window，并配置环境变量，可使用wget命令
-
-2、jdk包、mave包下载 及 环境变量配置
-
-3、hyper-v 启用 & docker for window 安装
-
-3.1、开启hyper-v模式，安装并启动docker后，即可在cmd命令行使用docker
-
-3.2、配置docker国内镜像，或自己的加速地址：https://cr.console.aliyun.com/undefined/instances/mirrors
-
-https://registry.docker-cn.com　　　　#Docker中国区 http://hub-mirror.c.163.com　　　　　　#网易 https://docker.mirrors.ustc.edu.cn  #USTC http://dockerhub.azk8s.cn/ #Azure # /etc/docker/daemon.json DOCKER_OPTS="--registry-mirror=https://registry.docker-cn.com"
-
-4、nvm setup 安装 https://blog.csdn.net/sxs7970/article/details/89357096
-
-4.1、NVM_HOME & NVM_SYMLINK (nodejs路径) 变量配置，并配置到path
-
-4.2、node国内镜像配置：
-
-nvm的安装路径下找到settings.txt(如果没有，可新建一个)打开:添加一下代码 node_mirror:npm.taobao.org/mirrors/node/ npm_mirror:npm.taobao.org/mirrors/npm/ 安裝cnpm（国产npm） 安裝yarn（包管理工具） npm install -g yarn --registry=https://registry.npm.taobao.org # 配置下源 yarn config set registry https://registry.npm.taobao.org -g yarn config set sass_binary_site http://cdn.npm.taobao.org/dist/node-sass -g
-
-yarn 命令报错：https://blog.csdn.net/zlq_CSDN/article/details/102789989
-
-5、idea
-
-5.1、软件安装2020.1.1，试用idea，将插件拖入idea进行激活 
-
-![jetbrains 2002系列破解文件.zip](D:/AppData/YoudaoNote/qqB53912A331D409871E525BE52BFB5C3B/92e39c3aa57d4b54a48951119b61ee94/attachment.png)
-
-5.2、配置 cmder 终端：seetings -> Tools -> Shell path：
-
-"cmd.exe" /k ""%CMDER_ROOT%\vendor\init.bat""
-
-6、vscode配置：
-
-6.1、配置cmder 终端：
-
-6.2、安装插件
-
-6.3、代码风格检查与格式化 
-
-https://juejin.im/post/5cbfde7c5188250a7d6ddcd1
-
-6.4、wepy项目配置文件关联及不进行标签校验
-
-
-
-**添加到右键菜单**
-
-以vscode 为例：
-
-![添加到右键菜单.reg](D:/AppData/YoudaoNote/qqB53912A331D409871E525BE52BFB5C3B/761fc1dc5fe548d79dfd094298c7ea3a/attachment.png)
