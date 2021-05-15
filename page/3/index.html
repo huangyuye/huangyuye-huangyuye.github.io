@@ -156,7 +156,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://huangyuye.github.io/2021/05/15/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/windows%E5%B7%A5%E5%85%B7/%E7%94%B5%E8%84%91%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7/">
+    <link itemprop="mainEntityOfPage" href="https://huangyuye.github.io/2021/05/15/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/%E8%BF%90%E7%BB%B4/%E8%81%9A%E7%9F%B3%E5%A1%94/%E5%BA%94%E7%94%A8%E5%8F%91%E5%B8%83%E6%B5%81%E7%A8%8B_TODO/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -170,7 +170,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2021/05/15/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/windows%E5%B7%A5%E5%85%B7/%E7%94%B5%E8%84%91%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7/" class="post-title-link" itemprop="url">电脑管理工具</a>
+            <a href="/2021/05/15/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/%E8%BF%90%E7%BB%B4/%E8%81%9A%E7%9F%B3%E5%A1%94/%E5%BA%94%E7%94%A8%E5%8F%91%E5%B8%83%E6%B5%81%E7%A8%8B_TODO/" class="post-title-link" itemprop="url">应用发布流程_TODO</a>
         </h2>
 
         <div class="post-meta">
@@ -180,7 +180,7 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2021-05-15 05:59:27" itemprop="dateCreated datePublished" datetime="2021-05-15T05:59:27+00:00">2021-05-15</time>
+              <time title="创建时间：2021-05-15 09:17:39" itemprop="dateCreated datePublished" datetime="2021-05-15T09:17:39+00:00">2021-05-15</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -196,7 +196,11 @@
                 </span>
                   ，
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/windows%E5%B7%A5%E5%85%B7/" itemprop="url" rel="index"><span itemprop="name">windows工具</span></a>
+                  <a href="/categories/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/%E8%BF%90%E7%BB%B4/" itemprop="url" rel="index"><span itemprop="name">运维</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/%E8%BF%90%E7%BB%B4/%E8%81%9A%E7%9F%B3%E5%A1%94/" itemprop="url" rel="index"><span itemprop="name">聚石塔</span></a>
                 </span>
             </span>
 
@@ -211,215 +215,49 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="磁盘空间占用分析工具"><a href="#磁盘空间占用分析工具" class="headerlink" title="磁盘空间占用分析工具"></a>磁盘空间占用分析工具</h2><p>spacesniffer（空间嗅探器）</p>
-<h3 id="大文件清单"><a href="#大文件清单" class="headerlink" title="大文件清单"></a>大文件清单</h3><ol>
-<li>C:\pagefile.sys：11.1GB (虚拟内存文件，内存不够时会将数据放到该文件，可以考虑迁移到其他盘符)</li>
-<li>C:\hiberfil.sys：6.3GB</li>
-<li>~\AppData\Local</li>
+          <h1 id="聚石塔—容器部署平台"><a href="#聚石塔—容器部署平台" class="headerlink" title="聚石塔—容器部署平台"></a>聚石塔—容器部署平台</h1><p> 聚石塔提供了从资源采购、应用部署到跟阿里巴巴业务链接一整套解决方案。</p>
+<h2 id="名词术语"><a href="#名词术语" class="headerlink" title="名词术语"></a>名词术语</h2><ul>
+<li>VPC(Virtual Private Cloud)：私有云<ul>
+<li><strong>对于基础架构服务（IaaS），云就是指资源池。</strong>你或许听过公有云（Public Cloud），私有云（Private Cloud），混合云（Hybrid Cloud）。不过，VPC不属于这三种云中任一种。</li>
+<li>这是一种<strong>运行在公有云上，将一部分公有云资源为某个用户隔离出来，给这个用户私有使用的资源的集合。</strong></li>
+<li>向用户提供的隔离资源的集合</li>
+</ul>
+</li>
+<li>ECS（<em>Elastic Cloud Server</em>）：弹性云服务器</li>
+</ul>
+<h2 id="使用步骤"><a href="#使用步骤" class="headerlink" title="使用步骤"></a>使用步骤</h2><ol>
+<li>创建集群<ul>
+<li>创建VPC、购买ECS、创建集群、添加ECS到集群</li>
+</ul>
+</li>
+<li>创建应用</li>
+<li>配置环境</li>
+<li>应用发布</li>
+<li>流量接入<ul>
+<li>购买SLB、新建SLB流量接入、Ingress接入</li>
+</ul>
+</li>
 </ol>
-<h2 id="中转清单"><a href="#中转清单" class="headerlink" title="中转清单"></a>中转清单</h2><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV137411K7V1/?spm_id_from=333.788.recommend_more_video.-1">https://www.bilibili.com/video/BV137411K7V1/?spm_id_from=333.788.recommend_more_video.-1</a></p>
-<p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Xt4y1m7r7/?spm_id_from=333.788.recommend_more_video.-1">https://www.bilibili.com/video/BV1Xt4y1m7r7/?spm_id_from=333.788.recommend_more_video.-1</a></p>
+<h2 id="应用service访问"><a href="#应用service访问" class="headerlink" title="应用service访问"></a>应用service访问</h2><p><strong>多种方式</strong></p>
 <ol>
-<li><p>cleanmypc 清理垃圾</p>
-</li>
-<li><p>geek 卸载软件</p>
-</li>
-<li><p>snipaste 电脑截图</p>
-</li>
-<li><p>utools 小型应用市场</p>
-</li>
-<li><p>spacesniffer 磁盘空间占用分析工具</p>
-</li>
-<li><p>geek uninstaller 软件卸载</p>
-</li>
-<li><p>Edge 浏览器</p>
-</li>
-<li><p>播放器：PotPlayer</p>
-</li>
-<li><p>notepads</p>
-</li>
-<li><p>杀毒：火绒</p>
-</li>
-<li><p>window 关闭自动更新</p>
-</li>
-<li><p>桌面整理.exe</p>
-</li>
-<li><p>软件下载器：腾讯软件管家、uTools（百宝箱）</p>
-</li>
-<li><p>万彩办公大师</p>
-</li>
-<li><p>截图工具</p>
-<ol>
-<li>shareX</li>
-<li>tim 屏幕录制，截图等</li>
+<li>若实例部署配置Deployment如下</li>
 </ol>
-</li>
-<li><p>图片查看工具：honey view</p>
-</li>
-<li><p>下载器：IDM、NDM</p>
-</li>
-<li><p>输入法：搜狗</p>
-</li>
-<li><p>剪贴板：ditto</p>
-</li>
-<li><p>RST（硬盘优化）</p>
-</li>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">metadata:</span></span><br><span class="line">  <span class="comment"># 部署名</span></span><br><span class="line">  <span class="comment">#name: ecrp-sg-web</span></span><br><span class="line">  <span class="attr">labels:</span></span><br><span class="line">    <span class="attr">app.kubernetes.io/project:</span> <span class="string">ecrp</span></span><br><span class="line">    <span class="attr">app.kubernetes.io/name:</span> <span class="string">sg-h5</span></span><br></pre></td></tr></table></figure>
+
+<p>集群内访问方式：${ app.kubernetes.io/name}.${app.kubernetes.io/projec}</p>
+<ol start="2">
+<li>配置集群服务，获得ClusterIP，使用ClusterIP</li>
 </ol>
-<h2 id="资源搜索"><a href="#资源搜索" class="headerlink" title="资源搜索"></a>资源搜索</h2><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1TN411d7FL/?spm_id_from=333.788.recommend_more_video.3">https://www.bilibili.com/video/BV1TN411d7FL/?spm_id_from=333.788.recommend_more_video.3</a></p>
-<p>一、资源导航网站<br>1、书享家（电子书资源网站导航）：<a target="_blank" rel="noopener" href="http://shuxiangjia.cn/">http://shuxiangjia.cn/</a><br>2、学吧导航（自学资源网站导航）：<a target="_blank" rel="noopener" href="https://www.xue8nav.com/">https://www.xue8nav.com/</a><br>3、科塔学术（学术资源网站导航）：<a target="_blank" rel="noopener" href="https://site.sciping.com/">https://site.sciping.com/</a><br>4、HiPPTer（PPT资源网站导航）：<a target="_blank" rel="noopener" href="http://www.hippter.com/">http://www.hippter.com/</a><br>5、Seeseed（设计素材资源导航）：<a target="_blank" rel="noopener" href="https://www.seeseed.com/">https://www.seeseed.com/</a></p>
-<p>二、工具导航网站<br>1、阿猫阿狗导航（互联网工具导航）：<a target="_blank" rel="noopener" href="https://dh.woshipm.com/">https://dh.woshipm.com/</a><br>2、创造狮（互联网工具导航）：<a target="_blank" rel="noopener" href="http://chuangzaoshi.com/index">http://chuangzaoshi.com/index</a><br>3、addog（广告营销工具导航）：<a target="_blank" rel="noopener" href="https://www.addog.vip/">https://www.addog.vip/</a><br>4、199it（数据导航）：<a target="_blank" rel="noopener" href="http://hao.199it.com/">http://hao.199it.com/</a><br>5、雪球导航（财经工具导航）：<a target="_blank" rel="noopener" href="https://xueqiu.com/dh">https://xueqiu.com/dh</a><br>6、打假导航（国家部门导航）：<a target="_blank" rel="noopener" href="http://www.dajiadaohang.com/">http://www.dajiadaohang.com/</a><br>7、搜狗网址导航（地方部门导航）：<a target="_blank" rel="noopener" href="http://123.sogou.com/diqu/">http://123.sogou.com/diqu/</a></p>
-<p>三、聚合搜索平台<br>1、一个开始：<a target="_blank" rel="noopener" href="https://aur.one/">https://aur.one</a><br>2、虫部落：<a target="_blank" rel="noopener" href="https://search.chongbuluo.com/">https://search.chongbuluo.com/</a></p>
-<h2 id="电脑壁纸"><a href="#电脑壁纸" class="headerlink" title="电脑壁纸"></a>电脑壁纸</h2><ol>
-<li><p>wallpaper engine （对标 火萤、upupoo）</p>
-<ul>
-<li>steam（游戏工厂）下载</li>
+<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><ul>
+<li>聚石塔团队官网：<a target="_blank" rel="noopener" href="https://www.yuque.com/fczggw/wu7u0k/gfhekf">https://www.yuque.com/fczggw/wu7u0k/gfhekf</a></li>
+<li>什么是VPC：<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/33658624">https://zhuanlan.zhihu.com/p/33658624</a></li>
+<li>k8s官网：<a target="_blank" rel="noopener" href="https://kubernetes.io/zh/docs/concepts/services-networking/ingress/#%E6%9C%AF%E8%AF%AD">https://kubernetes.io/zh/docs/concepts/services-networking/ingress/#%E6%9C%AF%E8%AF%AD</a></li>
+<li>《NodePort vs LoadBalancer vs Ingress》：<ul>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/yang75108/article/details/101101384">https://blog.csdn.net/yang75108/article/details/101101384</a></li>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/yang75108/article/details/101268208">https://blog.csdn.net/yang75108/article/details/101268208</a></li>
 </ul>
 </li>
-<li><p>雨滴桌面</p>
-</li>
-</ol>
-<ul>
-<li>链接<ul>
-<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/48499093">https://zhuanlan.zhihu.com/p/48499093</a></li>
-<li><a target="_blank" rel="noopener" href="https://bbs.rainmeter.cn/">https://bbs.rainmeter.cn/</a></li>
 </ul>
-</li>
-<li>定制桌面，也可以整理桌面（可安装dock插件）：</li>
-<li>RocketDock : 简化任务栏</li>
-</ul>
-<ol start="3">
-<li>桌面专业整理工具：fences</li>
-</ol>
-<ul>
-<li>（对标腾讯桌面整理、蜂窝桌面整理）</li>
-<li>steam 收费下载</li>
-</ul>
-<ol start="4">
-<li>透明任务栏:打开windows商店搜索translucentTB（可对标RocketDock）</li>
-</ol>
-<ul>
-<li>TranslucentTB汉化版软件 链接：<a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1B7_yNt1NuGteK93BXay8jg">https://pan.baidu.com/s/1B7_yNt1NuGteK93BXay8jg</a> 提取码：2fe1</li>
-</ul>
-<ol start="5">
-<li>致美化<ul>
-<li>素材网站</li>
-</ul>
-</li>
-<li>屏保<ol>
-<li>Fliqlo：<a target="_blank" rel="noopener" href="https://www.screensaversplanet.com/screensavers/fliqlo-flip-clock-314/">https://www.screensaversplanet.com/screensavers/fliqlo-flip-clock-314/</a></li>
-</ol>
-</li>
-</ol>
-<p>RocketDock下载链接：<a target="_blank" rel="noopener" href="https://share.weiyun.com/5m8MbTX">https://share.weiyun.com/5m8MbTX</a> 密码：53ppwy<br>TranslucentTB下载链接：<a target="_blank" rel="noopener" href="https://share.weiyun.com/5kire7w">https://share.weiyun.com/5kire7w</a> 密码：f8qasr<br>StartIsBack下载链接：<a target="_blank" rel="noopener" href="https://share.weiyun.com/5FHacKV">https://share.weiyun.com/5FHacKV</a> 密码：sqmuid<br>我的世界鼠标指针下载链接：<a target="_blank" rel="noopener" href="https://share.weiyun.com/5am70hU">https://share.weiyun.com/5am70hU</a> 密码：9kf88e</p>
-<h2 id="电脑重装"><a href="#电脑重装" class="headerlink" title="电脑重装"></a>电脑重装</h2><p>deepin：<a target="_blank" rel="noopener" href="https://www.deepin.org/zh/">https://www.deepin.org/zh/</a></p>
-<h2 id="电脑跑分"><a href="#电脑跑分" class="headerlink" title="电脑跑分"></a>电脑跑分</h2><p>MSI afterburner（官网下载）：<a target="_blank" rel="noopener" href="http://download-cn.msi.com/uti_exe/vga/MSIAfterburnerSetup.zip">http://download-cn.msi.com/uti_exe/vga/MSIAfterburnerSetup.zip</a></p>
-<p>Aida64（官网试用版，有功能限制）：<a target="_blank" rel="noopener" href="http://download.aida64.com/aida64extreme620.exe">http://download.aida64.com/aida64extreme620.exe</a></p>
-<p>Aida64（网络绿色版）：<a target="_blank" rel="noopener" href="http://cr2.197946.com/aida64extreme_build_5157_xbnj9z3mdy.zip">http://cr2.197946.com/aida64extreme_build_5157_xbnj9z3mdy.zip</a></p>
-<p>AS SSD （官网英文版）：<a target="_blank" rel="noopener" href="https://www.alex-is.de/PHP/fusion/downloads.php?cat_id=4&amp;file_id=9">https://www.alex-is.de/PHP/fusion/downloads.php?cat_id=4&amp;file_id=9</a><br>AS SSD （网络汉化版）：<a target="_blank" rel="noopener" href="http://forspeed.onlinedown.net/down/newdown/3/12/AS%20SSD%20Benchmark%202.0.7316.34247.zip">http://forspeed.onlinedown.net/down/newdown/3/12/AS%20SSD%20Benchmark%202.0.7316.34247.zip</a></p>
-<p>Crystal DiskMark（官网下载）：<a target="_blank" rel="noopener" href="https://zh.osdn.net/frs/redir.php?m=xtom_us&amp;f=crystaldiskmark/71859/CrystalDiskMark7_0_0hShizuku.zip">https://zh.osdn.net/frs/redir.php?m=xtom_us&amp;f=crystaldiskmark%2F71859%2FCrystalDiskMark7_0_0hShizuku.zip</a></p>
-<p>HD tune Pro（官网15天试用版）：<a target="_blank" rel="noopener" href="http://www.hdtune.com/files/hdtunepro_575_trial.exe">http://www.hdtune.com/files/hdtunepro_575_trial.exe</a></p>
-<p>3D Mark（官网）：<a target="_blank" rel="noopener" href="https://www.3dmark.com/">https://www.3dmark.com/</a></p>
-<h2 id="程序员软件"><a href="#程序员软件" class="headerlink" title="程序员软件"></a>程序员软件</h2><p>1、抓包工具 charles （或fiddler）</p>
-<p>2、远程连接工具：xshell 家庭版</p>
-<p>3、在线 http 请求工具：postwoman</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://huangyuye.github.io/2021/05/15/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/%E5%89%8D%E7%AB%AF/%E9%A1%B9%E7%9B%AE%E5%9B%BE%E7%89%87%E5%BC%95%E7%94%A8/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="yuye Huang">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="HYY">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/05/15/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/%E5%89%8D%E7%AB%AF/%E9%A1%B9%E7%9B%AE%E5%9B%BE%E7%89%87%E5%BC%95%E7%94%A8/" class="post-title-link" itemprop="url">项目图片引用</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-05-15 05:59:27" itemprop="dateCreated datePublished" datetime="2021-05-15T05:59:27+00:00">2021-05-15</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/" itemprop="url" rel="index"><span itemprop="name">知识库</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">前端</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="项目图片引用"><a href="#项目图片引用" class="headerlink" title="项目图片引用"></a>项目图片引用</h2><ol>
-<li>阿里巴巴矢量图（iconfont字体图标）<ol>
-<li>上传图标到矢量库</li>
-<li>项目中引用：@font-face {}</li>
-<li>根据矢量库图标对应编号使用字体图标</li>
-</ol>
-</li>
-<li>svg图片<ol>
-<li>Scalable Vector Graphics，意思为可缩放的矢量图形</li>
-<li>使用 XML 格式定义图形：用文本工具打开svg图片时内容为xml格式</li>
-<li>在放大或改变尺寸的情况下其图形质量不会有所损失</li>
-<li><strong>svg图片格式可上传到阿里巴巴矢量库</strong>：<ol>
-<li>下载原文件 图标制作模板.AI -&gt;  设置图标大小 -&gt; 存储为svg格式（建议使用存储为svg，不要使用导出为svg）-&gt; 上传图标到阿里矢量库 -&gt; 命名图标及定义图标标签，完成上传</li>
-<li><a target="_blank" rel="noopener" href="https://www.iconfont.cn/help/detail?spm=a313x.7781069.1998910419.d1c73b2de&amp;helptype=draw&amp;step=">https://www.iconfont.cn/help/detail?spm=a313x.7781069.1998910419.d1c73b2de&amp;helptype=draw&amp;step=</a></li>
-</ol>
-</li>
-</ol>
-</li>
-</ol>
-<p><strong>域名收敛</strong>.</p>
-<p>PC 时代为了突破浏览器的域名并发限制。有了域名发散。浏览器有并发限制，是为了防止DDOS攻击。</p>
-<p>域名收敛：将静态资源放在一个域名下。减少DNS解析的开销。</p>
-<p>域名发散：是将静态资源放在多个子域名下，就可以多线程下载，提高并行度，使客户端加载静态资源更加迅速。</p>
-<p>域名发散是pc端为了利用浏览器的多线程并行下载能力。而域名收敛多用与移动端，提高性能，因为dns解析是从后向前迭代解析，如果域名过多性能会下降，增加DNS的解析开销。</p>
 
       
     </div>
@@ -463,7 +301,7 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2021-05-15 05:59:27" itemprop="dateCreated datePublished" datetime="2021-05-15T05:59:27+00:00">2021-05-15</time>
+              <time title="创建时间：2021-05-15 09:17:39" itemprop="dateCreated datePublished" datetime="2021-05-15T09:17:39+00:00">2021-05-15</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -801,7 +639,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-05-15 05:59:52" itemprop="dateModified" datetime="2021-05-15T05:59:52+00:00">2021-05-15</time>
+                <time title="修改时间：2021-05-15 09:18:03" itemprop="dateModified" datetime="2021-05-15T09:18:03+00:00">2021-05-15</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -1235,7 +1073,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-05-15 05:59:52" itemprop="dateModified" datetime="2021-05-15T05:59:52+00:00">2021-05-15</time>
+                <time title="修改时间：2021-05-15 09:18:03" itemprop="dateModified" datetime="2021-05-15T09:18:03+00:00">2021-05-15</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -1392,7 +1230,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-05-15 05:59:52" itemprop="dateModified" datetime="2021-05-15T05:59:52+00:00">2021-05-15</time>
+                <time title="修改时间：2021-05-15 09:18:03" itemprop="dateModified" datetime="2021-05-15T09:18:03+00:00">2021-05-15</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -1482,7 +1320,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-05-15 05:59:52" itemprop="dateModified" datetime="2021-05-15T05:59:52+00:00">2021-05-15</time>
+                <time title="修改时间：2021-05-15 09:18:03" itemprop="dateModified" datetime="2021-05-15T09:18:03+00:00">2021-05-15</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -1604,7 +1442,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-05-15 05:59:52" itemprop="dateModified" datetime="2021-05-15T05:59:52+00:00">2021-05-15</time>
+                <time title="修改时间：2021-05-15 09:18:03" itemprop="dateModified" datetime="2021-05-15T09:18:03+00:00">2021-05-15</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -1705,7 +1543,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-05-15 05:59:52" itemprop="dateModified" datetime="2021-05-15T05:59:52+00:00">2021-05-15</time>
+                <time title="修改时间：2021-05-15 09:18:03" itemprop="dateModified" datetime="2021-05-15T09:18:03+00:00">2021-05-15</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -1813,7 +1651,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-05-15 05:59:52" itemprop="dateModified" datetime="2021-05-15T05:59:52+00:00">2021-05-15</time>
+                <time title="修改时间：2021-05-15 09:18:03" itemprop="dateModified" datetime="2021-05-15T09:18:03+00:00">2021-05-15</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -1916,10 +1754,123 @@
   
   
 
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://huangyuye.github.io/2020/11/24/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91%E6%B5%81%E7%A8%8B/20201124-%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="yuye Huang">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="HYY">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/11/24/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91%E6%B5%81%E7%A8%8B/20201124-%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/" class="post-title-link" itemprop="url">单元测试</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-11-24 00:00:00" itemprop="dateCreated datePublished" datetime="2020-11-24T00:00:00+00:00">2020-11-24</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-05-15 09:17:39" itemprop="dateModified" datetime="2021-05-15T09:17:39+00:00">2021-05-15</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/" itemprop="url" rel="index"><span itemprop="name">知识库</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91%E6%B5%81%E7%A8%8B/" itemprop="url" rel="index"><span itemprop="name">软件开发流程</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p><strong>单元测试</strong></p>
+<p>单元测试是指对软件中的<strong>最小可测单元</strong>进行检查和验证；</p>
+<p>根据测试金字塔原理，越往上层的测试，所需测试投入比例越大，效果也越差。单测成本小，且更容易发现问题。（效果：单元测试 &gt; 集成测试 &gt; UI测试）</p>
+<p><strong>分层测试</strong></p>
+<p>Service =&gt; Biz层 =&gt; （外部服务访问层、DAO层、Redis访问层）</p>
+<p>每一层均使用mock 框架屏蔽下层的具体实现。</p>
+<p><strong>单元测试过程</strong></p>
+<p>数据准备 =&gt; 构造参数（+打桩）=&gt; 执行测试 =&gt; 结果验证 =&gt; 清理（必要）</p>
+<ol>
+<li>数据准备：测试用例需要依赖一些数据，数据来源一般是数据库，而又不能依赖DAO层的代码，需要使用原生jdbc去插入数据，<strong>测试代码编写效率低</strong></li>
+<li>构造参数：入参赋值（<strong>代码行数多</strong>）</li>
+<li>执行测试：直接调用被测方法</li>
+<li>结果验证：验证方法的返回值、数据库数据是否正确、某外部方法是否被调用过n次等</li>
+<li>必要的清理：对打桩进行清理、对数据库脏数据进行清理</li>
+</ol>
+<p><strong>痛点</strong></p>
+<ol>
+<li>重构代码需要改写大量单元测试用例<ol>
+<li>大量的Service 层单元测试,biz层单元测试都要重写；有时候Service调用biz层接口时，参数传错了，而由于开发人员编写单元测试时不规范，参数匹配使用了 anyxxx()，导致参数传错的bug未被发现。</li>
+</ol>
+</li>
+<li>测试库数据随意修改导致的单元测试不稳定<ol>
+<li>DAO层单元测试直连测试库，由于测试库的数据可以被任意修改，从而导致测试依赖的数据被更改，单元测试不通过，另外开发在编写单元测试时，没有清理意识，导致测试库大量垃圾数据。</li>
+</ol>
+</li>
+<li>单元测试结果校验缺失<ol>
+<li>例如一个SaveItem()接口，执行完成后除了要验证执行成功以外，还应该验证落库数据的正确性，而编写这部分测试代码需要大量的使用原生jdbc 接口查询sql，并逐字段验证正确性，代码编写效率低下。</li>
+</ol>
+</li>
+</ol>
+<p><strong>参考文章</strong>-《有赞单元测试实践》</p>
+<p><a target="_blank" rel="noopener" href="https://tech.youzan.com/youzan-test-practice/">https://tech.youzan.com/youzan-test-practice/</a></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -1985,7 +1936,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">53</span>
+          <span class="site-state-item-count">46</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>

@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta name="referrer" content="no-referrer" />
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"huangyuye.github.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="Nacos 的关键特性服务发现和服务健康监测支持基于 DNS 和基于 RPC 的服务发现 动态配置服务动态 DNS 服务服务及其元数据管理Nacos配置文件配置文件加载配置以下是我司某应用的启动类配置，配置了N个配置文件的加载 注意 shared-configs[i] ： i 从0开始连续配置，前后配置相同的属性key会进行覆盖 123456Properties props &#x3D; System.ge">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Nacos配置中心">
+<meta property="og:url" content="https://huangyuye.github.io/2021/05/15/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/SpringCloudAlibaba/Nacos%E9%85%8D%E7%BD%AE%E4%B8%AD%E5%BF%83/index.html">
+<meta property="og:site_name" content="HYY">
+<meta property="og:description" content="Nacos 的关键特性服务发现和服务健康监测支持基于 DNS 和基于 RPC 的服务发现 动态配置服务动态 DNS 服务服务及其元数据管理Nacos配置文件配置文件加载配置以下是我司某应用的启动类配置，配置了N个配置文件的加载 注意 shared-configs[i] ： i 从0开始连续配置，前后配置相同的属性key会进行覆盖 123456Properties props &#x3D; System.ge">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2021-05-15T09:17:39.576Z">
+<meta property="article:modified_time" content="2021-05-15T09:17:39.576Z">
+<meta property="article:author" content="yuye Huang">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://huangyuye.github.io/2021/05/15/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/SpringCloudAlibaba/Nacos%E9%85%8D%E7%BD%AE%E4%B8%AD%E5%BF%83/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>Nacos配置中心 | HYY</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">HYY</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://huangyuye.github.io/2021/05/15/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/SpringCloudAlibaba/Nacos%E9%85%8D%E7%BD%AE%E4%B8%AD%E5%BF%83/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="yuye Huang">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="HYY">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Nacos配置中心
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-05-15 09:17:39" itemprop="dateCreated datePublished" datetime="2021-05-15T09:17:39+00:00">2021-05-15</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/" itemprop="url" rel="index"><span itemprop="name">知识库</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/SpringCloudAlibaba/" itemprop="url" rel="index"><span itemprop="name">SpringCloudAlibaba</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id=""><a href="#" class="headerlink" title=""></a></h2><h2 id="Nacos-的关键特性"><a href="#Nacos-的关键特性" class="headerlink" title="Nacos 的关键特性"></a>Nacos 的关键特性</h2><h3 id="服务发现和服务健康监测"><a href="#服务发现和服务健康监测" class="headerlink" title="服务发现和服务健康监测"></a>服务发现和服务健康监测</h3><p>支持基于 DNS 和基于 RPC 的服务发现</p>
+<h3 id="动态配置服务"><a href="#动态配置服务" class="headerlink" title="动态配置服务"></a>动态配置服务</h3><h3 id="动态-DNS-服务"><a href="#动态-DNS-服务" class="headerlink" title="动态 DNS 服务"></a>动态 DNS 服务</h3><h3 id="服务及其元数据管理"><a href="#服务及其元数据管理" class="headerlink" title="服务及其元数据管理"></a>服务及其元数据管理</h3><h3 id="-1"><a href="#-1" class="headerlink" title=""></a></h3><h2 id="Nacos配置文件"><a href="#Nacos配置文件" class="headerlink" title="Nacos配置文件"></a>Nacos配置文件</h2><h3 id="配置文件加载配置"><a href="#配置文件加载配置" class="headerlink" title="配置文件加载配置"></a>配置文件加载配置</h3><p>以下是我司某应用的启动类配置，配置了N个配置文件的加载</p>
+<p>注意 <code>shared-configs[i]</code> ： i 从0开始连续配置，前后配置相同的属性key会进行覆盖</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Properties props = System.getProperties();</span><br><span class="line"># 基础启动类：ecrp项目通用配置</span><br><span class="line">props.setProperty(<span class="string">&quot;spring.cloud.nacos.config.shared-configs[0].data-id&quot;</span>, NacosConstant.getNacosConfigShareName(<span class="string">&quot;ecrp-sca-common&quot;</span>, profile, <span class="string">&quot;yml&quot;</span>));</span><br><span class="line"># 扩展启动类：导购项目通用配置</span><br><span class="line">props.setProperty(<span class="string">&quot;spring.cloud.nacos.config.shared-configs[1].data-id&quot;</span>, <span class="string">&quot;ecrp-sca-sg-application-&quot;</span> + profile + <span class="string">&quot;.yml&quot;</span>);</span><br><span class="line">props.setProperty(<span class="string">&quot;spring.cloud.nacos.config.shared-configs[2].data-id&quot;</span>, <span class="string">&quot;ecrp-sca-sg-common-&quot;</span> + profile + <span class="string">&quot;.yml&quot;</span>);</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="关于spring配置文件加载"><a href="#关于spring配置文件加载" class="headerlink" title="关于spring配置文件加载"></a>关于spring配置文件加载</h3><p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/48030077">Spring Boot 外部化配置实战解析</a></p>
+<p>MutablePropertySources 用于将多个配置集合统一加载，包括：</p>
+<ul>
+<li>系统属性、系统环境变量、命令行变量、应用自定义变量等</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">MutablePropertySources propertySources = environment.getPropertySources();</span><br><span class="line">propertySources.addFirst(<span class="keyword">new</span> SimpleCommandLinePropertySource(args));</span><br><span class="line">propertySources.addLast(<span class="keyword">new</span> MapPropertySource(<span class="string">&quot;systemProperties&quot;</span>, environment.getSystemProperties()));</span><br><span class="line">propertySources.addLast(<span class="keyword">new</span> SystemEnvironmentPropertySource(<span class="string">&quot;systemEnvironment&quot;</span>, environment.getSystemEnvironment()));</span><br><span class="line">Properties props = System.getProperties();</span><br><span class="line">props.setProperty(<span class="string">&quot;spring.application.name&quot;</span>, appName);</span><br><span class="line"><span class="comment">// todo ...</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="关于-bootstrap-yml"><a href="#关于-bootstrap-yml" class="headerlink" title="关于 bootstrap.yml"></a>关于 bootstrap.yml</h3><p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/c955c44ae534">application.yml与bootstrap.yml的区别</a></p>
+<p><code>bootstrap.yml</code> 用来程序引导时执行，应用于更加早期配置信息读取。可以理解成系统级别的一些参数配置，这些参数一般是不会变动的。一旦bootStrap.yml 被加载，则内容不会被覆盖。</p>
+<p>Bootstrap 属性有高优先级，默认情况下，它们不会被本地配置覆盖。</p>
+<h3 id="Nacos如何验证配置文件正常读取"><a href="#Nacos如何验证配置文件正常读取" class="headerlink" title="Nacos如何验证配置文件正常读取"></a>Nacos如何验证配置文件正常读取</h3><ul>
+<li>NascentApplication#createSpringApplicationBuilder<ul>
+<li>ServiceLoader.load(LauncherService.class).forEach(launcherList::add); // 我司封装的配置文件扩展类</li>
+<li>spring.profiles.active = ${profile} // 确认环境配置正确</li>
+<li>spring.cloud.nacos.discovery.server-addr = ${nacosAddress} // 确认使用正确的nacos地址</li>
+</ul>
+</li>
+</ul>
+<h3 id="Nacos-配置本地快照"><a href="#Nacos-配置本地快照" class="headerlink" title="Nacos 配置本地快照"></a>Nacos 配置本地快照</h3><p><code>windows系统：C:\用户\&#123;用户名&#125;\nacos\config</code></p>
+<h3 id="Nacos-配置文件分层"><a href="#Nacos-配置文件分层" class="headerlink" title="Nacos 配置文件分层"></a>Nacos 配置文件分层</h3><p><strong>NameSpace &gt; Group &gt; DataId</strong></p>
+<ul>
+<li>Namespace：代表不同的环境，如：开发、测试， 生产等；<ul>
+<li>spring.cloud.nacos.config.namespace=b3404bc0-d7dc-4855-b519-570ed34b62d7<ul>
+<li>指定命名空间，默认使用public命名空间</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Group：代表某个项目，如：XX物流项目，XX教育项目；<ul>
+<li>spring.cloud.nacos.config. group: DEFAULT_GROUP <ul>
+<li>分 组，默认为 DEFAULT_GROUP </li>
+</ul>
+</li>
+</ul>
+</li>
+<li>DataId：每个项目下往往有若干个应用，每个配置集(DataId)是一个应用的主配置文件</li>
+</ul>
+<h3 id="Nacos配置自动更新"><a href="#Nacos配置自动更新" class="headerlink" title="Nacos配置自动更新"></a>Nacos配置自动更新</h3><p>通过 Spring Cloud 原生注解 <code>@RefreshScope</code> 实现配置自动更新。</p>
+<h4 id="todo-。。。（该注解与扩展配置refresh属性配置区别？）"><a href="#todo-。。。（该注解与扩展配置refresh属性配置区别？）" class="headerlink" title="todo 。。。（该注解与扩展配置refresh属性配置区别？）"></a>todo 。。。（该注解与扩展配置refresh属性配置区别？）</h4><p>《@RefreshScope那些事》：<a target="_blank" rel="noopener" href="https://www.jianshu.com/p/188013dd3d02">https://www.jianshu.com/p/188013dd3d02</a></p>
+<h3 id="Nacos公共配置-扩展配置"><a href="#Nacos公共配置-扩展配置" class="headerlink" title="Nacos公共配置/扩展配置"></a>Nacos公共配置/扩展配置</h3><p>多应用共享配置，即多个DataId之间的配置共享</p>
+<h4 id="扩展配置"><a href="#扩展配置" class="headerlink" title="扩展配置"></a>扩展配置</h4><ul>
+<li>通过配置 <code>spring.cloud.nacos.config.ext-config[n].data-id</code> 来支持多个配置集。</li>
+<li>通过配置 <code>spring.cloud.nacos.config.ext-config[n].group</code> 来定制配置组。如果未指定，则使用默认组。</li>
+<li>通过配置 <code>spring.cloud.nacos.config.ext-config[n].refresh</code> 来控制该配置集是否支持配置的动态刷新。默认情况下不支持。</li>
+</ul>
+<h4 id="共享配置"><a href="#共享配置" class="headerlink" title="共享配置"></a>共享配置</h4><p>通过共享配置集的方式也可以实现公共配置的功能，唯一的区别就是共享配置集无法设置组信息，只获取 DEFAULT_GROUP</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 共享配置集</span></span><br><span class="line"><span class="string">spring.cloud.nacos.config</span></span><br><span class="line">  <span class="attr">shared-dataids:</span> <span class="string">ext-config-common01.yaml,ext-config-common02.yaml,ext-config-common03.yaml</span> <span class="comment"># 多个配置集逗号隔开</span></span><br><span class="line">  <span class="attr">refreshable-dataids:</span> <span class="string">ext-config-common01.yaml</span> <span class="comment"># 指定哪个配置集支持动态刷新</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="配置优先级"><a href="#配置优先级" class="headerlink" title="配置优先级"></a>配置优先级</h4><p>Spring Cloud Alibaba Nacos Config 提供了三种从 Nacos 拉取配置的功能：</p>
+<ul>
+<li>A：通过内部相关规则（应用名、配置内容的数据格式等）自动生成相关的 Data Id 配置；<ul>
+<li><code>$&#123;prefix&#125;-$&#123;spring.profile.active&#125;.$&#123;file-extension&#125;</code></li>
+<li><code>prefix</code> 默认为<code>spring.application.name</code> 的值，也可以通过配置项 <code>spring.cloud.nacos.config.prefix</code>来配置。</li>
+</ul>
+</li>
+<li>B：通过配置 <code>spring.cloud.nacos.config.ext-config[n].data-id</code> 来支持多个配置集。同时配置多个配置集时，优先级关系根据 <code>n</code> 的值决定，值越大，优先级越高；</li>
+<li>C：通过配置 <code>spring.cloud.nacos.config.shared-dataids</code> 配置多个共享配置集；</li>
+</ul>
+<p>　</p>
+<p>​    <strong>当三种方式同时使用时，优先级关系为：A &gt; B &gt; C。</strong></p>
+<h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><h3 id="Spring-SPI-机制"><a href="#Spring-SPI-机制" class="headerlink" title="Spring SPI 机制"></a>Spring SPI 机制</h3><p><strong>场景：</strong></p>
+<p>服务提供方定义统一标准的接口服务，但不进行实现。在某个业务流程中应用该接口服务，可以理解为在确定的业务流程中加入了hook由服务消费端定制化接口服务的实现。具体步骤如下</p>
+<ul>
+<li><p>定义接口，并在某流程中应用</p>
+</li>
+<li><p>配置SPI文件</p>
+<ul>
+<li><p>SPI文件路径</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">resources</span><br><span class="line">| -- META-INF</span><br><span class="line">| -- -- services </span><br><span class="line">| -- -- -- $&#123;interface.name&#125; # 接口的全路径名称</span><br></pre></td></tr></table></figure></li>
+<li><p>SPI文件内容</p>
+<ul>
+<li><code>$&#123;interface.name&#125;</code> 文件内容为接口实现类的全路径</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>代码中使用</p>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ServiceLoader.load(LauncherService.class).forEach(launcherList::add);</span><br></pre></td></tr></table></figure>
+
+
+
+<p>参考链接：<a target="_blank" rel="noopener" href="https://www.jianshu.com/p/46b42f7f593c">《高级开发必须理解的Java中SPI机制》</a></p>
+<h3 id="Nacos-实现应用版本控制"><a href="#Nacos-实现应用版本控制" class="headerlink" title="Nacos 实现应用版本控制"></a>Nacos 实现应用版本控制</h3><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/suxingrui/article/details/103791284">《Nacos：实现版本控制调度，灰度版本隔离》</a></p>
+<h4 id="todo-。。。"><a href="#todo-。。。" class="headerlink" title="todo 。。。"></a>todo 。。。</h4><h3 id="ECRP-开放平台-Feign-配置"><a href="#ECRP-开放平台-Feign-配置" class="headerlink" title="ECRP 开放平台 Feign 配置"></a>ECRP 开放平台 Feign 配置</h3><p>相关配置类：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">OpenApiFeignClientAutoConfiguration</span><br><span class="line">OpenApiSpringEncoder</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="智慧导购-微服务记录"><a href="#智慧导购-微服务记录" class="headerlink" title="智慧导购-微服务记录"></a>智慧导购-微服务记录</h3><h4 id="nacos读取问题"><a href="#nacos读取问题" class="headerlink" title="nacos读取问题"></a>nacos读取问题</h4><ul>
+<li><code>OpenApiSpringEncoder</code>：Assert.notNull(this.appKey, “ecrp.open.api.feign.appKey must be not null”);<ul>
+<li><code>ecrp.open.api.feign.appKey</code>（配置时使用”-“分割单词或驼峰标识均可）</li>
+<li>启动时需要compile项目才能保证正常扫描父模块 <code>ecrp-sca-sg-starter</code> 的 <code>LauncherServiceImpl</code></li>
+</ul>
+</li>
+</ul>
+<h4 id="feign-问题"><a href="#feign-问题" class="headerlink" title="feign 问题"></a>feign 问题</h4><ul>
+<li>com.netflix.client.ClientException: Load balancer does not have available server for client: ecrp-sca-open-customer </li>
+</ul>
+<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><p><a target="_blank" rel="noopener" href="https://spring-cloud-alibaba-group.github.io/github-pages/hoxton/zh-cn/index.html#_%E4%BB%8B%E7%BB%8D">《Spring Cloud Alibaba 参考文档》</a></p>
+<p><a target="_blank" rel="noopener" href="https://nacos.io/zh-cn/docs/what-is-nacos.html">《nacos官网》</a></p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2021/05/15/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/SpringCloudAlibaba/openfeign/" rel="prev" title="openfeign">
+      <i class="fa fa-chevron-left"></i> openfeign
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">1.</span> <span class="nav-text"></span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Nacos-%E7%9A%84%E5%85%B3%E9%94%AE%E7%89%B9%E6%80%A7"><span class="nav-number">2.</span> <span class="nav-text">Nacos 的关键特性</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9C%8D%E5%8A%A1%E5%8F%91%E7%8E%B0%E5%92%8C%E6%9C%8D%E5%8A%A1%E5%81%A5%E5%BA%B7%E7%9B%91%E6%B5%8B"><span class="nav-number">2.1.</span> <span class="nav-text">服务发现和服务健康监测</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8A%A8%E6%80%81%E9%85%8D%E7%BD%AE%E6%9C%8D%E5%8A%A1"><span class="nav-number">2.2.</span> <span class="nav-text">动态配置服务</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8A%A8%E6%80%81-DNS-%E6%9C%8D%E5%8A%A1"><span class="nav-number">2.3.</span> <span class="nav-text">动态 DNS 服务</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9C%8D%E5%8A%A1%E5%8F%8A%E5%85%B6%E5%85%83%E6%95%B0%E6%8D%AE%E7%AE%A1%E7%90%86"><span class="nav-number">2.4.</span> <span class="nav-text">服务及其元数据管理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#-1"><span class="nav-number">2.5.</span> <span class="nav-text"></span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Nacos%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6"><span class="nav-number">3.</span> <span class="nav-text">Nacos配置文件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E5%8A%A0%E8%BD%BD%E9%85%8D%E7%BD%AE"><span class="nav-number">3.1.</span> <span class="nav-text">配置文件加载配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%B3%E4%BA%8Espring%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E5%8A%A0%E8%BD%BD"><span class="nav-number">3.2.</span> <span class="nav-text">关于spring配置文件加载</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%B3%E4%BA%8E-bootstrap-yml"><span class="nav-number">3.3.</span> <span class="nav-text">关于 bootstrap.yml</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Nacos%E5%A6%82%E4%BD%95%E9%AA%8C%E8%AF%81%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E6%AD%A3%E5%B8%B8%E8%AF%BB%E5%8F%96"><span class="nav-number">3.4.</span> <span class="nav-text">Nacos如何验证配置文件正常读取</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Nacos-%E9%85%8D%E7%BD%AE%E6%9C%AC%E5%9C%B0%E5%BF%AB%E7%85%A7"><span class="nav-number">3.5.</span> <span class="nav-text">Nacos 配置本地快照</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Nacos-%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E5%88%86%E5%B1%82"><span class="nav-number">3.6.</span> <span class="nav-text">Nacos 配置文件分层</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Nacos%E9%85%8D%E7%BD%AE%E8%87%AA%E5%8A%A8%E6%9B%B4%E6%96%B0"><span class="nav-number">3.7.</span> <span class="nav-text">Nacos配置自动更新</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#todo-%E3%80%82%E3%80%82%E3%80%82%EF%BC%88%E8%AF%A5%E6%B3%A8%E8%A7%A3%E4%B8%8E%E6%89%A9%E5%B1%95%E9%85%8D%E7%BD%AErefresh%E5%B1%9E%E6%80%A7%E9%85%8D%E7%BD%AE%E5%8C%BA%E5%88%AB%EF%BC%9F%EF%BC%89"><span class="nav-number">3.7.1.</span> <span class="nav-text">todo 。。。（该注解与扩展配置refresh属性配置区别？）</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Nacos%E5%85%AC%E5%85%B1%E9%85%8D%E7%BD%AE-%E6%89%A9%E5%B1%95%E9%85%8D%E7%BD%AE"><span class="nav-number">3.8.</span> <span class="nav-text">Nacos公共配置&#x2F;扩展配置</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%89%A9%E5%B1%95%E9%85%8D%E7%BD%AE"><span class="nav-number">3.8.1.</span> <span class="nav-text">扩展配置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%85%B1%E4%BA%AB%E9%85%8D%E7%BD%AE"><span class="nav-number">3.8.2.</span> <span class="nav-text">共享配置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE%E4%BC%98%E5%85%88%E7%BA%A7"><span class="nav-number">3.8.3.</span> <span class="nav-text">配置优先级</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%B6%E4%BB%96"><span class="nav-number">4.</span> <span class="nav-text">其他</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Spring-SPI-%E6%9C%BA%E5%88%B6"><span class="nav-number">4.1.</span> <span class="nav-text">Spring SPI 机制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Nacos-%E5%AE%9E%E7%8E%B0%E5%BA%94%E7%94%A8%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6"><span class="nav-number">4.2.</span> <span class="nav-text">Nacos 实现应用版本控制</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#todo-%E3%80%82%E3%80%82%E3%80%82"><span class="nav-number">4.2.1.</span> <span class="nav-text">todo 。。。</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ECRP-%E5%BC%80%E6%94%BE%E5%B9%B3%E5%8F%B0-Feign-%E9%85%8D%E7%BD%AE"><span class="nav-number">4.3.</span> <span class="nav-text">ECRP 开放平台 Feign 配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%99%BA%E6%85%A7%E5%AF%BC%E8%B4%AD-%E5%BE%AE%E6%9C%8D%E5%8A%A1%E8%AE%B0%E5%BD%95"><span class="nav-number">4.4.</span> <span class="nav-text">智慧导购-微服务记录</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#nacos%E8%AF%BB%E5%8F%96%E9%97%AE%E9%A2%98"><span class="nav-number">4.4.1.</span> <span class="nav-text">nacos读取问题</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#feign-%E9%97%AE%E9%A2%98"><span class="nav-number">4.4.2.</span> <span class="nav-text">feign 问题</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%82%E8%80%83%E9%93%BE%E6%8E%A5"><span class="nav-number">5.</span> <span class="nav-text">参考链接</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">yuye Huang</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">46</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">21</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/huangyuye" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;huangyuye" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:747776824@qq.com" title="E-Mail → mailto:747776824@qq.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title"><i class="fa fa-link fa-fw"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://www.yuque.com/huangyuye/qzf3af" title="https:&#x2F;&#x2F;www.yuque.com&#x2F;huangyuye&#x2F;qzf3af" rel="noopener" target="_blank">语雀</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">yuye Huang</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
