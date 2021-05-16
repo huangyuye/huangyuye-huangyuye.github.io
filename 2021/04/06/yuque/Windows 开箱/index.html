@@ -29,7 +29,7 @@
 <meta property="og:description" content="浏览器下载最新的 Microsoft Edge，使用默认的必应搜索引擎 代理服务器如果有 vpn 账号，下载 Vpn 客户端，开启 PAC，并自动配置系统代理浏览器下载 SwitchyOmega 插件实现快速切换代理，可以选择直接连接或者使用系统代理（即 vpn 代理） ss 与 gfwlist https:&#x2F;&#x2F;github.com&#x2F;gfwlist&#x2F;gfwlist 替换 CMDPowerShell">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-04-06T15:19:54.000Z">
-<meta property="article:modified_time" content="2021-05-16T16:22:18.169Z">
+<meta property="article:modified_time" content="2021-05-16T16:32:27.417Z">
 <meta property="article:author" content="yuye Huang">
 <meta name="twitter:card" content="summary">
 
@@ -191,7 +191,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-05-16 16:22:18" itemprop="dateModified" datetime="2021-05-16T16:22:18+00:00">2021-05-16</time>
+                <time title="修改时间：2021-05-16 16:32:27" itemprop="dateModified" datetime="2021-05-16T16:32:27+00:00">2021-05-16</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -224,9 +224,9 @@
 <li>下载字体，下载字体后一般到对应的<code>ttf</code>目录下全选字体并安装到 OS 系统中</li>
 <li>下载 PowerShell</li>
 <li>安装 power shell 插件模块（Install-Module）<ol>
-<li>oh-my-posh</li>
-<li>posh-git</li>
-<li>PSReadLine</li>
+<li>Install-Module oh-my-posh -Scope CurrentUser：<em>让你的命令行更酷炫、优雅</em></li>
+<li>Install-Module posh-git -Scope CurrentUser：<em>让你的 git 更好用</em></li>
+<li>Install-Module -Name PSReadLine -AllowPrerelease -Force：<em>让命令行很好用，类似 zsh</em></li>
 <li>注意：Install-Module 下载插件一般可以使用-Verbose 参数用于查看具体的插件下载地址，浏览器输入下载地址直接下载用于解决命令行下载缓慢的问题。下载完成后将插件解压后放到 power shell 安装目录的 <code>module</code>文件夹下，注意格式为：<code>$&#123;powerShell.path&#125;/module/$&#123;插件名&#125;/$&#123;插件版本&#125;/</code></li>
 </ol>
 </li>
@@ -243,6 +243,15 @@
 </ol>
 </li>
 </ol>
+<p><strong>其他</strong></p>
+<ul>
+<li><strong>Windows Terminal 分屏操作：</strong><code>ctrl + shrift + d</code></li>
+<li><code>chocolate</code> ：windows 下的软件安装管理器<ul>
+<li><code>@&quot;%SystemRoot%\System32\WindowsPowerShell\v1.0\powershell.exe&quot; -NoProfile -InputFormat None -ExecutionPolicy Bypass -Command &quot; [System.Net.ServicePointManager]::SecurityProtocol = 3072; iex ((New-Object System.Net.WebClient).DownloadString(&#39;https://chocolatey.org/install.ps1&#39;))&quot; &amp;&amp; SET &quot;PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin&quot;</code></li>
+</ul>
+</li>
+</ul>
+<h4 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h4><p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/137595941">Windows Terminal 完美配置 PowerShell 7.1</a><br><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/272082726">Windows Terminal 完整指南</a>​<br><a target="_blank" rel="noopener" href="https://blog.csdn.net/zhouchen1998/article/details/107484782">Windows Terminal 美化教程</a></p>
 <h3 id="Vim"><a href="#Vim" class="headerlink" title="Vim"></a>Vim</h3><p>使用 <a target="_blank" rel="noopener" href="https://www.cnblogs.com/Eric-jx/p/10491922.html">vim</a> 快速的在命令行中操作文件</p>
 <h4 id="vim-相关配置修改"><a href="#vim-相关配置修改" class="headerlink" title="vim 相关配置修改"></a>vim 相关配置修改</h4><ol>
 <li> cmd 中执行 vim 命令，执行 vim 指令<code>:version</code>查看配置文件路径，可以看到配置文件为<code>C:\Program Files (x86)\Vim\_vimrc</code></li>
@@ -353,7 +362,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B5%8F%E8%A7%88%E5%99%A8"><span class="nav-number">1.</span> <span class="nav-text">浏览器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%90%86%E6%9C%8D%E5%8A%A1%E5%99%A8"><span class="nav-number">2.</span> <span class="nav-text">代理服务器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9B%BF%E6%8D%A2-CMD"><span class="nav-number">3.</span> <span class="nav-text">替换 CMD</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#PowerShell"><span class="nav-number">3.1.</span> <span class="nav-text">PowerShell</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Windows-Terminal"><span class="nav-number">3.2.</span> <span class="nav-text">Windows Terminal</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Vim"><span class="nav-number">3.3.</span> <span class="nav-text">Vim</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#vim-%E7%9B%B8%E5%85%B3%E9%85%8D%E7%BD%AE%E4%BF%AE%E6%94%B9"><span class="nav-number">3.3.1.</span> <span class="nav-text">vim 相关配置修改</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#NVM-%E4%B8%8B%E8%BD%BD"><span class="nav-number">4.</span> <span class="nav-text">NVM 下载</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#cnpm"><span class="nav-number">4.1.</span> <span class="nav-text">cnpm</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#nrm"><span class="nav-number">4.2.</span> <span class="nav-text">nrm</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Ruby-gem-%E4%B8%8B%E8%BD%BD"><span class="nav-number">4.3.</span> <span class="nav-text">Ruby gem 下载</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%91%BD%E4%BB%A4%E6%9D%83%E9%99%90"><span class="nav-number">4.4.</span> <span class="nav-text">命令权限</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Typora"><span class="nav-number">5.</span> <span class="nav-text">Typora</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#listary"><span class="nav-number">6.</span> <span class="nav-text">listary</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#snipaste"><span class="nav-number">7.</span> <span class="nav-text">snipaste</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B5%8F%E8%A7%88%E5%99%A8"><span class="nav-number">1.</span> <span class="nav-text">浏览器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%90%86%E6%9C%8D%E5%8A%A1%E5%99%A8"><span class="nav-number">2.</span> <span class="nav-text">代理服务器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9B%BF%E6%8D%A2-CMD"><span class="nav-number">3.</span> <span class="nav-text">替换 CMD</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#PowerShell"><span class="nav-number">3.1.</span> <span class="nav-text">PowerShell</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Windows-Terminal"><span class="nav-number">3.2.</span> <span class="nav-text">Windows Terminal</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8F%82%E8%80%83%E9%93%BE%E6%8E%A5"><span class="nav-number">3.2.1.</span> <span class="nav-text">参考链接</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Vim"><span class="nav-number">3.3.</span> <span class="nav-text">Vim</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#vim-%E7%9B%B8%E5%85%B3%E9%85%8D%E7%BD%AE%E4%BF%AE%E6%94%B9"><span class="nav-number">3.3.1.</span> <span class="nav-text">vim 相关配置修改</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#NVM-%E4%B8%8B%E8%BD%BD"><span class="nav-number">4.</span> <span class="nav-text">NVM 下载</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#cnpm"><span class="nav-number">4.1.</span> <span class="nav-text">cnpm</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#nrm"><span class="nav-number">4.2.</span> <span class="nav-text">nrm</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Ruby-gem-%E4%B8%8B%E8%BD%BD"><span class="nav-number">4.3.</span> <span class="nav-text">Ruby gem 下载</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%91%BD%E4%BB%A4%E6%9D%83%E9%99%90"><span class="nav-number">4.4.</span> <span class="nav-text">命令权限</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Typora"><span class="nav-number">5.</span> <span class="nav-text">Typora</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#listary"><span class="nav-number">6.</span> <span class="nav-text">listary</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#snipaste"><span class="nav-number">7.</span> <span class="nav-text">snipaste</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
