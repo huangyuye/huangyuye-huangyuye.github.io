@@ -29,7 +29,7 @@
 <meta property="og:description" content="浏览器下载最新的 Microsoft Edge，使用默认的必应搜索引擎 代理服务器如果有 vpn 账号，下载 Vpn 客户端，开启 PAC，并自动配置系统代理浏览器下载 SwitchyOmega 插件实现快速切换代理，可以选择直接连接或者使用系统代理（即 vpn 代理） ss 与 gfwlist https:&#x2F;&#x2F;github.com&#x2F;gfwlist&#x2F;gfwlist 替换 CMDPowerShell">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-04-06T15:19:54.000Z">
-<meta property="article:modified_time" content="2021-05-16T07:50:52.771Z">
+<meta property="article:modified_time" content="2021-05-16T16:22:18.169Z">
 <meta property="article:author" content="yuye Huang">
 <meta name="twitter:card" content="summary">
 
@@ -191,7 +191,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-05-16 07:50:52" itemprop="dateModified" datetime="2021-05-16T07:50:52+00:00">2021-05-16</time>
+                <time title="修改时间：2021-05-16 16:22:18" itemprop="dateModified" datetime="2021-05-16T16:22:18+00:00">2021-05-16</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -219,6 +219,30 @@
 <p><code>ss 与 gfwlist</code> <a target="_blank" rel="noopener" href="https://github.com/gfwlist/gfwlist">https://github.com/gfwlist/gfwlist</a></p>
 <h2 id="替换-CMD"><a href="#替换-CMD" class="headerlink" title="替换 CMD"></a>替换 CMD</h2><h3 id="PowerShell"><a href="#PowerShell" class="headerlink" title="PowerShell"></a>PowerShell</h3><p>Windows powershell 的升级版<br>下载地址：<a target="_blank" rel="noopener" href="https://github.com/PowerShell/PowerShell">https://github.com/PowerShell/PowerShell</a></p>
 <h3 id="Windows-Terminal"><a href="#Windows-Terminal" class="headerlink" title="Windows Terminal"></a>Windows Terminal</h3><p>Microsoft Store 下载 Windows Terminal，可以集成各个命令行工具，如上述提到的 powershell，以及 cmder 等<br>除此之外，还可以使用 wsl windows 子系统的方式，集成 linux 子系统命令行工具</p>
+<p>下载好终端之后，需要对终端进行美化，一般过程如下：</p>
+<ol>
+<li>下载字体，下载字体后一般到对应的<code>ttf</code>目录下全选字体并安装到 OS 系统中</li>
+<li>下载 PowerShell</li>
+<li>安装 power shell 插件模块（Install-Module）<ol>
+<li>oh-my-posh</li>
+<li>posh-git</li>
+<li>PSReadLine</li>
+<li>注意：Install-Module 下载插件一般可以使用-Verbose 参数用于查看具体的插件下载地址，浏览器输入下载地址直接下载用于解决命令行下载缓慢的问题。下载完成后将插件解压后放到 power shell 安装目录的 <code>module</code>文件夹下，注意格式为：<code>$&#123;powerShell.path&#125;/module/$&#123;插件名&#125;/$&#123;插件版本&#125;/</code></li>
+</ol>
+</li>
+<li>打开 Windows Terminal 配置文件进行字体、主题配置</li>
+<li>添加右键菜单：编写<code>terminal.reg</code>文件并以管理员命令执行（<strong>注意根据情况修改路径</strong>）</li>
+</ol>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Windows Registry Editor Version <span class="number">5.00</span></span><br><span class="line"></span><br><span class="line">[<span class="type">HKEY_CLASSES_ROOT</span>\<span class="type">Directory</span>\<span class="type">Background</span>\<span class="type">shell</span>\<span class="type">wt</span>]</span><br><span class="line"><span class="selector-tag">@</span>=<span class="string">&quot;Windows terminal here&quot;</span></span><br><span class="line"><span class="string">&quot;Icon&quot;</span>=<span class="string">&quot;C:\\Users\\16957\\AppData\\Local\\terminal\\wt_32.ico&quot;</span></span><br><span class="line"></span><br><span class="line">[<span class="type">HKEY_CLASSES_ROOT</span>\<span class="type">Directory</span>\<span class="type">Background</span>\<span class="type">shell</span>\<span class="type">wt</span>\<span class="type">command</span>]</span><br><span class="line"><span class="selector-tag">@</span>=<span class="string">&quot;C:\\Users\\16957\\AppData\\Local\\Microsoft\\WindowsApps\\wt.exe&quot;</span></span><br></pre></td></tr></table></figure>
+
+<ol start="6">
+<li>添加 Powershell 启动参数：<code>notepad.exe $Profile</code><ol>
+<li>import 插件模块</li>
+<li>设置主题</li>
+<li>设置热键、函数、别名等</li>
+</ol>
+</li>
+</ol>
 <h3 id="Vim"><a href="#Vim" class="headerlink" title="Vim"></a>Vim</h3><p>使用 <a target="_blank" rel="noopener" href="https://www.cnblogs.com/Eric-jx/p/10491922.html">vim</a> 快速的在命令行中操作文件</p>
 <h4 id="vim-相关配置修改"><a href="#vim-相关配置修改" class="headerlink" title="vim 相关配置修改"></a>vim 相关配置修改</h4><ol>
 <li> cmd 中执行 vim 命令，执行 vim 指令<code>:version</code>查看配置文件路径，可以看到配置文件为<code>C:\Program Files (x86)\Vim\_vimrc</code></li>
@@ -229,10 +253,10 @@
 <ol start="3">
 <li>修改 vim 操作的文件编码，可参考<a target="_blank" rel="noopener" href="http://c.biancheng.net/view/3024.html">http://c.biancheng.net/view/3024.html</a></li>
 </ol>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 编码设置 start http://c.biancheng.net/view/3024.html</span></span><br><span class="line"><span class="built_in">set</span> fileencodings=utf<span class="literal">-8</span>,ucs<span class="literal">-bom</span>,gb18030,gbk,gb2312,cp936</span><br><span class="line"><span class="built_in">set</span> termencoding=utf<span class="literal">-8</span></span><br><span class="line"><span class="built_in">set</span> encoding=utf<span class="literal">-8</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># C:\Program Files (x86)\Vim\_vimrc</span></span><br><span class="line"><span class="comment"># 编码设置 start http://c.biancheng.net/view/3024.html</span></span><br><span class="line"><span class="built_in">set</span> fileencodings=utf<span class="literal">-8</span>,ucs<span class="literal">-bom</span>,gb18030,gbk,gb2312,cp936</span><br><span class="line"><span class="built_in">set</span> termencoding=utf<span class="literal">-8</span></span><br><span class="line"><span class="built_in">set</span> encoding=utf<span class="literal">-8</span></span><br></pre></td></tr></table></figure>
 
 <h2 id="NVM-下载"><a href="#NVM-下载" class="headerlink" title="NVM 下载"></a>NVM 下载</h2><blockquote>
-<p>这个标题下的内容建议仅开发同学关注</p>
+<p>该标题下的内容建议仅开发同学关注</p>
 </blockquote>
 <p>不管是使用 windows 还是系统系统，很多时候我们都需要在本地电脑运行一些前端项目，这时候会用到 nodejs 环境以及 npm 包管理工具，所以下载 <a target="_blank" rel="noopener" href="https://github.com/coreybutler/nvm-windows/releases">nvm</a> 可以帮助你方便的管理与切换 node 环境版本</p>
 <figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">nvm install &lt;nodejs.version&gt;</span><br><span class="line">nvm use &lt;nodejs.version&gt;</span><br></pre></td></tr></table></figure>
