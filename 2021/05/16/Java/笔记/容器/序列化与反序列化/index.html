@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta name="referrer" content="no-referrer" />
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"huangyuye.github.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="1、什么是序列化与反序列化？ 序列化：指把堆内存中的 Java 对象数据，通过某种方式把对象存储到磁盘文件中或者传递给其他网络节点（在网络上传输），这个过程称为序列化。通俗来说就是将数据结构或对象转换成二进制串的过程  反序列化：把磁盘文件中的对象数据或者把网络节点上的对象数据，恢复成Java对象模型的过程。也就是将在序列化过程中所生成的二进制串转换成数据结构或者对象的过程   2、为什么要做序列">
+<meta property="og:type" content="article">
+<meta property="og:title" content="序列化与反序列化">
+<meta property="og:url" content="https://huangyuye.github.io/2021/05/16/Java/%E7%AC%94%E8%AE%B0/%E5%AE%B9%E5%99%A8/%E5%BA%8F%E5%88%97%E5%8C%96%E4%B8%8E%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96/index.html">
+<meta property="og:site_name" content="HYY">
+<meta property="og:description" content="1、什么是序列化与反序列化？ 序列化：指把堆内存中的 Java 对象数据，通过某种方式把对象存储到磁盘文件中或者传递给其他网络节点（在网络上传输），这个过程称为序列化。通俗来说就是将数据结构或对象转换成二进制串的过程  反序列化：把磁盘文件中的对象数据或者把网络节点上的对象数据，恢复成Java对象模型的过程。也就是将在序列化过程中所生成的二进制串转换成数据结构或者对象的过程   2、为什么要做序列">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/huangyuye/huangyuye.github.io@data/img/PhYVoF5wx8dElg4.png">
+<meta property="og:image" content="d:/AppData/YoudaoNote/qqB53912A331D409871E525BE52BFB5C3B/c301f97fba5249a5b3f2e347f918bcb7/0-2013853053.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/huangyuye/huangyuye.github.io@data/img/28-918255453.png">
+<meta property="og:image" content="d:/AppData/YoudaoNote/qqB53912A331D409871E525BE52BFB5C3B/8d3a27ce65024caeaf3cb59bda842a17/5-1053058670.png">
+<meta property="article:published_time" content="2021-05-16T07:50:29.936Z">
+<meta property="article:modified_time" content="2021-05-16T07:50:29.936Z">
+<meta property="article:author" content="yuye Huang">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/huangyuye/huangyuye.github.io@data/img/PhYVoF5wx8dElg4.png">
+
+<link rel="canonical" href="https://huangyuye.github.io/2021/05/16/Java/%E7%AC%94%E8%AE%B0/%E5%AE%B9%E5%99%A8/%E5%BA%8F%E5%88%97%E5%8C%96%E4%B8%8E%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>序列化与反序列化 | HYY</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">HYY</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://huangyuye.github.io/2021/05/16/Java/%E7%AC%94%E8%AE%B0/%E5%AE%B9%E5%99%A8/%E5%BA%8F%E5%88%97%E5%8C%96%E4%B8%8E%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="yuye Huang">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="HYY">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          序列化与反序列化
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-05-16 07:50:29" itemprop="dateCreated datePublished" datetime="2021-05-16T07:50:29+00:00">2021-05-16</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">笔记</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/%E7%AC%94%E8%AE%B0/%E5%AE%B9%E5%99%A8/" itemprop="url" rel="index"><span itemprop="name">容器</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="1、什么是序列化与反序列化？"><a href="#1、什么是序列化与反序列化？" class="headerlink" title="1、什么是序列化与反序列化？"></a><strong>1、什么是序列化与反序列化？</strong></h2><ul>
+<li><p>序列化：指把堆内存中的 Java 对象数据，通过某种方式把对象存储到磁盘文件中或者传递给其他网络节点（在网络上传输），这个过程称为序列化。通俗来说就是将数据结构或对象转换成二进制串的过程</p>
+</li>
+<li><p>反序列化：把磁盘文件中的对象数据或者把网络节点上的对象数据，恢复成Java对象模型的过程。也就是将在序列化过程中所生成的二进制串转换成数据结构或者对象的过程</p>
+</li>
+</ul>
+<h2 id="2、为什么要做序列化？"><a href="#2、为什么要做序列化？" class="headerlink" title="2、为什么要做序列化？"></a><strong>2、为什么要做序列化？</strong></h2><ul>
+<li><p>在分布式系统中，此时需要把对象在网络上传输，就得把对象数据转换为二进制形式，需要共享的数据的 JavaBean 对象，都得做序列化。</p>
+</li>
+<li><p>服务器钝化：如果服务器发现某些对象好久没活动了，那么服务器就会把这些内存中的对象持久化在本地磁盘文件中（Java对象转换为二进制文件）；如果服务器发现某些对象需要活动时，先去内存中寻找，找不到再去磁盘文件中反序列化我们的对象数据，恢复成 Java 对象。这样能节省服务器内存。</p>
+</li>
+</ul>
+<h2 id="3、Java-怎么进行序列化？"><a href="#3、Java-怎么进行序列化？" class="headerlink" title="3、Java 怎么进行序列化？"></a><strong>3、Java 怎么进行序列化？</strong></h2><ul>
+<li><p>需要做序列化的对象的类，必须实现序列化接口：Java.lang.Serializable 接口（这是一个标志接口，没有任何抽象方法），Java 中大多数类都实现了该接口，比如：String，Integer</p>
+</li>
+<li><p>底层会判断，如果当前对象是 Serializable 的实例，才允许做序列化，Java对象 <code>instanceof Serializable</code> 来判断。</p>
+</li>
+<li><p>在 Java 中使用对象流来完成序列化和反序列化</p>
+</li>
+</ul>
+<p>　<strong>ObjectOutputStream</strong>：通过 writeObject()方法做序列化操作</p>
+<p>　<strong>ObjectInputStream</strong>：通过 readObject() 方法做反序列化操作</p>
+<p><img src="https://cdn.jsdelivr.net/gh/huangyuye/huangyuye.github.io@data/img/PhYVoF5wx8dElg4.png" alt="img"></p>
+<h3 id="第一步：创建一个-JavaBean-对象"><a href="#第一步：创建一个-JavaBean-对象" class="headerlink" title="第一步：创建一个 JavaBean 对象"></a><strong>第一步：创建一个 JavaBean 对象</strong></h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> lombok.AllArgsConstructor;</span><br><span class="line"><span class="keyword">import</span> lombok.Data;</span><br><span class="line"><span class="keyword">import</span> lombok.NoArgsConstructor;</span><br><span class="line"><span class="keyword">import</span> java.io.Serializable;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Data</span></span><br><span class="line"><span class="meta">@NoArgsConstructor</span></span><br><span class="line"><span class="meta">@AllArgsConstructor</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Person</span> <span class="keyword">implements</span> <span class="title">Serializable</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> age;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">toString</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;Person [name=&quot;</span> + name + <span class="string">&quot;, age=&quot;</span> + age + <span class="string">&quot;]&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="第二步：使用-ObjectOutputStream-对象实现序列化"><a href="#第二步：使用-ObjectOutputStream-对象实现序列化" class="headerlink" title="第二步：使用 ObjectOutputStream 对象实现序列化"></a><strong>第二步：使用 ObjectOutputStream 对象实现序列化</strong></h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//在根目录下新建一个 io 的文件夹</span></span><br><span class="line">   OutputStream op = <span class="keyword">new</span> FileOutputStream(<span class="string">&quot;io&quot;</span>+File.separator+<span class="string">&quot;a.txt&quot;</span>); </span><br><span class="line">   ObjectOutputStream ops = <span class="keyword">new</span> ObjectOutputStream(op); </span><br><span class="line">   ops.writeObject(<span class="keyword">new</span> Person(<span class="string">&quot;vae&quot;</span>,<span class="number">1</span>));   </span><br><span class="line">ops.close();</span><br><span class="line"><span class="comment">// 我们打开 a.txt 文件，发现里面的内容乱码，注意这不需要我们来看懂，这是二进制文件，计算机能读懂就行了。</span></span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>错误一：</strong>如果新建的 Person 对象没有实现 Serializable 接口，那么上面的操作会报错：</p>
+<p><img src="D:\AppData\YoudaoNote\qqB53912A331D409871E525BE52BFB5C3B\c301f97fba5249a5b3f2e347f918bcb7\0-2013853053.png" alt="img"></p>
+<h3 id="第三步：使用ObjectInputStream-对象实现反序列化"><a href="#第三步：使用ObjectInputStream-对象实现反序列化" class="headerlink" title="第三步：使用ObjectInputStream 对象实现反序列化"></a><strong>第三步：使用ObjectInputStream 对象实现反序列化</strong></h3><p><strong>反序列化的对象必须要提供该对象的字节码文件.class</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">InputStream in = <span class="keyword">new</span> FileInputStream(<span class="string">&quot;io&quot;</span> + File.separator + <span class="string">&quot;a.txt&quot;</span>);</span><br><span class="line">   ObjectInputStream os = <span class="keyword">new</span> ObjectInputStream(in);</span><br><span class="line">   <span class="keyword">byte</span>[] buffer = <span class="keyword">new</span> <span class="keyword">byte</span>[<span class="number">10</span>];</span><br><span class="line">   <span class="keyword">int</span> len = -<span class="number">1</span>;</span><br><span class="line">   Person p = (Person)os.readObject();</span><br><span class="line">   System.out.println(p);  <span class="comment">//Person [name=vae, age=1] os.close();</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="常见问题"><a href="#常见问题" class="headerlink" title="常见问题"></a>常见问题</h2><h3 id="如果某些数据不需要做序列化，比如密码，比如上面的年龄？"><a href="#如果某些数据不需要做序列化，比如密码，比如上面的年龄？" class="headerlink" title="如果某些数据不需要做序列化，比如密码，比如上面的年龄？"></a>如果某些数据不需要做序列化，比如密码，比如上面的年龄？</h3><p><strong>解决办法：</strong>在字段面前加上 transient</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> String name;<span class="comment">//需要序列化 </span></span><br><span class="line"><span class="keyword">transient</span> <span class="keyword">private</span> <span class="keyword">int</span> age;<span class="comment">//不需要序列化</span></span><br></pre></td></tr></table></figure>
+
+
+
+<p>那么我们在反序列化的时候，打印出来的就是Person [name=vae, age=0]，整型数据默认值为 0 </p>
+<h3 id="对象版本变化"><a href="#对象版本变化" class="headerlink" title="对象版本变化"></a>对象版本变化</h3><p><strong>在完成序列化操作后，由于项目的升级或修改，可能我们会对序列化对象进行修改，比如增加某个字段，那么我们在进行反序列化就会报错：</strong></p>
+<p><img src="https://cdn.jsdelivr.net/gh/huangyuye/huangyuye.github.io@data/img/28-918255453.png" alt="img"></p>
+<p><img src="D:\AppData\YoudaoNote\qqB53912A331D409871E525BE52BFB5C3B\8d3a27ce65024caeaf3cb59bda842a17\5-1053058670.png" alt="img"></p>
+<p><strong>解决办法：</strong>在 JavaBean 对象中增加一个 serialVersionUID 字段，用来固定这个版本，无论我们怎么修改，版本都是一致的，就能进行反序列化了</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">long</span> serialVersionUID = <span class="number">8656128222714547171L</span>;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>后面反序列化出来的对象属性以最新版本的为准。</p>
+<p>而txt文件中的内容不会变，仍然仅记录的最初始的对象，而反序列化，会根据版本号，找到当前最新的对象（版本号已经固定不变，会根据版本号去找；）</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2021/05/16/Java/%E7%AC%94%E8%AE%B0/%E5%AE%B9%E5%99%A8/%E9%9B%86%E5%90%88%E5%B7%A5%E5%85%B7/" rel="prev" title="集合工具">
+      <i class="fa fa-chevron-left"></i> 集合工具
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2021/05/16/Java/%E7%AC%94%E8%AE%B0/%E5%AE%B9%E5%99%A8/%E5%9F%BA%E7%A1%80/" rel="next" title="基础">
+      基础 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1%E3%80%81%E4%BB%80%E4%B9%88%E6%98%AF%E5%BA%8F%E5%88%97%E5%8C%96%E4%B8%8E%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%EF%BC%9F"><span class="nav-number">1.</span> <span class="nav-text">1、什么是序列化与反序列化？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2%E3%80%81%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E5%81%9A%E5%BA%8F%E5%88%97%E5%8C%96%EF%BC%9F"><span class="nav-number">2.</span> <span class="nav-text">2、为什么要做序列化？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3%E3%80%81Java-%E6%80%8E%E4%B9%88%E8%BF%9B%E8%A1%8C%E5%BA%8F%E5%88%97%E5%8C%96%EF%BC%9F"><span class="nav-number">3.</span> <span class="nav-text">3、Java 怎么进行序列化？</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AC%AC%E4%B8%80%E6%AD%A5%EF%BC%9A%E5%88%9B%E5%BB%BA%E4%B8%80%E4%B8%AA-JavaBean-%E5%AF%B9%E8%B1%A1"><span class="nav-number">3.1.</span> <span class="nav-text">第一步：创建一个 JavaBean 对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AC%AC%E4%BA%8C%E6%AD%A5%EF%BC%9A%E4%BD%BF%E7%94%A8-ObjectOutputStream-%E5%AF%B9%E8%B1%A1%E5%AE%9E%E7%8E%B0%E5%BA%8F%E5%88%97%E5%8C%96"><span class="nav-number">3.2.</span> <span class="nav-text">第二步：使用 ObjectOutputStream 对象实现序列化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AC%AC%E4%B8%89%E6%AD%A5%EF%BC%9A%E4%BD%BF%E7%94%A8ObjectInputStream-%E5%AF%B9%E8%B1%A1%E5%AE%9E%E7%8E%B0%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96"><span class="nav-number">3.3.</span> <span class="nav-text">第三步：使用ObjectInputStream 对象实现反序列化</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98"><span class="nav-number">4.</span> <span class="nav-text">常见问题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A6%82%E6%9E%9C%E6%9F%90%E4%BA%9B%E6%95%B0%E6%8D%AE%E4%B8%8D%E9%9C%80%E8%A6%81%E5%81%9A%E5%BA%8F%E5%88%97%E5%8C%96%EF%BC%8C%E6%AF%94%E5%A6%82%E5%AF%86%E7%A0%81%EF%BC%8C%E6%AF%94%E5%A6%82%E4%B8%8A%E9%9D%A2%E7%9A%84%E5%B9%B4%E9%BE%84%EF%BC%9F"><span class="nav-number">4.1.</span> <span class="nav-text">如果某些数据不需要做序列化，比如密码，比如上面的年龄？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AF%B9%E8%B1%A1%E7%89%88%E6%9C%AC%E5%8F%98%E5%8C%96"><span class="nav-number">4.2.</span> <span class="nav-text">对象版本变化</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">yuye Huang</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">46</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">21</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/huangyuye" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;huangyuye" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:747776824@qq.com" title="E-Mail → mailto:747776824@qq.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title"><i class="fa fa-link fa-fw"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://www.yuque.com/huangyuye/qzf3af" title="https:&#x2F;&#x2F;www.yuque.com&#x2F;huangyuye&#x2F;qzf3af" rel="noopener" target="_blank">语雀</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">yuye Huang</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
