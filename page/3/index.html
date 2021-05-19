@@ -156,7 +156,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://huangyuye.github.io/2021/05/16/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/%E5%89%8D%E7%AB%AF/%E9%A1%B9%E7%9B%AE%E5%9B%BE%E7%89%87%E5%BC%95%E7%94%A8/">
+    <link itemprop="mainEntityOfPage" href="https://huangyuye.github.io/2021/05/19/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/%E8%BF%90%E7%BB%B4/%E8%81%9A%E7%9F%B3%E5%A1%94/%E5%BA%94%E7%94%A8%E5%8F%91%E5%B8%83%E6%B5%81%E7%A8%8B_TODO/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -170,7 +170,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2021/05/16/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/%E5%89%8D%E7%AB%AF/%E9%A1%B9%E7%9B%AE%E5%9B%BE%E7%89%87%E5%BC%95%E7%94%A8/" class="post-title-link" itemprop="url">项目图片引用</a>
+            <a href="/2021/05/19/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/%E8%BF%90%E7%BB%B4/%E8%81%9A%E7%9F%B3%E5%A1%94/%E5%BA%94%E7%94%A8%E5%8F%91%E5%B8%83%E6%B5%81%E7%A8%8B_TODO/" class="post-title-link" itemprop="url">应用发布流程_TODO</a>
         </h2>
 
         <div class="post-meta">
@@ -180,7 +180,7 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2021-05-16 16:32:00" itemprop="dateCreated datePublished" datetime="2021-05-16T16:32:00+00:00">2021-05-16</time>
+              <time title="创建时间：2021-05-19 02:12:48" itemprop="dateCreated datePublished" datetime="2021-05-19T02:12:48+00:00">2021-05-19</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -196,7 +196,11 @@
                 </span>
                   ，
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">前端</span></a>
+                  <a href="/categories/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/%E8%BF%90%E7%BB%B4/" itemprop="url" rel="index"><span itemprop="name">运维</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/%E8%BF%90%E7%BB%B4/%E8%81%9A%E7%9F%B3%E5%A1%94/" itemprop="url" rel="index"><span itemprop="name">聚石塔</span></a>
                 </span>
             </span>
 
@@ -211,29 +215,49 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="项目图片引用"><a href="#项目图片引用" class="headerlink" title="项目图片引用"></a>项目图片引用</h2><ol>
-<li>阿里巴巴矢量图（iconfont字体图标）<ol>
-<li>上传图标到矢量库</li>
-<li>项目中引用：@font-face {}</li>
-<li>根据矢量库图标对应编号使用字体图标</li>
-</ol>
+          <h1 id="聚石塔—容器部署平台"><a href="#聚石塔—容器部署平台" class="headerlink" title="聚石塔—容器部署平台"></a>聚石塔—容器部署平台</h1><p> 聚石塔提供了从资源采购、应用部署到跟阿里巴巴业务链接一整套解决方案。</p>
+<h2 id="名词术语"><a href="#名词术语" class="headerlink" title="名词术语"></a>名词术语</h2><ul>
+<li>VPC(Virtual Private Cloud)：私有云<ul>
+<li><strong>对于基础架构服务（IaaS），云就是指资源池。</strong>你或许听过公有云（Public Cloud），私有云（Private Cloud），混合云（Hybrid Cloud）。不过，VPC不属于这三种云中任一种。</li>
+<li>这是一种<strong>运行在公有云上，将一部分公有云资源为某个用户隔离出来，给这个用户私有使用的资源的集合。</strong></li>
+<li>向用户提供的隔离资源的集合</li>
+</ul>
 </li>
-<li>svg图片<ol>
-<li>Scalable Vector Graphics，意思为可缩放的矢量图形</li>
-<li>使用 XML 格式定义图形：用文本工具打开svg图片时内容为xml格式</li>
-<li>在放大或改变尺寸的情况下其图形质量不会有所损失</li>
-<li><strong>svg图片格式可上传到阿里巴巴矢量库</strong>：<ol>
-<li>下载原文件 图标制作模板.AI -&gt;  设置图标大小 -&gt; 存储为svg格式（建议使用存储为svg，不要使用导出为svg）-&gt; 上传图标到阿里矢量库 -&gt; 命名图标及定义图标标签，完成上传</li>
-<li><a target="_blank" rel="noopener" href="https://www.iconfont.cn/help/detail?spm=a313x.7781069.1998910419.d1c73b2de&amp;helptype=draw&amp;step=">https://www.iconfont.cn/help/detail?spm=a313x.7781069.1998910419.d1c73b2de&amp;helptype=draw&amp;step=</a></li>
-</ol>
+<li>ECS（<em>Elastic Cloud Server</em>）：弹性云服务器</li>
+</ul>
+<h2 id="使用步骤"><a href="#使用步骤" class="headerlink" title="使用步骤"></a>使用步骤</h2><ol>
+<li>创建集群<ul>
+<li>创建VPC、购买ECS、创建集群、添加ECS到集群</li>
+</ul>
+</li>
+<li>创建应用</li>
+<li>配置环境</li>
+<li>应用发布</li>
+<li>流量接入<ul>
+<li>购买SLB、新建SLB流量接入、Ingress接入</li>
+</ul>
 </li>
 </ol>
-</li>
+<h2 id="应用service访问"><a href="#应用service访问" class="headerlink" title="应用service访问"></a>应用service访问</h2><p><strong>多种方式</strong></p>
+<ol>
+<li>若实例部署配置Deployment如下</li>
 </ol>
-<h2 id="什么是域名收敛"><a href="#什么是域名收敛" class="headerlink" title="什么是域名收敛"></a>什么是域名收敛</h2><p>PC 时代为了突破浏览器的域名并发限制。有了域名发散。浏览器有并发限制，是为了防止DDOS攻击。</p>
-<p>域名收敛：将静态资源放在一个域名下。减少DNS解析的开销。</p>
-<p>域名发散：是将静态资源放在多个子域名下，就可以多线程下载，提高并行度，使客户端加载静态资源更加迅速。</p>
-<p>域名发散是pc端为了利用浏览器的多线程并行下载能力。而域名收敛多用与移动端，提高性能，因为dns解析是从后向前迭代解析，如果域名过多性能会下降，增加DNS的解析开销。</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">metadata:</span></span><br><span class="line">  <span class="comment"># 部署名</span></span><br><span class="line">  <span class="comment">#name: ecrp-sg-web</span></span><br><span class="line">  <span class="attr">labels:</span></span><br><span class="line">    <span class="attr">app.kubernetes.io/project:</span> <span class="string">ecrp</span></span><br><span class="line">    <span class="attr">app.kubernetes.io/name:</span> <span class="string">sg-h5</span></span><br></pre></td></tr></table></figure>
+
+<p>集群内访问方式：${ app.kubernetes.io/name}.${app.kubernetes.io/projec}</p>
+<ol start="2">
+<li>配置集群服务，获得ClusterIP，使用ClusterIP</li>
+</ol>
+<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><ul>
+<li>聚石塔团队官网：<a target="_blank" rel="noopener" href="https://www.yuque.com/fczggw/wu7u0k/gfhekf">https://www.yuque.com/fczggw/wu7u0k/gfhekf</a></li>
+<li>什么是VPC：<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/33658624">https://zhuanlan.zhihu.com/p/33658624</a></li>
+<li>k8s官网：<a target="_blank" rel="noopener" href="https://kubernetes.io/zh/docs/concepts/services-networking/ingress/#%E6%9C%AF%E8%AF%AD">https://kubernetes.io/zh/docs/concepts/services-networking/ingress/#%E6%9C%AF%E8%AF%AD</a></li>
+<li>《NodePort vs LoadBalancer vs Ingress》：<ul>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/yang75108/article/details/101101384">https://blog.csdn.net/yang75108/article/details/101101384</a></li>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/yang75108/article/details/101268208">https://blog.csdn.net/yang75108/article/details/101268208</a></li>
+</ul>
+</li>
+</ul>
 
       
     </div>
@@ -253,7 +277,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://huangyuye.github.io/2021/05/16/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/mq/Jms%20%E4%B8%8E%20activemq/">
+    <link itemprop="mainEntityOfPage" href="https://huangyuye.github.io/2021/05/19/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/mq/Jms%20%E4%B8%8E%20activemq/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -267,7 +291,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2021/05/16/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/mq/Jms%20%E4%B8%8E%20activemq/" class="post-title-link" itemprop="url">Jms 与 activemq</a>
+            <a href="/2021/05/19/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/mq/Jms%20%E4%B8%8E%20activemq/" class="post-title-link" itemprop="url">Jms 与 activemq</a>
         </h2>
 
         <div class="post-meta">
@@ -277,7 +301,7 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2021-05-16 16:32:00" itemprop="dateCreated datePublished" datetime="2021-05-16T16:32:00+00:00">2021-05-16</time>
+              <time title="创建时间：2021-05-19 02:12:48" itemprop="dateCreated datePublished" datetime="2021-05-19T02:12:48+00:00">2021-05-19</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -615,7 +639,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-05-16 16:32:27" itemprop="dateModified" datetime="2021-05-16T16:32:27+00:00">2021-05-16</time>
+                <time title="修改时间：2021-05-19 02:13:11" itemprop="dateModified" datetime="2021-05-19T02:13:11+00:00">2021-05-19</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -1049,7 +1073,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-05-16 16:32:27" itemprop="dateModified" datetime="2021-05-16T16:32:27+00:00">2021-05-16</time>
+                <time title="修改时间：2021-05-19 02:13:11" itemprop="dateModified" datetime="2021-05-19T02:13:11+00:00">2021-05-19</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -1206,7 +1230,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-05-16 16:32:27" itemprop="dateModified" datetime="2021-05-16T16:32:27+00:00">2021-05-16</time>
+                <time title="修改时间：2021-05-19 02:13:11" itemprop="dateModified" datetime="2021-05-19T02:13:11+00:00">2021-05-19</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -1296,7 +1320,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-05-16 16:32:27" itemprop="dateModified" datetime="2021-05-16T16:32:27+00:00">2021-05-16</time>
+                <time title="修改时间：2021-05-19 02:13:11" itemprop="dateModified" datetime="2021-05-19T02:13:11+00:00">2021-05-19</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -1418,7 +1442,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-05-16 16:32:27" itemprop="dateModified" datetime="2021-05-16T16:32:27+00:00">2021-05-16</time>
+                <time title="修改时间：2021-05-19 02:13:11" itemprop="dateModified" datetime="2021-05-19T02:13:11+00:00">2021-05-19</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -1519,7 +1543,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-05-16 16:32:27" itemprop="dateModified" datetime="2021-05-16T16:32:27+00:00">2021-05-16</time>
+                <time title="修改时间：2021-05-19 02:13:11" itemprop="dateModified" datetime="2021-05-19T02:13:11+00:00">2021-05-19</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -1605,11 +1629,12 @@
 <figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cnpm i nrm <span class="literal">-g</span></span><br><span class="line">nrm <span class="built_in">ls</span></span><br></pre></td></tr></table></figure>
 
 <h3 id="Ruby-gem-下载"><a href="#Ruby-gem-下载" class="headerlink" title="Ruby gem 下载"></a>Ruby gem 下载</h3><p>使用 travis ci 时可能需要用到 <a target="_blank" rel="noopener" href="https://rubyinstaller.org/">gem</a>下载 travis 工具</p>
-<h3 id="命令权限"><a href="#命令权限" class="headerlink" title="命令权限"></a>命令权限</h3><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">set-executionpolicy</span> remotesigned</span><br></pre></td></tr></table></figure>
+<h4 id="命令权限"><a href="#命令权限" class="headerlink" title="命令权限"></a>命令权限</h4><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">set-executionpolicy</span> remotesigned</span><br></pre></td></tr></table></figure>
 
 <h2 id="Typora"><a href="#Typora" class="headerlink" title="Typora"></a>Typora</h2><p><a target="_blank" rel="noopener" href="https://typora.io/windows/dev_release.html">Typora </a>是一款强大简洁的 markdown 文本编辑器，可以使用它高效的编码 md 文档</p>
 <h2 id="listary"><a href="#listary" class="headerlink" title="listary"></a>listary</h2><p><a target="_blank" rel="noopener" href="https://www.listary.com/download">Listary</a> 是一个革命性的 Windows 搜索工具，可以帮你快速查找文件和启动应用程序</p>
 <h2 id="snipaste"><a href="#snipaste" class="headerlink" title="snipaste"></a>snipaste</h2><p>很好用的截图工具，支持多张截图拼图，快捷键—F1：截图；F3：将截图放在桌面进行拼图，下载地址点<a target="_blank" rel="noopener" href="https://zh.snipaste.com/">这里</a></p>
+<h2 id="GitHub-Gist-管理工具"><a href="#GitHub-Gist-管理工具" class="headerlink" title="GitHub Gist 管理工具"></a>GitHub Gist 管理工具</h2><p>Gist 是基于 Github 的 code snippet 仓库，Github Gist 的可操作性比较少，一般会下载 Gist 管理工具提供更多功能支持。<br>一般的 GitHub Gist 管理工具有：gisto、gistbox、lepton</p>
 
       
     </div>
@@ -1660,7 +1685,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-05-16 16:32:27" itemprop="dateModified" datetime="2021-05-16T16:32:27+00:00">2021-05-16</time>
+                <time title="修改时间：2021-05-19 02:13:11" itemprop="dateModified" datetime="2021-05-19T02:13:11+00:00">2021-05-19</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -1798,7 +1823,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-05-16 16:32:00" itemprop="dateModified" datetime="2021-05-16T16:32:00+00:00">2021-05-16</time>
+                <time title="修改时间：2021-05-19 02:12:48" itemprop="dateModified" datetime="2021-05-19T02:12:48+00:00">2021-05-19</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
