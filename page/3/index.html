@@ -156,7 +156,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://huangyuye.github.io/2021/05/19/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/%E5%89%8D%E7%AB%AF/%E9%A1%B9%E7%9B%AE%E5%9B%BE%E7%89%87%E5%BC%95%E7%94%A8/">
+    <link itemprop="mainEntityOfPage" href="https://huangyuye.github.io/2021/05/19/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/mysql/mysql%E4%BD%BF%E7%94%A8%E5%9C%BA%E6%99%AF%E6%8A%80%E5%B7%A7/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -170,7 +170,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2021/05/19/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/%E5%89%8D%E7%AB%AF/%E9%A1%B9%E7%9B%AE%E5%9B%BE%E7%89%87%E5%BC%95%E7%94%A8/" class="post-title-link" itemprop="url">项目图片引用</a>
+            <a href="/2021/05/19/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/mysql/mysql%E4%BD%BF%E7%94%A8%E5%9C%BA%E6%99%AF%E6%8A%80%E5%B7%A7/" class="post-title-link" itemprop="url">mysql使用场景技巧</a>
         </h2>
 
         <div class="post-meta">
@@ -180,7 +180,7 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2021-05-19 02:41:46" itemprop="dateCreated datePublished" datetime="2021-05-19T02:41:46+00:00">2021-05-19</time>
+              <time title="创建时间：2021-05-19 03:44:14" itemprop="dateCreated datePublished" datetime="2021-05-19T03:44:14+00:00">2021-05-19</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -196,7 +196,7 @@
                 </span>
                   ，
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">前端</span></a>
+                  <a href="/categories/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/mysql/" itemprop="url" rel="index"><span itemprop="name">mysql</span></a>
                 </span>
             </span>
 
@@ -211,29 +211,43 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="项目图片引用"><a href="#项目图片引用" class="headerlink" title="项目图片引用"></a>项目图片引用</h2><ol>
-<li>阿里巴巴矢量图（iconfont字体图标）<ol>
-<li>上传图标到矢量库</li>
-<li>项目中引用：@font-face {}</li>
-<li>根据矢量库图标对应编号使用字体图标</li>
+          <h2 id="业务"><a href="#业务" class="headerlink" title="业务"></a>业务</h2><h4 id="组内排序"><a href="#组内排序" class="headerlink" title="组内排序"></a>组内排序</h4><p>分组查询每组的前n条记录，要求：需要按某个字段分组，且每组只能取一条记录；按某个字段倒序</p>
+<ol>
+<li><p><strong>子查询：</strong>先全表排序作为子查询，然后分组</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1.</span> <span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> (<span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> table2 <span class="keyword">order</span> <span class="keyword">by</span> age <span class="keyword">desc</span>) <span class="keyword">as</span> a <span class="keyword">group</span> <span class="keyword">by</span> a.table1_id</span><br><span class="line"></span><br><span class="line"><span class="number">2.</span> <span class="keyword">select</span> a.<span class="operator">*</span> <span class="keyword">from</span> table2 <span class="keyword">as</span> a <span class="keyword">where</span> age <span class="operator">=</span> (<span class="keyword">select</span> <span class="built_in">max</span>(age) <span class="keyword">from</span> table2 <span class="keyword">where</span> a.table1_id<span class="operator">=</span>table1_id)</span><br><span class="line"></span><br><span class="line"><span class="number">3.</span> <span class="keyword">select</span> a.<span class="operator">*</span> <span class="keyword">from</span> table2 <span class="keyword">as</span> a <span class="keyword">where</span> <span class="keyword">not</span> <span class="keyword">exists</span> (<span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> table2 <span class="keyword">where</span> table1_id<span class="operator">=</span>a.table1_id <span class="keyword">and</span> age<span class="operator">&gt;</span>a.age)</span><br><span class="line"></span><br><span class="line"><span class="number">4.</span> <span class="keyword">select</span> a.<span class="operator">*</span> <span class="keyword">from</span> table2 <span class="keyword">as</span> a <span class="keyword">where</span> <span class="keyword">exists</span> (<span class="keyword">select</span> <span class="built_in">count</span>(<span class="operator">*</span>) <span class="keyword">from</span> table2 <span class="keyword">where</span> table1_id<span class="operator">=</span>a.table1_id <span class="keyword">and</span> age<span class="operator">&gt;</span>a.age <span class="keyword">having</span> <span class="built_in">count</span>(<span class="operator">*</span>)<span class="operator">=</span><span class="number">0</span>)</span><br></pre></td></tr></table></figure></li>
+<li><p><strong>group_concat(id order bydatedesc) + SUBSTRING_INDEX</strong></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> `test` <span class="keyword">WHERE</span> id <span class="keyword">IN</span>(<span class="keyword">SELECT</span> SUBSTRING_INDEX(GROUP_CONCAT(id <span class="keyword">ORDER</span> <span class="keyword">BY</span> `<span class="type">date</span>` <span class="keyword">DESC</span>)</span><br></pre></td></tr></table></figure></li>
 </ol>
+<ul>
+<li>关于exists的解释：只要exists引导的子句有结果集返回，则表示连接条件为真<ul>
+<li>参考链接：<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/20005249">https://zhuanlan.zhihu.com/p/20005249</a></li>
+</ul>
 </li>
-<li>svg图片<ol>
-<li>Scalable Vector Graphics，意思为可缩放的矢量图形</li>
-<li>使用 XML 格式定义图形：用文本工具打开svg图片时内容为xml格式</li>
-<li>在放大或改变尺寸的情况下其图形质量不会有所损失</li>
-<li><strong>svg图片格式可上传到阿里巴巴矢量库</strong>：<ol>
-<li>下载原文件 图标制作模板.AI -&gt;  设置图标大小 -&gt; 存储为svg格式（建议使用存储为svg，不要使用导出为svg）-&gt; 上传图标到阿里矢量库 -&gt; 命名图标及定义图标标签，完成上传</li>
-<li><a target="_blank" rel="noopener" href="https://www.iconfont.cn/help/detail?spm=a313x.7781069.1998910419.d1c73b2de&amp;helptype=draw&amp;step=">https://www.iconfont.cn/help/detail?spm=a313x.7781069.1998910419.d1c73b2de&amp;helptype=draw&amp;step=</a></li>
-</ol>
-</li>
-</ol>
-</li>
-</ol>
-<h2 id="什么是域名收敛"><a href="#什么是域名收敛" class="headerlink" title="什么是域名收敛"></a>什么是域名收敛</h2><p>PC 时代为了突破浏览器的域名并发限制。有了域名发散。浏览器有并发限制，是为了防止DDOS攻击。</p>
-<p>域名收敛：将静态资源放在一个域名下。减少DNS解析的开销。</p>
-<p>域名发散：是将静态资源放在多个子域名下，就可以多线程下载，提高并行度，使客户端加载静态资源更加迅速。</p>
-<p>域名发散是pc端为了利用浏览器的多线程并行下载能力。而域名收敛多用与移动端，提高性能，因为dns解析是从后向前迭代解析，如果域名过多性能会下降，增加DNS的解析开销。</p>
+</ul>
+<h4 id="删除重复数据"><a href="#删除重复数据" class="headerlink" title="删除重复数据"></a>删除重复数据</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">delete</span> <span class="keyword">from</span> sg_guide_shop <span class="keyword">where</span> id <span class="keyword">in</span> (<span class="keyword">select</span> id <span class="keyword">from</span> sg_guide_shop <span class="keyword">group</span> <span class="keyword">by</span> guide_id,shop_id <span class="keyword">having</span> <span class="built_in">count</span>(id) <span class="operator">&gt;</span> <span class="number">1</span>) <span class="keyword">and</span> id <span class="keyword">not</span> <span class="keyword">in</span> (<span class="keyword">select</span> <span class="built_in">min</span>(id) <span class="keyword">from</span> sg_guide_shop <span class="keyword">group</span> <span class="keyword">by</span> guide_id,shop_id  <span class="keyword">having</span> <span class="built_in">count</span>(id)<span class="operator">&gt;</span><span class="number">1</span>);</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="utf8mb4编码"><a href="#utf8mb4编码" class="headerlink" title="utf8mb4编码"></a>utf8mb4编码</h4><p>将数据表字段修改为utf8mb4 及将数据表编码改为utf8mb4</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> sg_login_log MODIFY <span class="keyword">COLUMN</span> operate_name <span class="type">VARCHAR</span>(<span class="number">70</span>) <span class="type">CHARACTER</span> <span class="keyword">SET</span> utf8mb4 <span class="keyword">COLLATE</span> utf8mb4_unicode_ci <span class="keyword">DEFAULT</span> <span class="keyword">NULL</span> COMMENT &quot;操作人&quot;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> sg_login_log <span class="keyword">CONVERT</span> <span class="keyword">TO</span> <span class="type">CHARACTER</span> <span class="keyword">SET</span> utf8mb4;</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="统计各日期的业务数据，没有数据的日期补零"><a href="#统计各日期的业务数据，没有数据的日期补零" class="headerlink" title="统计各日期的业务数据，没有数据的日期补零"></a>统计各日期的业务数据，没有数据的日期补零</h4><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"># <span class="number">1.</span> 生成辅助表，生成N条记录，每条记录用于辅助生成<span class="number">1</span>天的数据</span><br><span class="line"><span class="keyword">drop</span> <span class="keyword">table</span> if  <span class="keyword">exists</span> sg_base_datetime_help;</span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> `sg_base_datetime_help` (</span><br><span class="line">    `id` <span class="type">bigint</span>(<span class="number">20</span>) <span class="keyword">NOT</span> <span class="keyword">NULL</span> AUTO_INCREMENT COMMENT <span class="string">&#x27;主键ID&#x27;</span>,</span><br><span class="line">    `temp` tinyint(<span class="number">4</span>) <span class="keyword">default</span> <span class="keyword">null</span> COMMENT <span class="string">&#x27;临时字段，生成数据后删除&#x27;</span>,</span><br><span class="line">    <span class="keyword">PRIMARY</span> KEY (`id`)</span><br><span class="line">) ENGINE<span class="operator">=</span>InnoDB <span class="keyword">DEFAULT</span> CHARSET<span class="operator">=</span>utf8mb4 COMMENT<span class="operator">=</span><span class="string">&#x27;日期辅助表，用于生成n条数据&#x27;</span>;</span><br><span class="line"># 先生成一条数据</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> sg_base_datetime_help(temp) <span class="keyword">select</span> now() <span class="keyword">from</span> dual;</span><br><span class="line"># 下面两条语句执行N次, 生成<span class="number">4</span>k<span class="number">-1</span>w条数据(<span class="number">4096</span>即可)</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> sg_base_datetime_help(temp) <span class="keyword">select</span> now() <span class="keyword">from</span> sg_base_datetime_help;</span><br><span class="line"><span class="keyword">select</span> <span class="built_in">count</span>(<span class="number">1</span>) <span class="keyword">from</span> sg_base_datetime_help;</span><br><span class="line"># 删除临时字段</span><br><span class="line"><span class="keyword">alter</span> <span class="keyword">table</span> sg_base_datetime_help <span class="keyword">drop</span> <span class="keyword">column</span> temp;</span><br><span class="line"></span><br><span class="line"><span class="number">2.</span> 使用辅助表作为左关联主表，主表<span class="keyword">sql</span></span><br><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">	<span class="variable">@cdate</span> :<span class="operator">=</span> DATE_FORMAT(date_add( <span class="variable">@cdate</span>, <span class="type">INTERVAL</span> <span class="operator">-</span> <span class="number">1</span> <span class="keyword">DAY</span> ), <span class="string">&#x27;%Y-%m-%d&#x27;</span>) <span class="keyword">as</span> <span class="type">date</span></span><br><span class="line"><span class="keyword">FROM</span></span><br><span class="line">	(SELECT @cdate := date_add(#&#123;endTime&#125;, interval + 1 day) FROM sg_base_datetime_help) tmp1 WHERE @cdate &gt;#&#123;startTime&#125;;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="元信息"><a href="#元信息" class="headerlink" title="元信息"></a>元信息</h2><h4 id="查询数据库数据表情况"><a href="#查询数据库数据表情况" class="headerlink" title="查询数据库数据表情况"></a>查询数据库数据表情况</h4><p>如数据行数、自增id号；注意<code>information_schema</code>的<code>auto_increment</code>不一定为实际值!</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> TABLE_CATALOG,</span><br><span class="line">       TABLE_SCHEMA,</span><br><span class="line">       TABLE_NAME,</span><br><span class="line">       TABLE_TYPE,</span><br><span class="line">       ENGINE,</span><br><span class="line">       VERSION,</span><br><span class="line">       ROW_FORMAT,</span><br><span class="line">       TABLE_ROWS,</span><br><span class="line">       AVG_ROW_LENGTH,</span><br><span class="line">       DATA_LENGTH,</span><br><span class="line">       MAX_DATA_LENGTH,</span><br><span class="line">       INDEX_LENGTH,</span><br><span class="line">       DATA_FREE,</span><br><span class="line">       AUTO_INCREMENT,</span><br><span class="line">       CREATE_TIME,</span><br><span class="line">       UPDATE_TIME,</span><br><span class="line">       CHECK_TIME,</span><br><span class="line">       CHARACTER_SET_NAME,</span><br><span class="line">       TABLE_COLLATION,</span><br><span class="line">       CHECKSUM,</span><br><span class="line">       CREATE_OPTIONS,</span><br><span class="line">       TABLE_COMMENT</span><br><span class="line"><span class="keyword">FROM</span> information_schema.TABLES</span><br><span class="line">         <span class="keyword">LEFT</span> <span class="keyword">JOIN</span> information_schema.COLLATION_CHARACTER_SET_APPLICABILITY <span class="keyword">ON</span> TABLE_COLLATION <span class="operator">=</span> COLLATION_NAME</span><br><span class="line"><span class="keyword">WHERE</span> TABLE_SCHEMA <span class="operator">=</span> <span class="string">&#x27;ecrp_sg_test&#x27;</span> <span class="keyword">AND</span> TABLE_TYPE <span class="operator">=</span> <span class="string">&#x27;BASE TABLE&#x27;</span>;</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="查询存在某字段的数据表"><a href="#查询存在某字段的数据表" class="headerlink" title="查询存在某字段的数据表"></a>查询存在某字段的数据表</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> table_name,column_name <span class="keyword">from</span> information_schema.columns </span><br><span class="line">where table_schema = #&#123;tableSchema&#125; </span><br><span class="line"><span class="keyword">and</span> column_name <span class="keyword">in</span> (<span class="string">&#x27;group_id&#x27;</span>,&quot;groupid&quot;,<span class="string">&#x27;brand_id&#x27;</span>, &quot;groupid&quot;, &quot;source_id&quot;);</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="查询数据库查询进程"><a href="#查询数据库查询进程" class="headerlink" title="查询数据库查询进程"></a>查询数据库查询进程</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> table_name,column_name <span class="keyword">from</span> information_schema.PROCESSLIST; </span><br></pre></td></tr></table></figure>
+
 
       
     </div>
@@ -277,7 +291,7 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2021-05-19 02:41:46" itemprop="dateCreated datePublished" datetime="2021-05-19T02:41:46+00:00">2021-05-19</time>
+              <time title="创建时间：2021-05-19 03:44:14" itemprop="dateCreated datePublished" datetime="2021-05-19T03:44:14+00:00">2021-05-19</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -615,7 +629,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-05-19 02:42:10" itemprop="dateModified" datetime="2021-05-19T02:42:10+00:00">2021-05-19</time>
+                <time title="修改时间：2021-05-19 03:44:38" itemprop="dateModified" datetime="2021-05-19T03:44:38+00:00">2021-05-19</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -1049,7 +1063,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-05-19 02:42:10" itemprop="dateModified" datetime="2021-05-19T02:42:10+00:00">2021-05-19</time>
+                <time title="修改时间：2021-05-19 03:44:39" itemprop="dateModified" datetime="2021-05-19T03:44:39+00:00">2021-05-19</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -1206,7 +1220,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-05-19 02:42:10" itemprop="dateModified" datetime="2021-05-19T02:42:10+00:00">2021-05-19</time>
+                <time title="修改时间：2021-05-19 03:44:39" itemprop="dateModified" datetime="2021-05-19T03:44:39+00:00">2021-05-19</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -1296,7 +1310,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-05-19 02:42:10" itemprop="dateModified" datetime="2021-05-19T02:42:10+00:00">2021-05-19</time>
+                <time title="修改时间：2021-05-19 03:44:39" itemprop="dateModified" datetime="2021-05-19T03:44:39+00:00">2021-05-19</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -1418,7 +1432,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-05-19 02:42:10" itemprop="dateModified" datetime="2021-05-19T02:42:10+00:00">2021-05-19</time>
+                <time title="修改时间：2021-05-19 03:44:39" itemprop="dateModified" datetime="2021-05-19T03:44:39+00:00">2021-05-19</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -1468,7 +1482,11 @@
 <p>参考文章<a target="_blank" rel="noopener" href="https://blog.eson.org/pub/e2f6e239/">【Hexo 插件系列】日志的自动分类插件 hexo-auto-category</a></p>
 <h3 id="自动生成标题"><a href="#自动生成标题" class="headerlink" title="自动生成标题"></a>自动生成标题</h3><p>Hexo 功能增强插件<a target="_blank" rel="noopener" href="https://segmentfault.com/a/1190000018402194"> hexo-enchancer</a></p>
 <p><code>npm install hexo-enhancer _--save_</code><br>或<br><code>yarn add hexo-enhancer</code></p>
-<p>hexo-enhancer 解析文件名的正则表达式如下:<br><code>/^.?(\d&#123;4&#125;)[-_]?(\d&#123;2&#125;)[-_]?(\d&#123;2&#125;).?[-_.@_# ]*(.*)$/_</code></p>
+<p>hexo-enhancer 解析文件名的正则表达式如下:<br><code>/^.?(\d&#123;4&#125;)[-_]?(\d&#123;2&#125;)[-_]?(\d&#123;2&#125;).?[-_.@_# ]*(.*)$/_</code><br><em>​</em></p>
+<p><em>​</em></p>
+<h2 id="添加评论区"><a href="#添加评论区" class="headerlink" title="添加评论区"></a>添加评论区</h2><p><a target="_blank" rel="noopener" href="https://xfqwdsj.github.io/blog/2020/03/20/hexo-comments/">Hexo Next 主题的评论功能</a><br><a target="_blank" rel="noopener" href="https://www.zhihu.com/question/267598518">Hexo（NexT 主题）评论系统哪个好？</a><br><a target="_blank" rel="noopener" href="https://vincentqin.tech/posts/build-a-website-using-hexo/">Hexo+Github+jsDelivr+Vercel 建站备忘录</a><br>​</p>
+<h2 id="参考博客"><a href="#参考博客" class="headerlink" title="参考博客"></a>参考博客</h2><p>​</p>
+<p><a target="_blank" rel="noopener" href="https://vincentqin.tech/top/">https://vincentqin.tech/top/</a><br>​</p>
 
       
     </div>
@@ -1519,7 +1537,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-05-19 02:42:10" itemprop="dateModified" datetime="2021-05-19T02:42:10+00:00">2021-05-19</time>
+                <time title="修改时间：2021-05-19 03:44:39" itemprop="dateModified" datetime="2021-05-19T03:44:39+00:00">2021-05-19</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -1661,7 +1679,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-05-19 02:42:10" itemprop="dateModified" datetime="2021-05-19T02:42:10+00:00">2021-05-19</time>
+                <time title="修改时间：2021-05-19 03:44:39" itemprop="dateModified" datetime="2021-05-19T03:44:39+00:00">2021-05-19</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -1799,7 +1817,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-05-19 02:41:46" itemprop="dateModified" datetime="2021-05-19T02:41:46+00:00">2021-05-19</time>
+                <time title="修改时间：2021-05-19 03:44:14" itemprop="dateModified" datetime="2021-05-19T03:44:14+00:00">2021-05-19</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
