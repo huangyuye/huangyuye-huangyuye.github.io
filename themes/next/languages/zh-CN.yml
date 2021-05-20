@@ -39,6 +39,7 @@ footer:
   powered: "由 %s 强力驱动"
   total_views: 总访问量
   total_visitors: 总访客量
+  age: 我已在此等候你
 counter:
   tag_cloud:
     zero: 暂无标签

@@ -138,7 +138,7 @@
               {%- if theme.symbols_count_time.item_text_post %}
                 <span class="post-meta-item-text">{{ __('symbols_count_time.count') + __('symbol.colon') }}</span>
               {%- endif %}
-              <span>{{ symbolsCount(post) }}</span>
+              <span>{{ symbolsCount(post) }}</span> <!-- TODO func undefined -->
             </span>
           {%- endif %}
 

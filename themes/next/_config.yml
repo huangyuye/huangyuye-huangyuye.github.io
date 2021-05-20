@@ -51,8 +51,15 @@ favicon:
 language_switcher: false
 
 footer:
-  # Specify the date when the site was setup. If not defined, current year will be used.
-  #since: 2015
+  ages:
+    # site running time
+    enable: true
+    # birthday of your site
+    birthday: 20210520
+    # color of number
+    color: "#1890ff"
+    # Specify the date when the site was setup. If not defined, current year will be used.
+    #since: 2015
 
   # Icon between year and copyright info.
   icon:
@@ -253,6 +260,8 @@ symbols_count_time:
   separated_meta: true
   item_text_post: true
   item_text_total: false
+  awl: 4 # Average Word Length：平均字符长度
+  wpm: 275 # Words Per Minute：阅读速度
 
 # Use icon instead of the symbol # to indicate the tag at the bottom of the post
 tag_icon: false
@@ -689,9 +698,9 @@ cnzz_siteid:
 # AppID and AppKey are recommended to be the same as valine's for counter compatibility.
 # Do not enable both `valine.visitor` and `leancloud_visitors`.
 leancloud_visitors:
-  enable: false
-  app_id: # <your app id>
-  app_key: # <your app key>
+  enable: true
+  app_id: UUUWSLrMNACz8vh8qf2aAksw-gzGzoHsz # <your app id>
+  app_key: Jm3XS0ISb48hvvgbTu0qy3G9 # <your app key>
   # Required for apps from CN region
   server_url: # <your server url>
   # Dependencies: https://github.com/theme-next/hexo-leancloud-counter-security
@@ -711,7 +720,7 @@ firestore:
 # Show Views / Visitors of the website / page with busuanzi.
 # Get more information on http://ibruce.info/2015/04/04/busuanzi
 busuanzi_count:
-  enable: false
+  enable: true # 打开 不算子 配置
   total_visitors: true
   total_visitors_icon: fa fa-user
   total_views: true
@@ -739,12 +748,12 @@ algolia_search:
 # Local Search
 # Dependencies: https://github.com/theme-next/hexo-generator-searchdb
 local_search:
-  enable: false
+  enable: true
   # If auto, trigger search by changing input.
   # If manual, trigger search by pressing enter key or search button.
   trigger: auto
   # Show top n results per article, show all results by setting to -1
-  top_n_per_article: 1
+  top_n_per_article: 3 # 每篇文章显示的搜索结果数量
   # Unescape html strings to the readable one.
   unescape: false
   # Preload the search data when the page loads.
@@ -995,3 +1004,9 @@ vendors:
 css: css
 js: js
 images: images
+
+# a trick on website title
+title_trick:
+  enable: true
+  leave: "(つェ⊂)我藏好了哦~"
+  enter: "(*´∇｀*) 被你发现啦~"
