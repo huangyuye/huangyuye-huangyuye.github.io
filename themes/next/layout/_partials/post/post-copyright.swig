@@ -13,13 +13,13 @@
     {{- page.author or author }}
   </li>
 
-<!-- 
   <li class="post-copyright-link">
     <strong>{{ __('post.copyright.link') + __('symbol.colon') }}</strong>
     {{ next_url(page.permalink, page.permalink, {title: page.title}) }}
   </li>
---> 
+
   <!-- 引用链接 -->
+  <!-- 
   <li class="post-copyright-link">
     <strong>{{ __('post.copyright.link') + __('symbol.colon') }}</strong>
     <a href="{{ post.url | default(post.permalink) }}" title="{{ post.title }}"
@@ -34,6 +34,7 @@
       ></i
     ></span>
   </li>
+  --> 
 
   <li class="post-copyright-license">
     <strong>{{ __('post.copyright.license_title') + __('symbol.colon') }} </strong>

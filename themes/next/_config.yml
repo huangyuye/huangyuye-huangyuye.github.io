@@ -104,10 +104,10 @@ creative_commons:
 # ---------------------------------------------------------------
 
 # Schemes
-#scheme: Muse
+# scheme: Muse
 #scheme: Mist
-scheme: Pisces
-#scheme: Gemini
+#scheme: Pisces
+scheme: Gemini
 
 # Dark Mode
 darkmode: false
@@ -146,7 +146,7 @@ menu_settings:
 sidebar:
   # Sidebar Position.
   position: left
-  #position: right
+  #position: right | left
 
   # Manual define the sidebar width. If commented, will be default for:
   # Muse | Mist: 320
@@ -158,7 +158,7 @@ sidebar:
   #  - always  expand for all pages automatically.
   #  - hide    expand only when click on the sidebar toggle icon.
   #  - remove  totally remove sidebar including sidebar toggle.
-  display: post
+  display: always
 
   # Sidebar padding in pixels.
   padding: 18
@@ -257,9 +257,9 @@ post_meta:
 # Post wordcount display settings
 # Dependencies: https://github.com/theme-next/hexo-symbols-count-time
 symbols_count_time:
-  separated_meta: true
+  separated_meta: false
   item_text_post: true
-  item_text_total: false
+  item_text_total: true
   awl: 4 # Average Word Length：平均字符长度
   wpm: 275 # Words Per Minute：阅读速度
 
@@ -363,7 +363,7 @@ codeblock:
   # Code Highlight theme
   # Available values: normal | night | night eighties | night blue | night bright | solarized | solarized dark | galactic
   # See: https://github.com/chriskempson/tomorrow-theme
-  highlight_theme: normal
+  highlight_theme: night
   # Add copy button on codeblock
   copy_button:
     enable: false
@@ -624,7 +624,7 @@ valine:
   appkey: Jm3XS0ISb48hvvgbTu0qy3G9 # Your leancloud application appkey
   notify: false # Mail notifier
   verify: false # Verification code
-  placeholder: 建议再上方留下昵称和邮箱信息，以便收到回复通知~ # Comment box placeholder
+  placeholder: 建议在上方留下昵称和邮箱信息，以便收到回复通知~ # Comment box placeholder
   avatar: mm # Gravatar style
   guest_info: nick,mail,link # Custom comment header
   pageSize: 10 # Pagination size
@@ -702,11 +702,11 @@ leancloud_visitors:
   app_id: UUUWSLrMNACz8vh8qf2aAksw-gzGzoHsz # <your app id>
   app_key: Jm3XS0ISb48hvvgbTu0qy3G9 # <your app key>
   # Required for apps from CN region
-  server_url: # <your server url>
+  server_url: https://huangyuye.github.io/ # <your server url>
   # Dependencies: https://github.com/theme-next/hexo-leancloud-counter-security
   # If you don't care about security in leancloud counter and just want to use it directly
   # (without hexo-leancloud-counter-security plugin), set `security` to `false`.
-  security: true
+  security: false
 
 # Another tool to show number of visitors to each article.
 # Visit https://console.firebase.google.com/u/0/ to get apiKey and projectId.
@@ -720,14 +720,13 @@ firestore:
 # Show Views / Visitors of the website / page with busuanzi.
 # Get more information on http://ibruce.info/2015/04/04/busuanzi
 busuanzi_count:
-  enable: true # 打开 不算子 配置
+  enable: false # 打开 不算子 配置
   total_visitors: true
   total_visitors_icon: fa fa-user
   total_views: true
   total_views_icon: fa fa-eye
   post_views: true
   post_views_icon: fa fa-eye
-
 
 # ---------------------------------------------------------------
 # Search Services
