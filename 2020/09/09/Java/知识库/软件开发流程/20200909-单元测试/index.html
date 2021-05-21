@@ -18,7 +18,7 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"huangyuye.github.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":3,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+    var CONFIG = {"hostname":"huangyuye.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":3,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
   <meta name="description" content="如何进行单元测试单元测试”称为“开发阶段的自动化测试“。   由开发同学完成 测试是自动化的 不一定是只验证一个“单元”的正确性  单元测试在市面上的介绍存在的问题  仅集中在介绍某个工具或者框架怎么用（比如JUnit，mockito，jest等） 一些理论上的对这种测试好处的介绍，通篇是“应该做测试”，“这么做了就容易得到高内聚的代码“ 只拿“纯函数”的测试举例子，几乎没有复杂的依赖（无法贴合实">
@@ -29,7 +29,7 @@
 <meta property="og:description" content="如何进行单元测试单元测试”称为“开发阶段的自动化测试“。   由开发同学完成 测试是自动化的 不一定是只验证一个“单元”的正确性  单元测试在市面上的介绍存在的问题  仅集中在介绍某个工具或者框架怎么用（比如JUnit，mockito，jest等） 一些理论上的对这种测试好处的介绍，通篇是“应该做测试”，“这么做了就容易得到高内聚的代码“ 只拿“纯函数”的测试举例子，几乎没有复杂的依赖（无法贴合实">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-09-09T00:00:00.000Z">
-<meta property="article:modified_time" content="2021-05-21T10:24:07.801Z">
+<meta property="article:modified_time" content="2021-05-21T17:32:58.913Z">
 <meta property="article:author" content="yuye.Huang">
 <meta name="twitter:card" content="summary">
 
@@ -220,7 +220,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-05-21 10:24:07" itemprop="dateModified" datetime="2021-05-21T10:24:07+00:00">2021-05-21</time>
+                <time title="修改时间：2021-05-21 17:32:58" itemprop="dateModified" datetime="2021-05-21T17:32:58+00:00">2021-05-21</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -248,13 +248,6 @@
               <span class="post-meta-item-text">阅读次数：</span>
               <span class="leancloud-visitors-count"></span>
             </span>
-            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span id="busuanzi_value_page_pv"></span>
-            </span>
   
   <span class="post-meta-item">
     
@@ -269,6 +262,20 @@
   </span>
   
   
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>6.9k</span> <!-- TODO func undefined -->
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>6 分钟</span>
+            </span>
 
         </div>
       </header>
@@ -583,15 +590,15 @@
     <strong>本文作者： </strong>yuye.Huang
   </li>
 
-<!-- 
   <li class="post-copyright-link">
-    <strong>引用链接：</strong>
+    <strong>本文链接：</strong>
     <a href="https://huangyuye.github.io/2020/09/09/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91%E6%B5%81%E7%A8%8B/20200909-%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/" title="单元测试">https://huangyuye.github.io/2020/09/09/Java/知识库/软件开发流程/20200909-单元测试/</a>
   </li>
---> 
+
   <!-- 引用链接 -->
+  <!-- 
   <li class="post-copyright-link">
-    <strong>引用链接：</strong>
+    <strong>本文链接：</strong>
     <a href="https://huangyuye.github.io/2020/09/09/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91%E6%B5%81%E7%A8%8B/20200909-%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/" title="单元测试"
       >https://huangyuye.github.io/2020/09/09/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91%E6%B5%81%E7%A8%8B/20200909-%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/</a
     >
@@ -604,6 +611,7 @@
       ></i
     ></span>
   </li>
+  --> 
 
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
@@ -776,31 +784,23 @@
     <i class="fa fa-heart"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">true</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+      <span class="post-meta-item-text">站点总字数：</span>
+    <span title="站点总字数">147k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">2:13</span>
 </div>
-  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
   </div>
 
         
-<div class="busuanzi-count">
-  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
-      <span class="post-meta-item-icon">
-        <i class="fa fa-user"></i>
-      </span>
-      <span class="site-uv" title="总访客量">
-        <span id="busuanzi_value_site_uv"></span>
-      </span>
-    </span>
-    <span class="post-meta-divider">|</span>
-    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
-      <span class="post-meta-item-icon">
-        <i class="fa fa-eye"></i>
-      </span>
-      <span class="site-pv" title="总访问量">
-        <span id="busuanzi_value_site_pv"></span>
-      </span>
-    </span>
-</div>
 
 
 
@@ -830,9 +830,14 @@
                 console.error('Failed to save visitor count', error);
               });
           } else {
-              leancloudSelector(url).innerText = 'Counter not initialized! More info at console err msg.';
-              console.error('ATTENTION! LeanCloud counter has security bug, see how to solve it here: https://github.com/theme-next/hexo-leancloud-counter-security. \n However, you can still use LeanCloud without security, by setting `security` option to `false`.');
-            
+              Counter('post', '/classes/Counter', { title, url, time: 1 })
+                .then(response => response.json())
+                .then(() => {
+                  leancloudSelector(url).innerText = 1;
+                })
+                .catch(error => {
+                  console.error('Failed to create', error);
+                });
           }
         })
         .catch(error => {
@@ -859,7 +864,7 @@
         });
     }
 
-    let { app_id, app_key, server_url } = {"enable":true,"app_id":"UUUWSLrMNACz8vh8qf2aAksw-gzGzoHsz","app_key":"Jm3XS0ISb48hvvgbTu0qy3G9","server_url":null,"security":true};
+    let { app_id, app_key, server_url } = {"enable":true,"app_id":"UUUWSLrMNACz8vh8qf2aAksw-gzGzoHsz","app_key":"Jm3XS0ISb48hvvgbTu0qy3G9","server_url":"https://huangyuye.github.io/","security":false};
     function fetchData(api_server) {
       var Counter = (method, url, data) => {
         return fetch(`${api_server}/1.1${url}`, {
@@ -1002,7 +1007,7 @@ NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
       notify     : false,
       appId      : 'UUUWSLrMNACz8vh8qf2aAksw-gzGzoHsz',
       appKey     : 'Jm3XS0ISb48hvvgbTu0qy3G9',
-      placeholder: "建议再上方留下昵称和邮箱信息，以便收到回复通知~",
+      placeholder: "建议在上方留下昵称和邮箱信息，以便收到回复通知~",
       avatar     : 'mm',
       meta       : guest,
       pageSize   : '10' || 10,
