@@ -28,8 +28,8 @@
 <meta property="og:site_name" content="好家伙">
 <meta property="og:description" content="聚石塔—容器部署平台 聚石塔提供了从资源采购、应用部署到跟阿里巴巴业务链接一整套解决方案。 名词术语 VPC(Virtual Private Cloud)：私有云 对于基础架构服务（IaaS），云就是指资源池。你或许听过公有云（Public Cloud），私有云（Private Cloud），混合云（Hybrid Cloud）。不过，VPC不属于这三种云中任一种。 这是一种运行在公有云上，将一部分">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2021-05-21T08:57:35.141Z">
-<meta property="article:modified_time" content="2021-05-21T08:57:35.141Z">
+<meta property="article:published_time" content="2021-05-21T10:24:07.801Z">
+<meta property="article:modified_time" content="2021-05-21T10:24:07.801Z">
 <meta property="article:author" content="yuye.Huang">
 <meta name="twitter:card" content="summary">
 
@@ -213,7 +213,7 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2021-05-21 08:57:35" itemprop="dateCreated datePublished" datetime="2021-05-21T08:57:35+00:00">2021-05-21</time>
+              <time title="创建时间：2021-05-21 10:24:07" itemprop="dateCreated datePublished" datetime="2021-05-21T10:24:07+00:00">2021-05-21</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -327,20 +327,61 @@
     
         
 
+<!-- JS库 clipboard 拷贝内容到粘贴板-->
+<script src="https://cdn.bootcss.com/clipboard.js/2.0.1/clipboard.min.js"></script>
+<!-- JS库 sweetalert 显示提示信息-->
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
 <div>
 <ul class="post-copyright">
   <li class="post-copyright-author">
     <strong>本文作者： </strong>yuye.Huang
   </li>
+
+<!-- 
   <li class="post-copyright-link">
-    <strong>本文链接：</strong>
+    <strong>引用链接：</strong>
     <a href="https://huangyuye.github.io/2021/05/21/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/%E8%BF%90%E7%BB%B4/%E8%81%9A%E7%9F%B3%E5%A1%94/%E5%BA%94%E7%94%A8%E5%8F%91%E5%B8%83%E6%B5%81%E7%A8%8B_TODO/" title="应用发布流程_TODO">https://huangyuye.github.io/2021/05/21/Java/知识库/运维/聚石塔/应用发布流程_TODO/</a>
   </li>
+--> 
+  <!-- 引用链接 -->
+  <li class="post-copyright-link">
+    <strong>引用链接：</strong>
+    <a href="https://huangyuye.github.io/2021/05/21/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/%E8%BF%90%E7%BB%B4/%E8%81%9A%E7%9F%B3%E5%A1%94/%E5%BA%94%E7%94%A8%E5%8F%91%E5%B8%83%E6%B5%81%E7%A8%8B_TODO/" title="应用发布流程_TODO"
+      >https://huangyuye.github.io/2021/05/21/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/%E8%BF%90%E7%BB%B4/%E8%81%9A%E7%9F%B3%E5%A1%94/%E5%BA%94%E7%94%A8%E5%8F%91%E5%B8%83%E6%B5%81%E7%A8%8B_TODO/</a
+    >
+    <span class="copy-path" title="点击复制引用链接"
+      ><i
+        style="cursor: pointer"
+        class="fa fa-clipboard"
+        data-clipboard-text="[yuye.Huang's Blog | 应用发布流程_TODO](https://huangyuye.github.io/2021/05/21/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/%E8%BF%90%E7%BB%B4/%E8%81%9A%E7%9F%B3%E5%A1%94/%E5%BA%94%E7%94%A8%E5%8F%91%E5%B8%83%E6%B5%81%E7%A8%8B_TODO/)"
+        aria-label="复制成功啦~"
+      ></i
+    ></span>
+  </li>
+
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
   </li>
 </ul>
 </div>
+
+<script>
+  var clipboard = new ClipboardJS(".fa-clipboard");
+  clipboard.on("success", function(target) {
+    var message = document.createElement("div");
+    message.innerHTML =
+      '<i class="fa fa-check-circle message-icon"></i><span class="message-content">' +
+      target.trigger.getAttribute("aria-label") +
+      "</span>";
+    swal({
+      content: message,
+      className: "copy-success-message",
+      timer: 1000,
+      button: false
+    });
+  });
+</script>
 
 
       <footer class="post-footer">
@@ -351,8 +392,8 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2021/05/21/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/mq/Jms%20%E4%B8%8E%20activemq/" rel="prev" title="Jms 与 activemq">
-      <i class="fa fa-chevron-left"></i> Jms 与 activemq
+    <a href="/2021/05/21/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/SpringCloudAlibaba/Nacos%E9%85%8D%E7%BD%AE%E4%B8%AD%E5%BF%83/" rel="prev" title="Nacos配置中心">
+      <i class="fa fa-chevron-left"></i> Nacos配置中心
     </a></div>
       <div class="post-nav-item">
     <a href="/2021/05/21/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/%E8%BF%90%E7%BB%B4/%E7%BA%BF%E4%B8%8A%E9%97%AE%E9%A2%98%E6%8E%92%E6%9F%A5/Arthas%20%E7%BA%BF%E4%B8%8A%E7%8E%AF%E5%A2%83%E6%8E%92%E6%9F%A5%E5%B7%A5%E5%85%B7/" rel="next" title="Arthas 线上环境排查工具">
