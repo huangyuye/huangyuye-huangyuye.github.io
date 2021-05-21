@@ -1,0 +1,797 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta name="referrer" content="no-referrer" />
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"huangyuye.github.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":3,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="IDEA使用常用插件1、GenerateAllSetter ：通过alt+enter对变量类生成对类的所有setter方法的调用 2、Maven Helper：帮助你更方便的分析依赖关系 3、Translation：中英文翻译工具 4、aiXcode &amp; codota &amp; Kite ：强大的代码完成器和代码搜索引擎，且帮助您在GitHub上搜索API用例 5、checkStyle">
+<meta property="og:type" content="article">
+<meta property="og:title" content="IDEA使用">
+<meta property="og:url" content="https://huangyuye.github.io/2021/05/21/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/windows%E5%B7%A5%E5%85%B7/IDEA%E4%BD%BF%E7%94%A8/index.html">
+<meta property="og:site_name" content="好家伙">
+<meta property="og:description" content="IDEA使用常用插件1、GenerateAllSetter ：通过alt+enter对变量类生成对类的所有setter方法的调用 2、Maven Helper：帮助你更方便的分析依赖关系 3、Translation：中英文翻译工具 4、aiXcode &amp; codota &amp; Kite ：强大的代码完成器和代码搜索引擎，且帮助您在GitHub上搜索API用例 5、checkStyle">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/huangyuye/huangyuye.github.io@data/img/20210515154737.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/huangyuye/huangyuye.github.io@data/img/20210515154944.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/huangyuye/huangyuye.github.io@data/img/20210515155045.png">
+<meta property="article:published_time" content="2021-05-21T08:57:35.141Z">
+<meta property="article:modified_time" content="2021-05-21T08:57:35.141Z">
+<meta property="article:author" content="yuye.Huang">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/huangyuye/huangyuye.github.io@data/img/20210515154737.png">
+
+<link rel="canonical" href="https://huangyuye.github.io/2021/05/21/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/windows%E5%B7%A5%E5%85%B7/IDEA%E4%BD%BF%E7%94%A8/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>IDEA使用 | 好家伙</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">好家伙</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">Coder.Huang</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://huangyuye.github.io/2021/05/21/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/windows%E5%B7%A5%E5%85%B7/IDEA%E4%BD%BF%E7%94%A8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="yuye.Huang">
+      <meta itemprop="description" content="想要成为酷酷的软件开发者">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="好家伙">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          IDEA使用
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-05-21 08:57:35" itemprop="dateCreated datePublished" datetime="2021-05-21T08:57:35+00:00">2021-05-21</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/" itemprop="url" rel="index"><span itemprop="name">知识库</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/windows%E5%B7%A5%E5%85%B7/" itemprop="url" rel="index"><span itemprop="name">windows工具</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2021/05/21/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/windows%E5%B7%A5%E5%85%B7/IDEA%E4%BD%BF%E7%94%A8/" class="post-meta-item leancloud_visitors" data-flag-title="IDEA使用" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2021/05/21/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/windows%E5%B7%A5%E5%85%B7/IDEA%E4%BD%BF%E7%94%A8/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2021/05/21/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/windows%E5%B7%A5%E5%85%B7/IDEA%E4%BD%BF%E7%94%A8/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="IDEA使用"><a href="#IDEA使用" class="headerlink" title="IDEA使用"></a>IDEA使用</h1><h2 id="常用插件"><a href="#常用插件" class="headerlink" title="常用插件"></a>常用插件</h2><p>1、GenerateAllSetter ：通过alt+enter对变量类生成对类的所有setter方法的调用</p>
+<p>2、Maven Helper：帮助你更方便的分析依赖关系</p>
+<p>3、Translation：中英文翻译工具</p>
+<p>4、aiXcode &amp; codota &amp; Kite ：强大的代码完成器和代码搜索引擎，且帮助您在GitHub上搜索API用例</p>
+<p>5、checkStyle &amp; spotBugs(FindBugs的升级版) &amp; sonor：作为静态代码检查插件，可以检查你代码中的隐患，并给出原因。</p>
+<p>6、SequenceDiagram：可以根据代码调用链路自动生成时序图</p>
+<p>7、GsonFormat：把json格式的内容转成Object的需求</p>
+<p>8、AceJump：能够代替鼠标的软件</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://cloud.tencent.com/developer/article/1343318">https://cloud.tencent.com/developer/article/1343318</a></li>
+</ul>
+<p>9、Java Stream Debugger：流式编程调试插件 </p>
+<p>11、lombok</p>
+<p>12、<strong>Alibaba Java Coding Guidelines</strong> </p>
+<p>14、junitGenerator V2.0（<strong>定义生成测试case的风格</strong>）</p>
+<p>15、background image plus</p>
+<p>16、CamelCase：命名风格切换，如驼峰命名切换成下划线分割</p>
+<p>17、CodeGlance：在编辑区的右侧显示的代码地图</p>
+<p>18、Material Theme UI：主题插件</p>
+<p>19、Nyan progress bar：进度条美化</p>
+<p>20、Power mode II</p>
+<p>21、Rainbow Brackets：彩虹颜色的括号</p>
+<h3 id="插件网"><a href="#插件网" class="headerlink" title="插件网"></a>插件网</h3><p><a target="_blank" rel="noopener" href="https://plugins.jetbrains.com/">https://plugins.jetbrains.com/</a></p>
+<p><strong>配置idea模板</strong></p>
+<p>todo：powerDesigner的常用配置及使用技巧 + idea注释模板配置.pdf</p>
+<p><strong>参考链接</strong></p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_41846320/article/details/82697818">https://blog.csdn.net/weixin_41846320/article/details/82697818</a></p>
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/99354824">https://zhuanlan.zhihu.com/p/99354824</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/c1f87b0dd597">https://www.jianshu.com/p/c1f87b0dd597</a></p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_41846320/article/details/82697818">https://blog.csdn.net/weixin_41846320/article/details/82697818</a></p>
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/99354824">https://zhuanlan.zhihu.com/p/99354824</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/c1f87b0dd597">https://www.jianshu.com/p/c1f87b0dd597</a></p>
+<p><a target="_blank" rel="noopener" href="https://cloud.tencent.com/developer/article/1343318">https://cloud.tencent.com/developer/article/1343318</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.zhihu.com/question/20783392">https://www.zhihu.com/question/20783392</a></p>
+<h2 id="Settings配置"><a href="#Settings配置" class="headerlink" title="Settings配置"></a>Settings配置</h2><p>修改主题</p>
+<ul>
+<li>editor &gt; color scheme </li>
+</ul>
+<p>字体大小</p>
+<ul>
+<li>editor &gt; font</li>
+</ul>
+<p>代码补全匹配规则</p>
+<ul>
+<li>editor &gt; General &gt; Code Completion </li>
+</ul>
+<p>包自动导入功能</p>
+<ul>
+<li>editor &gt; auto import &gt; <ul>
+<li>Add unambiguous imports on the fly：快速添加明确的导入;</li>
+<li>Optimize imports on the fly：快速优化导入，优化的意思即自动帮助删除无用的导入。</li>
+</ul>
+</li>
+</ul>
+<p>tab页面多行显示的设置</p>
+<ul>
+<li>editor &gt; General &gt; Editor Tabs </li>
+</ul>
+<p>代码注释风格</p>
+<ul>
+<li>editor &gt; Code Style &gt; Java &gt; Code Generation &gt; Comment Code</li>
+</ul>
+<h2 id="VM配置"><a href="#VM配置" class="headerlink" title="VM配置"></a>VM配置</h2><ul>
+<li>Help / Edit Custom VM Options..</li>
+</ul>
+<p>默认配置：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">-Xms128m</span><br><span class="line">-Xmx2016m</span><br><span class="line">-XX:ReservedCodeCacheSize&#x3D;240m</span><br><span class="line">-XX:+UseConcMarkSweepGC</span><br><span class="line">-XX:SoftRefLRUPolicyMSPerMB&#x3D;50</span><br><span class="line">-ea</span><br><span class="line">-XX:CICompilerCount&#x3D;2</span><br><span class="line">-Dsun.io.useCanonPrefixCache&#x3D;false</span><br><span class="line">-Djdk.http.auth.tunneling.disabledSchemes&#x3D;&quot;&quot;</span><br><span class="line">-XX:+HeapDumpOnOutOfMemoryError</span><br><span class="line">-XX:-OmitStackTraceInFastThrow</span><br><span class="line">-Djdk.attach.allowAttachSelf&#x3D;true</span><br><span class="line">-Dkotlinx.coroutines.debug&#x3D;off</span><br><span class="line">-Djdk.module.illegalAccess.silent&#x3D;true</span><br></pre></td></tr></table></figure>
+
+<p>调整配置</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">-server</span><br><span class="line">-Xms4096m</span><br><span class="line">-Xmx4096m</span><br><span class="line">-XX:NewRatio&#x3D;3</span><br><span class="line">-Xss16m</span><br><span class="line">-XX:+UseConcMarkSweepGC</span><br><span class="line">-XX:+CMSParallelRemarkEnabled</span><br><span class="line">-XX:ConcGCThreads&#x3D;4</span><br><span class="line">-XX:ReservedCodeCacheSize&#x3D;2048m</span><br><span class="line">-XX:+AlwaysPreTouch</span><br><span class="line">-XX:+TieredCompilation</span><br><span class="line">-XX:+UseCompressedOops</span><br><span class="line">-XX:SoftRefLRUPolicyMSPerMB&#x3D;50</span><br><span class="line">-Dsun.io.useCanonCaches&#x3D;false</span><br><span class="line">-Djava.net.preferIPv4Stack&#x3D;true</span><br><span class="line">-Djsse.enableSNIExtension&#x3D;false</span><br><span class="line">-ea</span><br><span class="line">-XX:CICompilerCount&#x3D;2</span><br><span class="line">-Dsun.io.useCanonPrefixCache&#x3D;false</span><br><span class="line">-Djdk.http.auth.tunneling.disabledSchemes&#x3D;&quot;&quot;</span><br><span class="line">-XX:+HeapDumpOnOutOfMemoryError</span><br><span class="line">-XX:-OmitStackTraceInFastThrow</span><br><span class="line">-Djdk.attach.allowAttachSelf&#x3D;true</span><br><span class="line">-Dkotlinx.coroutines.debug&#x3D;off</span><br><span class="line">-Djdk.module.illegalAccess.silent&#x3D;true</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="GIT命令行配置"><a href="#GIT命令行配置" class="headerlink" title="GIT命令行配置"></a>GIT命令行配置</h2><p>settings &gt; terminal -&gt; 配置shell path为 ${GIT_HOME}/bin/bash.exe</p>
+<h2 id="HTTP工具"><a href="#HTTP工具" class="headerlink" title="HTTP工具"></a>HTTP工具</h2><p>所有HTTP请求需要在后缀为.http的文件中进行，新建一个test.http文件。基本格式为：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">请求类型(如：GET， POST，PUT) +  请求地址（http:&#x2F;&#x2F;www.baidu.com）</span><br><span class="line">请求头</span><br><span class="line">...</span><br><span class="line"></span><br><span class="line">请求体</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h3><p><a target="_blank" rel="noopener" href="https://segmentfault.com/a/1190000021714448">IntelliJ IDEA的这个接口调试工具真是太好用了！</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/2404654d655a">IDEA-HTTP工具</a></p>
+<h2 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h2><p>查看方法实现：ctrl + alt + B</p>
+<p>查看方法声明：ctrl + U （Super Method）</p>
+<p>查看类声明：ctrl + shrift + B</p>
+<h2 id="注释模板"><a href="#注释模板" class="headerlink" title="注释模板"></a>注释模板</h2><h3 id="方法注释"><a href="#方法注释" class="headerlink" title="方法注释"></a>方法注释</h3><p><code>settings -&gt; Editor -&gt; Live templates</code></p>
+<p>建立模板组 -&gt; 新建模板 -&gt; 设置模板名称为 *</p>
+<p><img src="https://cdn.jsdelivr.net/gh/huangyuye/huangyuye.github.io@data/img/20210515154737.png" alt="img"></p>
+<ul>
+<li>模板内容：</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">*</span><br><span class="line"> * TODO</span><br><span class="line"> *</span><br><span class="line"> $params$</span><br><span class="line"> * <span class="meta">@return</span> &#123;<span class="meta">@link</span> $<span class="keyword">return</span>$&#125;</span><br><span class="line"> * <span class="meta">@author</span> huangyuye</span><br><span class="line"> */</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>Edit variable -&gt; param 配置：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">groovyScript(&quot;if(\&quot;$&#123;_1&#125;\&quot;.length() &#x3D;&#x3D; 2) &#123;return &#39;&#39;;&#125; else &#123;def result&#x3D;&#39;&#39;; def params&#x3D;\&quot;$&#123;_1&#125;\&quot;.replaceAll(&#39;[\\\\[|\\\\]|\\\\s]&#39;, &#39;&#39;).split(&#39;,&#39;).toList();for(i &#x3D; 0; i &lt; params.size(); i++) &#123;if(i&#x3D;&#x3D;0)&#123;result+&#x3D;&#39;* @param &#39; + params[i] + &#39; TODO &#39;&#125;else&#123;result+&#x3D;&#39;\\n&#39; + &#39; * @param &#39; + params[i] + &#39; TODO &#39;&#125;&#125;; return result;&#125;&quot;, methodParameters())</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>使用： 方法签名上输入 <code>/**</code>+ 补全键</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/huangyuye/huangyuye.github.io@data/img/20210515154944.png" alt="img"></p>
+<h3 id="类注释配置"><a href="#类注释配置" class="headerlink" title="类注释配置"></a>类注释配置</h3><p><img src="https://cdn.jsdelivr.net/gh/huangyuye/huangyuye.github.io@data/img/20210515155045.png" alt="img"></p>
+<h3 id="参考链接-1"><a href="#参考链接-1" class="headerlink" title="参考链接"></a>参考链接</h3><p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/7dd84a9f6597">idea配置方法注释模板（带参数获取）</a></p>
+
+    </div>
+
+    
+    
+    
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>yuye.Huang
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://huangyuye.github.io/2021/05/21/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/windows%E5%B7%A5%E5%85%B7/IDEA%E4%BD%BF%E7%94%A8/" title="IDEA使用">https://huangyuye.github.io/2021/05/21/Java/知识库/windows工具/IDEA使用/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2021/05/21/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/windows%E5%B7%A5%E5%85%B7/Powerdesigner%E4%BD%BF%E7%94%A8/" rel="prev" title="Powerdesigner使用">
+      <i class="fa fa-chevron-left"></i> Powerdesigner使用
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2021/05/21/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/mysql/mysql%E4%BD%BF%E7%94%A8%E5%9C%BA%E6%99%AF%E6%8A%80%E5%B7%A7/" rel="next" title="mysql使用场景技巧">
+      mysql使用场景技巧 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="valine-comments"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#IDEA%E4%BD%BF%E7%94%A8"><span class="nav-number">1.</span> <span class="nav-text">IDEA使用</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B8%B8%E7%94%A8%E6%8F%92%E4%BB%B6"><span class="nav-number">1.1.</span> <span class="nav-text">常用插件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8F%92%E4%BB%B6%E7%BD%91"><span class="nav-number">1.1.1.</span> <span class="nav-text">插件网</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Settings%E9%85%8D%E7%BD%AE"><span class="nav-number">1.2.</span> <span class="nav-text">Settings配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#VM%E9%85%8D%E7%BD%AE"><span class="nav-number">1.3.</span> <span class="nav-text">VM配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#GIT%E5%91%BD%E4%BB%A4%E8%A1%8C%E9%85%8D%E7%BD%AE"><span class="nav-number">1.4.</span> <span class="nav-text">GIT命令行配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HTTP%E5%B7%A5%E5%85%B7"><span class="nav-number">1.5.</span> <span class="nav-text">HTTP工具</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%82%E8%80%83%E9%93%BE%E6%8E%A5"><span class="nav-number">1.5.1.</span> <span class="nav-text">参考链接</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4"><span class="nav-number">1.6.</span> <span class="nav-text">常用命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B3%A8%E9%87%8A%E6%A8%A1%E6%9D%BF"><span class="nav-number">1.7.</span> <span class="nav-text">注释模板</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%B9%E6%B3%95%E6%B3%A8%E9%87%8A"><span class="nav-number">1.7.1.</span> <span class="nav-text">方法注释</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%B1%BB%E6%B3%A8%E9%87%8A%E9%85%8D%E7%BD%AE"><span class="nav-number">1.7.2.</span> <span class="nav-text">类注释配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%82%E8%80%83%E9%93%BE%E6%8E%A5-1"><span class="nav-number">1.7.3.</span> <span class="nav-text">参考链接</span></a></li></ol></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">yuye.Huang</p>
+  <div class="site-description" itemprop="description">想要成为酷酷的软件开发者</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">47</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">21</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/huangyuye" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;huangyuye" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:747776824@qq.com" title="E-Mail → mailto:747776824@qq.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title"><i class="fa fa-link fa-fw"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://www.yuque.com/huangyuye/qzf3af" title="https:&#x2F;&#x2F;www.yuque.com&#x2F;huangyuye&#x2F;qzf3af" rel="noopener" target="_blank">语雀</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        <!-- 添加不算子站点统计-->
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<!-- 不算子 end -->
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">true</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
+  </div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+<script>
+  (function() {
+    function leancloudSelector(url) {
+      url = encodeURI(url);
+      return document.getElementById(url).querySelector('.leancloud-visitors-count');
+    }
+
+    function addCount(Counter) {
+      var visitors = document.querySelector('.leancloud_visitors');
+      var url = decodeURI(visitors.id);
+      var title = visitors.dataset.flagTitle;
+
+      Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({ url })))
+        .then(response => response.json())
+        .then(({ results }) => {
+          if (results.length > 0) {
+            var counter = results[0];
+            leancloudSelector(url).innerText = counter.time + 1;
+            Counter('put', '/classes/Counter/' + counter.objectId, { time: { '__op': 'Increment', 'amount': 1 } })
+              .catch(error => {
+                console.error('Failed to save visitor count', error);
+              });
+          } else {
+              leancloudSelector(url).innerText = 'Counter not initialized! More info at console err msg.';
+              console.error('ATTENTION! LeanCloud counter has security bug, see how to solve it here: https://github.com/theme-next/hexo-leancloud-counter-security. \n However, you can still use LeanCloud without security, by setting `security` option to `false`.');
+            
+          }
+        })
+        .catch(error => {
+          console.error('LeanCloud Counter Error', error);
+        });
+    }
+
+    function showTime(Counter) {
+      var visitors = document.querySelectorAll('.leancloud_visitors');
+      var entries = [...visitors].map(element => {
+        return decodeURI(element.id);
+      });
+
+      Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({ url: { '$in': entries } })))
+        .then(response => response.json())
+        .then(({ results }) => {
+          for (let url of entries) {
+            let target = results.find(item => item.url === url);
+            leancloudSelector(url).innerText = target ? target.time : 0;
+          }
+        })
+        .catch(error => {
+          console.error('LeanCloud Counter Error', error);
+        });
+    }
+
+    let { app_id, app_key, server_url } = {"enable":true,"app_id":"UUUWSLrMNACz8vh8qf2aAksw-gzGzoHsz","app_key":"Jm3XS0ISb48hvvgbTu0qy3G9","server_url":null,"security":true};
+    function fetchData(api_server) {
+      var Counter = (method, url, data) => {
+        return fetch(`${api_server}/1.1${url}`, {
+          method,
+          headers: {
+            'X-LC-Id'     : app_id,
+            'X-LC-Key'    : app_key,
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data)
+        });
+      };
+      if (CONFIG.page.isPost) {
+        if (CONFIG.hostname !== location.hostname) return;
+        addCount(Counter);
+      } else if (document.querySelectorAll('.post-title-link').length >= 1) {
+        showTime(Counter);
+      }
+    }
+
+    let api_server = app_id.slice(-9) !== '-MdYXbMMI' ? server_url : `https://${app_id.slice(0, 8).toLowerCase()}.api.lncldglobal.com`;
+
+    if (api_server) {
+      fetchData(api_server);
+    } else {
+      fetch('https://app-router.leancloud.cn/2/route?appId=' + app_id)
+        .then(response => response.json())
+        .then(({ api_server }) => {
+          fetchData('https://' + api_server);
+        });
+    }
+  })();
+</script>
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+  <script src="//code.tidio.co/kz3lfvwst1qtdvwvv4aeatwo59j8pj32.js"></script>
+
+
+
+
+
+
+
+  
+
+  
+
+   
+<script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/moment.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/moment-precise-range-plugin@1.3.0/moment-precise-range.min.js"></script>
+<script>
+  function timer() {
+    var ages = moment.preciseDiff(moment(),moment(20210520,"YYYYMMDD"));
+    ages = ages.replace(/years?/, "年");
+    ages = ages.replace(/months?/, "月");
+    ages = ages.replace(/days?/, "天");
+    ages = ages.replace(/hours?/, "小时");
+    ages = ages.replace(/minutes?/, "分");
+    ages = ages.replace(/seconds?/, "秒");
+    ages = ages.replace(/\d+/g, '<span style="color:#1890ff">$&</span>');
+    div.innerHTML = `我已在此等候你 ${ages}`;
+  } 
+  var div = document.createElement("div");
+  //插入到copyright之后
+  var copyright = document.querySelector(".copyright");
+  document.querySelector(".footer-inner").insertBefore(div, copyright.nextSibling);
+  timer();
+  setInterval("timer()",1000)
+</script>
+
+
+ 
+<script>
+  var OriginTitile = document.title;
+  var titleTime;
+  document.addEventListener("visibilitychange", function() {
+    if (document.hidden) {
+      document.title = "(つェ⊂)我藏好了哦~" + OriginTitile;
+      clearTimeout(titleTime);
+    } else {
+      document.title = "(*´∇｀*) 被你发现啦~" + OriginTitile;
+      titleTime = setTimeout(function() {
+        document.title = OriginTitile;
+      }, 2000);
+    }
+  });
+</script>
+
+
+ 
+<script async src="//code.tidio.co/kz3lfvwst1qtdvwvv4aeatwo59j8pj32.js"></script>
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : false,
+      notify     : false,
+      appId      : 'UUUWSLrMNACz8vh8qf2aAksw-gzGzoHsz',
+      appKey     : 'Jm3XS0ISb48hvvgbTu0qy3G9',
+      placeholder: "建议再上方留下昵称和邮箱信息，以便收到回复通知~",
+      avatar     : 'mm',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : false,
+      lang       : 'zh-cn' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : true,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});
+</script>
+
+
+
+
+</body>
+</html>
