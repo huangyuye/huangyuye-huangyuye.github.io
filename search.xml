@@ -3433,6 +3433,70 @@
       </categories>
   </entry>
   <entry>
+    <title>序列化与反序列化</title>
+    <url>/2021/05/23/Java/%E7%AC%94%E8%AE%B0/%E5%AE%B9%E5%99%A8/%E5%BA%8F%E5%88%97%E5%8C%96%E4%B8%8E%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96/</url>
+    <content><![CDATA[<h2 id="1、什么是序列化与反序列化？"><a href="#1、什么是序列化与反序列化？" class="headerlink" title="1、什么是序列化与反序列化？"></a><strong>1、什么是序列化与反序列化？</strong></h2><ul>
+<li><p>序列化：指把堆内存中的 Java 对象数据，通过某种方式把对象存储到磁盘文件中或者传递给其他网络节点（在网络上传输），这个过程称为序列化。通俗来说就是将数据结构或对象转换成二进制串的过程</p>
+</li>
+<li><p>反序列化：把磁盘文件中的对象数据或者把网络节点上的对象数据，恢复成Java对象模型的过程。也就是将在序列化过程中所生成的二进制串转换成数据结构或者对象的过程</p>
+</li>
+</ul>
+<h2 id="2、为什么要做序列化？"><a href="#2、为什么要做序列化？" class="headerlink" title="2、为什么要做序列化？"></a><strong>2、为什么要做序列化？</strong></h2><ul>
+<li><p>在分布式系统中，此时需要把对象在网络上传输，就得把对象数据转换为二进制形式，需要共享的数据的 JavaBean 对象，都得做序列化。</p>
+</li>
+<li><p>服务器钝化：如果服务器发现某些对象好久没活动了，那么服务器就会把这些内存中的对象持久化在本地磁盘文件中（Java对象转换为二进制文件）；如果服务器发现某些对象需要活动时，先去内存中寻找，找不到再去磁盘文件中反序列化我们的对象数据，恢复成 Java 对象。这样能节省服务器内存。</p>
+</li>
+</ul>
+<h2 id="3、Java-怎么进行序列化？"><a href="#3、Java-怎么进行序列化？" class="headerlink" title="3、Java 怎么进行序列化？"></a><strong>3、Java 怎么进行序列化？</strong></h2><ul>
+<li><p>需要做序列化的对象的类，必须实现序列化接口：Java.lang.Serializable 接口（这是一个标志接口，没有任何抽象方法），Java 中大多数类都实现了该接口，比如：String，Integer</p>
+</li>
+<li><p>底层会判断，如果当前对象是 Serializable 的实例，才允许做序列化，Java对象 <code>instanceof Serializable</code> 来判断。</p>
+</li>
+<li><p>在 Java 中使用对象流来完成序列化和反序列化</p>
+</li>
+</ul>
+<p>　<strong>ObjectOutputStream</strong>：通过 writeObject()方法做序列化操作</p>
+<p>　<strong>ObjectInputStream</strong>：通过 readObject() 方法做反序列化操作</p>
+<p><img src="https://cdn.jsdelivr.net/gh/huangyuye/huangyuye.github.io@data/img/PhYVoF5wx8dElg4.png" alt="img"></p>
+<h3 id="第一步：创建一个-JavaBean-对象"><a href="#第一步：创建一个-JavaBean-对象" class="headerlink" title="第一步：创建一个 JavaBean 对象"></a><strong>第一步：创建一个 JavaBean 对象</strong></h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> lombok.AllArgsConstructor;</span><br><span class="line"><span class="keyword">import</span> lombok.Data;</span><br><span class="line"><span class="keyword">import</span> lombok.NoArgsConstructor;</span><br><span class="line"><span class="keyword">import</span> java.io.Serializable;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Data</span></span><br><span class="line"><span class="meta">@NoArgsConstructor</span></span><br><span class="line"><span class="meta">@AllArgsConstructor</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Person</span> <span class="keyword">implements</span> <span class="title">Serializable</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> age;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">toString</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;Person [name=&quot;</span> + name + <span class="string">&quot;, age=&quot;</span> + age + <span class="string">&quot;]&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="第二步：使用-ObjectOutputStream-对象实现序列化"><a href="#第二步：使用-ObjectOutputStream-对象实现序列化" class="headerlink" title="第二步：使用 ObjectOutputStream 对象实现序列化"></a><strong>第二步：使用 ObjectOutputStream 对象实现序列化</strong></h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//在根目录下新建一个 io 的文件夹</span></span><br><span class="line">   OutputStream op = <span class="keyword">new</span> FileOutputStream(<span class="string">&quot;io&quot;</span>+File.separator+<span class="string">&quot;a.txt&quot;</span>); </span><br><span class="line">   ObjectOutputStream ops = <span class="keyword">new</span> ObjectOutputStream(op); </span><br><span class="line">   ops.writeObject(<span class="keyword">new</span> Person(<span class="string">&quot;vae&quot;</span>,<span class="number">1</span>));   </span><br><span class="line">ops.close();</span><br><span class="line"><span class="comment">// 我们打开 a.txt 文件，发现里面的内容乱码，注意这不需要我们来看懂，这是二进制文件，计算机能读懂就行了。</span></span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>错误一：</strong>如果新建的 Person 对象没有实现 Serializable 接口，那么上面的操作会报错：</p>
+<p><img src="D:\AppData\YoudaoNote\qqB53912A331D409871E525BE52BFB5C3B\c301f97fba5249a5b3f2e347f918bcb7\0-2013853053.png" alt="img"></p>
+<h3 id="第三步：使用ObjectInputStream-对象实现反序列化"><a href="#第三步：使用ObjectInputStream-对象实现反序列化" class="headerlink" title="第三步：使用ObjectInputStream 对象实现反序列化"></a><strong>第三步：使用ObjectInputStream 对象实现反序列化</strong></h3><p><strong>反序列化的对象必须要提供该对象的字节码文件.class</strong></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">InputStream in = <span class="keyword">new</span> FileInputStream(<span class="string">&quot;io&quot;</span> + File.separator + <span class="string">&quot;a.txt&quot;</span>);</span><br><span class="line">   ObjectInputStream os = <span class="keyword">new</span> ObjectInputStream(in);</span><br><span class="line">   <span class="keyword">byte</span>[] buffer = <span class="keyword">new</span> <span class="keyword">byte</span>[<span class="number">10</span>];</span><br><span class="line">   <span class="keyword">int</span> len = -<span class="number">1</span>;</span><br><span class="line">   Person p = (Person)os.readObject();</span><br><span class="line">   System.out.println(p);  <span class="comment">//Person [name=vae, age=1] os.close();</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="常见问题"><a href="#常见问题" class="headerlink" title="常见问题"></a>常见问题</h2><h3 id="如果某些数据不需要做序列化，比如密码，比如上面的年龄？"><a href="#如果某些数据不需要做序列化，比如密码，比如上面的年龄？" class="headerlink" title="如果某些数据不需要做序列化，比如密码，比如上面的年龄？"></a>如果某些数据不需要做序列化，比如密码，比如上面的年龄？</h3><p><strong>解决办法：</strong>在字段面前加上 transient</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">private</span> String name;<span class="comment">//需要序列化 </span></span><br><span class="line"><span class="keyword">transient</span> <span class="keyword">private</span> <span class="keyword">int</span> age;<span class="comment">//不需要序列化</span></span><br></pre></td></tr></table></figure>
+
+
+
+<p>那么我们在反序列化的时候，打印出来的就是Person [name=vae, age=0]，整型数据默认值为 0 </p>
+<h3 id="对象版本变化"><a href="#对象版本变化" class="headerlink" title="对象版本变化"></a>对象版本变化</h3><p><strong>在完成序列化操作后，由于项目的升级或修改，可能我们会对序列化对象进行修改，比如增加某个字段，那么我们在进行反序列化就会报错：</strong></p>
+<p><img src="https://cdn.jsdelivr.net/gh/huangyuye/huangyuye.github.io@data/img/28-918255453.png" alt="img"></p>
+<p><img src="D:\AppData\YoudaoNote\qqB53912A331D409871E525BE52BFB5C3B\8d3a27ce65024caeaf3cb59bda842a17\5-1053058670.png" alt="img"></p>
+<p><strong>解决办法：</strong>在 JavaBean 对象中增加一个 serialVersionUID 字段，用来固定这个版本，无论我们怎么修改，版本都是一致的，就能进行反序列化了</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">long</span> serialVersionUID = <span class="number">8656128222714547171L</span>;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>后面反序列化出来的对象属性以最新版本的为准。</p>
+<p>而txt文件中的内容不会变，仍然仅记录的最初始的对象，而反序列化，会根据版本号，找到当前最新的对象（版本号已经固定不变，会根据版本号去找；）</p>
+]]></content>
+      <categories>
+        <category>Java</category>
+        <category>笔记</category>
+        <category>容器</category>
+      </categories>
+  </entry>
+  <entry>
     <title>基础</title>
     <url>/2021/05/23/Java/%E7%AC%94%E8%AE%B0/%E5%AE%B9%E5%99%A8/%E5%9F%BA%E7%A1%80/</url>
     <content><![CDATA[<h1 id="基础"><a href="#基础" class="headerlink" title="基础"></a>基础</h1><h3 id="集合概述"><a href="#集合概述" class="headerlink" title="集合概述"></a>集合概述</h3><p><img src="https://cdn.jsdelivr.net/gh/huangyuye/huangyuye.github.io@data/img/java-collection-hierarchy.png" alt="img"></p>
@@ -3653,70 +3717,6 @@
 <li>HashMap resize 扩容方法实现</li>
 </ol>
 <h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><p><a href="https://gitee.com/SnailClimb/JavaGuide/blob/master/docs/java/collection/Java%E9%9B%86%E5%90%88%E6%A1%86%E6%9E%B6%E5%B8%B8%E8%A7%81%E9%9D%A2%E8%AF%95%E9%A2%98.md">docs/java/collection/Java集合框架常见面试题.md · SnailClimb/JavaGuide - Gitee.com</a></p>
-]]></content>
-      <categories>
-        <category>Java</category>
-        <category>笔记</category>
-        <category>容器</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>序列化与反序列化</title>
-    <url>/2021/05/23/Java/%E7%AC%94%E8%AE%B0/%E5%AE%B9%E5%99%A8/%E5%BA%8F%E5%88%97%E5%8C%96%E4%B8%8E%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96/</url>
-    <content><![CDATA[<h2 id="1、什么是序列化与反序列化？"><a href="#1、什么是序列化与反序列化？" class="headerlink" title="1、什么是序列化与反序列化？"></a><strong>1、什么是序列化与反序列化？</strong></h2><ul>
-<li><p>序列化：指把堆内存中的 Java 对象数据，通过某种方式把对象存储到磁盘文件中或者传递给其他网络节点（在网络上传输），这个过程称为序列化。通俗来说就是将数据结构或对象转换成二进制串的过程</p>
-</li>
-<li><p>反序列化：把磁盘文件中的对象数据或者把网络节点上的对象数据，恢复成Java对象模型的过程。也就是将在序列化过程中所生成的二进制串转换成数据结构或者对象的过程</p>
-</li>
-</ul>
-<h2 id="2、为什么要做序列化？"><a href="#2、为什么要做序列化？" class="headerlink" title="2、为什么要做序列化？"></a><strong>2、为什么要做序列化？</strong></h2><ul>
-<li><p>在分布式系统中，此时需要把对象在网络上传输，就得把对象数据转换为二进制形式，需要共享的数据的 JavaBean 对象，都得做序列化。</p>
-</li>
-<li><p>服务器钝化：如果服务器发现某些对象好久没活动了，那么服务器就会把这些内存中的对象持久化在本地磁盘文件中（Java对象转换为二进制文件）；如果服务器发现某些对象需要活动时，先去内存中寻找，找不到再去磁盘文件中反序列化我们的对象数据，恢复成 Java 对象。这样能节省服务器内存。</p>
-</li>
-</ul>
-<h2 id="3、Java-怎么进行序列化？"><a href="#3、Java-怎么进行序列化？" class="headerlink" title="3、Java 怎么进行序列化？"></a><strong>3、Java 怎么进行序列化？</strong></h2><ul>
-<li><p>需要做序列化的对象的类，必须实现序列化接口：Java.lang.Serializable 接口（这是一个标志接口，没有任何抽象方法），Java 中大多数类都实现了该接口，比如：String，Integer</p>
-</li>
-<li><p>底层会判断，如果当前对象是 Serializable 的实例，才允许做序列化，Java对象 <code>instanceof Serializable</code> 来判断。</p>
-</li>
-<li><p>在 Java 中使用对象流来完成序列化和反序列化</p>
-</li>
-</ul>
-<p>　<strong>ObjectOutputStream</strong>：通过 writeObject()方法做序列化操作</p>
-<p>　<strong>ObjectInputStream</strong>：通过 readObject() 方法做反序列化操作</p>
-<p><img src="https://cdn.jsdelivr.net/gh/huangyuye/huangyuye.github.io@data/img/PhYVoF5wx8dElg4.png" alt="img"></p>
-<h3 id="第一步：创建一个-JavaBean-对象"><a href="#第一步：创建一个-JavaBean-对象" class="headerlink" title="第一步：创建一个 JavaBean 对象"></a><strong>第一步：创建一个 JavaBean 对象</strong></h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> lombok.AllArgsConstructor;</span><br><span class="line"><span class="keyword">import</span> lombok.Data;</span><br><span class="line"><span class="keyword">import</span> lombok.NoArgsConstructor;</span><br><span class="line"><span class="keyword">import</span> java.io.Serializable;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Data</span></span><br><span class="line"><span class="meta">@NoArgsConstructor</span></span><br><span class="line"><span class="meta">@AllArgsConstructor</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Person</span> <span class="keyword">implements</span> <span class="title">Serializable</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> age;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">toString</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;Person [name=&quot;</span> + name + <span class="string">&quot;, age=&quot;</span> + age + <span class="string">&quot;]&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="第二步：使用-ObjectOutputStream-对象实现序列化"><a href="#第二步：使用-ObjectOutputStream-对象实现序列化" class="headerlink" title="第二步：使用 ObjectOutputStream 对象实现序列化"></a><strong>第二步：使用 ObjectOutputStream 对象实现序列化</strong></h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//在根目录下新建一个 io 的文件夹</span></span><br><span class="line">   OutputStream op = <span class="keyword">new</span> FileOutputStream(<span class="string">&quot;io&quot;</span>+File.separator+<span class="string">&quot;a.txt&quot;</span>); </span><br><span class="line">   ObjectOutputStream ops = <span class="keyword">new</span> ObjectOutputStream(op); </span><br><span class="line">   ops.writeObject(<span class="keyword">new</span> Person(<span class="string">&quot;vae&quot;</span>,<span class="number">1</span>));   </span><br><span class="line">ops.close();</span><br><span class="line"><span class="comment">// 我们打开 a.txt 文件，发现里面的内容乱码，注意这不需要我们来看懂，这是二进制文件，计算机能读懂就行了。</span></span><br></pre></td></tr></table></figure>
-
-
-
-<p><strong>错误一：</strong>如果新建的 Person 对象没有实现 Serializable 接口，那么上面的操作会报错：</p>
-<p><img src="D:\AppData\YoudaoNote\qqB53912A331D409871E525BE52BFB5C3B\c301f97fba5249a5b3f2e347f918bcb7\0-2013853053.png" alt="img"></p>
-<h3 id="第三步：使用ObjectInputStream-对象实现反序列化"><a href="#第三步：使用ObjectInputStream-对象实现反序列化" class="headerlink" title="第三步：使用ObjectInputStream 对象实现反序列化"></a><strong>第三步：使用ObjectInputStream 对象实现反序列化</strong></h3><p><strong>反序列化的对象必须要提供该对象的字节码文件.class</strong></p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">InputStream in = <span class="keyword">new</span> FileInputStream(<span class="string">&quot;io&quot;</span> + File.separator + <span class="string">&quot;a.txt&quot;</span>);</span><br><span class="line">   ObjectInputStream os = <span class="keyword">new</span> ObjectInputStream(in);</span><br><span class="line">   <span class="keyword">byte</span>[] buffer = <span class="keyword">new</span> <span class="keyword">byte</span>[<span class="number">10</span>];</span><br><span class="line">   <span class="keyword">int</span> len = -<span class="number">1</span>;</span><br><span class="line">   Person p = (Person)os.readObject();</span><br><span class="line">   System.out.println(p);  <span class="comment">//Person [name=vae, age=1] os.close();</span></span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="常见问题"><a href="#常见问题" class="headerlink" title="常见问题"></a>常见问题</h2><h3 id="如果某些数据不需要做序列化，比如密码，比如上面的年龄？"><a href="#如果某些数据不需要做序列化，比如密码，比如上面的年龄？" class="headerlink" title="如果某些数据不需要做序列化，比如密码，比如上面的年龄？"></a>如果某些数据不需要做序列化，比如密码，比如上面的年龄？</h3><p><strong>解决办法：</strong>在字段面前加上 transient</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">private</span> String name;<span class="comment">//需要序列化 </span></span><br><span class="line"><span class="keyword">transient</span> <span class="keyword">private</span> <span class="keyword">int</span> age;<span class="comment">//不需要序列化</span></span><br></pre></td></tr></table></figure>
-
-
-
-<p>那么我们在反序列化的时候，打印出来的就是Person [name=vae, age=0]，整型数据默认值为 0 </p>
-<h3 id="对象版本变化"><a href="#对象版本变化" class="headerlink" title="对象版本变化"></a>对象版本变化</h3><p><strong>在完成序列化操作后，由于项目的升级或修改，可能我们会对序列化对象进行修改，比如增加某个字段，那么我们在进行反序列化就会报错：</strong></p>
-<p><img src="https://cdn.jsdelivr.net/gh/huangyuye/huangyuye.github.io@data/img/28-918255453.png" alt="img"></p>
-<p><img src="D:\AppData\YoudaoNote\qqB53912A331D409871E525BE52BFB5C3B\8d3a27ce65024caeaf3cb59bda842a17\5-1053058670.png" alt="img"></p>
-<p><strong>解决办法：</strong>在 JavaBean 对象中增加一个 serialVersionUID 字段，用来固定这个版本，无论我们怎么修改，版本都是一致的，就能进行反序列化了</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">long</span> serialVersionUID = <span class="number">8656128222714547171L</span>;</span><br></pre></td></tr></table></figure>
-
-
-
-<p>后面反序列化出来的对象属性以最新版本的为准。</p>
-<p>而txt文件中的内容不会变，仍然仅记录的最初始的对象，而反序列化，会根据版本号，找到当前最新的对象（版本号已经固定不变，会根据版本号去找；）</p>
 ]]></content>
       <categories>
         <category>Java</category>
