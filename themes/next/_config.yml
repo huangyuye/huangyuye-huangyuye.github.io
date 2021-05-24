@@ -374,10 +374,10 @@ codeblock:
 
 back2top:
   enable: true
-  # Back to top in sidebar.
+  # Back to top in sidebar. true，按钮显示在侧边栏；false，按钮显示在右下角
   sidebar: false
-  # Scroll percent label in b2t button.
-  scrollpercent: false
+  # Scroll percent label in b2t button. 按钮上显示百分比
+  scrollpercent: true
 
 # Reading progress bar
 reading_progress:
@@ -525,12 +525,12 @@ pjax: false
 
 # FancyBox is a tool that offers a nice and elegant way to add zooming functionality for images.
 # For more information: https://fancyapps.com/fancybox
-fancybox: false
+fancybox: true # 图片预览
 
 # A JavaScript library for zooming images like Medium.
 # Do not enable both `fancybox` and `mediumzoom`.
 # For more information: https://github.com/francoischalifour/medium-zoom
-mediumzoom: true # 图片预览
+mediumzoom: false # 图片预览
 
 # Vanilla JavaScript plugin for lazyloading images.
 # For more information: https://github.com/ApoorvSaxena/lozad.js
@@ -1013,3 +1013,6 @@ title_trick:
 # 文章末尾添加“本文结束”标记
 passage_end_tag:
   enabled: true
+
+auto_excerpt:
+  true
