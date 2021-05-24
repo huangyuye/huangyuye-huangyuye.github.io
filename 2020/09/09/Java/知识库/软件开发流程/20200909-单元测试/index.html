@@ -7,20 +7,21 @@
 <meta name="theme-color" content="#222">
 <meta name="generator" content="Hexo 5.4.0">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/avatar.jpg">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/avatar.jpg">
   <link rel="mask-icon" href="/images/logo.svg" color="#222">
 
 <link rel="stylesheet" href="/css/main.css">
 
 <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
 <link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
   <link rel="stylesheet" href="/lib/pace/pace-theme-material.min.css">
   <script src="/lib/pace/pace.min.js"></script>
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"huangyuye.github.io","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":true,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":3,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+    var CONFIG = {"hostname":"huangyuye.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":3,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
   <meta name="description" content="如何进行单元测试单元测试”称为“开发阶段的自动化测试“。   由开发同学完成 测试是自动化的 不一定是只验证一个“单元”的正确性  单元测试在市面上的介绍存在的问题  仅集中在介绍某个工具或者框架怎么用（比如JUnit，mockito，jest等） 一些理论上的对这种测试好处的介绍，通篇是“应该做测试”，“这么做了就容易得到高内聚的代码“ 只拿“纯函数”的测试举例子，几乎没有复杂的依赖（无法贴合实">
@@ -31,7 +32,7 @@
 <meta property="og:description" content="如何进行单元测试单元测试”称为“开发阶段的自动化测试“。   由开发同学完成 测试是自动化的 不一定是只验证一个“单元”的正确性  单元测试在市面上的介绍存在的问题  仅集中在介绍某个工具或者框架怎么用（比如JUnit，mockito，jest等） 一些理论上的对这种测试好处的介绍，通篇是“应该做测试”，“这么做了就容易得到高内聚的代码“ 只拿“纯函数”的测试举例子，几乎没有复杂的依赖（无法贴合实">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-09-09T00:00:00.000Z">
-<meta property="article:modified_time" content="2021-05-24T05:57:33.629Z">
+<meta property="article:modified_time" content="2021-05-24T10:37:24.638Z">
 <meta property="article:author" content="yuye.Huang">
 <meta name="twitter:card" content="summary">
 
@@ -79,6 +80,7 @@
   </style>
 </noscript>
 
+<link rel="alternate" href="/atom.xml" title="好家伙" type="application/atom+xml">
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
@@ -195,7 +197,7 @@
     <link itemprop="mainEntityOfPage" href="https://huangyuye.github.io/2020/09/09/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91%E6%B5%81%E7%A8%8B/20200909-%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="/images/avatar.jpg">
       <meta itemprop="name" content="yuye.Huang">
       <meta itemprop="description" content="想要成为酷酷的软件开发者">
     </span>
@@ -222,7 +224,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-05-24 05:57:33" itemprop="dateModified" datetime="2021-05-24T05:57:33+00:00">2021-05-24</time>
+                <time title="修改时间：2021-05-24 10:37:24" itemprop="dateModified" datetime="2021-05-24T10:37:24+00:00">2021-05-24</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -241,6 +243,8 @@
                   <a href="/categories/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91%E6%B5%81%E7%A8%8B/" itemprop="url" rel="index"><span itemprop="name">软件开发流程</span></a>
                 </span>
             </span>
+
+          <br>
 
           
             <span id="/2020/09/09/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91%E6%B5%81%E7%A8%8B/20200909-%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/" class="post-meta-item leancloud_visitors" data-flag-title="单元测试" title="阅读次数">
@@ -732,6 +736,11 @@
 
       <div class="site-overview-wrap sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <!-- 添加点击头像-主页跳转 --> 
+  <a href="/">
+    <img class="site-author-image" itemprop="image" alt="yuye.Huang"
+      src="/images/avatar.jpg">
+  </a>
   <p class="site-author-name" itemprop="name">yuye.Huang</p>
   <div class="site-description" itemprop="description">想要成为酷酷的软件开发者</div>
 </div>
@@ -758,6 +767,9 @@
       </span>
       <span class="links-of-author-item">
         <a href="mailto:747776824@qq.com" title="E-Mail → mailto:747776824@qq.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/atom.xml" title="RSS → &#x2F;atom.xml"><i class="fas fa-rss fa-fw"></i>RSS</a>
       </span>
   </div>
 
@@ -790,6 +802,8 @@
         
 
 <div class="copyright">
+
+  <!--
   
   &copy; 
   <span itemprop="copyrightYear">2021</span>
@@ -797,7 +811,8 @@
     <i class="fa fa-heart"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">true</span>
-    <span class="post-meta-divider">|</span>
+  -->
+    <!-- <span class="post-meta-divider">|</span> -->
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
@@ -810,8 +825,11 @@
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
     <span title="站点阅读时长">2:13</span>
 </div>
-  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
+
+<!--
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
   </div>
+-->
 
         
 
@@ -918,9 +936,9 @@
   </div>
 
   
-  <script size="300" alpha="0.6" zIndex="-1" src="/lib/canvas-ribbon/canvas-ribbon.js"></script>
   <script src="/lib/anime.min.js"></script>
-  <script src="//cdn.jsdelivr.net/npm/medium-zoom@1/dist/medium-zoom.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
   <script src="/lib/velocity/velocity.min.js"></script>
   <script src="/lib/velocity/velocity.ui.min.js"></script>
 
@@ -929,7 +947,7 @@
 <script src="/js/motion.js"></script>
 
 
-<script src="/js/schemes/muse.js"></script>
+<script src="/js/schemes/pisces.js"></script>
 
 
 <script src="/js/next-boot.js"></script>
@@ -1022,7 +1040,7 @@ NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
       appId      : 'UUUWSLrMNACz8vh8qf2aAksw-gzGzoHsz',
       appKey     : 'Jm3XS0ISb48hvvgbTu0qy3G9',
       placeholder: "建议在上方留下昵称和邮箱信息，以便收到回复通知~",
-      avatar     : 'mm',
+      avatar     : '/images/avatar.jpg',
       meta       : guest,
       pageSize   : '10' || 10,
       visitor    : false,
@@ -1038,5 +1056,5 @@ NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
 
 
 
-</body>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
 </html>
