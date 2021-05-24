@@ -162,3 +162,12 @@ feed:
 #     height: 300
 #   mobile:
 #     show: true # 手机中是否展示
+
+# SEO 搜索引擎优化：
+# 1. 用于自动生成站点地图，其中sitemap.xml用于给Google爬虫爬取，baidusitemap.xml用于给Baidu爬虫爬取
+# 2. 在Hexo/source目录下创建robots.txt; 注意修改站点地图的地址为博客地址
+# 3. /theme/_config.yml，开启SEO seo: true
+sitemap:
+  path: sitemap.xml
+baidusitemap:
+  path: baidusitemap.xml
