@@ -230,6 +230,13 @@
         {{ partial('_partials/post/post-followme.swig', {}, {cache: theme.cache.enable}) }}
       {%- endif %}
 
+      <!--  文章结束语 -->
+      <div>
+        {% if not is_index %}
+          {% include 'passage-end-tag.swig' %}
+        {% endif %}
+      </div>
+
       <footer class="post-footer">
         {%- if post.tags and post.tags.length %}
           {%- if theme.tag_icon %}
