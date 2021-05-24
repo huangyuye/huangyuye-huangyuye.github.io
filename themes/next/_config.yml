@@ -105,9 +105,9 @@ creative_commons:
 
 # Schemes
 # scheme: Muse
-scheme: Mist
-#cheme: Pisces
-#scheme: Gemini
+# scheme: Mist
+# scheme: Pisces
+scheme: Gemini
 
 # Dark Mode
 darkmode: false
@@ -461,6 +461,9 @@ font:
 # ---------------------------------------------------------------
 # SEO Settings
 # ---------------------------------------------------------------
+# SEO 开关 & 关键词
+seo: true
+keywords: "huangyuye"
 
 # Disable Baidu transformation on mobile devices.
 disable_baidu_transformation: false

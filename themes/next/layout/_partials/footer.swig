@@ -11,6 +11,8 @@
 {%- endif %}
 
 <div class="copyright">
+
+  <!--
   {% set copyright_year = date(null, 'YYYY') %}
   &copy; {% if theme.footer.since and theme.footer.since != copyright_year %}{{ theme.footer.since }} – {% endif %}
   <span itemprop="copyrightYear">{{ copyright_year }}</span>
@@ -18,9 +20,10 @@
     <i class="{{ theme.footer.icon.name }}"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">{{ theme.footer.copyright or author }}</span>
+  -->
 
   {%- if config.symbols_count_time.total_symbols %}
-    <span class="post-meta-divider">|</span>
+    <!-- <span class="post-meta-divider">|</span> -->
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
