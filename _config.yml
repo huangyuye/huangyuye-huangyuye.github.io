@@ -127,3 +127,11 @@ search:
   field: post # 指定搜索范围，可选 post | page | all
   format: html # 指定页面内容形式，可选 html | raw (Markdown) | excerpt | more
   limit: 10000
+
+# RSS 配置
+feed:  
+  type: atom
+  path: atom.xml 
+  limit: 0
+# plugins:
+  # - hexo-generator-feed
