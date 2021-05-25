@@ -191,6 +191,375 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://huangyuye.github.io/2021/04/06/yuque/Windows%20%E5%BC%80%E7%AE%B1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="yy.huang">
+      <meta itemprop="description" content="想要成为酷酷的软件开发者">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="歪歪的小站">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/04/06/yuque/Windows%20%E5%BC%80%E7%AE%B1/" class="post-title-link" itemprop="url">Windows 开箱</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-04-06 15:19:54" itemprop="dateCreated datePublished" datetime="2021-04-06T15:19:54+00:00">2021-04-06</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-05-25 07:35:42" itemprop="dateModified" datetime="2021-05-25T07:35:42+00:00">2021-05-25</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/yuque/" itemprop="url" rel="index"><span itemprop="name">yuque</span></a>
+                </span>
+            </span>
+
+          <br>
+
+          
+            <span id="/2021/04/06/yuque/Windows%20%E5%BC%80%E7%AE%B1/" class="post-meta-item leancloud_visitors" data-flag-title="Windows 开箱" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2021/04/06/yuque/Windows%20%E5%BC%80%E7%AE%B1/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2021/04/06/yuque/Windows%20%E5%BC%80%E7%AE%B1/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>2.9k</span> <!-- TODO func undefined -->
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>3 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="浏览器"><a href="#浏览器" class="headerlink" title="浏览器"></a>浏览器</h2><p>下载最新的 <a target="_blank" rel="noopener" href="https://www.microsoft.com/zh-cn/edge">Microsoft Edge</a>，使用默认的必应搜索引擎</p>
+<h2 id="代理服务器"><a href="#代理服务器" class="headerlink" title="代理服务器"></a>代理服务器</h2><p>如果有 vpn 账号，下载 Vpn 客户端，开启 PAC，并自动配置系统代理<br>浏览器下载 SwitchyOmega 插件实现快速切换代理，可以选择直接连接或者使用系统代理（即 vpn 代理）</p>
+<p><code>ss 与 gfwlist</code> <a target="_blank" rel="noopener" href="https://github.com/gfwlist/gfwlist">https://github.com/gfwlist/gfwlist</a></p>
+<h2 id="替换-CMD"><a href="#替换-CMD" class="headerlink" title="替换 CMD"></a>替换 CMD</h2><h3 id="PowerShell"><a href="#PowerShell" class="headerlink" title="PowerShell"></a>PowerShell</h3><p>Windows powershell 的升级版<br>下载地址：<a target="_blank" rel="noopener" href="https://github.com/PowerShell/PowerShell">https://github.com/PowerShell/PowerShell</a></p>
+<h3 id="Windows-Terminal"><a href="#Windows-Terminal" class="headerlink" title="Windows Terminal"></a>Windows Terminal</h3><p>Microsoft Store 下载 Windows Terminal，可以集成各个命令行工具，如上述提到的 powershell，以及 cmder 等<br>除此之外，还可以使用 wsl windows 子系统的方式，集成 linux 子系统命令行工具</p>
+<p>下载好终端之后，需要对终端进行美化，一般过程如下：</p>
+<ol>
+<li>下载字体，下载字体后一般到对应的<code>ttf</code>目录下全选字体并安装到 OS 系统中</li>
+<li>下载 PowerShell</li>
+<li>安装 power shell 插件模块（Install-Module）<ol>
+<li>Install-Module oh-my-posh -Scope CurrentUser：<em>让你的命令行更酷炫、优雅</em></li>
+<li>Install-Module posh-git -Scope CurrentUser：<em>让你的 git 更好用</em></li>
+<li>Install-Module -Name PSReadLine -AllowPrerelease -Force：<em>让命令行很好用，类似 zsh</em></li>
+<li>注意：Install-Module 下载插件一般可以使用-Verbose 参数用于查看具体的插件下载地址，浏览器输入下载地址直接下载用于解决命令行下载缓慢的问题。下载完成后将插件解压后放到 power shell 安装目录的 <code>module</code>文件夹下，注意格式为：<code>$&#123;powerShell.path&#125;/module/$&#123;插件名&#125;/$&#123;插件版本&#125;/</code></li>
+</ol>
+</li>
+<li>打开 Windows Terminal 配置文件进行字体、主题配置</li>
+<li>添加右键菜单：编写<code>terminal.reg</code>文件并以管理员命令执行（<strong>注意根据情况修改路径</strong>）</li>
+</ol>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Windows Registry Editor Version <span class="number">5.00</span></span><br><span class="line"></span><br><span class="line">[<span class="type">HKEY_CLASSES_ROOT</span>\<span class="type">Directory</span>\<span class="type">Background</span>\<span class="type">shell</span>\<span class="type">wt</span>]</span><br><span class="line"><span class="selector-tag">@</span>=<span class="string">&quot;Windows terminal here&quot;</span></span><br><span class="line"><span class="string">&quot;Icon&quot;</span>=<span class="string">&quot;C:\\Users\\16957\\AppData\\Local\\terminal\\wt_32.ico&quot;</span></span><br><span class="line"></span><br><span class="line">[<span class="type">HKEY_CLASSES_ROOT</span>\<span class="type">Directory</span>\<span class="type">Background</span>\<span class="type">shell</span>\<span class="type">wt</span>\<span class="type">command</span>]</span><br><span class="line"><span class="selector-tag">@</span>=<span class="string">&quot;C:\\Users\\16957\\AppData\\Local\\Microsoft\\WindowsApps\\wt.exe&quot;</span></span><br></pre></td></tr></table></figure>
+
+<ol start="6">
+<li>添加 Powershell 启动参数：<code>notepad.exe $Profile</code><ol>
+<li>import 插件模块</li>
+<li>设置主题</li>
+<li>设置热键、函数、别名等</li>
+</ol>
+</li>
+</ol>
+<p><strong>其他</strong></p>
+<ul>
+<li><strong>Windows Terminal 分屏操作：</strong><code>ctrl + shrift + d</code></li>
+<li><code>chocolate</code> ：windows 下的软件安装管理器<ul>
+<li><code>@&quot;%SystemRoot%\System32\WindowsPowerShell\v1.0\powershell.exe&quot; -NoProfile -InputFormat None -ExecutionPolicy Bypass -Command &quot; [System.Net.ServicePointManager]::SecurityProtocol = 3072; iex ((New-Object System.Net.WebClient).DownloadString(&#39;https://chocolatey.org/install.ps1&#39;))&quot; &amp;&amp; SET &quot;PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin&quot;</code></li>
+</ul>
+</li>
+</ul>
+<h4 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h4><p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/137595941">Windows Terminal 完美配置 PowerShell 7.1</a><br><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/272082726">Windows Terminal 完整指南</a>​<br><a target="_blank" rel="noopener" href="https://blog.csdn.net/zhouchen1998/article/details/107484782">Windows Terminal 美化教程</a></p>
+<h3 id="Vim"><a href="#Vim" class="headerlink" title="Vim"></a>Vim</h3><p>使用 <a target="_blank" rel="noopener" href="https://www.cnblogs.com/Eric-jx/p/10491922.html">vim</a> 快速的在命令行中操作文件</p>
+<h4 id="vim-相关配置修改"><a href="#vim-相关配置修改" class="headerlink" title="vim 相关配置修改"></a>vim 相关配置修改</h4><ol>
+<li> cmd 中执行 vim 命令，执行 vim 指令<code>:version</code>查看配置文件路径，可以看到配置文件为<code>C:\Program Files (x86)\Vim\_vimrc</code></li>
+<li> 修改配置文件，关闭 un~临时文件的输出</li>
+</ol>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">set</span> noundofile</span><br><span class="line"><span class="built_in">set</span> nobackup</span><br><span class="line"><span class="built_in">set</span> noswapfile</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>修改 vim 操作的文件编码，可参考<a target="_blank" rel="noopener" href="http://c.biancheng.net/view/3024.html">http://c.biancheng.net/view/3024.html</a></li>
+</ol>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># C:\Program Files (x86)\Vim\_vimrc</span></span><br><span class="line"><span class="comment"># 编码设置 start http://c.biancheng.net/view/3024.html</span></span><br><span class="line"><span class="built_in">set</span> fileencodings=utf<span class="literal">-8</span>,ucs<span class="literal">-bom</span>,gb18030,gbk,gb2312,cp936</span><br><span class="line"><span class="built_in">set</span> termencoding=utf<span class="literal">-8</span></span><br><span class="line"><span class="built_in">set</span> encoding=utf<span class="literal">-8</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="NVM-下载"><a href="#NVM-下载" class="headerlink" title="NVM 下载"></a>NVM 下载</h2><blockquote>
+<p>该标题下的内容建议仅开发同学关注</p>
+</blockquote>
+<p>不管是使用 windows 还是系统系统，很多时候我们都需要在本地电脑运行一些前端项目，这时候会用到 nodejs 环境以及 npm 包管理工具，所以下载 <a target="_blank" rel="noopener" href="https://github.com/coreybutler/nvm-windows/releases">nvm</a> 可以帮助你方便的管理与切换 node 环境版本</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">nvm install &lt;nodejs.version&gt;</span><br><span class="line">nvm use &lt;nodejs.version&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="cnpm"><a href="#cnpm" class="headerlink" title="cnpm"></a>cnpm</h3><p>npm 是 node 官方的包管理器。cnpm 是个中国版的 npm，是淘宝定制的 cnpm (gzip 压缩支持) 命令行工具代替默认的 npm。npm 和 cnpm 只是下载器的不同</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install <span class="literal">-g</span> cnpm -<span class="literal">-registry</span>=https://registry.npm.taobao.org</span><br></pre></td></tr></table></figure>
+
+<h3 id="nrm"><a href="#nrm" class="headerlink" title="nrm"></a>nrm</h3><p>nrm 这个包的功能可以让我们随意的切换我们下载包的地址。</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cnpm i nrm <span class="literal">-g</span></span><br><span class="line">nrm <span class="built_in">ls</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="Ruby-gem-下载"><a href="#Ruby-gem-下载" class="headerlink" title="Ruby gem 下载"></a>Ruby gem 下载</h3><p>使用 travis ci 时可能需要用到 <a target="_blank" rel="noopener" href="https://rubyinstaller.org/">gem</a>下载 travis 工具</p>
+<h4 id="命令权限"><a href="#命令权限" class="headerlink" title="命令权限"></a>命令权限</h4><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">set-executionpolicy</span> remotesigned</span><br></pre></td></tr></table></figure>
+
+<h2 id="Typora"><a href="#Typora" class="headerlink" title="Typora"></a>Typora</h2><p><a target="_blank" rel="noopener" href="https://typora.io/windows/dev_release.html">Typora </a>是一款强大简洁的 markdown 文本编辑器，可以使用它高效的编码 md 文档</p>
+<h2 id="listary"><a href="#listary" class="headerlink" title="listary"></a>listary</h2><p><a target="_blank" rel="noopener" href="https://www.listary.com/download">Listary</a> 是一个革命性的 Windows 搜索工具，可以帮你快速查找文件和启动应用程序</p>
+<h2 id="snipaste"><a href="#snipaste" class="headerlink" title="snipaste"></a>snipaste</h2><p>很好用的截图工具，支持多张截图拼图，快捷键—F1：截图；F3：将截图放在桌面进行拼图，下载地址点<a target="_blank" rel="noopener" href="https://zh.snipaste.com/">这里</a></p>
+<h2 id="GitHub-Gist-管理工具"><a href="#GitHub-Gist-管理工具" class="headerlink" title="GitHub Gist 管理工具"></a>GitHub Gist 管理工具</h2><p>Gist 是基于 Github 的 code snippet 仓库，Github Gist 的可操作性比较少，一般会下载 Gist 管理工具提供更多功能支持。<br>一般的 GitHub Gist 管理工具有：gisto、gistbox、lepton</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://huangyuye.github.io/2021/04/05/yuque/%E8%AF%AD%E9%9B%80-Hexo-GitHub/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="yy.huang">
+      <meta itemprop="description" content="想要成为酷酷的软件开发者">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="歪歪的小站">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/04/05/yuque/%E8%AF%AD%E9%9B%80-Hexo-GitHub/" class="post-title-link" itemprop="url">语雀-Hexo-GitHub</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-04-05 11:17:36" itemprop="dateCreated datePublished" datetime="2021-04-05T11:17:36+00:00">2021-04-05</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-05-25 07:35:43" itemprop="dateModified" datetime="2021-05-25T07:35:43+00:00">2021-05-25</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/yuque/" itemprop="url" rel="index"><span itemprop="name">yuque</span></a>
+                </span>
+            </span>
+
+          <br>
+
+          
+            <span id="/2021/04/05/yuque/%E8%AF%AD%E9%9B%80-Hexo-GitHub/" class="post-meta-item leancloud_visitors" data-flag-title="语雀-Hexo-GitHub" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2021/04/05/yuque/%E8%AF%AD%E9%9B%80-Hexo-GitHub/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2021/04/05/yuque/%E8%AF%AD%E9%9B%80-Hexo-GitHub/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>2.5k</span> <!-- TODO func undefined -->
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>2 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h3 id=""><a href="#" class="headerlink" title=""></a></h3><h2 id="角色介绍"><a href="#角色介绍" class="headerlink" title="角色介绍"></a>角色介绍</h2><h3 id="语雀"><a href="#语雀" class="headerlink" title="语雀"></a>语雀</h3><p>云端写作工具</p>
+<h4 id="Web-Hook"><a href="#Web-Hook" class="headerlink" title="Web Hook"></a>Web Hook</h4><p>可以创建写作时的钩子，即可以监听文章内容的变更事件（更新、新建、删除等）并请求某接口（get 请求）</p>
+<h3 id="Hexo"><a href="#Hexo" class="headerlink" title="Hexo"></a>Hexo</h3><p><a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/index.html">Hexo</a>是一个博客框架，支持专注于.md 格式的内容编辑后快速生成静态博客页面<br>​</p>
+<h4 id="安装-Hexo"><a href="#安装-Hexo" class="headerlink" title="安装 Hexo"></a>安装 Hexo</h4><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$</span> npm install <span class="literal">-g</span> hexo<span class="literal">-cli</span></span><br><span class="line"><span class="comment"># 对于熟悉 npm 的进阶用户，可以仅局部安装hexo包。</span></span><br><span class="line"><span class="variable">$</span> npm install hexo</span><br></pre></td></tr></table></figure>
+
+<p>安装以后，可以使用以下两种方式执行 Hexo：</p>
+<ol>
+<li>npx hexo <command></li>
+<li>将 Hexo 所在的目录下的 node_modules 添加到环境变量之中即可直接使用 hexo <command>：<table>
+<thead>
+<tr>
+<th>echo ‘PATH=”$PATH:./node_modules/.bin”‘ &gt;&gt; ~/.profile</th>
+</tr>
+</thead>
+</table>
+</li>
+</ol>
+<h3 id="Github"><a href="#Github" class="headerlink" title="Github"></a>Github</h3><p>提供托管生成的静态页面的功能</p>
+<h4 id="GitHub-Actions"><a href="#GitHub-Actions" class="headerlink" title="GitHub Actions"></a>GitHub Actions</h4><p>可以作为 travis ci 的替代方案（travis ci 的构建任务的触发也是通过 GitHub 的组件<code>Github WebHook</code>来支持的）<br><img src="https://cdn.nlark.com/yuque/0/2021/png/10363384/1621391502370-3546e6ca-93b3-43aa-8ecb-75be46f1d651.png#clientId=u6236cb25-c3e3-4&from=paste&height=977&id=u1de82d50&margin=%5Bobject%20Object%5D&name=image.png&originHeight=977&originWidth=1600&originalType=binary&size=106078&status=done&style=none&taskId=u5e85f72d-890c-4927-ad3d-0fc7a822406&width=1600" alt="image.png"></p>
+<h3 id="Travis"><a href="#Travis" class="headerlink" title="Travis"></a>Travis</h3><p><a target="_blank" rel="noopener" href="https://travis-ci.com/">Travis</a>是一个提供 github 项目的 CI 持续集成的免费平台<br>Travis 可以通过 api 的方式触发构建过程</p>
+<h3 id="腾讯云函数-serverless"><a href="#腾讯云函数-serverless" class="headerlink" title="腾讯云函数 serverless"></a>腾讯云函数 serverless</h3><p>使用平台支持的语言（如 php、python 等）编写核心代码并设置代码运行的条件（可定时触发或者 API 触发等），代码即可在腾讯云基础设施上弹性、安全地运行。</p>
+<h2 id="角色关系"><a href="#角色关系" class="headerlink" title="角色关系"></a>角色关系</h2><ul>
+<li>可以在 GitHub 中创建 github pages 作为 <code>博客</code>  项目 ，用于保存自己的博客的前端资源文件，且可以通过 github 提供的个人博客域名展示自己的博客内容</li>
+<li>Hexo 为博客框架，可以将编写的<code>文章</code>(.md 文件)按照 <code>hexo模板</code>  格式生成前端静态资源文件。hexo 框架支持配置在生成前端资源文件之后将你的文件推送部署到 github 进行托管</li>
+<li>Travis 为持续集成工具，可以为你免去使用 hexo 框架带来的一些冗余且重复性的操作，但在此之前你需要像下面这样做：<ul>
+<li>你需要维护你的 <code>文章</code> （.md 文件）到 github 的某个项目中，当然你可以选择复用博客项目，使用该项目的另一个分支即可</li>
+<li>登入 travis，关联你的 gitHub 项目（托管 <code>文章</code>  的项目与分支）</li>
+<li>在托管 <code>文章</code> 的项目根目录下配置好 travis 的配置文件，配置内容包括将 hexo 构建生成博客内容、hexo 部署博客内容到 <code>博客</code>  项目、访问 <code>博客</code>  项目的授权信息等（涉及到博客项目的 push 操作）</li>
+<li>登入 travis，配置好相关的 gitHub 访问授权</li>
+<li>以上配置结束后，后续你只需要专心关注你的文章，必及时将你的文章内容推送到 github，travis 就会自动化地帮你构建出博客内容，并发布最新内容到你的个人博客了</li>
+</ul>
+</li>
+<li>语雀为写作工具，写作内容自带云同步效果，且拥有较好的写作用户体验，所以可以考虑放弃在本地机器中用 typora 等工具写文章，直接到语雀上进行云写作。这样就衍生出一个新问题，之前本地写的文章都可以推送到 github，且由 travis 和 hexo 帮你生成并搭建出你的个人博客内容，那语雀上写的文章能不能也达到这效果？答案是可以的</li>
+<li>语雀 web hook 可以监听你的写作行为，可以在更新文章时触发调用某个外部的 API 接口，而 travis 恰好提供了这种机制，提供了 travis api 接口，允许外部触发 github 项目的 build 流程，该 api 方法为 post 请求</li>
+<li>但是语雀 web hook 限制了调用的 API 必须是 get 请求的，不能是 post 请求的，所以就需要使用腾讯云函数</li>
+</ul>
+<h2 id="搭建流程"><a href="#搭建流程" class="headerlink" title="搭建流程"></a>搭建流程</h2><h2 id="授权问题"><a href="#授权问题" class="headerlink" title="授权问题"></a>授权问题</h2><ol>
+<li>travis ci 可以使用两种方式访问 Github：<ul>
+<li>一种是使用 github 的 personal access token（使用环境变量的方式配置到 travis）</li>
+<li>一种是使用 ssh key 的方式，将 ssh 公钥配置到 github 的 travis 项目中，前提会将公钥文件通过 travis 的加密方式加密，生成 xxx.enc 文件，并将密钥配置到 travis 环境变量中，明文显示的公钥文件可删除</li>
+</ul>
+</li>
+<li>同上，travis ci 同步语雀文章需要使用到语雀的 <a target="_blank" rel="noopener" href="https://www.yuque.com/settings/tokens">personal access token</a></li>
+</ol>
+<h2 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h2><ul>
+<li>调用 travis api 时，语雀 webhook 以及 serverless 云函数中的<code>仓库slug</code>参数值（user_name/repo_name）必须先进行 urlencode，否则接口调用会报 404 错误。（<strong>一定要注意，这个坑折腾了很长时间</strong>）</li>
+</ul>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">&quot;@type&quot;</span>: <span class="string">&quot;error&quot;</span>,</span><br><span class="line">  <span class="attr">&quot;error_type&quot;</span>: <span class="string">&quot;not_found&quot;</span>,</span><br><span class="line">  <span class="attr">&quot;error_message&quot;</span>: <span class="string">&quot;resource not found (or insufficient access)&quot;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>建议先根据仓库 slug 查询仓库 id 避免后续修改仓库名称导致 404 等错误<ul>
+<li>api.travis-ci.org/repo/3121806s7/requests</li>
+</ul>
+</li>
+<li>语雀 webhook 不能直接构建脚本直接发起 POST 请求到 Travis，所以可以通过代理服务触发 Travis CI API<ul>
+<li>腾讯云函数作为代理服务，Web Hook 的请求发送至该服务后，该服务去触发 Travis 的 CI 构建。</li>
+</ul>
+</li>
+<li>针对语雀图片无法正常显示的解决办法（语雀防盗链）<ul>
+<li>在主题的 layout 文件夹中的 post.ejs 文件请求头中加上一句</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;referrer&quot;</span> <span class="attr">content</span>=<span class="string">&quot;no-referrer&quot;</span> /&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="为你的博客搭建图床"><a href="#为你的博客搭建图床" class="headerlink" title="为你的博客搭建图床"></a>为你的博客搭建图床</h2><p><a target="_blank" rel="noopener" href="https://www.yuque.com/huangyuye/blog/qabgtz">PicGo + GitHub 创建自己的免费图床</a></p>
+<h2 id="美化你的博客主题"><a href="#美化你的博客主题" class="headerlink" title="美化你的博客主题"></a>美化你的博客主题</h2><p>参考我另一篇文章 <a target="_blank" rel="noopener" href="https://www.yuque.com/huangyuye/blog/eqqt0i">Hexo 主题美化</a></p>
+<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><ul>
+<li>《<a target="_blank" rel="noopener" href="https://www.yuque.com/hxfqg9/web/gtb5ck">语雀自动同步到 hexo 博客</a>》</li>
+<li>《<a target="_blank" rel="noopener" href="https://www.yuque.com/joashzhao/blog/sync-yuque-to-hexo#egrli">语雀自动同步 HEXO 机器人——搭建细节</a>》</li>
+<li>《<a target="_blank" rel="noopener" href="https://segmentfault.com/a/1190000017797561">Hexo 博客终极玩法：云端写作，自动部署</a>》</li>
+<li>《<a target="_blank" rel="noopener" href="https://sanonz.github.io/2020/deploy-a-hexo-blog-from-github-actions/#%E4%BB%8B%E7%BB%8D">利用 Github Actions 自动部署 Hexo 博客</a>》</li>
+</ul>
+<h2 id="TODO"><a href="#TODO" class="headerlink" title="TODO"></a>TODO</h2><ol>
+<li>了解 GitHub Pages，需要搭建 github.io 的 repo_name 可否自定义？可否自定义 repo_branch？</li>
+<li>语雀 - Hexo - Github 同步之后，能否在博客中加上本地机器写的文章？</li>
+<li>博客主题：Hexo 美化 与 GitHub Pages 美化</li>
+<li>使用 GitHub Actions 替代 Travis</li>
+<li>学会云管理自己的配置—<a target="_blank" rel="noopener" href="https://www.cnblogs.com/thinkam/p/10922920.html">Gist</a></li>
+</ol>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://huangyuye.github.io/2020/11/24/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91%E6%B5%81%E7%A8%8B/20201124-%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -222,7 +591,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-05-24 12:55:11" itemprop="dateModified" datetime="2021-05-24T12:55:11+00:00">2021-05-24</time>
+                <time title="修改时间：2021-05-25 07:35:16" itemprop="dateModified" datetime="2021-05-25T07:35:16+00:00">2021-05-25</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -367,7 +736,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-05-24 12:55:11" itemprop="dateModified" datetime="2021-05-24T12:55:11+00:00">2021-05-24</time>
+                <time title="修改时间：2021-05-25 07:35:16" itemprop="dateModified" datetime="2021-05-25T07:35:16+00:00">2021-05-25</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -623,7 +992,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-05-24 12:55:11" itemprop="dateModified" datetime="2021-05-24T12:55:11+00:00">2021-05-24</time>
+                <time title="修改时间：2021-05-25 07:35:16" itemprop="dateModified" datetime="2021-05-25T07:35:16+00:00">2021-05-25</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -762,7 +1131,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-05-24 12:55:11" itemprop="dateModified" datetime="2021-05-24T12:55:11+00:00">2021-05-24</time>
+                <time title="修改时间：2021-05-25 07:35:16" itemprop="dateModified" datetime="2021-05-25T07:35:16+00:00">2021-05-25</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -985,7 +1354,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-05-24 12:55:11" itemprop="dateModified" datetime="2021-05-24T12:55:11+00:00">2021-05-24</time>
+                <time title="修改时间：2021-05-25 07:35:16" itemprop="dateModified" datetime="2021-05-25T07:35:16+00:00">2021-05-25</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -1383,7 +1752,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-05-24 12:55:11" itemprop="dateModified" datetime="2021-05-24T12:55:11+00:00">2021-05-24</time>
+                <time title="修改时间：2021-05-25 07:35:16" itemprop="dateModified" datetime="2021-05-25T07:35:16+00:00">2021-05-25</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -1624,7 +1993,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-05-24 12:55:11" itemprop="dateModified" datetime="2021-05-24T12:55:11+00:00">2021-05-24</time>
+                <time title="修改时间：2021-05-25 07:35:16" itemprop="dateModified" datetime="2021-05-25T07:35:16+00:00">2021-05-25</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -1759,7 +2128,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-05-24 12:55:11" itemprop="dateModified" datetime="2021-05-24T12:55:11+00:00">2021-05-24</time>
+                <time title="修改时间：2021-05-25 07:35:16" itemprop="dateModified" datetime="2021-05-25T07:35:16+00:00">2021-05-25</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -2127,535 +2496,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://huangyuye.github.io/2020/09/06/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/20200906-Java%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B%E4%B9%8BCPU%E7%BC%93%E5%AD%98/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="yy.huang">
-      <meta itemprop="description" content="想要成为酷酷的软件开发者">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="歪歪的小站">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/09/06/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/20200906-Java%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B%E4%B9%8BCPU%E7%BC%93%E5%AD%98/" class="post-title-link" itemprop="url">Java并发编程之CPU缓存</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-09-06 00:00:00" itemprop="dateCreated datePublished" datetime="2020-09-06T00:00:00+00:00">2020-09-06</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-05-24 12:55:11" itemprop="dateModified" datetime="2021-05-24T12:55:11+00:00">2021-05-24</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/" itemprop="url" rel="index"><span itemprop="name">知识库</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" itemprop="url" rel="index"><span itemprop="name">基础知识</span></a>
-                </span>
-            </span>
-
-          <br>
-
-          
-            <span id="/2020/09/06/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/20200906-Java%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B%E4%B9%8BCPU%E7%BC%93%E5%AD%98/" class="post-meta-item leancloud_visitors" data-flag-title="Java并发编程之CPU缓存" title="阅读次数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span class="leancloud-visitors-count"></span>
-            </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2020/09/06/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/20200906-Java%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B%E4%B9%8BCPU%E7%BC%93%E5%AD%98/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/09/06/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/20200906-Java%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B%E4%B9%8BCPU%E7%BC%93%E5%AD%98/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>4.6k</span> <!-- TODO func undefined -->
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>4 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <ul>
-<li><p>多线程操作共享变量，变量值不一致。</p>
-</li>
-<li><p>使用volatile关键字修饰共享变量，保证共享变量在线程之间的可见性。</p>
-<ul>
-<li>synchronized 关键字也能保证共享变量在多个线程之间的可见性</li>
-<li>CAS 机制也能保证共享变量在多个线程之间的可见性</li>
-</ul>
-</li>
-<li><p>CPU读写模型是引发变量可见性的原因</p>
-<ul>
-<li> 主存RAM存取速度比 CPU操作慢得多，为避免CPU高速处理能力不能充分发挥作用，所以CPU处理器引入了高速缓冲存储器。（造价高，容量较主存小）</li>
-<li>程序局部性原理（？？？）：CPU试图访问主存的某一单元时，会认为临近单元后续被利用的可能性很大，所以CPU在存取主存单元时，计算机硬件会自动把包括该单元在内的那一组单元调入高速缓存，之后CPU就可以直接对高速缓存数据进行存取。（一组单元称为内存块<code>block</code>，通常是连续的64个字节）</li>
-</ul>
-</li>
-<li><p>CPU Cache相关术语</p>
-<ul>
-<li>Cache Line &amp; Slot &amp; Hot Data &amp; Cache Hit<ul>
-<li>Cache Line = Slot </li>
-<li>高速缓存会将其存储单元均分成若干等份，每一等份就是一个缓存行，如今主流CPU的缓存行一般都是64个字节</li>
-<li>被缓存行缓存的数据称之为热点数据（hot data）</li>
-</ul>
-</li>
-<li>Cache Hit &amp; Cache Miss &amp; Hit Latency<ul>
-<li>Cache Hit：当CPU通过<code>寄存器</code>中存储的数据地址请求访问数据时（包括读操作和写操作），首先会在Cache中查找，如果找到了则直接返回Cache中存储的数据，这称为<strong>缓存命中</strong>（cache hit），根据操作类型又可分为读缓存命中和写缓存命中。</li>
-<li>Hit Latency：命中延迟是指判断Cache中是否缓存了目标数据所花的时间。</li>
-</ul>
-</li>
-<li>Cache分级：速度— L1 &gt; L2 &gt; L3（L3在CPU的多个核心之间共享）</li>
-<li>Cache替换算法 &amp; Cache Line Conflict<ul>
-<li>常用的算法：“最近最少使用算法”（LRU算法）least recently used；原理：为每行设置一个计数器，把名中行的计数器清零，其他各行计数器加1，当需要替换时淘汰行计数器计数值最大的数据行出局</li>
-</ul>
-</li>
-<li>时钟周期：完成一次存取操作所需的时间—主频倒数（寄存器、高速缓存、主存都有主频）</li>
-</ul>
-</li>
-<li><p>Cache结构设计和缓存关联性（<code>关联主内存</code>）</p>
-<ul>
-<li><strong>CPU高速缓存组成</strong>：整个Cache被分为S个组，每个组又有E行个最小的存储单元——Cache Line；而一个Cache Line中有B（B=64）个字节用来存储数据，即每个Cache Line能存储64个字节的数据</li>
-<li><strong>Cache Line组成</strong>：包含1个有效位（valid bit）、t个标记位（tag bit）、数据<ul>
-<li>— valid bit用来表示该缓存行是否有效；tag bit用来协助寻址，唯一标识存储在Cache Line中的块；而Cache Line里的64个字节其实是对应内存地址中的数据拷贝。</li>
-</ul>
-</li>
-<li>将高速缓存内的数据映射到主内存的数据（<strong>缓存关联性</strong>）<ul>
-<li>完全关联(Fully associative cache) <ul>
-<li>以32位操作系统（意味着到内存寻址时是通过32位地址）为例，，比如有一个0101…10 000000 - 0101…10 111111（为了节省版面省略了高26位中的部分bit位，这个区间代表高26位相同但低6位不同的64个地址，即64字节的内存块（主内存的存储单元：连续的64个字节））内存块需要缓存，那么它将会被随机存放到一个可用的Slot中，并将高26位作为该Slot的tag bit（前文说到每行除了存储内存块的64字节Cache Line，还额外有1个bit标识该行是否有效和t个bit作为该行的唯一ID，本例中t就是26）。这样当内存需要存取这个地址范围内的数据地址时，首先会去Cache中找是否缓存了高26位（tag bit）为0101…10的Slot，如果找到了再根据数据地址的低6位定位到Cache Line的某个存储单元上，这个低6位称为字节偏移（word offset）。<ul>
-<li>6位字节偏移(2^6=64个字节)——<strong>主内存的存储单元block的大小固定位64个字节</strong></li>
-<li>26位 tag bit 作为数据块唯一标识，用于寻址时轮询所有缓存行(slot)并匹配数据块</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>直接映射(Direct mapped cache) <ul>
-<li>包含tag bit 位数据地址 + slot offset(定位slot) + word offset 字节偏移（缓存行）</li>
-<li>对于给定的32位数据地址，首先不管低6位，取出中间的<code>slot offset</code>个bit位，定位出是哪一个Slot，然后比较该Slot的<code>tag bit</code>是否和数据地址的剩余高位匹配，如果匹配那么表示Cache Hit，最后在根据低6位从该Slot的Cache Line中找到具体的存储单元进行存取数据。</li>
-<li>缺点：低位相同但高位不同的内存块会被映射到同一个Slot上（因为对SlotCount取模之后结果相同），如果碰巧CPU请求存取这些内存块，那么将只有一个内存块能够被缓存到Cache中对应的Slot上，也就是说容易发生Cache Line Conflict。</li>
-</ul>
-</li>
-<li>N路组关联(N-way set associative cache) <ul>
-<li>对Direct Mapped Cache和Full Associative Cache的一个结合，思路是不要对于给定的数据地址就定死了放在哪个Slot上。</li>
-<li>先将Cache均分成S个组，每个组都有E个Slot。假设将我的L1 Cache 128KB按16个Slot划分为一个组，那么组数为：<code>128 * 1024 / 64</code>（Slot数）/ 16 = 128 个组（我们将每个组称为一个Set，表示一组Slot的集合）；与Direct Mapped Cache不同的地方就是将原本表示映射到哪个Slot的11个中间bit位改成了用7个bit位表示映射到哪个Set上，在确定Set之后，内存块将被放入该Set的哪个Slot是随机的（可能当时哪个可以用就放到哪个了），然后以剩余的高位19个bit位作为最终存放该内存块的<code>tag bit</code>。</li>
-<li>对于一个给定的数据地址只会将其映射到特定的Set上，这样就大大减小了Cache Line Conflict的几率，并且CPU在查找Slot时只需在具体的某个Set中线性查找，而Set中的Slot个数较少（分组分得越多，每个组的Slot就越少），这样线性查找的时间复杂度也近似O(1)了。</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>如何编写对Cache Hit友好的程序？为提高Cache命中率，要充分发挥局部性原理。</p>
-<ul>
-<li><p><strong>时间局部性</strong>：对于同一数据可能被多次使用，自第一次加载到Cache Line后，后面的访问就可以多次从Cache Line中命中，从而提高读取速度（而不是从下层缓存读取）。</p>
-</li>
-<li><p><strong>空间局部性</strong>：一个Cache Line有64字节块，我们可以充分利用一次加载64字节的空间，把程序后续会访问的数据，一次性全部加载进来，从而提高Cache Line命中率（而不是重新去寻址读取）。</p>
-</li>
-<li><p>实际操作：读取时尽量读取相邻的数据地址</p>
-<ul>
-<li><p>以上操作带来的负面影响：造成缓存一致性问题。</p>
-</li>
-<li><p>解决方案：（缓存一致性协议）</p>
-<ul>
-<li><pre><code>这是一个跟踪每个缓存行的状态的缓存子系统。该系统使用一个称为 “总线动态监视” 或者称为*“总线嗅探”* 的技术来监视在系统总线上发生的所有事务，以检测缓存中的某个地址上何时发生了读取或写入操作。
-当这个缓存子系统在系统总线上检测到对缓存中加载的内存区域进行的读取操作时，它会将该缓存行的状态更改为 “shared”。如果它检测到对该地址的写入操作时，会将缓存行的状态更改为 “invalid”。
-该缓存子系统想知道，当该系统在监视系统总线时，系统是否在其缓存中包含数据的惟一副本。如果数据由它自己的 CPU 进行了更新，那么这个缓存子系统会将缓存行的状态从 “exclusive” 更改为 “modified”。如果该缓存子系统检测到另一个处理器对该地址的读取，它会阻止访问，更新系统内存中的数据，然后允许该处理的访问继续进行。它还允许将该缓存行的状态标记为 shared。
-</code></pre>
-</li>
-<li><p>各CPU都会通过总线嗅探来监视其他CPU，一旦某个CPU对自己Cache中缓存的共享变量做了修改（能做修改的前提是共享变量所在的缓存行的状态不是无效的），那么就会导致其他缓存了该共享变量的CPU将该变量所在的Cache Line置为无效状态，在下次CPU访问无效状态的缓存行时会首先要求对共享变量做了修改的CPU将修改从Cache写回主存，然后自己再从主存中将最新的共享变量读到自己的缓存行中。（这里的CPU指的是CPU核心）</p>
-</li>
-<li><p>并且，缓存一致性协议通过缓存锁定来保证CPU修改缓存行中的共享变量并通知其他CPU将对应缓存行置为无效这一操作的原子性，即当某个CPU修改位于自己缓存中的共享变量时会禁止其他也缓存了该共享变量的CPU访问自己缓存中的对应缓存行，并在缓存锁定结束前通知这些CPU将对应缓存行置为无效状态。</p>
-</li>
-<li><p>在缓存锁定出现之前，是通过总线锁定来实现CPU之间的同步的，即CPU在回写主存时会锁定总线不让其他CPU访问主存，但是这种机制开销较大，一个CPU对共享变量的操作会导致其他CPU对其他共享变量的访问。(锁粒度由总线细化到CPU核心)</p>
-</li>
-</ul>
-</li>
-<li><p>缓存一致性协议带来的问题：<strong>伪共享</strong>——不同CPU核心对同一缓存行的不同字节数据的操作可能会导致缓存锁定（变成串行程序，降低了并发性（乒乓效应））</p>
-</li>
-<li><p>伪共享问题解决方案：</p>
-<ul>
-<li>缓存行填充（Cache Line Padding），通过增加两个变量的地址距离使之位于两个不同的缓存行上，如此对共享变量X和Y的操作不会相互影响。</li>
-<li>线程不直接操作全局共享变量，而是将全局共享变量读取一份副本到自己的局部变量，局部变量在线程之间是不可见的因此随你线程怎么玩，最后线程再将玩出来的结果写回全局变量。（再进行锁定）</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>并发编程的三要素是：原子性、可见性、有序性。</p>
-</li>
-<li><p><strong>锁释放有着volatile域写语义</strong>？？ &amp; 原子类CAS更新有着volatile域写语义</p>
-</li>
-<li><p>Unsafe类中的CAS自旋</p>
-<ul>
-<li>CAS操作在x86上是由cmpxchg（Compare Exchange）实现的（不同指令集有所不同）</li>
-<li>JDK提供的AtomicXxx`系列原子操作类已能满足大多数需求</li>
-<li><strong>原子类封装了一个volatile域</strong>：将改写立即刷新到主存；将改写立即刷新到主存</li>
-</ul>
-</li>
-<li><p>volatile禁止重排序</p>
-<ul>
-<li>volatile产生的汇编指令lock具有个指令屏障使得该屏障之前的指令不能重排序到屏障之后。</li>
-<li>volatile的作用案例：使用单例模式的并发优化案例<ul>
-<li>懒加载模式<ul>
-<li>利用类加载过程的初始化阶段会执行<strong>类构造器</strong><clinit>，按照显式声明为<strong>静态变量</strong>初始化的特点。</li>
-<li><strong>当类被主动引用时应当立即对其初始化</strong>！！！</li>
-<li>对类的主动引用：<ul>
-<li>new、getStatic、putStatic、invokeStatic</li>
-<li>通过java.lang.reflect包的方法对该类进行反射调用时</li>
-<li>当初始化一个类时，如果他的父类没被初始化，那么先初始化其父类</li>
-<li>当JVM启动时，首先会初始化main函数所在的类</li>
-</ul>
-</li>
-<li>对类的被动引用：<ul>
-<li>通过子类访问父类静态变量，子类不会被立即初始化</li>
-<li>通过数组定义引用的类不会被立即初始化</li>
-<li>访问某个类的常量，该类不会被立即初始化（因为经过编译阶段的常量传播优化，该常量已被复制一份到当前类的常量池中了）</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>饿汉模式1</li>
-<li>饿汉模式2</li>
-<li>DoubleCheckedLocking</li>
-<li>DCL2</li>
-<li>InstanceHolder</li>
-<li>枚举实例的构造器只会被调用一次</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://huangyuye.github.io/2020/08/27/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/20200827-Java%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B%E8%A7%86%E9%A2%91/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="yy.huang">
-      <meta itemprop="description" content="想要成为酷酷的软件开发者">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="歪歪的小站">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/08/27/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/20200827-Java%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B%E8%A7%86%E9%A2%91/" class="post-title-link" itemprop="url">Java并发编程视频</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-08-27 00:00:00" itemprop="dateCreated datePublished" datetime="2020-08-27T00:00:00+00:00">2020-08-27</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-05-24 12:55:11" itemprop="dateModified" datetime="2021-05-24T12:55:11+00:00">2021-05-24</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/" itemprop="url" rel="index"><span itemprop="name">知识库</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" itemprop="url" rel="index"><span itemprop="name">基础知识</span></a>
-                </span>
-            </span>
-
-          <br>
-
-          
-            <span id="/2020/08/27/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/20200827-Java%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B%E8%A7%86%E9%A2%91/" class="post-meta-item leancloud_visitors" data-flag-title="Java并发编程视频" title="阅读次数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span class="leancloud-visitors-count"></span>
-            </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2020/08/27/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/20200827-Java%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B%E8%A7%86%E9%A2%91/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/08/27/Java/%E7%9F%A5%E8%AF%86%E5%BA%93/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/20200827-Java%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B%E8%A7%86%E9%A2%91/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>3.3k</span> <!-- TODO func undefined -->
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>3 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <ol>
-<li>synchronized 默认是非公平锁，与线程申请锁顺序和等待锁时间无关</li>
-<li>reentrantLock可实现公平锁，tryLock，lockInterruptablly</li>
-<li>wait与notify结合与synchronized关键字使用建立同步模型<ol>
-<li>避免在获得obj锁后才能够去调用obj的wait与notify/notifyAll三个方法，否则就会报错。（即synchronized代码块内）</li>
-<li>在调用wait的时候，线程自动释放其占有的对象锁，同时不会去申请对象锁。当线程被唤醒的时候，它才再次获得了去获得对象锁的权利。（<strong>要等到获得锁后才真正可执行</strong>）</li>
-<li>notify仅唤醒一个线程并允许它去获得锁（<strong>由JVM确定唤醒哪个线程</strong>），notifyAll是唤醒所有等待这个对象的线程并允许它们去获得对象锁。（<strong>要等到获得锁后才真正可执行</strong>）</li>
-<li>notifyAll，虽然是对每个wait的对象都调用一次notify，但是这个还是<strong>有顺序的</strong>，每个对象都保存这一个等待对象链，调用的顺序就是这个链的顺序。</li>
-<li>当线程B调用obj.notify/notifyAll的时候，B正持有obj锁，因此，A1,A2,A3虽被唤醒，但是仍无法获得obj锁。直到B退出synchronized块，释放obj锁后，A1,A2,A3中的一个才有机会获得锁继续执行。（<strong>由JVM确定哪个线程获得锁-非公平</strong>）</li>
-<li>永远选择使用notifyAll而非notify，notify容易造成死锁，所有线程都在wait</li>
-</ol>
-</li>
-<li>生产者消费者问题：<ol>
-<li>synchronized 同步生产方法，生产者线程获得锁进入代码块后，若容器容量达到上限，则调用对象.wait()方法释放锁，其他生产者线程可以获得对象锁并进入同步生成方法，再次判断容器元素数量，达到上限则同样调用wait()方法并释放锁。此时多个生产者线程均在wait()，等待被唤醒。</li>
-<li>基于条件1情况下，此时消费者线程进入消费方法，消费了容器元素，并调用notifyAll()方法唤醒所有等待线程，此时等待中的所有生产者线程被唤醒，但是都在等待获得对象锁才能继续往前执行，得到对象锁的生产者线程需要再次判断元素数量，避免导致超出容器容量。</li>
-</ol>
-</li>
-<li>使用 lock 和 condition 代替 synchronized + wait/notify<ol>
-<li>lock.lock()，condition.await()，condition.signalAll() 一起使用</li>
-<li>lock可以精确指定唤醒的线程</li>
-</ol>
-</li>
-<li>ThreadLocal 线程局部变量<ol>
-<li>内存泄漏：<a target="_blank" rel="noopener" href="https://juejin.im/post/6844903683751149582">https://juejin.im/post/6844903683751149582</a></li>
-<li>空间换时间</li>
-</ol>
-</li>
-<li>socket长连接（TCP&amp;UDP）</li>
-<li>Java的线程池是基于并发容器实现的</li>
-<li>线程安全的单例模式—以下方式既不用加锁，也能实现懒加载<ol>
-<li>使用静态内部类：访问静态内部类的时候才会加载静态内部类</li>
-</ol>
-</li>
-<li>并发容器<ol>
-<li>ConcurrentHashMap（分段同步锁，默认16段，细化锁的粒度；1.8后node cas替代了section分段锁）— HashTable 锁住整个容器对象</li>
-<li>高并发且有排序需求，使用ConcurrentSkipMap替代TreeMap(SortedMap)<ol>
-<li>排序map：插入慢</li>
-</ol>
-</li>
-<li>CopyOnWriteList 对比 ArrayList和Vector<ol>
-<li>适合写少读多的场景（如监听器队列）</li>
-<li>写时复制列表：<ol>
-<li>读的效率高，写效率低</li>
-<li>写的时候，复制一份新的数据，不影响其他线程读数据旧的数据，写完后，将旧对象的引用指向新数据对象。</li>
-<li><a target="_blank" rel="noopener" href="http://ifeve.com/java-copy-on-write/">http://ifeve.com/java-copy-on-write/</a></li>
-</ol>
-</li>
-</ol>
-</li>
-<li>queue 英 [kjuː] 并发场景使用的队列分为以下两种<ol>
-<li>ConcurrentLinkedQueue  （并发<strong>加锁</strong>且<strong>无界</strong>单向队列-单向链表）<ol>
-<li>offer() // 同 add 方法</li>
-<li>poll()   //  获取第一个元素，且删除</li>
-<li>peek() //  获取第一个元素，但不删除</li>
-</ol>
-</li>
-<li>BlockingQueue 阻塞队列<ol>
-<li>队列实现<ol>
-<li>LinkedBlockingQueue (-)</li>
-<li>ArrayBlockingQueue (有界)</li>
-</ol>
-</li>
-<li>方法<ol>
-<li>put()：如果满了，线程会等待</li>
-<li>take()：如果空了，线程会等待</li>
-<li>add()：如果满了，线程会抛异常</li>
-<li>offer() // 同 add 方法，不会抛异常，而是返回添加结果boolean</li>
-</ol>
-</li>
-</ol>
-</li>
-<li>DelayQueue 延迟队列，元素根据可消费时间排序<ol>
-<li>元素要实现Delayed接口（Delayed接口实现了Comparable接口）</li>
-<li>适用场景：执行定时任务</li>
-</ol>
-</li>
-<li>TransferQueue：（效率较高）<ol>
-<li>transfer() 场景：实时消息处理，生产者生产数据直接传送给消费者，若没有消费者或消费者来不及处理时，则生产者阻塞（如游戏服务器上接收消息传达给客户端）</li>
-<li>put()：不会阻塞，直接放入队列</li>
-<li>take()：消费</li>
-</ol>
-</li>
-<li>SynchronousQueue：（特殊的TransferQueue，容量为0，生产者生产数据时必须要有消费者消费）<ol>
-<li>put()：若没有消费者则阻塞</li>
-<li>add()：若没有消费者会抛异常</li>
-</ol>
-</li>
-</ol>
-</li>
-<li>deque 英 [dek] 双端队列 </li>
-</ol>
-</li>
-<li>线程池<ol>
-<li>需从Executor顶层接口说起，定义标准接口execute(Runnable r)</li>
-<li>ExecutorService（interface 服务，执行任务）<ol>
-<li>submit(Runnable r)</li>
-<li>submit(Callable c)</li>
-</ol>
-</li>
-<li>Runnable &amp; Callable<ol>
-<li>Callable：有返回值，且可以捕获checked异常</li>
-</ol>
-</li>
-<li>Executors：工具类（工厂方法&amp;工具方法）</li>
-<li>ThreadPool 线程池<ol>
-<li>ExecutorService executorService = Executors.newFixedThreadPool(size); // 固定线程数量线程池</li>
-<li>Executors.newCachedThreadPool(); // 弹性数量的线程池，新增任务，若池子里没有空闲的线程，则新增线程执行任务，线程的空闲时间超过N秒后自动销毁，N秒可在创建线程池时可指定。</li>
-<li>Executors.newScheduledThreadPool(); // 英 [ˈʃedjuːl] 美 [ˈskedʒuːl] 定时执行任务，参考DelayQueue，替代Timer（Scheduled复用线程，Timer每次都新起线程），定时模式如下：<ol>
-<li>固定频率执行</li>
-</ol>
-</li>
-<li>Executors.newSingleThreadPool();  // 任务需顺序执行的场景</li>
-<li>Executors.newWorkStealingPool();  // daemon守护线程线程池（精灵线程、后台线程） （若没有非守护线程工作，则销毁？）// 0、1、2、3 四个线程<ol>
-<li>内部机制：ForkJoinPool</li>
-</ol>
-</li>
-<li>ForkJoinPool（精灵线程）</li>
-</ol>
-</li>
-<li>Future &amp; FutureTask<ol>
-<li>FutureTask 是 <strong>Future</strong> 和 <strong>Runnable 的实现类</strong>；FutureTask的重写的run方法中执行了Callable.call()方法</li>
-<li>FutureTask <strong>包含Callable引用</strong>，包含Callable形参的构造器；</li>
-<li>FutureTask.get()阻塞获取返回值的原理：(Future阻塞拿到返回值的原理)<ol>
-<li>循环等待Task任务的结果(用outcome表示执行结果，state变量表示任务运行状态)</li>
-</ol>
-</li>
-<li></li>
-</ol>
-</li>
-</ol>
-</li>
-<li>synchronized是悲观锁，juc包中的原子类使用的是乐观锁测试，使用cas算法，由硬件直接支持原子性。<ol>
-<li>存在ABA问题：A-&gt;B  的过程中已被其他线程执行了 A-&gt;B-&gt;A 操作</li>
-<li>ABA漏洞可以采用 java 原子引用类解决？？</li>
-</ol>
-</li>
-<li>越大的素数，需要计算的时间越长：</li>
-</ol>
-<p><code>for(int i=2;i&lt;num/2;i++)&#123;if(num%i==0) return false&#125;</code></p>
-<ol start="14">
-<li>创建线程、销毁线程都要操作系统的用户态-&gt;内核态（消耗系统资源）</li>
-</ol>
-<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><p>Java多线程之wait(),notify(),notifyAll()：</p>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/alex197963/article/details/6863662">https://blog.csdn.net/alex197963/article/details/6863662</a></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -2730,14 +2570,14 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">47</span>
+          <span class="site-state-item-count">49</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">21</span>
+        <span class="site-state-item-count">22</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
   </nav>
@@ -2832,13 +2672,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">148k</span>
+    <span title="站点总字数">150k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">2:14</span>
+    <span title="站点阅读时长">2:16</span>
 </div>
 
 <!--
