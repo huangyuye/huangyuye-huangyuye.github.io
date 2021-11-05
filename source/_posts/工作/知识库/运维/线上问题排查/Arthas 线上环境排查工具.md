@@ -9,6 +9,7 @@
 ```shell
 # 替代方案：wget https://alibaba.github.io/arthas/arthas-boot.jar
 apt-get update && apt-get install curl && curl -O https://arthas.aliyun.com/arthas-boot.jar
+yum install net-tools && curl -O https://arthas.aliyun.com/arthas-boot.jar
 ```
 
 2. 启动工具
@@ -35,6 +36,9 @@ java -jar  arthas-boot.jar
    ## 指定对应的index并调用springBean方法（tt -i 用于查看调用信息）
    tt -i 1020 -w 'target.getApplicationContext().getBean("cacheManager").getCache("cache").put("WEWORK_ECRP_GROUP_ID_ww97d386b1d60bea91", 80000016L)'
    ```
+
+   - 热编译 class 文件
+     - 
 
 4. 一键执行
 

@@ -1,0 +1,3 @@
+- 查看镜像的层信息
+  - `docker history <镜像id> --no-trunc`
+  - 三方封装的工具：`docker run --rm -it -v /var/run/docker.sock:/var/run/docker.sock wagoodman/dive:latest`
