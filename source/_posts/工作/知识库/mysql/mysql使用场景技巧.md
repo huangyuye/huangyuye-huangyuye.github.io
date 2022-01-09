@@ -2,7 +2,7 @@
 
 
 
-#### 组内排序
+### 组内排序
 
 分组查询每组的前n条记录，要求：需要按某个字段分组，且每组只能取一条记录；按某个字段倒序
 
@@ -31,7 +31,7 @@
 
 
 
-#### 删除重复数据
+### 删除重复数据
 
 ```sql
 delete from sg_guide_shop where id in (select id from sg_guide_shop group by guide_id,shop_id having count(id) > 1) and id not in (select min(id) from sg_guide_shop group by guide_id,shop_id  having count(id)>1);
@@ -39,7 +39,7 @@ delete from sg_guide_shop where id in (select id from sg_guide_shop group by gui
 
 
 
-#### utf8mb4编码
+### utf8mb4编码
 
 将数据表字段修改为utf8mb4 及将数据表编码改为utf8mb4
 
@@ -51,7 +51,7 @@ ALTER TABLE sg_login_log CONVERT TO CHARACTER SET utf8mb4;
 
 
 
-####  统计各日期的业务数据，没有数据的日期补零
+###  统计各日期的业务数据，没有数据的日期补零
 
 ```sql
 # 1. 生成辅助表，生成N条记录，每条记录用于辅助生成1天的数据
@@ -74,6 +74,50 @@ SELECT
 	@cdate := DATE_FORMAT(date_add( @cdate, INTERVAL - 1 DAY ), '%Y-%m-%d') as date
 FROM
 	(SELECT @cdate := date_add(#{endTime}, interval + 1 day) FROM sg_base_datetime_help) tmp1 WHERE @cdate >#{startTime};
+```
+
+
+
+### 给长字符串添加索引
+
+https://blog.csdn.net/qq_42604176/article/details/115381568
+
+
+
+### 索引生效失效场景
+
+[不要再问我in，exists 走不走索引了](https://segmentfault.com/a/1190000023825926)
+
+[导致MySQL索引失效的几种常见写法](https://segmentfault.com/a/1190000023911554)
+
+[后端程序员必备：索引失效的十大杂症](https://database.51cto.com/art/201912/607742.htm)
+
+[MySQL大表优化方案](https://segmentfault.com/a/1190000006158186)
+
+https://support.huaweicloud.com/bestpractice-ddm/ddm_01_0012.html
+
+https://blog.csdn.net/weixin_39884738/article/details/110863312
+
+
+
+```
+!= 或者 <> 这种都会导致索引失效
+OR导致索引是在特定情况下的，并不是所有的OR都是使索引失效，如果OR连接的是同一个字段，那么索引不会失效，反之索引失效。
+部分场景，NOT IN、NOT EXISTS导致索引失效
+```
+
+
+
+```
+- not in，<>，like
+- count(1)、count(*)
+- NULL 和 非 NULL 情况
+- 组合索引还是单个索引？（索引下推）
+- 类型不一致导致的索引失效
+- 函数、运算符导致的索引失效
+- 子查询
+- limit offset,length(不建议使用偏移量)
+- 大表关联查询（小驱动大）
 ```
 
 
