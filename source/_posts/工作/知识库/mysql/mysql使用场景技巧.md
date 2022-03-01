@@ -78,6 +78,16 @@ FROM
 
 
 
+### 基于某个表创建分表
+
+CTAS语法：
+
+```sql
+create table t_temp as select * from sg_sys_config  where 1<>1
+```
+
+
+
 ### 给长字符串添加索引
 
 https://blog.csdn.net/qq_42604176/article/details/115381568
@@ -126,7 +136,7 @@ OR导致索引是在特定情况下的，并不是所有的OR都是使索引失�
 
 
 
-#### 查询数据库数据表情况
+### 查询数据库数据表情况
 
 如数据行数、自增id号；注意`information_schema`的`auto_increment`不一定为实际值!
 
@@ -160,7 +170,7 @@ WHERE TABLE_SCHEMA = 'ecrp_sg_test' AND TABLE_TYPE = 'BASE TABLE';
 
 
 
-#### 查询存在某字段的数据表
+### 查询存在某字段的数据表
 
 ```sql
 select table_name,column_name from information_schema.columns 
@@ -170,9 +180,11 @@ and column_name in ('group_id',"groupid",'brand_id', "groupid", "source_id");
 
 
 
-#### 查询数据库查询进程
+### 查询数据库查询进程
 
 ```sql
 select table_name,column_name from information_schema.PROCESSLIST; 
 ```
+
+
 
